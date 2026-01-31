@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 
 interface LoginFormData {
   email: string;
@@ -65,17 +66,31 @@ export default function Login() {
   };
 
   return (
-    <section className="w-full h-screen flex items-center justify-center p-4">
-      <div className="w-full pt-9 max-w-md bg-sky-800 rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-bold text-gray-200 mb-6">LOGIN</h2>
+    <section className="w-full min-h-screen px-6 flex items-center justify-center text-balance lg:bg-linear-to-l lg:from-stone-700 lg:to-zinc-900">
+      <div className="relative w-full pt-12 max-w-110 rounded-lg shadow-md p-4 md:p-6 border border-stone-600 bg-zinc-800/60 lg:bg-linear-to-r lg:from-zinc-700 lg:to-stone-500 ">
+        <legend className="flex items-center gap-2 font-medium absolute top-0 left-6 text-stone-400">
+          Faustino Oro <span className="text-4xl ">*</span>
+        </legend>
 
-        <div className="flex items-center gap-2 mb-4">
+        <h6 className="text-zinc-100 max-w-70 text-3xl leading-8">
+          Bienvenido. Inicia sesión para acceder 
+        </h6>
+        <p className="text-stone-400 mt-4 mb-2 ">
+          Todavía no tienes una cuenta? 
+          <Link href={"/auth/register"} className="text-zinc-100 ml-2">
+            Registrate
+          </Link>
+        </p>
+        <div className="flex items-center gap-2">
           <div className="flex-1 h-px bg-gray-400"></div>
           <span className="text-gray-300 text-sm">o</span>
           <div className="flex-1 h-px bg-gray-400"></div>
         </div>
 
-        <form className="flex flex-col gap-2" onSubmit={handleSubmit(submit)}>
+        <form
+          className="relative flex flex-col gap-2 mt-3 "
+          onSubmit={handleSubmit(submit)}
+        >
           <input
             {...register("email", {
               required: "El email es requerido",
@@ -84,7 +99,7 @@ export default function Login() {
                 message: "Email inválido",
               },
             })}
-            placeholder="Email address"
+            placeholder="Email "
             className="bg-zinc-800 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="email"
           />
@@ -100,7 +115,7 @@ export default function Login() {
                 message: "La contraseña debe tener al menos 6 caracteres",
               },
             })}
-            placeholder="Password"
+            placeholder="Contraseña"
             className="bg-zinc-800 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="password"
           />
@@ -119,7 +134,7 @@ export default function Login() {
           <button
             onClick={handleGoogleSignIn}
             disabled={isGoogleLoading || isLoading}
-            className="w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-md mt-6 flex items-center justify-center gap-2 transition ease-in-out duration-150 disabled:opacity-50"
+            className="w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-md mt-3 flex items-center justify-center gap-2 transition ease-in-out duration-150 disabled:opacity-50"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
@@ -143,11 +158,12 @@ export default function Login() {
           </button>
 
           <button
-            className="bg-linear-to-r from-zinc-900 to-sky-500 text-zinc-300 font-semibold py-2 px-4 rounded-md mt-3 hover:bg-sky-600 hover:to-sky-600 transition ease-in-out duration-150 disabled:opacity-50"
+            className="bg-linear-to-r from-zinc-800 to-stone-300 text-zinc-100 font-semibold py-2 px-4 rounded-md mt-2 hover:from-zinc-800 hover:to-zinc-100 
+             cursor-pointer transition ease-in-out duration-400 disabled:opacity-50"
             type="submit"
             disabled={isLoading || isGoogleLoading}
           >
-            {isLoading ? "Cargando..." : "Login"}
+            {isLoading ? "Cargando..." : "Iniciar sesión"}
           </button>
         </form>
       </div>

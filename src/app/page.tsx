@@ -1,66 +1,24 @@
-export default function Home() {
-  return <section className="bg-zinc-800 h-screen w-full"></section>;
+/* import Hero from "@/components/Layout/Hero";
+import Navbar from "@/components/ui/Navbar";
+import About from "@/components/Layout/About";
+import Notices from "@/components/Layout/Notices";
+import Tournaments from "@/components/Layout/Tournaments";
+import Palmares from "@/components/Layout/Palmares";
+import Contact2 from "@/components/Layout/Contact2"; */
+
+function HomePage() {
+  return (
+    <section className="bg-zinc-800 text-3xl text-center min-h-screen">
+      Landing
+    {/*   <Navbar />
+      <Hero />
+      <About />
+      <Palmares />
+      <Tournaments />
+      <Notices />
+      <Contact2 /> */}
+    </section>
+  );
 }
 
-/* project-root/
-├── app/
-│   ├── api/
-│   │   ├── auth/[...nextauth]/route.ts
-│   │   ├── tournaments/
-│   │   │   ├── route.ts              # GET (list), POST (create)
-│   │   │   └── [id]/route.ts         # GET, PUT, DELETE (by id)
-│   │   ├── notices/
-│   │   │   ├── route.ts
-│   │   │   └── [id]/route.ts
-│   │   ├── stats/
-│   │   └── logros/
-│   ├── admin/
-│   │   ├── layout.tsx                # Layout compartido del admin
-│   │   ├── page.tsx                  # Dashboard principal
-│   │   ├── tournaments/
-│   │   │   ├── page.tsx              # Lista de torneos
-│   │   │   ├── new/page.tsx          # Crear torneo
-│   │   │   └── [id]/edit/page.tsx    # Editar torneo
-│   │   ├── notices/
-│   │   │   ├── page.tsx
-│   │   │   ├── new/page.tsx
-│   │   │   └── [id]/edit/page.tsx
-│   │   ├── stats/
-│   │   └── logros/
-│   ├── auth/
-│   │   ├── login/page.tsx
-│   │   └── register/page.tsx
-│   └── (public)/                     # Rutas públicas
-│       ├── page.tsx
-│       └── ...
-├── lib/
-│   ├── mongodb.ts                    # Conexión a BD
-│   ├── validations/                  # Schemas de validación (Zod)
-│   │   ├── tournament.ts
-│   │   ├── notice.ts
-│   │   └── ...
-│   └── utils.ts
-├── models/                           # Mongoose models
-│   ├── user.ts
-│   ├── tournament.ts
-│   ├── notice.ts
-│   ├── stat.ts
-│   └── logro.ts
-├── services/                         # Lógica de negocio (tu "Controlador")
-│   ├── tournamentService.ts
-│   ├── noticeService.ts
-│   ├── statService.ts
-│   └── logroService.ts
-├── components/
-│   ├── ui/                          # Componentes reutilizables
-│   ├── admin/
-│   │   ├── AdminSidebar.tsx
-│   │   ├── TournamentForm.tsx
-│   │   ├── NoticeForm.tsx
-│   │   └── ...
-│   └── LogoutButton.tsx
-├── types/
-│   ├── tournament.ts
-│   ├── notice.ts
-│   └── ...
-└── middleware.ts */
+export default HomePage;

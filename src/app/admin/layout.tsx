@@ -1,9 +1,10 @@
-// app/admin/layout.tsx (con tabs)
+// app/admin/layout.tsx
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import NavbarAdmin from "@/components/NavbarAdmin";
-import AdminSidebar from "@/components/AdminSidebar";
+import NavbarAdmin from "@/components/admin/NavbarAdmin";
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import LogoutButton from "@/components/admin/LogoutButton";
 
 export default async function AdminLayout({
   children,
@@ -17,27 +18,32 @@ export default async function AdminLayout({
   }
 
   return (
-    <section className="min-h-screen bg-zinc-800">
+    <section className="min-h-screen">
       <NavbarAdmin />
 
-      <section className="max-w-7xl mx-auto mt-2">
-        <article className="flex flex-col justify-center items-center text-center ">
-          <div className="self-center ">
-            <p className="text-2xl text-zinc-100">
+      <section className="w-full bg-zinc-200 flex flex-col py-7 px-4 lg:flex-row-reverse items-center lg:justify-between lg:px-16 lg:py-10">
+        <article className="flex w-full lg:w-auto">
+          <div className="flex flex-col text-start">
+            <p className="text-xl lg:text-2xl text-zinc-500 3xl:text-3xl">
               Bienvenido {session.user?.name}
             </p>
-            <p className="text-zinc-500 font-medium">{session.user?.email}</p>
+            <p className="text-zinc-400 mb-2 lg:mb-3 3xl:text-lg">
+              {session.user?.email}
+            </p>
+            <LogoutButton />
           </div>
-          <h6 className="text-xl md:text-3xl font-medium text-gray-200 my-6">
-            Panel de Administración
-          </h6>
         </article>
+
+        <h6 className="text-3xl font-medium text-zinc-500 mt-9 lg:mt-0 lg:text-5xl 3xl:text-6xl">
+          Panel de Administración
+        </h6>
       </section>
 
-        <section className="flex bg-zinc-900">
-          <AdminSidebar />
-          {children}
-        </section>
+      <div className="lg:flex relative lg:flex-col">
+        <AdminSidebar />
+
+        <section className="relative">{children}</section>
+      </div>
     </section>
   );
 }

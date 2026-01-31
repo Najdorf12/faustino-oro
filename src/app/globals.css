@@ -1,6 +1,43 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
+@theme {
+  --breakpoint-md: 700px;
+  --breakpoint-lg: 1000px;
+  --breakpoint-xl: 1330px;
+  --breakpoint-2xl: 1550px;
+  --breakpoint-3xl: 1700px;
+
+  --font-satoshi: "Satoshi", "sans-serif";
+  --font-ubuntu: "Ubuntu", sans-serif;
+  --font-syncopate: "Syncopate", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+/* checkbox */
+.container-checkbox {
+  cursor: pointer;
+}
+
+.container-checkbox input {
+  display: none;
+}
+
+.container-checkbox svg {
+  overflow: visible;
+}
+
+.path {
+  fill: none;
+  stroke: #0084d1;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+
+.container-checkbox input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}
