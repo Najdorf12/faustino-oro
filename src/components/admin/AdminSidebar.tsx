@@ -79,7 +79,7 @@ export default function AdminSidebar() {
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
          transition-transform duration-300 ease-in-out`}
       >
-        <nav className="lg:py-2 lg:gap-2 lg:flex justify-center items-center ">
+        <nav className="lg:gap-2 lg:flex justify-center items-center 2xl:gap-4 lg:py-4 lg:shadow-2xl shadow-zinc-900">
           {menuItems.map((item) => {
             const isActive = pathname === item.href;
 
@@ -89,8 +89,8 @@ export default function AdminSidebar() {
                 href={item.href}
                 onClick={closeSidebar}
                 className={`
-                  flex w-full items-center gap-3 px-5 py-3 rounded-lg 
-                  transition-all duration-200 lg:gap-4 lg:w-80 xl:w-85 2xl:w-90
+                  flex w-full items-center gap-3 px-3 lg:border lg:border-zinc-500 py-3 rounded-lg 
+                  transition-all duration-200 lg:gap-4 lg:w-75 xl:w-80 2xl:w-90
                   ${
                     isActive
                       ? "bg-sky-700 text-white shadow-lg"
@@ -101,7 +101,7 @@ export default function AdminSidebar() {
                 <span className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl flex items-center justify-center h-8 lg:h-10 xl:h-12 2xl:h-14">
                   {item.icon}
                 </span>
-                <span className="font-medium lg:text-lg xl:text-xl 3xl:text-2xl">
+                <span className="font-medium text-lg xl:text-xl 3xl:text-2xl">
                   {item.label}
                 </span>
               </Link>

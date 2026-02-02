@@ -68,14 +68,14 @@ export default function Login() {
   return (
     <section className="w-full min-h-screen px-6 flex items-center justify-center text-balance lg:bg-linear-to-l lg:from-stone-700 lg:to-zinc-900">
       <div className="relative w-full pt-12 max-w-110 rounded-lg shadow-md p-4 md:p-6 border border-stone-600 bg-zinc-800/60 lg:bg-linear-to-r lg:from-zinc-700 lg:to-stone-500 ">
-        <legend className="flex items-center gap-2 font-medium absolute top-0 left-6 text-stone-400">
+        <legend className="flex items-center gap-2 font-medium  top-0 left-6 text-stone-400  3xl:text-lg">
           Faustino Oro <span className="text-4xl ">*</span>
         </legend>
 
-        <h6 className="text-zinc-100 max-w-70 text-3xl leading-8">
+        <h6 className="text-zinc-100 max-w-70 text-3xl leading-8 3xl:text-4xl 3xl:max-w-80 3xl:leading-9">
           Bienvenido. Inicia sesión para acceder 
         </h6>
-        <p className="text-stone-400 mt-4 mb-2 ">
+        <p className="text-stone-400 mt-4 mb-2 3xl:text-lg ">
           Todavía no tienes una cuenta? 
           <Link href={"/auth/register"} className="text-zinc-100 ml-2">
             Registrate

@@ -199,30 +199,33 @@ const NoticesForm = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 py-10  ">
-        <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-200 xl:px-8 ">
-          <figure className="absolute inset-0 w-full h-full">
+      <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 py-14 relative ">
+        <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 lg:w-200 xl:w-220 xl:px-8 z-50">
+          <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
+          <figure className="absolute inset-0 w-full h-full z-20 ">
             <Image
               src={imgFaustiForm}
               alt="img-Fausti-form"
-              className="w-full h-full z-20 object-cover object-center opacity-20"
+              className="w-full h-full z-20 object-cover object-center opacity-70"
             />
           </figure>
 
-          <h6 className="text-center relative text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
+          <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
             NOTICIAS
           </h6>
 
-          <p className="text-center relative text-zinc-300 text-base xl:text-xl 2xl:text-xl">
-            {noticeSelected ? "Editar noticia" : "Comparte las últimas novedades"}
+          <p className="text-center relative z-50 text-zinc-300 text-base xl:text-xl 2xl:text-xl">
+            {noticeSelected
+              ? "Editar noticia"
+              : "Comparte las últimas novedades"}
           </p>
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-7 relative"
+            className="space-y-7 relative z-50 lg:space-y-9 "
           >
-            <div className="flex flex-col gap-8 xl:flex xl:flex-row">
-              <div className="relative font-medium xl:w-1/2">
+            <div className="flex flex-col gap-8 lg:flex lg:flex-row">
+              <div className="relative font-medium lg:w-1/2">
                 <input
                   autoComplete="off"
                   placeholder="Título"
@@ -232,7 +235,7 @@ const NoticesForm = () => {
                   })}
                 />
                 <label className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
-                  Title
+                  Título
                 </label>
                 {errors.title && (
                   <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
@@ -241,7 +244,7 @@ const NoticesForm = () => {
                 )}
               </div>
 
-              <div className="relative font-medium xl:w-1/2">
+              <div className="relative font-medium lg:w-1/2">
                 <input
                   autoComplete="off"
                   placeholder="Categoría"
@@ -251,7 +254,7 @@ const NoticesForm = () => {
                   })}
                 />
                 <label className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
-                  Category
+                  Categoría
                 </label>
                 {errors.category && (
                   <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
@@ -261,8 +264,8 @@ const NoticesForm = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-6 xl:flex xl:flex-row">
-              <div className="relative font-medium xl:w-1/2">
+            <div className="flex flex-col gap-6 lg:flex lg:flex-row">
+              <div className="relative font-medium lg:w-1/2">
                 <input
                   autoComplete="off"
                   placeholder="Descripción"
@@ -272,7 +275,7 @@ const NoticesForm = () => {
                   })}
                 />
                 <label className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
-                  Description
+                  Descripción (Subtítulo)
                 </label>
                 {errors.description && (
                   <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
@@ -281,8 +284,8 @@ const NoticesForm = () => {
                 )}
               </div>
 
-              <div className="relative font-medium flex gap-6 items-center">
-                <p className="text-zinc-300">Is Active?</p>
+              <div className="relative font-medium flex gap-6 items-end">
+                <p className="text-zinc-300">Está activa?</p>
                 <label className="container-checkbox">
                   <input
                     autoComplete="off"
@@ -301,12 +304,12 @@ const NoticesForm = () => {
             </div>
 
             <div className="relative">
-              <label className="text-zinc-300 text-sm mb-2 block">
-                Content
+              <label className="text-zinc-300 text-sm mb-2 block font-medium">
+                Contenido
               </label>
               <textarea
                 placeholder="Contenido de la noticia"
-                className="w-full border bg-zinc-800/30 text-zinc-200 rounded-lg p-2 placeholder:text-zinc-300 relative text-base font-medium border-zinc-500 h-full min-h-24"
+                className="w-full border bg-zinc-800/30 text-zinc-200 rounded-lg p-2 placeholder:text-zinc-300 relative text-base font-medium border-zinc-500 h-full min-h-28 lg:min-h-32"
                 {...register("content", {
                   required: "El contenido es requerido",
                 })}
@@ -318,8 +321,8 @@ const NoticesForm = () => {
               )}
             </div>
             {/* Sección de imágenes */}
-            <div className="flex flex-col items-center gap-5">
-              <label className="font-light text-zinc-300 text-xl self-start">
+            <div className="flex flex-col  ">
+              <label className="font-medium text-zinc-300 text-lg self-center -mt-1">
                 Imágenes
               </label>
               <input
@@ -327,7 +330,7 @@ const NoticesForm = () => {
                 name="image"
                 accept=".jpg, .png, .jpeg"
                 onChange={handleImage}
-                className="rounded-lg flex-1 appearance-none w-full max-w-100 py-2 px-4 border border-zinc-500 text-white placeholder-white text-sm focus:outline-none focus:border-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-800 file:text-white hover:file:bg-sky-700"
+                className="rounded-lg flex-1 mt-2 appearance-none w-full bg-zinc-800/80 py-2 px-4 border border-zinc-500 text-white placeholder-white text-sm focus:outline-none focus:border-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-800 file:text-white hover:file:bg-sky-600 cursor-pointer file:cursor-pointer"
               />
 
               {loadingImage && (
@@ -367,7 +370,7 @@ const NoticesForm = () => {
                 </button>
               )}
               <button
-                className="w-full bg-sky-800/90 py-2 px-4 border-2 border-zinc-300 rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center"
+                className="w-full bg-sky-800/90 py-2 px-4 rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center cursor-pointer lg:py-3"
                 type="submit"
                 disabled={loading}
               >

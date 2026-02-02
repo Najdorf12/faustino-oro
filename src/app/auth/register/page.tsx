@@ -71,14 +71,14 @@ export default function Register() {
   return (
     <section className="w-full min-h-screen px-6 flex  items-center justify-center text-balance lg:bg-linear-to-l lg:from-stone-700 to-zinc-900">  
         <div className="relative w-full pt-12 max-w-110 rounded-lg shadow-md p-4 md:p-6 border border-stone-600 bg-zinc-800/60 lg:bg-linear-to-r lg:from-zinc-700 lg:to-stone-500 ">
-          <legend className="flex items-center gap-2 font-medium absolute top-0 left-6 text-stone-400">
+          <legend className="flex items-center gap-2 font-medium  top-0 left-6 text-stone-400">
              Faustino Oro <span className="text-4xl ">*</span>
           </legend>
 
-          <h6 className="text-zinc-100 text-3xl max-w-60 leading-8 ">
+          <h6 className="text-zinc-100 text-3xl max-w-60 leading-8  3xl:text-4xl 3xl:max-w-80 3xl:leading-9">
             Registrate para acceder a la App
           </h6>
-          <p className="text-stone-400 mt-3 mb-1.5 ">
+          <p className="text-stone-400 mt-3 mb-1.5 3xl:text-lg 3xl:mt-4 ">
             Ya tienes una cuenta?{" "}
             <Link href={"/auth/login"} className="text-zinc-100 cursor-pointer">
               Inicia sesión{" "}

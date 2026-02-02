@@ -22,7 +22,8 @@ const TournamentsForm = () => {
   } = useForm<FormData>();
 
   const [tournaments, setTournaments] = useState<Tournament[]>([]);
-  const [tournamentSelected, setTournamentSelected] = useState<Tournament | null>(null);
+  const [tournamentSelected, setTournamentSelected] =
+    useState<Tournament | null>(null);
   const [images, setImages] = useState<TournamentImage[]>([]);
   const [loadingImage, setLoadingImage] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -38,9 +39,13 @@ const TournamentsForm = () => {
       reset({
         title: tournamentSelected.title,
         location: tournamentSelected.location,
-        startDate: new Date(tournamentSelected.startDate).toISOString().split('T')[0],
-        endDate: new Date(tournamentSelected.endDate).toISOString().split('T')[0],
-        description: tournamentSelected.description || '',
+        startDate: new Date(tournamentSelected.startDate)
+          .toISOString()
+          .split("T")[0],
+        endDate: new Date(tournamentSelected.endDate)
+          .toISOString()
+          .split("T")[0],
+        description: tournamentSelected.description || "",
       });
       setImages(tournamentSelected.images || []);
     } else {
@@ -57,11 +62,11 @@ const TournamentsForm = () => {
 
   const fetchTournaments = async () => {
     try {
-      const response = await fetch('/api/tournaments');
+      const response = await fetch("/api/tournaments");
       const data = await response.json();
       setTournaments(data);
     } catch (error) {
-      console.error('Error fetching tournaments:', error);
+      console.error("Error fetching tournaments:", error);
     }
   };
 
@@ -82,10 +87,10 @@ const TournamentsForm = () => {
         {
           method: "POST",
           body: data,
-        }
+        },
       );
       const file = await res.json();
-      
+
       setImages([
         ...images,
         {
@@ -94,8 +99,8 @@ const TournamentsForm = () => {
         },
       ]);
     } catch (error) {
-      console.error('Error uploading image:', error);
-      alert('Error al subir la imagen');
+      console.error("Error uploading image:", error);
+      alert("Error al subir la imagen");
     } finally {
       setLoadingImage(false);
     }
@@ -106,12 +111,15 @@ const TournamentsForm = () => {
     setImages(images.filter((image) => image.public_id !== img.public_id));
 
     try {
-      await fetch(`/api/tournaments/delete-image/${encodeURIComponent(img.public_id)}`, {
-        method: 'DELETE',
-      });
-      console.log('Imagen eliminada de Cloudinary');
+      await fetch(
+        `/api/tournaments/delete-image/${encodeURIComponent(img.public_id)}`,
+        {
+          method: "DELETE",
+        },
+      );
+      console.log("Imagen eliminada de Cloudinary");
     } catch (error) {
-      console.error('Error al eliminar imagen de Cloudinary', error);
+      console.error("Error al eliminar imagen de Cloudinary", error);
     }
   };
 
@@ -121,38 +129,40 @@ const TournamentsForm = () => {
     try {
       const tournamentData = {
         ...data,
-        images: images.length > 0 ? images : (tournamentSelected?.images || []),
+        images: images.length > 0 ? images : tournamentSelected?.images || [],
       };
 
       const url = tournamentSelected
         ? `/api/tournaments/${tournamentSelected._id}`
-        : '/api/tournaments';
+        : "/api/tournaments";
 
-      const method = tournamentSelected ? 'PUT' : 'POST';
+      const method = tournamentSelected ? "PUT" : "POST";
 
       const response = await fetch(url, {
         method,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(tournamentData),
       });
 
       if (response.ok) {
         const savedTournament = await response.json();
-        
+
         if (tournamentSelected) {
           // Actualizar en la lista
-          setTournaments(tournaments.map(item => 
-            item._id === savedTournament._id ? savedTournament : item
-          ));
-          alert('Torneo actualizado');
+          setTournaments(
+            tournaments.map((item) =>
+              item._id === savedTournament._id ? savedTournament : item,
+            ),
+          );
+          alert("Torneo actualizado");
         } else {
           // Agregar a la lista
           setTournaments([...tournaments, savedTournament]);
-          alert('Torneo creado exitosamente');
+          alert("Torneo creado exitosamente");
         }
-        
+
         reset();
         setImages([]);
         setTournamentSelected(null);
@@ -161,8 +171,8 @@ const TournamentsForm = () => {
         alert(`Error: ${error.message}`);
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Error al enviar el formulario');
+      console.error("Error submitting form:", error);
+      alert("Error al enviar el formulario");
     } finally {
       setLoading(false);
     }
@@ -170,19 +180,19 @@ const TournamentsForm = () => {
 
   // Eliminar torneo
   const deleteTournament = async (id: string) => {
-    if (!confirm('¿Estás seguro de eliminar este torneo?')) return;
+    if (!confirm("¿Estás seguro de eliminar este torneo?")) return;
 
     try {
       const response = await fetch(`/api/tournaments/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
 
       if (response.ok) {
-        setTournaments(tournaments.filter(item => item._id !== id));
-        alert('Torneo eliminado');
+        setTournaments(tournaments.filter((item) => item._id !== id));
+        alert("Torneo eliminado");
       }
     } catch (error) {
-      console.error('Error deleting tournament:', error);
+      console.error("Error deleting tournament:", error);
     }
   };
 
@@ -194,33 +204,38 @@ const TournamentsForm = () => {
 
   // Formatear fecha para mostrar
   const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString('es-ES', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(date).toLocaleDateString("es-ES", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-zinc-800 min-h-screen px-4 py-10">
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-200 xl:px-8">
-        <figure className="absolute inset-0 w-full h-full">
+    <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 py-14 relative ">
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-200 xl:px-8 z-50">
+        <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
+        <figure className="absolute inset-0 w-full h-full z-20 ">
           <Image
             src={imgFaustiForm}
             alt="img-Fausti-form"
-            className="w-full h-full z-20 object-cover object-center opacity-20"
+            className="w-full h-full z-20 object-cover object-center opacity-70"
           />
         </figure>
-        
-        <h6 className="text-center relative text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
+
+        <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
           TORNEOS
         </h6>
-        
-        <p className="text-center relative text-zinc-300 text-base xl:text-xl 2xl:text-xl">
-          {tournamentSelected ? 'Editar torneo' : 'Registra una nueva competencia'}
+        <p className="text-center relative z-50 text-zinc-300 text-base xl:text-xl 2xl:text-xl ">
+          {tournamentSelected
+            ? "Editar torneo"
+            : "Registra una nueva competencia"}
         </p>
-        
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-7 relative">
+
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-7 relative z-100 "
+        >
           <div className="flex flex-col gap-8 xl:flex xl:flex-row">
             <div className="relative font-medium xl:w-1/2">
               <input
@@ -235,10 +250,12 @@ const TournamentsForm = () => {
                 Título
               </label>
               {errors.title && (
-                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">{errors.title.message}</p>
+                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
+                  {errors.title.message}
+                </p>
               )}
             </div>
-            
+
             <div className="relative font-medium xl:w-1/2">
               <input
                 autoComplete="off"
@@ -252,7 +269,9 @@ const TournamentsForm = () => {
                 Ubicación
               </label>
               {errors.location && (
-                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">{errors.location.message}</p>
+                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
+                  {errors.location.message}
+                </p>
               )}
             </div>
           </div>
@@ -262,7 +281,11 @@ const TournamentsForm = () => {
               <input
                 type="date"
                 autoComplete="off"
-                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent focus:outline-none focus:border-zinc-100"
+                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent 
+             focus:outline-none focus:border-zinc-100
+             scheme-dark
+             cursor-pointer
+             placeholder:text-red-700"
                 {...register("startDate", {
                   required: "La fecha de inicio es requerida",
                 })}
@@ -271,15 +294,21 @@ const TournamentsForm = () => {
                 Fecha de Inicio
               </label>
               {errors.startDate && (
-                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">{errors.startDate.message}</p>
+                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
+                  {errors.startDate.message}
+                </p>
               )}
             </div>
-            
+
             <div className="relative font-medium xl:w-1/2">
               <input
                 type="date"
                 autoComplete="off"
-                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent focus:outline-none focus:border-zinc-100"
+                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent 
+             focus:outline-none focus:border-zinc-100
+             scheme-dark
+             cursor-pointer
+             placeholder:text-red-700"
                 {...register("endDate", {
                   required: "La fecha de fin es requerida",
                 })}
@@ -288,13 +317,17 @@ const TournamentsForm = () => {
                 Fecha de Fin
               </label>
               {errors.endDate && (
-                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">{errors.endDate.message}</p>
+                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
+                  {errors.endDate.message}
+                </p>
               )}
             </div>
           </div>
 
           <div className="relative">
-            <label className="text-zinc-300 text-sm mb-2 block">Descripción (Opcional)</label>
+            <label className="text-zinc-300 text-sm mb-2 block">
+              Descripción (Opcional)
+            </label>
             <textarea
               placeholder="Descripción del torneo"
               className="w-full border bg-zinc-800/30 text-zinc-200 rounded-lg p-2 placeholder:text-zinc-300 relative text-base font-medium border-zinc-500 h-full min-h-24"
@@ -303,8 +336,8 @@ const TournamentsForm = () => {
           </div>
 
           {/* Sección de imágenes */}
-          <div className="flex flex-col items-center gap-5">
-            <label className="font-light text-zinc-300 text-xl self-start">
+          <div className="flex flex-col items-center ">
+            <label className="font-medium text-zinc-300 text-lg self-center -mt-1">
               Imágenes
             </label>
             <input
@@ -312,13 +345,13 @@ const TournamentsForm = () => {
               name="image"
               accept=".jpg, .png, .jpeg"
               onChange={handleImage}
-              className="rounded-lg flex-1 appearance-none w-full max-w-100 py-2 px-4 border border-zinc-500 text-white placeholder-white text-sm focus:outline-none focus:border-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-800 file:text-white hover:file:bg-sky-700"
+              className="rounded-lg flex-1 appearance-none mt-2 w-full bg-zinc-800/80 py-2 px-4 border border-zinc-500 text-white placeholder-white text-sm focus:outline-none focus:border-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-800 file:text-white hover:file:bg-sky-700"
             />
-            
+
             {loadingImage && (
               <p className="text-zinc-300">Cargando imagen...</p>
             )}
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full">
               {images?.map((img) => (
                 <div key={img.public_id} className="relative">
@@ -352,11 +385,15 @@ const TournamentsForm = () => {
               </button>
             )}
             <button
-              className="w-full bg-sky-800/90 py-2 px-4 border-2 border-zinc-300 rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center"
+              className="w-full bg-sky-800/90 py-2 px-4  rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center cursor-pointer"
               type="submit"
               disabled={loading}
             >
-              {loading ? 'Enviando...' : tournamentSelected ? 'Actualizar' : 'Añadir torneo'}
+              {loading
+                ? "Enviando..."
+                : tournamentSelected
+                  ? "Actualizar"
+                  : "Añadir torneo"}
             </button>
           </div>
         </form>
@@ -364,7 +401,9 @@ const TournamentsForm = () => {
 
       {/* Lista de torneos */}
       <section className="w-full mt-10 md:w-140 xl:w-200">
-        <h3 className="text-3xl font-bold text-zinc-200 mb-6">Torneos Existentes</h3>
+        <h3 className="text-3xl font-bold text-zinc-200 mb-6">
+          Torneos Existentes
+        </h3>
         <div className="space-y-4">
           {[...tournaments].reverse().map((tournament) => (
             <div
@@ -372,13 +411,20 @@ const TournamentsForm = () => {
               className="bg-zinc-700 rounded-lg p-4 flex justify-between items-start gap-4"
             >
               <div className="flex-1">
-                <h4 className="text-xl font-semibold text-zinc-100">{tournament.title}</h4>
-                <p className="text-zinc-300 text-sm mt-1">{tournament.location}</p>
+                <h4 className="text-xl font-semibold text-zinc-100">
+                  {tournament.title}
+                </h4>
+                <p className="text-zinc-300 text-sm mt-1">
+                  {tournament.location}
+                </p>
                 <p className="text-zinc-400 text-xs mt-2">
-                  {formatDate(tournament.startDate)} - {formatDate(tournament.endDate)}
+                  {formatDate(tournament.startDate)} -{" "}
+                  {formatDate(tournament.endDate)}
                 </p>
                 {tournament.description && (
-                  <p className="text-zinc-400 text-xs mt-1 italic">{tournament.description}</p>
+                  <p className="text-zinc-400 text-xs mt-1 italic">
+                    {tournament.description}
+                  </p>
                 )}
                 {tournament.images && tournament.images.length > 0 && (
                   <div className="flex gap-2 mt-2">
@@ -409,7 +455,10 @@ const TournamentsForm = () => {
                   Eliminar
                 </button>
               </div>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, vero fuga. Ut, vel. Cumque non a cupiditate laborum, assumenda perferendis voluptate quam aut dolore animi ullam officia mollitia praesentium qui.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
+              vero fuga. Ut, vel. Cumque non a cupiditate laborum, assumenda
+              perferendis voluptate quam aut dolore animi ullam officia mollitia
+              praesentium qui.
             </div>
           ))}
         </div>

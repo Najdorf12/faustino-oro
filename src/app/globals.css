@@ -6,26 +6,21 @@
   --breakpoint-xl: 1330px;
   --breakpoint-2xl: 1550px;
   --breakpoint-3xl: 1700px;
-
   --font-satoshi: "Satoshi", "sans-serif";
   --font-ubuntu: "Ubuntu", sans-serif;
   --font-syncopate: "Syncopate", sans-serif;
   --font-inter: "Inter", sans-serif;
 }
-
 /* checkbox */
 .container-checkbox {
   cursor: pointer;
 }
-
 .container-checkbox input {
   display: none;
 }
-
 .container-checkbox svg {
   overflow: visible;
 }
-
 .path {
   fill: none;
   stroke: #0084d1;
@@ -36,8 +31,12 @@
   stroke-dasharray: 241 9999999;
   stroke-dashoffset: 0;
 }
-
 .container-checkbox input:checked ~ svg .path {
   stroke-dasharray: 70.5096664428711 9999999;
   stroke-dashoffset: -262.2723388671875;
+}
+/* input-date */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  font-size: 1.5rem; 
 }

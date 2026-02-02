@@ -21,7 +21,7 @@ export default async function AdminLayout({
     <section className="min-h-screen">
       <NavbarAdmin />
 
-      <section className="w-full bg-zinc-200 flex flex-col py-7 px-4 lg:flex-row-reverse items-center lg:justify-between lg:px-16 lg:py-10">
+      <section className="w-full bg-zinc-200 flex flex-col py-7 px-4 lg:flex-row-reverse items-center lg:justify-between lg:px-16 lg:py-10 3xl:py-12">
         <article className="flex w-full lg:w-auto">
           <div className="flex flex-col text-start">
             <p className="text-xl lg:text-2xl text-zinc-500 3xl:text-3xl">
@@ -42,7 +42,23 @@ export default async function AdminLayout({
       <div className="lg:flex relative lg:flex-col">
         <AdminSidebar />
 
-        <section className="relative">{children}</section>
+        <section className="relative ">
+          {children}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `
+        linear-gradient(to right, #3f3f46 1px, transparent 1px),
+        linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
+      `,
+              backgroundSize: "150px 150px",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+              maskImage:
+                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+            }}
+          />
+        </section>
       </div>
     </section>
   );

@@ -130,25 +130,26 @@ const AchievementsForm = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-zinc-800 min-h-screen px-4 py-10">
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-200 xl:px-8 lg:py-14">
-        <figure className="absolute inset-0 w-full h-full">
-          <Image
-            src={imgFaustiForm}
-            alt="img-Fausti-form"
-            className="w-full h-full z-20 object-cover object-center opacity-20"
-          />
-        </figure>
+  <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 py-10 relative ">
+        <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-200 xl:px-8 z-50">
+          <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
+          <figure className="absolute inset-0 w-full h-full z-20 ">
+            <Image
+              src={imgFaustiForm}
+              alt="img-Fausti-form"
+              className="w-full h-full z-20 object-cover object-center "
+            />
+          </figure>
+
+          <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
+            Logros
+          </h6>
         
-        <h6 className="text-center relative text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
-          Logros 
-        </h6>
-        
-        <p className="text-center relative text-zinc-300 text-base xl:text-xl 2xl:text-xl">
+        <p className="text-center relative text-zinc-300 text-base xl:text-xl 3xl:text-xl z-50">
           {achievementSelected ? 'Editar logro' : 'Agrega un nuevo logro'}
         </p>
         
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-7 relative">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-7 relative z-50 xl:space-y-12">
           <div className="relative font-medium">
             <input
               autoComplete="off"
@@ -177,7 +178,7 @@ const AchievementsForm = () => {
               </button>
             )}
             <button
-              className="w-full bg-sky-800/90 py-2 px-4 border-2 border-zinc-300 rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center"
+              className="w-full bg-sky-800/90 py-2 px-4  rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center cursor-pointer"
               type="submit"
               disabled={loading}
             >
