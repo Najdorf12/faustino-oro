@@ -22,6 +22,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     
     const newTournament = new TournamentModel({
+      tournament_id_lichess: body.tournament_id_lichess,
+      isActive: body.isActive,
       title: body.title,
       location: body.location,
       startDate: body.startDate,

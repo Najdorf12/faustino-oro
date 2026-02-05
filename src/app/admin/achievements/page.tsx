@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import imgFaustiForm from "@/assets/images/img6.jpg";
+import imgFaustiForm from "@/assets/images/img21.jpg";
 import { Achievement } from "@/types/achievement";
 
 interface FormData {
@@ -18,7 +18,8 @@ const AchievementsForm = () => {
   } = useForm<FormData>();
 
   const [achievements, setAchievements] = useState<Achievement[]>([]);
-  const [achievementSelected, setAchievementSelected] = useState<Achievement | null>(null);
+  const [achievementSelected, setAchievementSelected] =
+    useState<Achievement | null>(null);
   const [loading, setLoading] = useState(false);
 
   // Cargar logros al montar
@@ -41,11 +42,11 @@ const AchievementsForm = () => {
 
   const fetchAchievements = async () => {
     try {
-      const response = await fetch('/api/achievements');
+      const response = await fetch("/api/achievements");
       const data = await response.json();
       setAchievements(data);
     } catch (error) {
-      console.error('Error fetching achievements:', error);
+      console.error("Error fetching achievements:", error);
     }
   };
 
@@ -55,33 +56,35 @@ const AchievementsForm = () => {
     try {
       const url = achievementSelected
         ? `/api/achievements/${achievementSelected._id}`
-        : '/api/achievements';
+        : "/api/achievements";
 
-      const method = achievementSelected ? 'PUT' : 'POST';
+      const method = achievementSelected ? "PUT" : "POST";
 
       const response = await fetch(url, {
         method,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
 
       if (response.ok) {
         const savedAchievement = await response.json();
-        
+
         if (achievementSelected) {
           // Actualizar en la lista
-          setAchievements(achievements.map(item => 
-            item._id === savedAchievement._id ? savedAchievement : item
-          ));
-          alert('Logro actualizado');
+          setAchievements(
+            achievements.map((item) =>
+              item._id === savedAchievement._id ? savedAchievement : item,
+            ),
+          );
+          alert("Logro actualizado");
         } else {
           // Agregar a la lista
           setAchievements([...achievements, savedAchievement]);
-          alert('Logro creado exitosamente');
+          alert("Logro creado exitosamente");
         }
-        
+
         reset();
         setAchievementSelected(null);
       } else {
@@ -89,8 +92,8 @@ const AchievementsForm = () => {
         alert(`Error: ${error.message}`);
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Error al enviar el formulario');
+      console.error("Error submitting form:", error);
+      alert("Error al enviar el formulario");
     } finally {
       setLoading(false);
     }
@@ -98,19 +101,19 @@ const AchievementsForm = () => {
 
   // Eliminar logro
   const deleteAchievement = async (id: string) => {
-    if (!confirm('¿Estás seguro de eliminar este logro?')) return;
+    if (!confirm("¿Estás seguro de eliminar este logro?")) return;
 
     try {
       const response = await fetch(`/api/achievements/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
 
       if (response.ok) {
-        setAchievements(achievements.filter(item => item._id !== id));
-        alert('Logro eliminado');
+        setAchievements(achievements.filter((item) => item._id !== id));
+        alert("Logro eliminado");
       }
     } catch (error) {
-      console.error('Error deleting achievement:', error);
+      console.error("Error deleting achievement:", error);
     }
   };
 
@@ -121,35 +124,38 @@ const AchievementsForm = () => {
 
   // Formatear fecha
   const formatDate = (date?: Date) => {
-    if (!date) return '';
-    return new Date(date).toLocaleDateString('es-ES', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    if (!date) return "";
+    return new Date(date).toLocaleDateString("es-ES", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
   return (
-  <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 py-10 relative ">
-        <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-200 xl:px-8 z-50">
-          <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
-          <figure className="absolute inset-0 w-full h-full z-20 ">
-            <Image
-              src={imgFaustiForm}
-              alt="img-Fausti-form"
-              className="w-full h-full z-20 object-cover object-center "
-            />
-          </figure>
+    <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-14 lg:py-18 ">
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-220 xl:px-8 z-50 xl:py-10">
+        <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
+        <figure className="absolute inset-0 w-full h-full z-20 ">
+          <Image
+            src={imgFaustiForm}
+            alt="img-Fausti-form"
+            className="w-full h-full z-20 object-cover object-center "
+          />
+        </figure>
 
-          <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
-            Logros
-          </h6>
-        
+        <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
+          Logros
+        </h6>
+
         <p className="text-center relative text-zinc-300 text-base xl:text-xl 3xl:text-xl z-50">
-          {achievementSelected ? 'Editar logro' : 'Agrega un nuevo logro'}
+          {achievementSelected ? "Editar logro" : "Agrega un nuevo logro"}
         </p>
-        
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-7 relative z-50 xl:space-y-12">
+
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-7 relative z-50 xl:space-y-12"
+        >
           <div className="relative font-medium">
             <input
               autoComplete="off"
@@ -163,7 +169,9 @@ const AchievementsForm = () => {
               Logro
             </label>
             {errors.title && (
-              <p className="text-red-400 text-sm mt-1">{errors.title.message}</p>
+              <p className="text-red-400 text-sm mt-1">
+                {errors.title.message}
+              </p>
             )}
           </div>
 
@@ -182,49 +190,55 @@ const AchievementsForm = () => {
               type="submit"
               disabled={loading}
             >
-              {loading ? 'Enviando...' : achievementSelected ? 'Actualizar' : 'Enviar'}
+              {loading
+                ? "Enviando..."
+                : achievementSelected
+                  ? "Actualizar"
+                  : "Enviar"}
             </button>
           </div>
         </form>
       </section>
 
       {/* Lista de logros */}
-      <section className="w-full mt-10 md:w-140 xl:w-200">
-        <h3 className="text-3xl font-bold text-zinc-200 mb-6">Logros Existentes</h3>
-        <div className="space-y-3">
+      <section className="text-balance relative z-50 w-full mt-10 md:w-170 lg:mt-16 lg:w-200 ">
+        <h6 className="text-4xl text-center text-zinc-200 mb-6 lg:text-5xl lg:mb-12">
+          Logros existentes
+        </h6>
+        <div className="flex flex-col gap-6 xl:gap-9">
           {[...achievements].reverse().map((achievement, index) => (
             <div
               key={achievement._id}
-              className="bg-zinc-700 rounded-lg p-4 flex justify-between items-center gap-4"
+              className="bg-linear-to-tr from-zinc-800 to-sky-700 border-2 border-zinc-500 rounded-lg p-4 flex flex-col justify-between items-center gap-4 relative z-50 max-w-200 lg:p-6"
             >
-              <div className="flex-1 flex items-center gap-3">
-                <span className="text-zinc-400 font-bold text-lg">
-                  #{achievements.length - index}
-                </span>
-                <div>
-                  <h4 className="text-lg font-semibold text-zinc-100">{achievement.title}</h4>
-                  <p className="text-zinc-400 text-xs">
+              <span className="text-zinc-400 font-semibold text-lg self-start">
+                #{achievements.length - index}
+              </span>
+                <div className="w-full ">
+                  <h4 className="text-xl  font-medium text-zinc-100 ">
+                    {achievement.title}
+                  </h4>
+                  <p className="text-zinc-400 mt-2">
                     Creado: {formatDate(achievement.createdAt)}
                   </p>
                 </div>
-              </div>
-              <div className="flex gap-2">
+              <div className="flex w-full justify-evenly mt-3 items-center lg:gap-9">
                 <button
                   onClick={() => setAchievementSelected(achievement)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md whitespace-nowrap text-sm"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-2 rounded-md whitespace-nowrap text-sm lg:w-full"
                 >
                   Editar
                 </button>
                 <button
                   onClick={() => deleteAchievement(achievement._id!)}
-                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md whitespace-nowrap text-sm"
+                  className="bg-red-600 hover:bg-red-700 text-white px-12 py-2 rounded-md whitespace-nowrap text-sm lg:w-full"
                 >
                   Eliminar
                 </button>
               </div>
             </div>
           ))}
-          
+
           {achievements.length === 0 && (
             <p className="text-center text-zinc-400 py-8">
               No hay logros registrados aún

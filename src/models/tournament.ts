@@ -1,31 +1,38 @@
-import mongoose, { Schema, Model } from 'mongoose';
-import { Tournament } from '@/types/tournament';
+import mongoose, { Schema, Model } from "mongoose";
+import { Tournament } from "@/types/tournament";
 
 const tournamentSchema = new Schema<Tournament>(
   {
+    tournament_id_lichess: {
+      type: String,
+    },
     title: {
       type: String,
-      required: [true, 'El título es requerido'],
+      required: [true, "El título es requerido"],
       unique: true,
       trim: true,
     },
     location: {
       type: String,
-      required: [true, 'La ubicación es requerida'],
+      required: [true, "La ubicación es requerida"],
       trim: true,
     },
     startDate: {
       type: Date,
-      required: [true, 'La fecha de inicio es requerida'],
+      required: [true, "La fecha de inicio es requerida"],
     },
     endDate: {
       type: Date,
-      required: [true, 'La fecha de fin es requerida'],
+      required: [true, "La fecha de fin es requerida"],
     },
     description: {
       type: String,
       trim: true,
-      default: '',
+      default: "",
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
     },
     images: {
       type: [
@@ -39,10 +46,11 @@ const tournamentSchema = new Schema<Tournament>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-const TournamentModel: Model<Tournament> = 
-  mongoose.models.Tournament || mongoose.model<Tournament>('Tournament', tournamentSchema);
+const TournamentModel: Model<Tournament> =
+  mongoose.models.Tournament ||
+  mongoose.model<Tournament>("Tournament", tournamentSchema);
 
 export default TournamentModel;

@@ -70,6 +70,8 @@ export async function PUT(
     
     // Actualizar campos
     tournament.title = body.title;
+    tournament.isActive = body.isActive;
+    tournament.tournament_id_lichess = body.tournament_id_lichess,
     tournament.location = body.location;
     tournament.startDate = body.startDate;
     tournament.endDate = body.endDate;
