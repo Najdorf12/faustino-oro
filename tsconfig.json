@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ],
+    "**/*.mts",
+    "src/components/landing/ui/models3D/ChessKnight.jsx",
+    "src/components/landing/ui/models3D/ChessKnightExperience.jsx"
+, "src/components/landing/Contact.jsx"  ],
   "exclude": ["node_modules"]
 }
