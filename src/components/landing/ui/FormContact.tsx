@@ -1,59 +1,90 @@
+import Link from "next/link";
 export default function Form() {
   return (
     <>
-      <div className="max-w-[380px] border border-zinc-700 w-full bg-linear-to-t from-zinc-800/30 via-sky-800/40 to-zinc-800/90 rounded-xl shadow-2xl shadow-sky-800 overflow-hidden space-y-6 md:space-y-7 py-6 p-4 md:p-6 2xl:max-w-[420px]">
-        <h2 className="text-center text-3xl leading-8  font-medium text-zinc-100 2xl:text-4xl 2xl:leading-9">
-          Unite al camino <br /> de Fausti
-        </h2>
-        <p className="text-sm text-center text-zinc-400 md:text-zinc-400 2xl:text-base">
-          Tu mensaje importa. Escribinos y formá parte de este viaje en el mundo
-          del ajedrez.
-        </p>
-        <form method="POST" action="#" className="space-y-6 2xl:space-y-8">
-          <div className="relative  pointer-events-auto">
+      <section className="relative pointer-events-auto z-50 w-full flex items-center justify-center text-balance">
+        <div className="relative w-full  max-w-110 rounded-lg shadow-md py-3 px-4 md:p-6 border border-stone-600 bg-zinc-800/60 lg:bg-linear-to-bl via-transparent lg:from-sky- 3xl:max-w-120 3xl:p-8">
+          <legend className="flex items-center gap-2 font-medium  text-zinc-400">
+            Faustino Oro <span className="text-3xl ">*</span>
+          </legend>
+
+          <h6 className="text-zinc-100 text-2xl mt-1 max-w-90 leading-8 md:text-3xl md:leading-9 3xl:text-4xl 3xl:max-w-110 3xl:leading-10">
+            Mové la primera pieza y formá parte de su historia
+          </h6>
+          <p className="text-zinc-400 mt-3 mb-1.5 3xl:text-lg 3xl:mt-4  ">
+            Cada mensaje es una oportunidad. 
+          </p>
+          <div className="flex items-center gap-2">
+            <div className="flex-1 h-px bg-gray-400"></div>
+            <span className="text-gray-300 text-sm">o</span>
+            <div className="flex-1 h-px bg-gray-400"></div>
+          </div>
+
+          <form
+            className="relative flex flex-col gap-2 mt-2"
+            /*   onSubmit={handleSubmit(submit)} */
+          >
             <input
-              autoComplete="off"
-              placeholder="john@example.com"
-              className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-sky-300 2xl:h-12"
-              id="email"
-              name="email"
+              /* {...register("name", {
+                required: "El nombre es requerido",
+                minLength: {
+                  value: 2,
+                  message: "El nombre debe tener al menos 2 caracteres",
+                },
+              })} */
+              placeholder="Nombre"
+              className="bg-zinc-600/60 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
+              type="text"
+            />
+            {/*  {errors.name && (
+              <p className="text-red-400 text-sm mb-2">{errors.name.message}</p>
+            )}
+ */}
+            <input
+              /*   {...register("email", {
+                required: "El email es requerido",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Email inválido",
+                },
+              })} */
+              placeholder="Email"
+              className="bg-zinc-600/60 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
               type="email"
             />
-            <label className="absolute left-0 -top-3.5 text-zinc-500 text-sm transition-all peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-lg peer-placeholder-shown:text-zinc-200  peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sky-500 peer-focus:text-sm 2xl:peer-focus:text-base">
-              Email
-            </label>
-          </div>
-          <div className="relative pointer-events-auto">
-            <input
-              autoComplete="off"
-              placeholder="WhatsApp"
-              className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-sky-300 2xl:h-12"
-              id="WhatsApp"
-              name="WhatsApp"
-            />
-            <label className="absolute left-0 -top-3.5 text-zinc-500 text-sm transition-all peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-lg peer-placeholder-shown:text-zinc-200  peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sky-500 peer-focus:text-sm 2xl:peer-focus:text-base">
-              WhatsApp
-            </label>
-          </div>
-          <div className="relative pointer-events-auto">
+            {/* {errors.email && (
+              <p className="text-red-400 text-sm mb-2">
+                {errors.email.message}
+              </p>
+            )} */}
+
             <textarea
-              placeholder="john@example.com"
-              className="peer h-10 pt-2 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-sky-300 2xl:h-12"
-              id="mensaje"
-              name="mensaje"
+              /*  {...register("confirmPassword", {
+                required: "Confirma tu contraseña",
+                validate: (value) =>
+                  value === password || "Las contraseñas no coinciden",
+              })} */
+              placeholder="Escribe tu mensaje"
+              className="bg-zinc-600/60 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150 h-20 lg:h-24"
             />
-            <label className="absolute left-0 -top-3.5 text-zinc-500 text-sm transition-all peer-placeholder-shown:text-base 2xl:peer-placeholder-shown:text-lg peer-placeholder-shown:text-zinc-200  peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sky-500 peer-focus:text-sm 2xl:peer-focus:text-base">
-              Mensaje
-            </label>
-          </div>
-          <button
-            className="pointer-events-auto cursor-pointer w-full mt-2 py-2 px-4 bg-sky-800 hover:bg-zinc-200 hover:text-sky-600 rounded-md shadow-lg text-white font-semibold transition duration-500 2xl:text-lg"
-            type="submit"
-          >
-            Enviar
-          </button>
-        </form>
-      </div>
+            {/*             {errors.confirmPassword && (
+              <p className="text-red-400 text-sm mb-2">
+                {errors.confirmPassword.message}
+              </p>
+            )} */}
+
+            <button
+              className="bg-linear-to-bl from-sky-700 to-sky-900 text-zinc-100 font-semibold py-2 px-4 rounded-md mt-2 hover:from-zinc-800 hover:to-zinc-500 
+             cursor-pointer transition ease-in-out duration-400 disabled:opacity-50"
+              type="submit"
+              /*  disabled={isLoading || isGoogleLoading} */
+            >
+              Enviar jugada
+              {/*  {isLoading ? "Cargando..." : "Registrarse"} */}
+            </button>
+          </form>
+        </div>
+      </section>
     </>
   );
 }

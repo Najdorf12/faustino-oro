@@ -56,7 +56,7 @@ export default function Achievements({ data }: AchievementsProps) {
           </ul>
         </section>
       </section>
-      <legend className="w-full justify-center relative text-center flex items-center gap-3 text-zinc-500 mt-14 md:mt-16 md:text-xl 2xl:text-2xl">
+      <legend className="w-full justify-center relative text-center flex items-center gap-3 text-zinc-500 mt-14 md:mt-16 md:text-xl lg:mt-20  2xl:text-2xl">
         <div className="w-12 md:w-32 h-0.5 bg-sky-700"></div>
         EL ÉXITO OCURRE CUANDO TUS SUEÑOS SON MAS GRANDES QUE TUS EXCUSAS
         <div className="w-12 md:w-32 h-0.5 bg-sky-700"></div>

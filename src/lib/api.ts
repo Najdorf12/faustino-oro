@@ -1,4 +1,3 @@
-// lib/api.ts
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
 export async function getAchievements() {
@@ -29,6 +28,20 @@ export async function getTournaments() {
   }
 }
 
+export async function getTournamentById(id: string) {
+  try {
+    const res = await fetch(`${API_URL}/api/tournaments/${id}`, {
+      next: { revalidate: 1800 }
+    });
+    
+    if (!res.ok) throw new Error('Failed to fetch tournament');
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching tournament:', error);
+    return null;
+  }
+}
+
 export async function getNotices() {
   try {
     const res = await fetch(`${API_URL}/api/notices`, {
@@ -43,9 +56,21 @@ export async function getNotices() {
   }
 }
 
-// ✨ NUEVA FUNCIÓN: Parallel Fetching
+export async function getNoticeById(id: string) {
+  try {
+    const res = await fetch(`${API_URL}/api/notices/${id}`, {
+      next: { revalidate: 1800 }
+    });
+    
+    if (!res.ok) throw new Error('Failed to fetch notice');
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching notice:', error);
+    return null;
+  }
+}
+
 export async function getLandingData() {
-  // Ejecuta todas las peticiones en paralelo
   const [achievements, tournaments, notices] = await Promise.all([
     getAchievements(),
     getTournaments(),
