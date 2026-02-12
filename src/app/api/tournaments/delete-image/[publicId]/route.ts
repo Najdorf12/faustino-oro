@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { deleteImage } from '@/lib/cloudinary';
 
+type RouteContext = {
+  params: Promise<{ publicId: string }>;
+};
+
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ publicId: string }> }
+  context: RouteContext
 ) {
   try {
-    const { publicId } = await params;
+    const { publicId } = await context.params;
     
     const decodedPublicId = decodeURIComponent(publicId);
     
