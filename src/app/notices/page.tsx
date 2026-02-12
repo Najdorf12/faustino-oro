@@ -1,17 +1,20 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
-import { getNotices } from "@/lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import NavbarLanding from "@/components/landing/ui/NavbarLanding";
 import imgFaustiNotice from "@/assets/images/ai1.png";
 import imgFaustiCaruana from "@/assets/images/chess/21.png";
 import iconFaustiCaruana from "@/assets/images/icon5.svg";
+import connectToDatabase from "@/lib/mongodb";
+import NoticeModel from "@/models/notice";
 
 export const metadata: Metadata = {
   title: "Noticias - Faustino Oro",
   description: "Últimas noticias y novedades de Faustino Oro",
 };
+
+export const revalidate = 1800; // Revalidar cada 30 minutos
 
 function NoticesSkeleton() {
   return (
@@ -26,6 +29,13 @@ function NoticesSkeleton() {
       </div>
     </div>
   );
+}
+
+// ✅ Acceso directo a MongoDB en Server Component
+async function getNotices() {
+  await connectToDatabase();
+  const notices = await NoticeModel.find().sort({ createdAt: -1 }).lean();
+  return JSON.parse(JSON.stringify(notices));
 }
 
 export default function NoticesPage() {

@@ -2,7 +2,13 @@ import { Metadata } from "next";
 import NavbarLanding from "@/components/landing/ui/NavbarLanding";
 import Home from "@/components/landing/Home";
 import About from "@/components/landing/About";
-import LandingClient from "@/components/landing/LandingClient";
+import Achievements from "@/components/landing/Achievements";
+import Tournaments from "@/components/landing/Tournaments";
+import ClientWrapper from "@/components/landing/ClientWrapper";
+import connectToDatabase from "@/lib/mongodb";
+import NoticeModel from "@/models/notice";
+import TournamentModel from "@/models/tournament";
+import AchievementModel from "@/models/achievement";
 
 export const metadata: Metadata = {
   title: "Faustino Oro",
@@ -18,13 +24,37 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function HomePage() {
+// Revalidar cada 30 minutos
+export const revalidate = 1800;
+
+async function getLandingData() {
+  await connectToDatabase();
+  
+  const [achievements, tournaments, notices] = await Promise.all([
+    AchievementModel.find().sort({ createdAt: -1 }).lean(),
+    TournamentModel.find().sort({ startDate: -1 }).lean(),
+    NoticeModel.find().sort({ createdAt: -1 }).lean(),
+  ]);
+
+  // Convertir ObjectId a string para serialización
+  return {
+    achievements: JSON.parse(JSON.stringify(achievements)),
+    tournaments: JSON.parse(JSON.stringify(tournaments)),
+    notices: JSON.parse(JSON.stringify(notices)),
+  };
+}
+
+export default async function HomePage() {
+  const { achievements, tournaments, notices } = await getLandingData();
+
   return (
     <section className="bg-zinc-800 text-balance overflow-hidden">
       <NavbarLanding />
       <Home />
       <About />
-      <LandingClient />
+      <Achievements data={achievements} />
+      <Tournaments data={tournaments} />
+      <ClientWrapper noticesData={notices} />
     </section>
   );
 }
