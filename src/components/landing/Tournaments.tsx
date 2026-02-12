@@ -1,14 +1,18 @@
 import CardTournament from "./ui/CardTournament";
-import { formatDateRange } from "@/lib/dateFormatter";
-import { Tournament } from "@/types/tournament"; // o donde tengas definido el tipo
+import { formatDate } from "@/lib/dateFormatter";
+import { Tournament } from "@/types/tournament";
+import ButtonTournaments from "./ui/ButtonTournaments";
 
 interface TournamentsProps {
-  data: Tournament[]; 
+  data: Tournament[];
 }
 
 export default function Tournaments({ data }: TournamentsProps) {
   return (
-    <section id="tournaments" className="w-full min-h-screen flex flex-col gap-12 relative justify-center items-center mt-12 py-10 bg-sky-900 md:h-screen lg:gap-16 lg:px-12 2xl:px-16 2xl:gap-20">
+    <section
+      id="tournaments"
+      className="w-full min-h-screen flex flex-col gap-12 relative justify-center items-center mt-12 py-10 bg-sky-900 md:h-screen lg:gap-16 lg:px-12 2xl:px-16 2xl:gap-20"
+    >
       <div className="min-h-screen w-full absolute inset-0 z-50"></div>
 
       <article className="flex flex-col px-6 gap-7 lg:flex-row lg:justify-start lg:w-full">
@@ -22,26 +26,36 @@ export default function Tournaments({ data }: TournamentsProps) {
         </p>
       </article>
 
-      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-3 lg:gap-12 lg:max-w-fit">
+      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-y-4 gap-x-3 max-w-150 lg:gap-12 lg:max-w-fit">
         {data.length > 0 ? (
-          data.map((tournament, i) => ( // Eliminar : any
-            <CardTournament 
-              key={tournament._id} 
-              card={{
-                title: tournament.title,
-                date: formatDateRange(tournament.startDate, tournament.endDate),
-                description: tournament.description || '', // Agregar fallback para description opcional
-                location: tournament.location,
-                images: tournament.images
-              }} 
-              index={i} 
-            />
-          ))
+          data.map(
+            (
+              tournament,
+              i, // Eliminar : any
+            ) => (
+              <CardTournament
+                key={tournament._id}
+                card={{
+                  tournament_id_lichess: tournament.tournament_id_lichess,
+                  title: tournament.title,
+                  isActive: tournament.isActive,
+                  startDate: formatDate(tournament.startDate),
+                  endDate: formatDate(tournament.endDate),
+                  description: tournament.description || "", // Agregar fallback para description opcional
+                  location: tournament.location,
+                  images: tournament.images,
+                }}
+                index={i}
+              />
+            ),
+          )
         ) : (
           <p className="text-zinc-300">No hay torneos disponibles</p>
         )}
       </div>
-
+      <div className="xl:mt-2 3xl:mt-3">
+        <ButtonTournaments />
+      </div>
       <div
         className="absolute inset-0 z-0"
         style={{

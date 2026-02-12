@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { useState, Suspense, lazy } from "react";
 import { NoticeModal } from "./ui/NoticeModal";
-import Button from "./ui/Button";
+import Button from "./ui/ButtonNotices";
 import CardNotice from "./ui/CardNotice";
 import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";

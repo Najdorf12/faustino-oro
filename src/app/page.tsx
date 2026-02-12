@@ -58,7 +58,7 @@ async function DynamicContent() {
 
 export default function HomePage() {
   return (
-    <section className="bg-zinc-800 text-balance">
+    <section className="bg-zinc-800 text-balance overflow-hidden">
       <NavbarLanding />
       <Home />
       <About />
