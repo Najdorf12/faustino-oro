@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import NoticeModel from '@/models/notice';
 
-export async function GET() {
+type RouteContext = {
+  params: Promise<Record<string, never>>;
+};
+
+export async function GET(
+  request: NextRequest,
+  context: RouteContext
+) {
   try {
     await connectToDatabase();
     const notices = await NoticeModel.find().sort({ createdAt: -1 });
@@ -16,7 +23,10 @@ export async function GET() {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(
+  request: NextRequest,
+  context: RouteContext
+) {
   try {
     await connectToDatabase();
     const body = await request.json();
@@ -27,7 +37,7 @@ export async function POST(request: NextRequest) {
       content: body.content,
       category: body.category,
       isActive: body.isActive ?? true,
-      images: body.images || [], // Por ahora array vacío
+      images: body.images || [],
     });
     
     const savedNotice = await newNotice.save();
@@ -36,7 +46,6 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     console.error('Error creating notice:', error);
     
-    // Manejo específico de error de duplicado
     if (error.code === 11000) {
       return NextResponse.json(
         { message: 'Ya existe una noticia con ese título' },

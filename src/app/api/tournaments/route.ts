@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import TournamentModel from '@/models/tournament';
 
-export async function GET() {
+type RouteContext = {
+  params: Promise<Record<string, never>>;
+};
+
+export async function GET(
+  request: NextRequest,
+  context: RouteContext
+) {
   try {
     await connectToDatabase();
     const tournaments = await TournamentModel.find().sort({ startDate: -1 });
@@ -16,7 +23,10 @@ export async function GET() {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(
+  request: NextRequest,
+  context: RouteContext
+) {
   try {
     await connectToDatabase();
     const body = await request.json();
@@ -38,7 +48,6 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     console.error('Error creating tournament:', error);
     
-    // Manejo específico de error de duplicado
     if (error.code === 11000) {
       return NextResponse.json(
         { message: 'Ya existe un torneo con ese título' },

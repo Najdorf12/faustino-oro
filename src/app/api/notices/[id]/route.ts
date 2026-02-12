@@ -4,14 +4,18 @@ import NoticeModel from '@/models/notice';
 import mongoose from 'mongoose';
 import { deleteImage } from '@/lib/cloudinary';
 
+type RouteContext = {
+  params: Promise<{ id: string }>;
+};
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: RouteContext
 ) {
   try {
     await connectToDatabase();
     
-    const { id } = await params;
+    const { id } = await context.params;
     
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json(
@@ -41,12 +45,12 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: RouteContext
 ) {
   try {
     await connectToDatabase();
     
-    const { id } = await params;
+    const { id } = await context.params;
     
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json(
@@ -96,15 +100,14 @@ export async function PUT(
   }
 }
 
-// DELETE notice
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: RouteContext
 ) {
   try {
     await connectToDatabase();
     
-    const { id } = await params;
+    const { id } = await context.params;
     
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json(
