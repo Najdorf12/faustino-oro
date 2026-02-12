@@ -4,11 +4,10 @@ import iconTrophy from "@/assets/images/iconTrophy.svg";
 import imgPalmaresDesktop from "@/assets/images/img3-desktop.jpg";
 
 interface AchievementsProps {
-  data: any[]; // O define un tipo específico
+  data: any[];
 }
 
 export default function Achievements({ data }: AchievementsProps) {
-    console.log('Achievements received data:', data); // Debug
   return (
     <>
       <section className="w-full h-full mt-6 z-100 flex flex-col gap-10 items-center relative lg:px-12 lg:mt-9 2xl:px-16">
@@ -37,7 +36,7 @@ export default function Achievements({ data }: AchievementsProps) {
             />
           </picture>
           <ul className="relative z-100 text-zinc-300 flex flex-col gap-6 font-medium text-base max-w-150 lg:text-lg xl:text-xl 2xl:text-2xl">
-            {data.length > 0 ? (
+            {data && data.length > 0 ? (
               data.map((achievement: any) => (
                 <li
                   key={achievement._id}

@@ -1,3 +1,5 @@
+// components/landing/Tournaments.tsx
+// NO debe tener "use client" al inicio
 import CardTournament from "./ui/CardTournament";
 import { formatDate } from "@/lib/dateFormatter";
 import { Tournament } from "@/types/tournament";
@@ -8,7 +10,6 @@ interface TournamentsProps {
 }
 
 export default function Tournaments({ data }: TournamentsProps) {
-    console.log('Tournaments received data:', data); // Debug
   return (
     <section
       id="tournaments"
@@ -28,28 +29,23 @@ export default function Tournaments({ data }: TournamentsProps) {
       </article>
 
       <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-y-4 gap-x-3 max-w-150 lg:gap-12 lg:max-w-fit">
-        {data.length > 0 ? (
-          data.map(
-            (
-              tournament,
-              i, // Eliminar : any
-            ) => (
-              <CardTournament
-                key={tournament._id}
-                card={{
-                  tournament_id_lichess: tournament.tournament_id_lichess,
-                  title: tournament.title,
-                  isActive: tournament.isActive,
-                  startDate: formatDate(tournament.startDate),
-                  endDate: formatDate(tournament.endDate),
-                  description: tournament.description || "", // Agregar fallback para description opcional
-                  location: tournament.location,
-                  images: tournament.images,
-                }}
-                index={i}
-              />
-            ),
-          )
+        {data && data.length > 0 ? (
+          data.map((tournament, i) => (
+            <CardTournament
+              key={tournament._id}
+              card={{
+                tournament_id_lichess: tournament.tournament_id_lichess,
+                title: tournament.title,
+                isActive: tournament.isActive,
+                startDate: formatDate(tournament.startDate),
+                endDate: formatDate(tournament.endDate),
+                description: tournament.description || "",
+                location: tournament.location,
+                images: tournament.images,
+              }}
+              index={i}
+            />
+          ))
         ) : (
           <p className="text-zinc-300">No hay torneos disponibles</p>
         )}

@@ -4,7 +4,8 @@ import Home from "@/components/landing/Home";
 import About from "@/components/landing/About";
 import Achievements from "@/components/landing/Achievements";
 import Tournaments from "@/components/landing/Tournaments";
-import ClientWrapper from "@/components/landing/ClientWrapper";
+import Notices from "@/components/landing/Notices";
+import Contact from "@/components/landing/Contact";
 import connectToDatabase from "@/lib/mongodb";
 import NoticeModel from "@/models/notice";
 import TournamentModel from "@/models/tournament";
@@ -28,9 +29,7 @@ export const revalidate = 1800;
 
 async function getLandingData() {
   try {
-    console.log('🔄 Connecting to database...');
     await connectToDatabase();
-    console.log('✅ Database connected');
     
     const [achievements, tournaments, notices] = await Promise.all([
       AchievementModel.find().sort({ createdAt: -1 }).lean(),
@@ -38,23 +37,13 @@ async function getLandingData() {
       NoticeModel.find().sort({ createdAt: -1 }).lean(),
     ]);
 
-    console.log('📊 Data fetched:', {
-      achievements: achievements.length,
-      tournaments: tournaments.length,
-      notices: notices.length
-    });
-
-    const serialized = {
+    return {
       achievements: JSON.parse(JSON.stringify(achievements)),
       tournaments: JSON.parse(JSON.stringify(tournaments)),
       notices: JSON.parse(JSON.stringify(notices)),
     };
-
-    console.log('✅ Data serialized successfully');
-    return serialized;
   } catch (error) {
-    console.error('❌ Error in getLandingData:', error);
-    // Retornar arrays vacíos en caso de error
+    console.error('Error in getLandingData:', error);
     return {
       achievements: [],
       tournaments: [],
@@ -66,12 +55,6 @@ async function getLandingData() {
 export default async function HomePage() {
   const { achievements, tournaments, notices } = await getLandingData();
 
-  console.log('🎨 Rendering HomePage with data:', {
-    achievementsCount: achievements.length,
-    tournamentsCount: tournaments.length,
-    noticesCount: notices.length
-  });
-
   return (
     <section className="bg-zinc-800 text-balance overflow-hidden">
       <NavbarLanding />
@@ -79,7 +62,8 @@ export default async function HomePage() {
       <About />
       <Achievements data={achievements} />
       <Tournaments data={tournaments} />
-      <ClientWrapper noticesData={notices} />
+      <Notices data={notices} />
+      <Contact />
     </section>
   );
 }
