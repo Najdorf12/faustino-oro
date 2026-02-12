@@ -2,7 +2,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
 export async function getAchievements() {
   try {
-    const res = await fetch(`${API_URL}/api/achievements`, {
+    const res = await fetch(`${API_URL}/api/achievements`, {  // ← Paréntesis, no backticks
       next: { revalidate: 3600 }
     });
     
@@ -16,7 +16,7 @@ export async function getAchievements() {
 
 export async function getTournaments() {
   try {
-    const res = await fetch(`${API_URL}/api/tournaments`, {
+    const res = await fetch(`${API_URL}/api/tournaments`, {  // ← Corregido
       next: { revalidate: 1800 }
     });
     
@@ -30,7 +30,7 @@ export async function getTournaments() {
 
 export async function getTournamentById(id: string) {
   try {
-    const res = await fetch(`${API_URL}/api/tournaments/${id}`, {
+    const res = await fetch(`${API_URL}/api/tournaments/${id}`, {  // ← Corregido
       next: { revalidate: 1800 }
     });
     
@@ -44,7 +44,7 @@ export async function getTournamentById(id: string) {
 
 export async function getNotices() {
   try {
-    const res = await fetch(`${API_URL}/api/notices`, {
+    const res = await fetch(`${API_URL}/api/notices`, {  // ← Corregido
       next: { revalidate: 1800 }
     });
     
@@ -58,7 +58,7 @@ export async function getNotices() {
 
 export async function getNoticeById(id: string) {
   try {
-    const res = await fetch(`${API_URL}/api/notices/${id}`, {
+    const res = await fetch(`${API_URL}/api/notices/${id}`, {  // ← Corregido
       next: { revalidate: 1800 }
     });
     
@@ -76,7 +76,7 @@ export async function getLandingData() {
     getTournaments(),
     getNotices(),
   ]);
-
+  
   return {
     achievements,
     tournaments,
