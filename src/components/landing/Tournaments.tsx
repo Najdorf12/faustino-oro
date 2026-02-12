@@ -8,6 +8,7 @@ interface TournamentsProps {
 }
 
 export default function Tournaments({ data }: TournamentsProps) {
+    console.log('Tournaments received data:', data); // Debug
   return (
     <section
       id="tournaments"

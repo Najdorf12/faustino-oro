@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { useState, Suspense, lazy } from "react";
+import { useState, Suspense, lazy, useEffect } from "react";
 import { NoticeModal } from "./ui/NoticeModal";
 import Button from "./ui/ButtonNotices";
 import CardNotice from "./ui/CardNotice";
@@ -28,7 +28,12 @@ function CanvasLoader() {
 
 export default function Notices({ data }: NoticesProps) {
   const [activeNotice, setActiveNotice] = useState<Notice | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section
@@ -50,18 +55,20 @@ export default function Notices({ data }: NoticesProps) {
         }}
       />
 
-      {/* ✅ Solo renderizar en desktop */}
-      <div className="hidden lg:block absolute inset-0 z-80 w-full h-full overflow-hidden">
-        <Suspense fallback={<CanvasLoader />}>
-          <Canvas
-            key={pathname}
-            dpr={[1, 2]} // ✅ Limita pixel ratio para mejor performance
-            performance={{ min: 0.5 }} // ✅ Ajuste automático de performance
-          >
-            <ChessKnightExperience />
-          </Canvas>
-        </Suspense>
-      </div>
+      {/* ✅ Solo renderizar Canvas después de montar en el cliente */}
+      {isMounted && (
+        <div className="hidden lg:block absolute inset-0 z-80 w-full h-full overflow-hidden">
+          <Suspense fallback={<CanvasLoader />}>
+            <Canvas
+              key={pathname}
+              dpr={[1, 2]}
+              performance={{ min: 0.5 }}
+            >
+              <ChessKnightExperience />
+            </Canvas>
+          </Suspense>
+        </div>
+      )}
 
       <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-20">
         <h6 className="w-full text-4xl lg:text-6xl relative z-100 max-w-[900px] px-3 text-center text-zinc-500 2xl:text-7xl 2xl:max-w-[1100px]">
@@ -74,7 +81,7 @@ export default function Notices({ data }: NoticesProps) {
       </article>
 
       <ul className="text-balance flex flex-col gap-5 mt-14 px-3 md:gap-6 lg:pl-12 relative z-100 lg:w-fit">
-        {data.length > 0 ? (
+        {data && data.length > 0 ? (
           data.map((notice, i) => (
             <CardNotice
               key={notice._id || i}

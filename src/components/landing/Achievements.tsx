@@ -8,6 +8,7 @@ interface AchievementsProps {
 }
 
 export default function Achievements({ data }: AchievementsProps) {
+    console.log('Achievements received data:', data); // Debug
   return (
     <>
       <section className="w-full h-full mt-6 z-100 flex flex-col gap-10 items-center relative lg:px-12 lg:mt-9 2xl:px-16">

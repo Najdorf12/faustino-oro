@@ -24,28 +24,53 @@ export const metadata: Metadata = {
   ],
 };
 
-// Revalidar cada 30 minutos
 export const revalidate = 1800;
 
 async function getLandingData() {
-  await connectToDatabase();
-  
-  const [achievements, tournaments, notices] = await Promise.all([
-    AchievementModel.find().sort({ createdAt: -1 }).lean(),
-    TournamentModel.find().sort({ startDate: -1 }).lean(),
-    NoticeModel.find().sort({ createdAt: -1 }).lean(),
-  ]);
+  try {
+    console.log('🔄 Connecting to database...');
+    await connectToDatabase();
+    console.log('✅ Database connected');
+    
+    const [achievements, tournaments, notices] = await Promise.all([
+      AchievementModel.find().sort({ createdAt: -1 }).lean(),
+      TournamentModel.find().sort({ startDate: -1 }).lean(),
+      NoticeModel.find().sort({ createdAt: -1 }).lean(),
+    ]);
 
-  // Convertir ObjectId a string para serialización
-  return {
-    achievements: JSON.parse(JSON.stringify(achievements)),
-    tournaments: JSON.parse(JSON.stringify(tournaments)),
-    notices: JSON.parse(JSON.stringify(notices)),
-  };
+    console.log('📊 Data fetched:', {
+      achievements: achievements.length,
+      tournaments: tournaments.length,
+      notices: notices.length
+    });
+
+    const serialized = {
+      achievements: JSON.parse(JSON.stringify(achievements)),
+      tournaments: JSON.parse(JSON.stringify(tournaments)),
+      notices: JSON.parse(JSON.stringify(notices)),
+    };
+
+    console.log('✅ Data serialized successfully');
+    return serialized;
+  } catch (error) {
+    console.error('❌ Error in getLandingData:', error);
+    // Retornar arrays vacíos en caso de error
+    return {
+      achievements: [],
+      tournaments: [],
+      notices: []
+    };
+  }
 }
 
 export default async function HomePage() {
   const { achievements, tournaments, notices } = await getLandingData();
+
+  console.log('🎨 Rendering HomePage with data:', {
+    achievementsCount: achievements.length,
+    tournamentsCount: tournaments.length,
+    noticesCount: notices.length
+  });
 
   return (
     <section className="bg-zinc-800 text-balance overflow-hidden">

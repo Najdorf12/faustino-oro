@@ -3,12 +3,10 @@
 import dynamic from "next/dynamic";
 
 const Contact = dynamic(() => import("@/components/landing/Contact"), {
-  ssr: false,
   loading: () => <ContactSkeleton />,
 });
 
 const Notices = dynamic(() => import("@/components/landing/Notices"), {
-  ssr: false,
   loading: () => <NoticesSkeleton />,
 });
 
