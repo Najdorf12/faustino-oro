@@ -5,7 +5,6 @@ import "./globals.css";
 import Script from "next/script";
 import LenisProvider from "@/lib/LenisProvider";
 import PageLoader from "@/components/landing/ui/PageLoader";
-import { LoaderProvider } from "@/lib/LoaderContext";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
