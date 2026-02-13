@@ -1,20 +1,31 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGO;
+const MONGODB_URI = process.env.MONGO!;
 
 if (!MONGODB_URI) {
-  throw new Error("please define Mongo environment variable");
+  throw new Error("Please define the MONGO environment variable");
 }
 
-async function connectToDatabase() {
-  if (mongoose.connection.readyState === 1) {
-    return mongoose;
-  }
-  const opts = {
-    bufferCommands: false,  
+declare global {
+  var mongooseGlobal: {
+    conn: typeof mongoose | null;
+    promise: Promise<typeof mongoose> | null;
   };
-  await mongoose.connect(MONGODB_URI!, opts);
-  return mongoose;
+}
+
+global.mongooseGlobal ||= { conn: null, promise: null };
+
+async function connectToDatabase() {
+  if (global.mongooseGlobal.conn) return global.mongooseGlobal.conn;
+
+  if (!global.mongooseGlobal.promise) {
+    global.mongooseGlobal.promise = mongoose.connect(MONGODB_URI, {
+      bufferCommands: false,
+    });
+  }
+
+  global.mongooseGlobal.conn = await global.mongooseGlobal.promise;
+  return global.mongooseGlobal.conn;
 }
 
 export default connectToDatabase;
