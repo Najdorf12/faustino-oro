@@ -12,21 +12,11 @@ import TournamentModel from "@/models/tournament";
 import AchievementModel from "@/models/achievement";
 
 export const metadata: Metadata = {
-  title: "Faustino Oro",
-  description:
-    "Conoce a Faustino Oro, el jugador más joven en alcanzar 2500 de ELO FIDE. Campeón Argentino, Panamericano y número uno del mundo en su categoría.",
-  keywords: [
-    "Faustino Oro",
-    "ajedrez",
-    "prodigio",
-    "gran maestro",
-    "torneos",
-    "campeón",
-  ],
+  title: "Faustino Oro - Página Oficial del Ajedrecista Argentino",
+  description: "Página Oficial de Faustino Oro, el jugador más joven en alcanzar 2500 de ELO FIDE. Campeón Argentino, Panamericano y número uno del mundo en su categoría.",
 };
 
-export const revalidate = 1800;
-
+export const revalidate = 1800; 
 async function getLandingData() {
   try {
     await connectToDatabase();

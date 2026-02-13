@@ -1,4 +1,3 @@
-// app/notices/[id]/page.tsx
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -13,7 +12,6 @@ type Props = {
 
 export const revalidate = 1800;
 
-// Generar metadata dinámico para SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   

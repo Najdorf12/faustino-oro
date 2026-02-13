@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# Bloquear admin
+User-agent: *
+Disallow: /admin
+Disallow: /api
+
+# Host
+Host: https://www.orofaustino.com
+
+# Sitemap
+Sitemap: https://www.orofaustino.com/sitemap.xml

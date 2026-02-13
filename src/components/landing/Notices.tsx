@@ -7,6 +7,7 @@ import Button from "./ui/ButtonNotices";
 import CardNotice from "./ui/CardNotice";
 import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
+import { useLoader } from "@/lib/LoaderContext";
 
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
@@ -21,7 +22,7 @@ interface NoticesProps {
 function CanvasLoader() {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="animate-pulse text-zinc-400">Cargando...</div>
+      <div className="animate-pulse text-zinc-400">Cargando modelo 3D...</div>
     </div>
   );
 }
@@ -29,11 +30,62 @@ function CanvasLoader() {
 export default function Notices({ data }: NoticesProps) {
   const [activeNotice, setActiveNotice] = useState<Notice | null>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [canvasKey, setCanvasKey] = useState(0);
+  const [canvasReady, setCanvasReady] = useState(false);
   const pathname = usePathname();
+  const { setLoading } = useLoader();
 
+  // Montar el Canvas con delay
   useEffect(() => {
-    setIsMounted(true);
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
+
+  // Ocultar loader solo cuando Canvas esté completamente listo
+  useEffect(() => {
+    if (canvasReady) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 300); // Pequeño delay adicional para suavidad
+
+      return () => clearTimeout(timer);
+    }
+  }, [canvasReady, setLoading]);
+
+  // Manejar pérdida de contexto WebGL
+  useEffect(() => {
+    const handleContextLost = (event: Event) => {
+      event.preventDefault();
+      console.warn('WebGL context lost, attempting recovery...');
+      setCanvasReady(false);
+      setLoading(true);
+      
+      setTimeout(() => {
+        setCanvasKey(prev => prev + 1);
+      }, 100);
+    };
+
+    const handleContextRestored = () => {
+      console.log('WebGL context restored');
+      setCanvasReady(true);
+    };
+
+    const canvas = document.querySelector('canvas');
+    if (canvas) {
+      canvas.addEventListener('webglcontextlost', handleContextLost);
+      canvas.addEventListener('webglcontextrestored', handleContextRestored);
+    }
+
+    return () => {
+      if (canvas) {
+        canvas.removeEventListener('webglcontextlost', handleContextLost);
+        canvas.removeEventListener('webglcontextrestored', handleContextRestored);
+      }
+    };
+  }, [isMounted, setLoading]);
 
   return (
     <section
@@ -55,20 +107,36 @@ export default function Notices({ data }: NoticesProps) {
         }}
       />
 
-      {/* ✅ Solo renderizar Canvas después de montar en el cliente */}
-      {isMounted && (
-        <div className="hidden lg:block absolute inset-0 z-80 w-full h-full overflow-hidden">
+      <div 
+        className="hidden lg:block absolute inset-0 z-80 w-full h-full overflow-hidden"
+        suppressHydrationWarning
+      >
+        {isMounted && (
           <Suspense fallback={<CanvasLoader />}>
             <Canvas
-              key={pathname}
+              key={`${pathname}-${canvasKey}`}
               dpr={[1, 2]}
               performance={{ min: 0.5 }}
+              gl={{
+                antialias: true,
+                alpha: true,
+                preserveDrawingBuffer: false,
+                powerPreference: "high-performance",
+                failIfMajorPerformanceCaveat: false,
+              }}
+              onCreated={({ gl }) => {
+                gl.setClearColor(0x000000, 0);
+                // Notificar que el Canvas está listo
+                setTimeout(() => {
+                  setCanvasReady(true);
+                }, 500); // Esperar un poco para que el modelo cargue
+              }}
             >
               <ChessKnightExperience />
             </Canvas>
           </Suspense>
-        </div>
-      )}
+        )}
+      </div>
 
       <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-20">
         <h6 className="w-full text-4xl lg:text-6xl relative z-100 max-w-[900px] px-3 text-center text-zinc-500 2xl:text-7xl 2xl:max-w-[1100px]">
