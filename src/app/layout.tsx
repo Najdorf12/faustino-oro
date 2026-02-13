@@ -174,14 +174,12 @@ export default function RootLayout({
             }),
           }}
         />
-        <LoaderProvider>
-          <PageLoader />
-          <LenisProvider>
-            <main className="font-satoshi overflow-hidden bg-zinc-800">
-              {children}
-            </main>
-          </LenisProvider>
-        </LoaderProvider>
+        <PageLoader />
+        <LenisProvider>
+          <main className="font-satoshi overflow-hidden bg-zinc-800">
+            {children}
+          </main>
+        </LenisProvider>
       </body>
     </html>
   );

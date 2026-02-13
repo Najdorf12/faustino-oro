@@ -1,23 +1,29 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useLoader } from "@/lib/LoaderContext";
 
 export default function PageLoader() {
-  const { isLoading } = useLoader();
+  const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
 
-  // Reset loading en cada cambio de ruta
   useEffect(() => {
-    // Este efecto no hace nada aquí, lo maneja cada componente
+    // Mostrar loader en cada cambio de ruta
+    setIsLoading(true);
+    
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Ajusta este tiempo según necesites
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-zinc-900/95 backdrop-blur-sm transition-opacity duration-300">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-zinc-900/95 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-4">
+        {/* Chess piece animation */}
         <div className="relative w-20 h-20">
           <div className="absolute inset-0 border-4 border-sky-500/20 rounded-full"></div>
           <div className="absolute inset-0 border-4 border-t-sky-500 rounded-full animate-spin"></div>

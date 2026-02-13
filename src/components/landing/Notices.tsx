@@ -7,7 +7,6 @@ import Button from "./ui/ButtonNotices";
 import CardNotice from "./ui/CardNotice";
 import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
-import { useLoader } from "@/lib/LoaderContext";
 
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
@@ -22,7 +21,7 @@ interface NoticesProps {
 function CanvasLoader() {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="animate-pulse text-zinc-400">Cargando modelo 3D...</div>
+      <div className="animate-pulse text-zinc-400">Cargando...</div>
     </div>
   );
 }
@@ -31,12 +30,10 @@ export default function Notices({ data }: NoticesProps) {
   const [activeNotice, setActiveNotice] = useState<Notice | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const [canvasKey, setCanvasKey] = useState(0);
-  const [canvasReady, setCanvasReady] = useState(false);
   const pathname = usePathname();
-  const { setLoading } = useLoader();
 
-  // Montar el Canvas con delay
   useEffect(() => {
+    // Esperar a que el DOM esté completamente listo
     const timer = setTimeout(() => {
       setIsMounted(true);
     }, 100);
@@ -44,25 +41,13 @@ export default function Notices({ data }: NoticesProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Ocultar loader solo cuando Canvas esté completamente listo
-  useEffect(() => {
-    if (canvasReady) {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 300); // Pequeño delay adicional para suavidad
-
-      return () => clearTimeout(timer);
-    }
-  }, [canvasReady, setLoading]);
-
   // Manejar pérdida de contexto WebGL
   useEffect(() => {
     const handleContextLost = (event: Event) => {
       event.preventDefault();
       console.warn('WebGL context lost, attempting recovery...');
-      setCanvasReady(false);
-      setLoading(true);
       
+      // Forzar recreación del Canvas
       setTimeout(() => {
         setCanvasKey(prev => prev + 1);
       }, 100);
@@ -70,9 +55,9 @@ export default function Notices({ data }: NoticesProps) {
 
     const handleContextRestored = () => {
       console.log('WebGL context restored');
-      setCanvasReady(true);
     };
 
+    // Escuchar eventos de pérdida/recuperación de contexto
     const canvas = document.querySelector('canvas');
     if (canvas) {
       canvas.addEventListener('webglcontextlost', handleContextLost);
@@ -85,7 +70,7 @@ export default function Notices({ data }: NoticesProps) {
         canvas.removeEventListener('webglcontextrestored', handleContextRestored);
       }
     };
-  }, [isMounted, setLoading]);
+  }, [isMounted]);
 
   return (
     <section
@@ -126,10 +111,6 @@ export default function Notices({ data }: NoticesProps) {
               }}
               onCreated={({ gl }) => {
                 gl.setClearColor(0x000000, 0);
-                // Notificar que el Canvas está listo
-                setTimeout(() => {
-                  setCanvasReady(true);
-                }, 500); // Esperar un poco para que el modelo cargue
               }}
             >
               <ChessKnightExperience />
