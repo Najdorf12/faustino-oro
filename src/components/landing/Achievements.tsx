@@ -2,7 +2,7 @@ import imgPalmares from "@/assets/images/img3.jpg";
 import Image from "next/image";
 import iconTrophy from "@/assets/images/iconTrophy.svg";
 import imgPalmaresDesktop from "@/assets/images/img3-desktop.jpg";
-
+import imgFaustiCaruana from "@/assets/images/chess/19.jpg";
 interface AchievementsProps {
   data: any[];
 }
@@ -10,7 +10,7 @@ interface AchievementsProps {
 export default function Achievements({ data }: AchievementsProps) {
   return (
     <>
-      <section className="w-full h-full mt-6 z-100 flex flex-col gap-10 items-center relative lg:px-12 lg:mt-9 2xl:px-16">
+      <section className="w-full h-full mt-6 z-100 flex flex-col gap-10 items-center relative lg:px-12 lg:mt-9 2xl:px-16 ">
         <article className="flex flex-col px-6 gap-7 lg:flex-row lg:px-9 lg:w-full">
           <h6 className="text-zinc-200 text-5xl font-medium lg:text-7xl lg:leading-12 2xl:text-[5rem] 2xl:leading-11 3xl:text-[5.5rem]">
             Logros
@@ -21,7 +21,7 @@ export default function Achievements({ data }: AchievementsProps) {
           </h6>
         </article>
 
-        <section className="relative w-[96%] mx-auto flex flex-col px-5 py-8 lg:pl-12 lg:py-9">
+        <section className="relative w-[96%] mx-auto flex flex-col px-5 py-8 lg:pl-12 lg:py-9 ">
           <div className="absolute inset-0 z-20 bg-linear-to-bl from-zinc-800/40 via-zinc-800/80 to-sky-900 flex justify-center items-center rounded-3xl"></div>
           <picture className="w-full h-full border-3 border-zinc-700 rounded-3xl absolute inset-0 mx-auto shadow-2xl shadow-sky-800">
             <source
@@ -56,11 +56,68 @@ export default function Achievements({ data }: AchievementsProps) {
           </ul>
         </section>
       </section>
-      <legend className="w-full justify-center relative text-center flex items-center gap-3 text-zinc-500 mt-14 md:mt-16 md:text-xl lg:mt-20  2xl:text-2xl">
+      <legend className="w-full justify-center relative text-center flex items-center gap-3 text-zinc-500 mt-14 md:mt-16 md:text-xl lg:mt-20 2xl:text-2xl">
         <div className="w-12 md:w-32 h-0.5 bg-sky-700"></div>
         EL ÉXITO OCURRE CUANDO TUS SUEÑOS SON MAS GRANDES QUE TUS EXCUSAS
         <div className="w-12 md:w-32 h-0.5 bg-sky-700"></div>
       </legend>
+     {/*  <figure className="w-full relative z-2200 md:w-full h-100 md:h-screen mt-16">
+        <div className="absolute inset-0 bg-zinc-900/80"></div>
+        <Image
+          src={imgFaustiCaruana}
+          alt="imgFooter"
+          className="w-full h-full object-cover "
+        ></Image>
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #52525c 1px, transparent 1px),
+              linear-gradient(to bottom, #52525c 1px, transparent 1px)
+            `,
+            backgroundSize: "300px 300px",
+            backgroundPosition: "0 0, 0 0",
+            maskImage: `
+              repeating-linear-gradient(
+                to right,
+                black 0px,
+                black 3px,
+                transparent 3px,
+                transparent 8px
+              ),
+              repeating-linear-gradient(
+                to bottom,
+                black 0px,
+                black 3px,
+                transparent 3px,
+                transparent 8px
+              )
+            `,
+            WebkitMaskImage: `
+              repeating-linear-gradient(
+                to right,
+                black 0px,
+                black 3px,
+                transparent 3px,
+                transparent 8px
+              ),
+              repeating-linear-gradient(
+                to bottom,
+                black 0px,
+                black 3px,
+                transparent 3px,
+                transparent 8px
+              )
+            `,
+          }}
+        />
+        <article className="absolute inset-0 z-100000 flex items-start pb-14  md:items-end ">
+          <h6 className="z-60 text-start text-zinc-300 font-medium  text-balance text-lg mt-1 md:text-5xl ml-[9%] max-w-200 3xl:text-6xl">
+            Aquí encontrarás actualizaciones en tiempo real y la cobertura de
+            los momentos más importantes de su trayectoria profesional
+          </h6>
+        </article>
+      </figure> */}
     </>
   );
 }

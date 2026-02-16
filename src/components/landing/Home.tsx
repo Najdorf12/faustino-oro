@@ -12,6 +12,51 @@ export default function Home() {
           alt="home-image"
           className="w-full h-full object-cover absolute inset-0"
         />
+ {/*  <div
+    className="absolute inset-0 z-0"
+    style={{
+      backgroundImage: `
+        linear-gradient(to right, #e7e5e4 1px, transparent 1px),
+        linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
+      `,
+      backgroundSize: "200px 200px",
+      backgroundPosition: "0 0, 0 0",
+      maskImage: `
+        repeating-linear-gradient(
+          to right,
+          black 0px,
+          black 3px,
+          transparent 3px,
+          transparent 8px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          black 0px,
+          black 3px,
+          transparent 3px,
+          transparent 8px
+        )
+      `,
+      WebkitMaskImage: `
+        repeating-linear-gradient(
+          to right,
+          black 0px,
+          black 3px,
+          transparent 3px,
+          transparent 8px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          black 0px,
+          black 3px,
+          transparent 3px,
+          transparent 8px
+        )
+      `,
+      maskComposite: "intersect",
+      WebkitMaskComposite: "source-in",
+    }}
+  /> */}
         <article className="relative z-50 w-full h-full flex flex-col items-center justify-end gap-4 lg:gap-6 ">
           <h1 className="text-zinc-300 text-7xl leading-16 font-ubuntu text-center font-semibold md:font-semibold lg:text-[7rem] xl:leading-24 xl:text-9xl 2xl:text-[8.5rem] 3xl:text-[9rem]">
             FAUSTINO ORO

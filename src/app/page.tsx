@@ -13,18 +13,22 @@ import AchievementModel from "@/models/achievement";
 
 export const metadata: Metadata = {
   title: "Faustino Oro - Página Oficial del Ajedrecista Argentino",
-  description: "Página Oficial de Faustino Oro, el jugador más joven en alcanzar 2500 de ELO FIDE. Campeón Argentino, Panamericano y número uno del mundo en su categoría.",
+  description:
+    "Página Oficial de Faustino Oro, el jugador más joven en alcanzar 2500 de ELO FIDE. Campeón Argentino, Panamericano y número uno del mundo en su categoría.",
 };
 
-export const revalidate = 1800; 
+export const revalidate = 1800;
 async function getLandingData() {
   try {
     await connectToDatabase();
-    
+
     const [achievements, tournaments, notices] = await Promise.all([
       AchievementModel.find().sort({ createdAt: -1 }).lean(),
       TournamentModel.find().sort({ startDate: -1 }).lean(),
-      NoticeModel.find().sort({ createdAt: -1 }).lean(),
+      NoticeModel.find()
+        .sort({ createdAt: -1 })
+        .limit(4) 
+        .lean(),
     ]);
 
     return {
@@ -33,11 +37,11 @@ async function getLandingData() {
       notices: JSON.parse(JSON.stringify(notices)),
     };
   } catch (error) {
-    console.error('Error in getLandingData:', error);
+    console.error("Error in getLandingData:", error);
     return {
       achievements: [],
       tournaments: [],
-      notices: []
+      notices: [],
     };
   }
 }

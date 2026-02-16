@@ -8,6 +8,7 @@ import type { Notice } from "@/types/notice";
 import type { Tournament } from "@/types/tournament";
 import type { Achievement } from "@/types/achievement";
 
+
 export default function LandingClient() {
   const [data, setData] = useState<{
     achievements: Achievement[];
@@ -18,17 +19,19 @@ export default function LandingClient() {
     tournaments: [],
     notices: [],
   });
-  
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [achievementsRes, tournamentsRes, noticesRes] = await Promise.all([
-          fetch('/api/achievements'),
-          fetch('/api/tournaments'),
-          fetch('/api/notices'),
-        ]);
+        const [achievementsRes, tournamentsRes, noticesRes] = await Promise.all(
+          [
+            fetch("/api/achievements"),
+            fetch("/api/tournaments"),
+            fetch("/api/notices"),
+          ],
+        );
 
         const [achievements, tournaments, notices] = await Promise.all([
           achievementsRes.json(),
@@ -38,7 +41,7 @@ export default function LandingClient() {
 
         setData({ achievements, tournaments, notices });
       } catch (error) {
-        console.error('Error fetching landing data:', error);
+        console.error("Error fetching landing data:", error);
       } finally {
         setLoading(false);
       }

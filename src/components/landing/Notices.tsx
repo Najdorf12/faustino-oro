@@ -7,6 +7,8 @@ import Button from "./ui/ButtonNotices";
 import CardNotice from "./ui/CardNotice";
 import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
+import imgFaustiCaruana from "@/assets/images/chess/img21.jpg"
+import Image from "next/image";
 
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
@@ -75,10 +77,11 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200 pb-12"
+      className="w-full flex flex-col relative bg-zinc-200 pb-12 xl:pb-0"
     >
+      
       <div
-        className="absolute inset-0 z-80 h-screen"
+        className="absolute inset-0 z-80 min-h-screen"
         style={{
           backgroundImage: `
         linear-gradient(to right, #9f9fa9 1px, transparent 1px),
@@ -119,7 +122,7 @@ export default function Notices({ data }: NoticesProps) {
         )}
       </div>
 
-      <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-20">
+      <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-24  ">
         <h6 className="w-full text-4xl lg:text-6xl relative z-100 max-w-[900px] px-3 text-center text-zinc-500 2xl:text-7xl 2xl:max-w-[1100px]">
           Explora actualizaciones sobre sus avances y eventos especiales
         </h6>
@@ -129,7 +132,7 @@ export default function Notices({ data }: NoticesProps) {
         </p>
       </article>
 
-      <ul className="text-balance flex flex-col gap-5 mt-14 px-3 md:gap-6 lg:pl-12 relative z-100 lg:w-fit">
+      <ul className="relative z-100 w-full flex flex-col justify-center items-center mt-12 gap-6 lg:mt-16">
         {data && data.length > 0 ? (
           data.map((notice, i) => (
             <CardNotice
@@ -154,6 +157,7 @@ export default function Notices({ data }: NoticesProps) {
           />
         )}
       </section>
+     
     </section>
   );
 }
