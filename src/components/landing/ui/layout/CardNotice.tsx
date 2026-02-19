@@ -1,6 +1,7 @@
 import iconKnight from "@/assets/images/iconKnight.svg";
 import Image from "next/image";
 import type { Notice } from "@/types/notice";
+import Link from "next/link";
 
 interface CardNoticeProps {
   notice: Notice;
@@ -31,9 +32,10 @@ function truncateToFirstSentence(
 }
 
 export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
+  console.log(notice);
   return (
-    <li className="flex flex-col gap-2 relative py-2 lg:p-2  ">
-      <div className="text-balance bg-linear-to-br from-zinc-700 to-zinc-900/60 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-700/50 hover:border-zinc-600/50 lg:flex lg:items-stretch lg:w-270 lg:min-h-75 lg:px-4 ">
+    <li className="flex flex-col gap-2 relative  ">
+      <div className="text-balance bg-linear-to-br  from-zinc-700 to-zinc-900/60 rounded-xl overflow-hidden shadow-lg hover:shadow-zinc-500 transition-all duration-300 border-2 border-zinc-500 hover:border-zinc-300 lg:flex lg:items-stretch lg:w-270 lg:min-h-75 lg:px-4 ">
         {/* Image Section */}
         {notice.images?.length > 0 && (
           <div className="relative w-full h-46 pl-3 lg:h-66 lg:w-1/3 self-center">
@@ -44,7 +46,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
               className="object-cover w-full h-full lg:rounded-lg"
             />
             {notice.images.length > 1 && (
-              <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
+              <div className="absolute bottom-3 right-3 bg-zinc-800/80 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
                 +{notice.images.length - 1} más
               </div>
             )}
@@ -56,7 +58,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
           </div>
         )}
 
-        <div className="p-5 md:p-6 lg:w-2/3 flex flex-col justify-center lg:gap-2">
+        <div className="p-5 md:p-6 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 ">
           <div className="mb-3 lg:mb-4">
             <span className="inline-block bg-zinc-700 text-zinc-300 text-sm font-medium px-6 py-0.5 rounded-full lg:px-9 2xl:text-base">
               {notice.category}
@@ -67,12 +69,12 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
             {notice.title}
           </h6>
 
-          <p className="text-zinc-400 text-sm mb-2 leading-relaxed md:text-base">
+          <p className="text-zinc-400 text-sm mb-2 leading-relaxed md:text-base lg:text-lg lg:leading-6">
             {truncateToFirstSentence(notice.description, 120)}
           </p>
 
           {notice.content && (
-            <p className="text-zinc-500 text-sm mb-4 leading-relaxed italic line-clamp-2">
+            <p className="text-zinc-400 text-sm mb-4 leading-relaxed italic line-clamp-2 lg:text-base lg:leading-6">
               {truncateToFirstSentence(notice.content, 100)}
             </p>
           )}
@@ -87,6 +89,27 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
             </p>
           )}
         </div>
+        <Link
+          href={`/notices/${notice._id}`}
+          className="self-end bg-zinc-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 lg:mb-3"
+        >
+          <p>Leer más</p>
+          <div className="bg-sky-600 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              className="w-[1.2em] transition-transform duration-300 text-zinc-100 group-hover:translate-x-[0.1em]"
+            >
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                fill="currentColor"
+                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+              ></path>
+            </svg>
+          </div>
+        </Link>
       </div>
     </li>
   );

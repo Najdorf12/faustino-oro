@@ -1,9 +1,9 @@
 import Image from "next/image";
-import icon3 from "@/assets/images/icons/standar.svg";
+import iconData from "@/assets/images/icons/data.svg";
 import iconStats from "@/assets/images/icons/stats.svg";
 import iconStats2 from "@/assets/images/icons/stats2.svg";
 
-export default function ButtonProgress({
+export  function ButtonProgress({
   active,
   onClick,
 }: {
@@ -76,7 +76,7 @@ export function ButtonInfo({
       <div className="absolute -right-12 top-4 group-hover:top-1 group-hover:right-1 z-10 w-24 h-24 rounded-full group-hover:scale-150 duration-500 bg-sky-600"></div>  
       <p className="z-10">Info</p>
       <Image
-        src={icon3}
+        src={iconData}
         alt="icon-info"
         className="w-7 lg:w-8 z-100 group-hover:scale-95 duration-500"
       />

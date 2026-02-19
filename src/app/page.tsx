@@ -1,5 +1,7 @@
 import { Metadata } from "next";
-import NavbarLanding from "@/components/landing/ui/NavbarLanding";
+import asterisk from "@/assets/images/icons/asterisk.svg";
+import Image from "next/image";
+import NavbarLanding from "@/components/landing/ui/layout/NavbarLanding";
 import Home from "@/components/landing/Home";
 import About from "@/components/landing/About";
 import Achievements from "@/components/landing/Achievements";
@@ -25,10 +27,7 @@ async function getLandingData() {
     const [achievements, tournaments, notices] = await Promise.all([
       AchievementModel.find().sort({ createdAt: -1 }).lean(),
       TournamentModel.find().sort({ startDate: -1 }).lean(),
-      NoticeModel.find()
-        .sort({ createdAt: -1 })
-        .limit(4) 
-        .lean(),
+      NoticeModel.find().sort({ createdAt: -1 }).limit(4).lean(),
     ]);
 
     return {
@@ -56,7 +55,40 @@ export default async function HomePage() {
       <About />
       <Achievements data={achievements} />
       <Tournaments data={tournaments} />
+      <div className="w-full flex gap-12 items-center justify-evenly py-16 bg-zinc-200 text-3xl font-light text-zinc-400 lg:text-5xl lg:py-20">
+        <div className="max-w-200 text-balance flex flex-col ">
+          {/*      El Ajedrez es un juego absolutamente lógico que tiene sus leyes
+          generales que se pueden comprender intuitivamente o trabajando
+          muchísimo */}
+          El Ajedrez, con toda su profundidad filosófica, es ante todo un juego
+          en el que se ponen de manifiesto la imaginación, el carácter y la
+          voluntad
+          <div className="text-base lg:text-xl pt-6 self-start">
+            Borís Spaski
+          </div>
+        </div>
+        <Image
+          src={asterisk}
+          alt="Faustino Oro - Torneos"
+          loading="eager"
+          className="w-60"
+        />
+      </div>
       <Notices data={notices} />
+      {/*  <div className="w-full flex gap-12 items-center  justify-evenly py-16  bg-sky-700  text-4xl font-light text-zinc-200">
+        <div className=" max-w-200">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus
+          facilis et praesentium architecto nostrum quo dolorem perferendis
+          quaerat sapiente doloribus reprehenderit voluptatem voluptates, illo,
+          in quia aliquam sed optio possimus!
+        </div>
+        <Image
+          src={asterisk}
+          alt="Faustino Oro - Torneos"
+          loading="eager"
+          className="w-60"
+        />
+      </div> */}
       <Contact />
     </section>
   );

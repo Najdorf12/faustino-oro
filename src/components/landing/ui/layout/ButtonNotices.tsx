@@ -5,7 +5,7 @@ import icon3 from "@/assets/images/icons/iconKnight.svg";
 export default function ButtonNotices() {
   return (
     <Link href={"/notices"}>
-      <button className=" shadow-zinc-300 z-100 border-2 hover:scale-105 border-zinc-500 duration-300 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-56 md:w-62 rounded-md bg-sky-900 p-2 flex justify-between pl-3 items-center font-medium md:text-lg">
+      <button className=" shadow-zinc-300 z-100 border-2 border-sky-600 hover:scale-105  duration-300 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-56 md:w-62 rounded-md bg-sky-900 p-2 flex justify-between pl-3 items-center font-medium md:text-lg">
         <div className="absolute top-0 -right-3 z-10 w-16 h-16 rounded-full scale-150 group-hover:-right-3 duration-500 bg-sky-500"></div>
         <div className="absolute right-20 -top-4 group-hover:top-1 group-hover:right-1 z-10 w-16 h-16 rounded-full group-hover:scale-150 duration-500 bg-sky-600"></div>
         <div className="absolute right-2 -top-4 group-hover:top-1 group-hover:right-2 z-10 w-32 h-32 rounded-full group-hover:scale-150 duration-500 bg-sky-800"></div>

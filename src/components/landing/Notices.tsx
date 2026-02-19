@@ -2,12 +2,12 @@
 
 import { Canvas } from "@react-three/fiber";
 import { useState, Suspense, lazy, useEffect } from "react";
-import { NoticeModal } from "./ui/NoticeModal";
-import Button from "./ui/ButtonNotices";
-import CardNotice from "./ui/CardNotice";
+import { NoticeModal } from "./ui/layout/NoticeModal";
+import Button from "./ui/layout/ButtonNotices";
+import CardNotice from "./ui/layout/CardNotice";
 import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
-import imgFaustiCaruana from "@/assets/images/chess/img21.jpg"
+import imgFaustiCaruana from "@/assets/images/chess/img21.jpg";
 import Image from "next/image";
 
 const ChessKnightExperience = lazy(() =>
@@ -47,29 +47,32 @@ export default function Notices({ data }: NoticesProps) {
   useEffect(() => {
     const handleContextLost = (event: Event) => {
       event.preventDefault();
-      console.warn('WebGL context lost, attempting recovery...');
-      
+      console.warn("WebGL context lost, attempting recovery...");
+
       // Forzar recreación del Canvas
       setTimeout(() => {
-        setCanvasKey(prev => prev + 1);
+        setCanvasKey((prev) => prev + 1);
       }, 100);
     };
 
     const handleContextRestored = () => {
-      console.log('WebGL context restored');
+      console.log("WebGL context restored");
     };
 
     // Escuchar eventos de pérdida/recuperación de contexto
-    const canvas = document.querySelector('canvas');
+    const canvas = document.querySelector("canvas");
     if (canvas) {
-      canvas.addEventListener('webglcontextlost', handleContextLost);
-      canvas.addEventListener('webglcontextrestored', handleContextRestored);
+      canvas.addEventListener("webglcontextlost", handleContextLost);
+      canvas.addEventListener("webglcontextrestored", handleContextRestored);
     }
 
     return () => {
       if (canvas) {
-        canvas.removeEventListener('webglcontextlost', handleContextLost);
-        canvas.removeEventListener('webglcontextrestored', handleContextRestored);
+        canvas.removeEventListener("webglcontextlost", handleContextLost);
+        canvas.removeEventListener(
+          "webglcontextrestored",
+          handleContextRestored,
+        );
       }
     };
   }, [isMounted]);
@@ -79,13 +82,12 @@ export default function Notices({ data }: NoticesProps) {
       id="notices"
       className="w-full flex flex-col relative bg-zinc-200 pb-12 xl:pb-0"
     >
-      
       <div
         className="absolute inset-0 z-80 min-h-screen"
         style={{
           backgroundImage: `
-        linear-gradient(to right, #9f9fa9 1px, transparent 1px),
-        linear-gradient(to bottom, #9f9fa9 1px, transparent 1px)
+        linear-gradient(to right, #d4d4d8 1px, transparent 1px),
+        linear-gradient(to bottom, #d4d4d8 1px, transparent 1px)
       `,
           backgroundSize: "150px 150px",
           WebkitMaskImage:
@@ -95,7 +97,7 @@ export default function Notices({ data }: NoticesProps) {
         }}
       />
 
-      <div 
+      <div
         className="hidden lg:block absolute inset-0 z-80 w-full h-full overflow-hidden"
         suppressHydrationWarning
       >
@@ -122,17 +124,17 @@ export default function Notices({ data }: NoticesProps) {
         )}
       </div>
 
-      <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-24  ">
-        <h6 className="w-full text-4xl lg:text-6xl relative z-100 max-w-[900px] px-3 text-center text-zinc-500 2xl:text-7xl 2xl:max-w-[1100px]">
+      <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-24 lg:gap-10 ">
+        <h6 className="w-full text-4xl lg:text-6xl  relative z-100 max-w-250 px-3 text-center text-zinc-500 2xl:text-7xl 2xl:max-w-[1100px]">
           Explora actualizaciones sobre sus avances y eventos especiales
         </h6>
-        <p className="text-zinc-400 max-w-[370px] text-center text-sm px-1 md:text-base 2xl:text-lg md:max-w-[500px] 2xl:max-w-[600px]">
+        <p className="text-zinc-500 max-w-93 text-center text-sm px-1  md:text-lg md:max-w-200  3xl:max-w-300 3xl:text-xl">
           Aquí podrás conocer no solo sus logros más recientes, sino también el
           arduo camino de entrenamiento y preparación que los hace posibles
         </p>
       </article>
 
-      <ul className="relative z-100 w-full flex flex-col justify-center items-center mt-12 gap-6 lg:mt-16">
+      <ul className="relative z-100 w-full flex flex-col justify-center px-6 items-center mt-12 gap-8 lg:mt-20 lg:pb-16">
         {data && data.length > 0 ? (
           data.map((notice, i) => (
             <CardNotice
@@ -157,7 +159,6 @@ export default function Notices({ data }: NoticesProps) {
           />
         )}
       </section>
-     
     </section>
   );
 }

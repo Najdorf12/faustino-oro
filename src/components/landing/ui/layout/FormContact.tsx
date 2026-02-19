@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Form() {
   return (
     <section className="relative pointer-events-auto z-50 w-full flex items-center justify-center text-balance">
-      <div className="relative w-full max-w-110 rounded-lg shadow-md py-3 px-4 md:p-6 border border-stone-600 bg-zinc-800/60 lg:bg-linear-to-bl via-transparent lg:from-sky-3xl:max-w-120 3xl:p-8">
+      <div className="relative w-full max-w-110 rounded-lg shadow-md py-3 px-4 md:p-6 border border-zinc-600 bg-zinc-900/50 lg:bg-linear-to-bl via-transparent lg:from-sky-900 3xl:max-w-120 3xl:p-8">
         <legend className="flex items-center gap-2 font-medium text-zinc-400">
           Faustino Oro <span className="text-3xl">*</span>
         </legend>
@@ -13,7 +13,7 @@ export default function Form() {
         </h6>
         
         <p className="text-zinc-400 mt-3 mb-1.5 3xl:text-lg 3xl:mt-4">
-          Cada mensaje es una oportunidad.
+          Cada mensaje es una oportunidad
         </p>
         
         <div className="flex items-center gap-2">
@@ -25,19 +25,19 @@ export default function Form() {
         <form className="relative flex flex-col gap-2 mt-2">
           <input
             placeholder="Nombre"
-            className="bg-zinc-600/60 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
+            className="bg-zinc-800/80 placeholder:text-zinc-300 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
             type="text"
           />
 
           <input
             placeholder="Email"
-            className="bg-zinc-600/60 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
+            className="bg-zinc-800/80 placeholder:text-zinc-300 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
             type="email"
           />
 
           <textarea
             placeholder="Escribe tu mensaje"
-            className="bg-zinc-600/60 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150 h-20 lg:h-24"
+            className="bg-zinc-800/80 placeholder:text-zinc-300 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150 h-20 lg:h-24"
           />
 
           {/* ✅ className como string directo, SIN template literals ni condicionales */}

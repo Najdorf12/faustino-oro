@@ -1,0 +1,33 @@
+{
+  "titles": [
+    { "name": "International Master (IM)", "date": "2024" },
+    { "name": "FIDE Master (FM)", "date": "2023" },
+    { "name": "Candidate Master (CM)", "date": "2022" }
+  ],
+  "stats": {
+    "white_total": "416",
+    "white_win_num": "206",
+    "white_draw_num": "99",
+    "black_total": "404",
+    "black_win_num": "170",
+    "black_draw_num": "111",
+    "white_total_std": "223",
+    "white_win_num_std": "96",
+    "white_draw_num_std": "73",
+    "black_total_std": "221",
+    "black_win_num_std": "70",
+    "black_draw_num_std": "83",
+    "white_total_rpd": "79",
+    "white_win_num_rpd": "43",
+    "white_draw_num_rpd": "15",
+    "black_total_rpd": "74",
+    "black_win_num_rpd": "38",
+    "black_draw_num_rpd": "15",
+    "white_total_blz": "111",
+    "white_win_num_blz": "67",
+    "white_draw_num_blz": "10",
+    "black_total_blz": "106",
+    "black_win_num_blz": "60",
+    "black_draw_num_blz": "13"
+  }
+}

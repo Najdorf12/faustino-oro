@@ -1,6 +1,6 @@
 "use client";
 import * as THREE from "three";
-import Form from "./ui/FormContact";
+import Form from "./ui/layout/FormContact";
 import iconface from "@/assets/images/icons/face.svg";
 import iconinsta from "@/assets/images/icons/insta.svg";
 import iconyoutube from "@/assets/images/icons/youtube.svg";
@@ -60,16 +60,17 @@ export const Contact = () => {
               </p>
             </div>
 
-            <ul className="hidden md:flex gap-6 flex-col text-zinc-400 pointer-events-auto lg:font-medium 2xl:text-lg">
+            <ul className="hidden gap-6 flex-col text-zinc-400 pointer-events-auto md:flex  md:w-fit lg:font-medium 2xl:text-lg  ">
               <Link
                 href={"https://www.facebook.com/orofaustino/?locale=es_LA"}
                 target="blank"
+                className="group "
               >
-                <li className="flex items-center gap-3 xl:gap-4">
+                <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300 ">
                   <Image
                     className="w-8.5 2xl:w-9.5"
                     src={iconface}
-                    alt="icon-facebook"
+                    alt="icon-facebook "
                   />
                   https://www.facebook.com/orofaustino
                 </li>
@@ -77,8 +78,9 @@ export const Contact = () => {
               <Link
                 href={"https://www.instagram.com/faustioro/"}
                 target="blank"
+                className="group "
               >
-                <li className="flex items-center gap-3 xl:gap-4">
+                <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300">
                   <Image
                     className="w-9 2xl:w-10"
                     src={iconinsta}
@@ -90,8 +92,9 @@ export const Contact = () => {
               <Link
                 href={"https://www.youtube.com/@faustinooro"}
                 target="blank"
+                className="group "
               >
-                <li className="flex items-center gap-3 xl:gap-4">
+                <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300">
                   <Image
                     className="w-9 2xl:w-10"
                     src={iconyoutube}
@@ -206,12 +209,12 @@ function Connector({
         THREE.MathUtils.randFloatSpread(10),
         THREE.MathUtils.randFloatSpread(10),
       ],
-    []
+    [],
   );
 
   useFrame(() => {
     api.current?.applyImpulse(
-      vec.copy(api.current.translation()).negate().multiplyScalar(0.05)
+      vec.copy(api.current.translation()).negate().multiplyScalar(0.05),
     );
   });
 
@@ -235,8 +238,8 @@ function Pointer({ vec = new THREE.Vector3() }) {
       vec.set(
         (mouse.x * viewport.width) / 2,
         (mouse.y * viewport.height) / 2,
-        0
-      )
+        0,
+      ),
     );
   });
   return (
@@ -253,7 +256,7 @@ function Pointer({ vec = new THREE.Vector3() }) {
 
 function Model({ color = "white", roughness = 0.6, type = "rook" }) {
   const { scene } = useGLTF(
-    type === "pawn" ? "/model3D/chess_pawn_lp.glb" : "/model3D/rook.glb"
+    type === "pawn" ? "/model3D/chess_pawn_lp.glb" : "/model3D/rook.glb",
   );
 
   const cloned = useMemo(() => {
@@ -270,4 +273,5 @@ function Model({ color = "white", roughness = 0.6, type = "rook" }) {
 
   const baseScale = type === "pawn" ? 0.5 : 0.5;
 
-  return <primitive object={cloned} scale={baseScale * VISUAL_SCALE} />;}
+  return <primitive object={cloned} scale={baseScale * VISUAL_SCALE} />;
+}

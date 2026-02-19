@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Script from "next/script";
 import LenisProvider from "@/lib/LenisProvider";
-import PageLoader from "@/components/landing/ui/PageLoader";
+import PageLoader from "@/components/landing/ui/layout/PageLoader";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",

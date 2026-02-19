@@ -1,9 +1,9 @@
 // components/landing/Tournaments.tsx
 // NO debe tener "use client" al inicio
-import CardTournament from "./ui/CardTournament";
+import CardTournament from "./ui/layout/CardTournament";
 import { formatDate } from "@/lib/dateFormatter";
 import { Tournament } from "@/types/tournament";
-import ButtonTournaments from "./ui/ButtonTournaments";
+import ButtonTournaments from "./ui/layout/ButtonTournaments";
 
 interface TournamentsProps {
   data: Tournament[];
@@ -13,7 +13,7 @@ export default function Tournaments({ data }: TournamentsProps) {
   return (
     <section
       id="tournaments"
-      className="w-full min-h-screen flex flex-col gap-12 relative justify-center items-center mt-12 py-10 bg-sky-900 md:h-screen lg:mt-0 lg:gap-16 lg:px-12 2xl:px-16 2xl:gap-20"
+      className="w-full min-h-screen flex flex-col gap-12 relative justify-center items-center mt-12 py-10 bg-sky-900 md:h-screen lg:mt-14 lg:gap-16 lg:px-12 2xl:px-16 2xl:gap-20"
     >
       <div className="min-h-screen w-full absolute inset-0 z-50"></div>
 
@@ -28,7 +28,7 @@ export default function Tournaments({ data }: TournamentsProps) {
         </p>
       </article>
 
-      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-y-4 gap-x-3 max-w-150 lg:gap-12 lg:max-w-fit">
+      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-y-4 gap-x-3 max-w-150 sm:gap-x-4 lg:gap-12 lg:max-w-fit">
         {data && data.length > 0 ? (
           data.map((tournament, i) => (
             <CardTournament

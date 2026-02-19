@@ -13,7 +13,7 @@ export default function PageLoader() {
     
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // Ajusta este tiempo según necesites
+    }, 600); // Ajusta este tiempo según necesites
 
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -21,7 +21,7 @@ export default function PageLoader() {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-zinc-900/95 backdrop-blur-sm">
+    <div className="fixed inset-0 z-600 flex items-center justify-center bg-zinc-900/95 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-4">
         {/* Chess piece animation */}
         <div className="relative w-20 h-20">
