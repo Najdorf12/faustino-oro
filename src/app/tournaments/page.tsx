@@ -6,6 +6,8 @@ import FidePlayer from "@/components/landing/ui/tournamentsPage/fideStats/FidePl
 import TournamentsList from "@/components/landing/ui/tournamentsPage/TournamentsList";
 import { getTournaments, getFidePlayer, getFideStats } from "@/lib/api";
 import { ArrowRight } from "../notices/page";
+import connectToDatabase from "@/lib/mongodb";
+import TournamentModel from "@/models/tournament";
 
 export const metadata: Metadata = {
   title: "Torneos - Faustino Oro",
@@ -16,12 +18,14 @@ export const metadata: Metadata = {
 export const revalidate = 3600; // Revalidar cada hora
 
 export default async function TournamentsPage() {
-  const [tournaments, fidePlayer, fideStats] = await Promise.all([
-    getTournaments(),
+  await connectToDatabase();
+  
+  const [tournamentsRaw, fidePlayer, fideStats] = await Promise.all([
+    TournamentModel.find().sort({ startDate: -1 }).lean(),
     getFidePlayer(),
     getFideStats(),
   ]);
-
+  const tournaments = JSON.parse(JSON.stringify(tournamentsRaw));
   /*  if (!fidePlayer) {
     return (
       <section className="w-full min-h-screen bg-zinc-800 flex items-center justify-center">
