@@ -41,11 +41,14 @@ export async function getAchievements() {
 
 export async function getTournaments() {
   try {
-    const baseURL = getBaseUrl();
+    const baseURL = getBaseUrl(); 
     const url = baseURL ? `${baseURL}/api/tournaments` : "/api/tournaments";
 
+    console.log("Fetching tournaments from:", url); 
+
     const res = await fetch(url, {
-      next: { revalidate: 1800 }, // ✅ Sin cache: "force-cache"
+      next: { revalidate: 1800 },
+      cache: "force-cache",
     });
 
     if (!res.ok) {
@@ -140,16 +143,20 @@ export async function getFidePlayer(): Promise<FideResponse | null> {
   try {
     const res = await fetch(
       "https://fide-api.vercel.app/player_info/?fide_id=20000197&history=true",
-      { next: { revalidate: 3600 } }
-      // ✅ Quitá cache: "force-cache" — puede estar cacheando una respuesta fallida
+      {
+        next: { revalidate: 3600 }, // 1 hora
+        cache: "force-cache",
+      },
     );
 
-    console.log("FIDE status:", res.status, res.statusText); // ← mirá esto en Vercel logs
+    if (!res.ok) {
+      console.error("Failed to fetch FIDE player:", res.status, res.statusText);
+      return null;
+    }
 
-    if (!res.ok) return null;
     return res.json();
   } catch (error) {
-    console.error("FIDE fetch error:", error);
+    console.error("Error fetching FIDE player:", error);
     return null;
   }
 }
