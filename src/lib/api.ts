@@ -41,14 +41,11 @@ export async function getAchievements() {
 
 export async function getTournaments() {
   try {
-    const baseURL = getBaseUrl(); 
+    const baseURL = getBaseUrl();
     const url = baseURL ? `${baseURL}/api/tournaments` : "/api/tournaments";
 
-    console.log("Fetching tournaments from:", url); 
-
     const res = await fetch(url, {
-      next: { revalidate: 1800 },
-      cache: "force-cache",
+      next: { revalidate: 1800 }, // ✅ Sin cache: "force-cache"
     });
 
     if (!res.ok) {
