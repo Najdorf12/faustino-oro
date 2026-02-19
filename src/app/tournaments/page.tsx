@@ -22,7 +22,7 @@ export default async function TournamentsPage() {
     getFideStats(),
   ]);
 
-  if (!fidePlayer) {
+  /*  if (!fidePlayer) {
     return (
       <section className="w-full min-h-screen bg-zinc-800 flex items-center justify-center">
         <p className="text-zinc-400 text-xl">
@@ -30,7 +30,7 @@ export default async function TournamentsPage() {
         </p>
       </section>
     );
-  }
+  } */
 
   return (
     <section className="w-full pb-32">
@@ -72,9 +72,9 @@ export default async function TournamentsPage() {
         </section>
       </section>
       {/* Componente con estadísticas FIDE */}
-      <FidePlayer fide={fidePlayer} stats={fideStats} />
+      {fidePlayer && <FidePlayer fide={fidePlayer} stats={fideStats} />}
 
-     <TournamentsList tournaments={tournaments} /> 
+      <TournamentsList tournaments={tournaments} />
     </section>
   );
 }
