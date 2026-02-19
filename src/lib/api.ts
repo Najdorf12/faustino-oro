@@ -143,20 +143,16 @@ export async function getFidePlayer(): Promise<FideResponse | null> {
   try {
     const res = await fetch(
       "https://fide-api.vercel.app/player_info/?fide_id=20000197&history=true",
-      {
-        next: { revalidate: 3600 }, // 1 hora
-        cache: "force-cache",
-      },
+      { next: { revalidate: 3600 } }
+      // ✅ Quitá cache: "force-cache" — puede estar cacheando una respuesta fallida
     );
 
-    if (!res.ok) {
-      console.error("Failed to fetch FIDE player:", res.status, res.statusText);
-      return null;
-    }
+    console.log("FIDE status:", res.status, res.statusText); // ← mirá esto en Vercel logs
 
+    if (!res.ok) return null;
     return res.json();
   } catch (error) {
-    console.error("Error fetching FIDE player:", error);
+    console.error("FIDE fetch error:", error);
     return null;
   }
 }
