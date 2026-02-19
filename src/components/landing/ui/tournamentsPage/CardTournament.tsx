@@ -60,11 +60,11 @@ export default function CardTournament({ tournament }: Props) {
 
   return (
     <>
-      <section className="border-2 shadow-xl shadow-zinc-700 border-zinc-600 rounded-xl  bg-zinc-700 relative">
+      <section className="border-2 shadow-xl shadow-sky-800 border-zinc-600 rounded-lg  bg-zinc-700 relative">
         <button
           onClick={fetchPlayer}
           disabled={loading}
-          className="absolute bottom-3 left-2 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-600 cursor-pointer z-100 w-48 rounded-lg h-9 text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 "
+          className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-100 w-48 rounded-lg h-9 text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 "
         >
           {loading ? "Cargando..." : expanded ? "Ocultar" : "Ver performance"}
 
@@ -92,33 +92,38 @@ export default function CardTournament({ tournament }: Props) {
             className="w-16 lg:w-32"
           />
         </figure>
+
         {/* CABECERA */}
-        <div className="relative  z-50 rounded-l-lg  gap-4 pt-6 pb-16 px-3 lg:w-1/2 bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-4.5">
-          <div className="flex w-fit px-3 rounded-sm bg-sky-600">
-            {tournament.isActive && (
-              <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 lg:text-base">
+        <div className="relative  z-50 rounded-lg gap-4 pt-4.5 pb-17 px-4 lg:w-1/2 bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-5">
+          <div className="flex w-fit ">
+            {tournament.isActive ? (
+              <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-600 lg:text-base">
                 Próximamente
+              </span>
+            ) : (
+              <span className="flex items-center gap-1.5 text-sm font-medium  text-zinc-200 py-0.5 px-6 rounded-sm bg-zinc-600 lg:text-base">
+                Finalizado
               </span>
             )}
           </div>
-          <ul className="flex flex-col text-zinc-400 xl:text-lg">
+          <ul className="flex flex-col text-zinc-400 text-lg">
             <h6 className="text-2xl font-medium text-zinc-100 mt-3 lg:text-3xl">
               {tournament.title}
             </h6>
-            <li className="text-zinc-400 mt-2 mb-10">
+            <li className="text-zinc-400 mt-2 mb-12">
               {tournament.description}
             </li>
-            <figure className=" ">
+            <figure className="">
               <Image
                 src={tournament.images[0].secure_url}
                 width={100}
                 height={100}
                 alt="icon-tournament-card"
-                className="object-contain lg:w-40 lg:h-20 "
+                className="object-contain w-34 lg:w-40 lg:h-20 "
               />
             </figure>
-            <li className="mt-3 text-zinc-400">{tournament.location}</li>
-            <li className="mt-2">
+            <li className="mt-4 border-t pt-2 text-zinc-400">{tournament.location}</li>
+            <li className="">
               Inicio : <span className="text-zinc-200">{startDate}</span>
             </li>
             <li>
