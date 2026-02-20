@@ -148,12 +148,12 @@ export default function CardTournament({ tournament }: Props) {
       {player && (
         <>
           {/* STATS */}
-          <div className="grid grid-cols-4 gap-3 text-center ">
+          <div className="grid grid-cols-4 gap-2 text-center ">
             <Stat label="Rank" value={`#${player.rank}`} />
             <Stat label="Score" value={player.score} />
             <Stat label="Perf" value={player.performance} />
             <Stat
-              label="Δ Rating"
+              label="Rating"
               value={
                 player.ratingDiff >= 0
                   ? `+${player.ratingDiff}`
@@ -165,17 +165,17 @@ export default function CardTournament({ tournament }: Props) {
 
           {/* PARTIDAS */}
           {player.games.length > 0 && (
-            <div className="space-y-2 bg-zinc-800">
-              <p className="text-xs text-zinc-500 uppercase tracking-wide font-medium">
+            <div className="space-y-2 mt-6 border  border-zinc-700 pt-3 px-3 lg:pt-4 lg:px-4">
+              <p className="text-base text-zinc-500 uppercase tracking-wide font-medium lg:text-lg 3xl:text-xl">
                 Partidas ({player.played})
               </p>
               {player.games.map((g) => (
                 <div
                   key={g.id}
-                  className="flex justify-between items-center 
-                       px-3 py-2 rounded-lg text-sm"
+                  className="flex border-b border-zinc-700 justify-between items-center 
+                       px-3 py-2 text-sm lg:text-base 3xl:text-lg"
                 >
-                  <span className="text-zinc-300 flex items-center gap-2">
+                  <span className="text-zinc-200 flex items-center gap-2">
                     {g.color === "white" ? "⚪" : "⚫"}
                     <span>
                       {g.opponent.title && (
@@ -185,7 +185,7 @@ export default function CardTournament({ tournament }: Props) {
                       )}
                       {g.opponent.name}
                     </span>
-                    <span className="text-zinc-500">({g.opponent.rating})</span>
+                    <span className="text-zinc-400">({g.opponent.rating})</span>
                   </span>
                   <span
                     className={
@@ -224,11 +224,11 @@ function Stat({
   return (
     <div
       className="
-     rounded-lg p-2 bg-sky-500 mt-6"
+     rounded-lg p-2 bg-linear-to-br from-sky-600 border border-sky-600 to-zinc-900 mt-9"
     >
-      <div className="text-lg text-zinc-100 mb-0.5 lg:text-xl">{label}</div>
+      <div className="text-lg text-zinc-100  lg:text-xl">{label}</div>
       <div
-        className={`text-lg font-semibold lg:text-xl ${
+        className={`text-lg lg:text-xl ${
           highlight === "positive"
             ? "text-emerald-400"
             : highlight === "negative"

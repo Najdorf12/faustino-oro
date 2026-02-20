@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     url: "https://www.orofaustino.com",
     title: "Faustino Oro - Página Oficial del Ajedrecista Argentino",
     description:
-      "Página Oficial de Faustino Oro, el joven prodigio del ajedrez argentino. Conoce su biografía, torneos, partidas destacadas y logros.",
+      "Página Oficial de Faustino Oro, el joven prodigio del ajedrez argentino. Conoce su biografía, torneos, stats, partidas destacadas y logros.",
     siteName: "Faustino Oro",
     images: [
       {

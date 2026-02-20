@@ -13,7 +13,7 @@ export  function ButtonProgress({
   return (
     <button
       onClick={onClick}
-      className=" shadow-zinc-300 z-100 border hover:scale-95 border-sky-800 duration-500 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-56 md:w-62 rounded-md bg-sky-900 p-2 flex justify-between pl-3 items-center font-medium md:text-lg"
+      className=" shadow-zinc-300 z-100 border hover:scale-95 border-sky-800 duration-500 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-62 rounded-md bg-sky-900 p-2 flex justify-between pl-3 items-center font-medium md:text-lg"
     >
       <div className="absolute top-0 -right-3 z-10 w-16 h-16 rounded-full scale-150 group-hover:-right-3 duration-500 bg-sky-500"></div>
       <div className="absolute right-20 -top-4 group-hover:top-1 group-hover:right-1 z-10 w-16 h-16 rounded-full group-hover:scale-150 duration-500 bg-sky-600"></div>
@@ -39,7 +39,7 @@ export function ButtonStats({
   return (
     <button
       onClick={onClick}
-      className=" shadow-zinc-300 z-100 border hover:scale-95 border-sky-800 duration-500 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-56 md:w-62 rounded-md bg-sky-900 p-2 flex justify-between pl-3 items-center font-medium md:text-lg"
+      className=" shadow-zinc-300 z-100 border hover:scale-95 border-sky-800 duration-500 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-62 rounded-md bg-sky-900 p-2 flex justify-between pl-3 items-center font-medium md:text-lg"
     >
       <div className="absolute top-0 -right-3 z-10 w-16 h-16 rounded-full scale-150 group-hover:-right-3 duration-500 bg-sky-500"></div>
       <div className="absolute right-20 -top-4 group-hover:top-1 group-hover:right-1 z-10 w-16 h-16 rounded-full group-hover:scale-150 duration-500 bg-sky-600"></div>
@@ -66,7 +66,7 @@ export function ButtonInfo({
   return (
     <button
       onClick={onClick}
-      className={`shadow-zinc-300 z-100 border hover:scale-95 duration-500 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-56 md:w-62 rounded-md p-2 flex justify-between pl-3 items-center font-medium md:text-lg
+      className={`shadow-zinc-300 z-100 border hover:scale-95 duration-500 relative group cursor-pointer text-zinc-200 overflow-hidden h-10 w-62 rounded-md p-2 flex justify-between pl-3 items-center font-medium md:text-lg
         ${active ? "bg-sky-700 border-sky-500" : "bg-sky-900 border-sky-800"}
       `}
     >

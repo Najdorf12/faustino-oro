@@ -13,24 +13,24 @@ interface DoughnutChartProps {
   side?: "white" | "black";
 }
 
-export default function DoughnutChart({ 
-  title, 
-  wins, 
-  draws, 
+export default function DoughnutChart({
+  title,
+  wins,
+  draws,
   losses,
-  side = "white" 
+  side = "white",
 }: DoughnutChartProps) {
   const data = {
     labels: ["Victorias", "Empates", "Derrotas"],
     datasets: [
       {
         data: [wins, draws, losses],
-        backgroundColor: 
-          side === "white" 
-            ? ["#22c55e", "#eab308", "#ef4444"] // verde, amarillo, rojo
-            : ["#0069a8", "#52525c", "#e4e4e7"], // azul, gris, gris claro
+        backgroundColor:
+          side === "white"
+            ? ["#0069a8", "#e4e4e7", "#27272a"]
+            : ["#0069a8", "#e4e4e7", "#27272a"],
         borderWidth: 1,
-        borderColor: "#18181b",
+        borderColor: "#3f3f46",
       },
     ],
   };
@@ -40,32 +40,32 @@ export default function DoughnutChart({
     maintainAspectRatio: true,
     plugins: {
       legend: {
-        position: 'bottom' as const,
+        position: "bottom" as const,
         labels: {
-          color: '#d4d4d8',
+          color: "#d4d4d8",
           padding: 10,
           font: {
-            size: 11,
-          }
-        }
+            size: 12,
+          },
+        },
       },
       tooltip: {
         callbacks: {
-          label: function(context: any) {
-            const label = context.label || '';
+          label: function (context: any) {
+            const label = context.label || "";
             const value = context.parsed || 0;
             const total = wins + draws + losses;
             const percentage = ((value / total) * 100).toFixed(1);
             return `${label}: ${value} (${percentage}%)`;
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   };
 
   return (
-    <div className="w-55 bg-zinc-900 p-2 rounded-lg first:rounded-r-none last:rounded-l-none">
-      <h3 className="text-center text-base mb-2 text-zinc-300 font-medium">
+    <div className="w-55 bg-zinc-700 p-2 rounded-lg border border-zinc-500">
+      <h3 className="text-center text-base mb-3 text-zinc-300 font-medium lg:text-lg">
         {title}
       </h3>
       <Doughnut data={data} options={options} />

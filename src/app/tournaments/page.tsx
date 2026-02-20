@@ -44,7 +44,7 @@ export default async function TournamentsPage() {
           <h6 className="relative text-zinc-300 text-6xl md:text-8xl font-medium 3xl:text-9xl">
             TORNEOS
           </h6>
-          <p className="relative text-sm md:text-lg text-zinc-400 flex justify-center items-center max-w-175 my-6 3xl:text-xl">
+          <p className="relative text-sm md:text-lg text-zinc-400 flex justify-center items-center max-w-100 lg:max-w-175 my-6 3xl:text-xl">
             Consulta aquí la lista de próximos torneos en los que participará.
             Sigue su calendario y mantente al día con su increíble recorrido
             competitivo.

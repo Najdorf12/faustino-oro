@@ -46,7 +46,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
 
       {historical.length > 0 && (
         <div>
-          <div className="flex flex-col justify-center items-center text-center gap-3 mb-9 pt-12 lg:mb-12 lg:pt-16">
+          <div className="flex flex-col justify-center items-center text-center gap-3 mb-9 pt-12 lg:mb-12 lg:pt-20">
             <h6 className="text-zinc-200 text-4xl lg:text-6xl ">Historial</h6>
             <div className=" text-zinc-600 text-xl lg:text-3xl">
               - {historical.length} torneo{historical.length !== 1 ? "s" : ""} -
