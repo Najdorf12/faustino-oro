@@ -104,7 +104,9 @@ export default async function NoticePage({ params }: Props) {
             "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
         }}
       />
-
+ <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
+          © Faustino Oro
+        </div>
     </div>
   );
 }

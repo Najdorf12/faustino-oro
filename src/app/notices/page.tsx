@@ -157,9 +157,12 @@ async function NoticesContent() {
   const activeNotices = notices.filter((notice: any) => notice.isActive);
 
   return (
-    <div className="w-full min-h-screen bg-zinc-800 py-20 px-6">
+    <div className="w-full min-h-screen bg-zinc-800 py-16 px-6 relative lg:py-20">
+       <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
+          © Faustino Oro
+        </div>
       <div className="max-w-7xl mx-auto">
-        <h6 className="text-5xl lg:text-7xl font-medium text-zinc-200 mb-12">
+        <h6 className="text-4xl md:text-5xl text-center lg:text-6xl text-zinc-200 mb-12 lg:mb-16">
           Todas las noticias
         </h6>
 
@@ -173,7 +176,7 @@ async function NoticesContent() {
               <Link
                 key={notice._id}
                 href={`/notices/${notice._id}`}
-                className="group border border-zinc-700 rounded-xl overflow-hidden hover:bg-zinc-750 transition-all duration-300 hover:scale-105"
+                className="group border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-200 transition-all duration-500"
               >
                 {notice.images &&
                   notice.images.length > 0 &&
@@ -215,6 +218,7 @@ async function NoticesContent() {
           </div>
         )}
       </div>
+      
     </div>
   );
 }

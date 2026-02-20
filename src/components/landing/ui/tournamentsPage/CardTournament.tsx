@@ -134,7 +134,7 @@ export default function CardTournament({ tournament }: Props) {
 
         {/* PANEL EXPANDIDO */}
         {expanded && (
-          <div className="border-t border-zinc-700  space-y-4 ">
+          <div className="border-t border-zinc-700 space-y-4 ">
             {error && <p className="text-red-400 text-sm">{error}</p>}
 
             {!player && !error && !loading && (
@@ -165,7 +165,7 @@ export default function CardTournament({ tournament }: Props) {
 
           {/* PARTIDAS */}
           {player.games.length > 0 && (
-            <div className="space-y-2 mt-6 border  border-zinc-700 pt-3 px-3 lg:pt-4 lg:px-4">
+            <div className="space-y-2 mt-6 border rounded-lg border-zinc-700 pt-3 px-3 lg:pt-4 lg:px-4">
               <p className="text-base text-zinc-500 uppercase tracking-wide font-medium lg:text-lg 3xl:text-xl">
                 Partidas ({player.played})
               </p>

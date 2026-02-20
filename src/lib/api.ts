@@ -17,8 +17,6 @@ export async function getAchievements() {
     const baseURL = getBaseUrl(); 
     const url = baseURL ? `${baseURL}/api/achievements` : "/api/achievements";
 
-    console.log("Fetching achievements from:", url);
-
     const res = await fetch(url, {
       next: { revalidate: 3600 },
       cache: "force-cache",
@@ -44,8 +42,6 @@ export async function getTournaments() {
     const baseURL = getBaseUrl(); 
     const url = baseURL ? `${baseURL}/api/tournaments` : "/api/tournaments";
 
-    console.log("Fetching tournaments from:", url); 
-
     const res = await fetch(url, {
       next: { revalidate: 1800 },
       cache: "force-cache",
@@ -69,8 +65,6 @@ export async function getTournamentById(id: string) {
       ? `${baseURL}/api/tournaments/${id}`
       : `/api/tournaments/${id}`;
 
-    console.log("Fetching tournament from:", url); 
-
     const res = await fetch(url, {
       next: { revalidate: 1800 },
       cache: "force-cache",
@@ -92,8 +86,6 @@ export async function getNotices() {
     const baseURL = getBaseUrl(); 
     const url = baseURL ? `${baseURL}/api/notices` : "/api/notices";
 
-    console.log("Fetching notices from:", url); 
-
     const res = await fetch(url, {
       next: { revalidate: 1800 },
       cache: "force-cache",
@@ -114,8 +106,6 @@ export async function getNoticeById(id: string) {
   try {
     const baseURL = getBaseUrl(); 
     const url = baseURL ? `${baseURL}/api/notices/${id}` : `/api/notices/${id}`;
-
-    console.log("Fetching notice from:", url);
 
     const res = await fetch(url, {
       next: { revalidate: 1800 },
