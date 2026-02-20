@@ -38,7 +38,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
       <div className="text-balance bg-linear-to-br  from-zinc-700 to-zinc-900/60 rounded-xl overflow-hidden shadow-lg hover:shadow-zinc-500 transition-all duration-300 border-2 border-zinc-500 hover:border-zinc-300 lg:flex lg:items-stretch lg:w-270 lg:min-h-75 lg:px-4 ">
         {/* Image Section */}
         {notice.images?.length > 0 && (
-          <div className="relative w-full h-46 pl-3 lg:h-66 lg:w-1/3 self-center">
+          <div className="relative w-full h-48 pl-3 lg:h-66 lg:w-1/3 self-center">
             <Image
               src={notice.images[0].secure_url}
               fill
@@ -58,9 +58,9 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
           </div>
         )}
 
-        <div className="p-5 md:p-6 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 ">
+        <div className="p-4 md:p-6 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 ">
           <div className="mb-3 lg:mb-4">
-            <span className="inline-block bg-zinc-700 text-zinc-300 text-sm font-medium px-6 py-0.5 rounded-full lg:px-9 2xl:text-base">
+            <span className="inline-block bg-sky-700 text-zinc-300 text-sm font-medium px-6 py-0.5 rounded-full lg:px-9 2xl:text-base">
               {notice.category}
             </span>
           </div>
@@ -91,7 +91,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
         </div>
         <Link
           href={`/notices/${notice._id}`}
-          className="self-end bg-zinc-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 lg:mb-3"
+          className="self-end mb-2 ml-3 bg-zinc-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 lg:mb-3"
         >
           <p>Leer más</p>
           <div className="bg-sky-600 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">

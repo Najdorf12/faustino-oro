@@ -74,15 +74,15 @@ export default function NoticesPage() {
             src={imgFaustiNotice}
             alt="img-notice"
             loading="eager"
-            className="w-full h-full object-cover absolute inset-0 rounded-2xl lg:rounded-bl-none"
+            className="w-full h-full object-cover absolute inset-0 rounded-2xl lg:rounded-bl-none lg:rounded-r-none"
           ></Image>
         </section>
       </section>
-      <figure className="w-full relative md:w-full h-100 md:h-screen ">
+      <figure className="w-full relative md:w-full h-100 md:h-screen mt-9 md:mt-0">
         <div className="absolute inset-0 bg-zinc-900/80"></div>
         <Image
           src={imgFaustiCaruana}
-          alt="imgFooter"
+          alt="imgFausti-Caruana"
           className="w-full h-full object-cover "
         ></Image>
 
@@ -130,7 +130,7 @@ export default function NoticesPage() {
           }}
         />
         <article className="absolute inset-0 z-200 flex items-start pb-14 md:items-end ">
-          <h6 className="z-60 text-start text-zinc-300 font-medium  text-balance text-lg mt-1 md:text-5xl ml-[9%] max-w-200 3xl:text-6xl">
+          <h6 className="z-60 text-start text-zinc-300 font-medium text-balance text-xl mt-3 md:text-5xl ml-[9%] max-w-200 3xl:text-6xl 3xl:max-w-280">
             Aquí encontrarás actualizaciones en tiempo real y la cobertura de
             los momentos más importantes de su trayectoria profesional
           </h6>
@@ -139,7 +139,7 @@ export default function NoticesPage() {
           <Image
             src={iconFaustiCaruana}
             alt="icon"
-            className="w-14 lg:w-60 absolute top-2 left-[2%] md:top-auto md:bottom-6"
+            className="w-15 md:w-60 absolute top-2 left-[2%] md:top-auto md:bottom-6 3xl:w-70"
           ></Image>
         </figure>
       </figure>
@@ -159,16 +159,9 @@ async function NoticesContent() {
   return (
     <div className="w-full min-h-screen bg-zinc-800 py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <Link
-          href="/"
-          className="text-sky-400 hover:text-sky-300 mb-8 inline-block"
-        >
-          ← Volver al inicio
-        </Link>
-
-        <h1 className="text-5xl lg:text-7xl font-medium text-zinc-200 mb-12">
-          Noticias
-        </h1>
+        <h6 className="text-5xl lg:text-7xl font-medium text-zinc-200 mb-12">
+          Todas las noticias
+        </h6>
 
         {activeNotices.length === 0 ? (
           <p className="text-zinc-400 text-center py-20">
@@ -180,7 +173,7 @@ async function NoticesContent() {
               <Link
                 key={notice._id}
                 href={`/notices/${notice._id}`}
-                className="group bg-zinc-800 rounded-xl overflow-hidden hover:bg-zinc-750 transition-all duration-300 hover:scale-105"
+                className="group border border-zinc-700 rounded-xl overflow-hidden hover:bg-zinc-750 transition-all duration-300 hover:scale-105"
               >
                 {notice.images &&
                   notice.images.length > 0 &&
@@ -195,9 +188,9 @@ async function NoticesContent() {
                     </div>
                   )}
 
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-medium text-sky-400 bg-sky-400/10 px-3 py-1 rounded-full">
+                <div className="py-6 px-3">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-4 py-1 rounded-full">
                       {notice.category}
                     </span>
                     <span className="text-zinc-500 text-sm">
@@ -209,7 +202,7 @@ async function NoticesContent() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-medium text-zinc-200 mb-2 group-hover:text-sky-400 transition-colors line-clamp-2">
+                  <h2 className="text-2xl leading-8 text-zinc-200 mb-4 group-hover:text-sky-400 transition-colors line-clamp-2">
                     {notice.title}
                   </h2>
 

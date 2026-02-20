@@ -55,15 +55,12 @@ export default async function HomePage() {
       <About />
       <Achievements data={achievements} />
       <Tournaments data={tournaments} />
-      <div className="w-full flex gap-12 items-center justify-evenly py-16 bg-zinc-200 text-3xl font-light text-zinc-400 lg:text-5xl lg:py-20">
-        <div className="max-w-200 text-balance flex flex-col ">
-          {/*      El Ajedrez es un juego absolutamente lógico que tiene sus leyes
-          generales que se pueden comprender intuitivamente o trabajando
-          muchísimo */}
+      <div className="w-full flex flex-col-reverse justify-center items-center px-6 gap-9 py-14 bg-zinc-200 font-light text-zinc-400 text-2xl md:flex-row md:justify-evenly md:px-0 lg:text-5xl lg:py-20">
+        <div className="max-w-90 lg:max-w-200 text-balance flex flex-col">
           El Ajedrez, con toda su profundidad filosófica, es ante todo un juego
           en el que se ponen de manifiesto la imaginación, el carácter y la
           voluntad
-          <div className="text-base lg:text-xl pt-6 self-start">
+          <div className="text-base lg:text-xl pt-6 ">
             Borís Spaski
           </div>
         </div>
@@ -71,24 +68,10 @@ export default async function HomePage() {
           src={asterisk}
           alt="Faustino Oro - Torneos"
           loading="eager"
-          className="w-60"
+          className="w-40 lg:w-60 self-"
         />
       </div>
       <Notices data={notices} />
-      {/*  <div className="w-full flex gap-12 items-center  justify-evenly py-16  bg-sky-700  text-4xl font-light text-zinc-200">
-        <div className=" max-w-200">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus
-          facilis et praesentium architecto nostrum quo dolorem perferendis
-          quaerat sapiente doloribus reprehenderit voluptatem voluptates, illo,
-          in quia aliquam sed optio possimus!
-        </div>
-        <Image
-          src={asterisk}
-          alt="Faustino Oro - Torneos"
-          loading="eager"
-          className="w-60"
-        />
-      </div> */}
       <Contact />
     </section>
   );
