@@ -60,7 +60,7 @@ export default function PageLoader() {
           </svg>
         </figure>
 
-        <p className="text-zinc-600 text-2xl mt-2 flex flex-col text-center xl:text-3xl">
+        <p className="text-zinc-600 text-xl mt-4 flex flex-col text-center xl:text-2xl ">
           Faustino Oro{" "}
           <span className="text-sm xl:text-base">International Master</span>
         </p>
