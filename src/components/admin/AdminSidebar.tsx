@@ -70,16 +70,45 @@ export default function AdminSidebar() {
           className="lg:hidden fixed inset-0 bg-opacity-50 z-40 transition-opacity"
           onClick={closeSidebar}
         />
+        
       )}
+      <div className="lg:hidden flex flex-col items-center justify-center bg-zinc-800 py-6 gap-3 self-center lg:py-0">
+      {menuItems.map((item) => {
+        const isActive = pathname === item.href;
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={closeSidebar}
+            className={`
+                   max-w-70 border border-zinc-700 shadow-lg shadow-sky-900  flex w-full items-center gap-3 px-3 lg:border lg:border-zinc-500 py-3 rounded-lg 
+                  transition-all duration-200 lg:gap-4 lg:w-75 xl:w-80 2xl:w-90
+                  ${
+                    isActive
+                      ? "bg-sky-700 text-white shadow-lg"
+                      : "text-gray-300 hover:bg-zinc-800 hover:text-white"
+                  }
+                `}
+          >
+            <span className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl flex items-center justify-center h-8 lg:h-10 xl:h-12 2xl:h-14">
+              {item.icon}
+            </span>
+            <span className="font-medium text-lg xl:text-xl 3xl:text-2xl">
+              {item.label}
+            </span>
+          </Link>
+        );
+      })}
 
+      </div>
       <aside
         className={`
-          fixed top-0 left-0 h-screen w-80 bg-sky-900 border-r border-zinc-700 z-100 
-          pt-24 lg:translate-x-0 lg:static lg:w-full lg:h-auto lg:p-0 
+          fixed top-0 left-0 h-screen w-80 bg-zinc-800 border-r-2 rounded-r-lg border-sky-600 z-100 
+          pt-24 lg:translate-x-0 lg:static lg:w-full lg:h-auto lg:p-0 lg:border-r-0 lg:border-y-2 lg:rounded-none 
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
          transition-transform duration-300 ease-in-out`}
       >
-        <nav className="lg:gap-2 lg:flex justify-center items-center 2xl:gap-4 lg:py-4 lg:shadow-2xl shadow-zinc-900">
+        <nav className="lg:gap-4 lg:flex justify-center items-center 2xl:gap-4 lg:py-4 lg:shadow-2xl shadow-sky-900">
           {menuItems.map((item) => {
             const isActive = pathname === item.href;
 
@@ -90,11 +119,11 @@ export default function AdminSidebar() {
                 onClick={closeSidebar}
                 className={`
                   flex w-full items-center gap-3 px-3 lg:border lg:border-zinc-500 py-3 rounded-lg 
-                  transition-all duration-200 lg:gap-4 lg:w-75 xl:w-80 2xl:w-90
+                  transition-all duration-200 lg:gap-4 lg:w-75 xl:w-80 2xl:w-90 
                   ${
                     isActive
                       ? "bg-sky-700 text-white shadow-lg"
-                      : "text-gray-300 hover:bg-zinc-800 hover:text-white"
+                      : "text-gray-300 hover:bg-zinc-700 hover:text-white"
                   }
                 `}
               >

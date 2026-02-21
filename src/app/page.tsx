@@ -24,24 +24,35 @@ async function getLandingData() {
   try {
     await connectToDatabase();
 
-    const [achievements, tournaments, notices] = await Promise.all([
+    const LIMIT = 4;
+
+    const activeTournaments = await TournamentModel.find({ isActive: true })
+      .sort({ startDate: 1 })
+      .limit(LIMIT)
+      .lean();
+
+    const remaining = LIMIT - activeTournaments.length;
+
+    const pastTournaments = remaining > 0
+      ? await TournamentModel.find({ isActive: false })
+          .sort({ endDate: -1 })
+          .limit(remaining)
+          .lean()
+      : [];
+
+    const [achievements, notices] = await Promise.all([
       AchievementModel.find().sort({ createdAt: -1 }).lean(),
-      TournamentModel.find().sort({ startDate: -1 }).lean(),
       NoticeModel.find().sort({ createdAt: -1 }).limit(4).lean(),
     ]);
 
     return {
       achievements: JSON.parse(JSON.stringify(achievements)),
-      tournaments: JSON.parse(JSON.stringify(tournaments)),
+      tournaments: JSON.parse(JSON.stringify([...activeTournaments, ...pastTournaments])),
       notices: JSON.parse(JSON.stringify(notices)),
     };
   } catch (error) {
     console.error("Error in getLandingData:", error);
-    return {
-      achievements: [],
-      tournaments: [],
-      notices: [],
-    };
+    return { achievements: [], tournaments: [], notices: [] };
   }
 }
 
