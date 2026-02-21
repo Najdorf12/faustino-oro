@@ -5,7 +5,7 @@ import { Tournament } from "@/types/tournament";
 import { LichessPlayer } from "@/types/lichess";
 import Image from "next/image";
 import iconTournamentCard from "@/assets/images/icons/iconKnight.svg";
-import imgAlternative from "@/assets/images/img12.jpg"
+import imgAlternative from "@/assets/images/img10.webp"
 interface Props {
   tournament: Tournament;
 }
@@ -61,7 +61,17 @@ export default function CardTournament({ tournament }: Props) {
 
   return (
     <>
-      <section className="border-2 shadow-xl shadow-sky-800 border-zinc-600 rounded-lg  bg-zinc-700 relative">
+      <section className="border-2  border-zinc-600 rounded-lg  relative">
+          <div
+        className="absolute inset-0 z-0 rounded-3xl"
+        style={{
+          backgroundImage: `
+          radial-gradient(circle at 50% 100%, #00598a 0%, transparent 60%),
+          radial-gradient(circle at 50% 100%, #00598a 0%, transparent 70%),
+          radial-gradient(circle at 50% 100%, #27272a 0%, transparent 80%)
+        `,
+        }}
+      />
         <button
           onClick={fetchPlayer}
           disabled={loading}
@@ -102,37 +112,31 @@ export default function CardTournament({ tournament }: Props) {
                 Próximamente
               </span>
             ) : (
-              <span className="flex items-center gap-1.5 text-sm font-medium  text-zinc-200 py-0.5 px-6 rounded-sm bg-zinc-600 lg:text-base">
+              <span className="flex items-center gap-1.5 text-sm font-medium  text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-800 lg:text-base lg:px-10">
                 Finalizado
               </span>
             )}
           </div>
-          <ul className="flex flex-col text-zinc-400 text-lg">
-            <h6 className="text-2xl font-medium text-zinc-100 mt-3 lg:text-3xl">
+          <ul className="flex flex-col text-zinc-400 text-lg text-balance">
+            <h6 className="text-2xl font-medium text-zinc-100 mt-4 lg:text-3xl">
               {tournament.title}
             </h6>
-            <li className="text-zinc-400 mt-2 mb-12">
+            <li className="text-zinc-400 mt-2 mb-12 italic lg:text-xl">
               {tournament.description}
             </li>
             {tournament.images.length > 0 ?
-              <figure className="">
+              <figure className="w-34 lg:w-40 h-16 lg:h-20">
                 <Image
                   src={tournament.images[0].secure_url}
                   width={100}
                   height={100}
                   alt="icon-tournament-card"
-                  className="object-contain w-34 lg:w-40 lg:h-20 "
+                  className="object-cover w-full h-full rounded-sm"
                 />
               </figure>
               :
-               <figure className="">
-                <Image
-                  src={imgAlternative}
-                  width={100}
-                  height={100}
-                  alt="icon-tournament-card"
-                  className="object-contain w-34 lg:w-40 lg:h-20 "
-                />
+               <figure className=" w-34 lg:w-40 h-16 lg:h-20">
+                <div className="w-full h-full bg-zinc-700 rounded-sm text-zinc-500 text-xs p-2">Image not found</div>
               </figure>
             }
 
