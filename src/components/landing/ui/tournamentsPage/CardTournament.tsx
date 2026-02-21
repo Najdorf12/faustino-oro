@@ -5,6 +5,7 @@ import { Tournament } from "@/types/tournament";
 import { LichessPlayer } from "@/types/lichess";
 import Image from "next/image";
 import iconTournamentCard from "@/assets/images/icons/iconKnight.svg";
+import imgAlternative from "@/assets/images/img12.jpg"
 interface Props {
   tournament: Tournament;
 }
@@ -113,16 +114,31 @@ export default function CardTournament({ tournament }: Props) {
             <li className="text-zinc-400 mt-2 mb-12">
               {tournament.description}
             </li>
-            <figure className="">
-              <Image
-                src={tournament.images[0].secure_url}
-                width={100}
-                height={100}
-                alt="icon-tournament-card"
-                className="object-contain w-34 lg:w-40 lg:h-20 "
-              />
-            </figure>
-            <li className="mt-4 border-t pt-2 text-zinc-400">{tournament.location}</li>
+            {tournament.images.length > 0 ?
+              <figure className="">
+                <Image
+                  src={tournament.images[0].secure_url}
+                  width={100}
+                  height={100}
+                  alt="icon-tournament-card"
+                  className="object-contain w-34 lg:w-40 lg:h-20 "
+                />
+              </figure>
+              :
+               <figure className="">
+                <Image
+                  src={imgAlternative}
+                  width={100}
+                  height={100}
+                  alt="icon-tournament-card"
+                  className="object-contain w-34 lg:w-40 lg:h-20 "
+                />
+              </figure>
+            }
+
+            <li className="mt-4 border-t pt-2 text-zinc-400">
+              {tournament.location}
+            </li>
             <li className="">
               Inicio : <span className="text-zinc-200">{startDate}</span>
             </li>
