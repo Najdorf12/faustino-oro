@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useRef, useReducer, useMemo, Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import Image from "next/image";
-import imgContact from "@/assets/images/img9.webp";
 import { useGLTF, Environment, Preload } from "@react-three/drei";
 import { BallCollider, Physics, RigidBody } from "@react-three/rapier";
 import { usePathname } from "next/navigation";
@@ -108,7 +107,7 @@ export const Contact = () => {
 
           <div className="flex flex-col items-center justify-center mt-6 w-full md:mt-0 md:w-[40%] md:h-full">
             <Form />
-            <ul className="flex md:hidden gap-12 mt-6 text-zinc-500 pointer-events-auto">
+            <ul className="flex md:hidden gap-12 mt-9 text-zinc-500 pointer-events-auto">
               <Link
                 href={"https://www.facebook.com/orofaustino/?locale=es_LA"}
                 target="blank"

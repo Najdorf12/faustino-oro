@@ -91,7 +91,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
         </div>
         <Link
           href={`/notices/${notice._id}`}
-          className="self-end mb-2 ml-3 bg-zinc-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 lg:mb-3"
+          className="self-end mb-2 ml-3 bg-zinc-700/70 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 lg:mb-3"
         >
           <p>Leer más</p>
           <div className="bg-sky-600 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">

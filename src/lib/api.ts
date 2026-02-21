@@ -14,7 +14,7 @@ function getBaseUrl() {
 
 export async function getAchievements() {
   try {
-    const baseURL = getBaseUrl(); 
+    const baseURL = getBaseUrl();
     const url = baseURL ? `${baseURL}/api/achievements` : "/api/achievements";
 
     const res = await fetch(url, {
@@ -39,7 +39,7 @@ export async function getAchievements() {
 
 export async function getTournaments() {
   try {
-    const baseURL = getBaseUrl(); 
+    const baseURL = getBaseUrl();
     const url = baseURL ? `${baseURL}/api/tournaments` : "/api/tournaments";
 
     const res = await fetch(url, {
@@ -60,7 +60,7 @@ export async function getTournaments() {
 
 export async function getTournamentById(id: string) {
   try {
-    const baseURL = getBaseUrl(); 
+    const baseURL = getBaseUrl();
     const url = baseURL
       ? `${baseURL}/api/tournaments/${id}`
       : `/api/tournaments/${id}`;
@@ -83,7 +83,7 @@ export async function getTournamentById(id: string) {
 
 export async function getNotices() {
   try {
-    const baseURL = getBaseUrl(); 
+    const baseURL = getBaseUrl();
     const url = baseURL ? `${baseURL}/api/notices` : "/api/notices";
 
     const res = await fetch(url, {
@@ -104,7 +104,7 @@ export async function getNotices() {
 
 export async function getNoticeById(id: string) {
   try {
-    const baseURL = getBaseUrl(); 
+    const baseURL = getBaseUrl();
     const url = baseURL ? `${baseURL}/api/notices/${id}` : `/api/notices/${id}`;
 
     const res = await fetch(url, {
@@ -166,12 +166,6 @@ export async function getLandingData() {
     getTournaments(),
     getNotices(),
   ]);
-
-  console.log("Results:", {
-    achievements: achievements.length,
-    tournaments: tournaments.length,
-    notices: notices.length,
-  });
 
   return {
     achievements,

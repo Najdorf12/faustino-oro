@@ -5,7 +5,7 @@ import icon from "@/assets/images/icons/iconKnight.svg";
 export default function Home() {
   return (
     <>
-      <section className="bg-zinc-800 h-screen w-full relative pb-6  ">
+      <section className="bg-zinc-800 h-dvh md:h-screen w-full relative pb-6  ">
         <div className="absolute inset-0 z-20 bg-radial from-zinc-800/40 from-40% to-zinc-800 "></div>
         <Image
           src={imgHome}
