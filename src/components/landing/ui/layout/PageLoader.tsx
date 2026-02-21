@@ -14,7 +14,7 @@ export default function PageLoader() {
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      setIsLoading(true);
     }, 2200);
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -60,9 +60,9 @@ export default function PageLoader() {
           </svg>
         </figure>
 
-        <p className="text-zinc-600 text-2xl flex flex-col text-center lg:text-3xl">
+        <p className="text-zinc-600 text-2xl mt-2 flex flex-col text-center xl:text-3xl">
           Faustino Oro{" "}
-          <span className="text-sm mt-1">International Master</span>
+          <span className="text-sm xl:text-base">International Master</span>
         </p>
       </div>
     </div>
