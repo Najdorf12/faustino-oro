@@ -14,7 +14,7 @@ export default function PageLoader() {
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => {
-      setIsLoading(true);
+      setIsLoading(false);
     }, 2200);
     return () => clearTimeout(timer);
   }, [pathname]);
