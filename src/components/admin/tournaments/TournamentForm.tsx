@@ -350,7 +350,7 @@ const TournamentsForm = ({
               <p className="text-zinc-300">Cargando imagen...</p>
             )}
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full">
+            <div className="grid grid-cols-2 mt-3 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full">
               {images?.map((img) => (
                 <div key={img.public_id} className="relative">
                   <button
