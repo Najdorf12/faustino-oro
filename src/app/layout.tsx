@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     template: "%s | Faustino Oro",
   },
   description:
-    "Página Oficial de Faustino Oro, el joven prodigio del ajedrez argentino. Conoce su biografía, torneos, partidas destacadas y logros en el mundo del ajedrez profesional.",
+    "Página Oficial de Faustino Oro, el joven prodigio del ajedrez mundial. Conoce su biografía y mantente informado de sus proximos torneos, estadisticas, partidas destacadas y logros en el mundo del ajedrez profesional.",
   keywords: [
     "Faustino Oro",
     "niño prodigio ajedrez",
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     url: "https://www.orofaustino.com",
     title: "Faustino Oro - Página Oficial del Ajedrecista Argentino",
     description:
-      "Página Oficial de Faustino Oro, el joven prodigio del ajedrez argentino. Conoce su biografía, torneos, stats, partidas destacadas y logros.",
+      "Página Oficial de Faustino Oro, el joven prodigio del ajedrez mundial. Conoce su biografía y mantente informado de sus proximos torneos, estadisticas, partidas destacadas y logros en el mundo del ajedrez profesional.",
     siteName: "Faustino Oro",
     images: [
       {
@@ -154,9 +154,9 @@ export default function RootLayout({
               "@type": "Person",
               name: "Faustino Oro",
               description:
-                "Joven prodigio del ajedrez argentino, considerado uno de los talentos más prometedores del ajedrez mundial",
+                "Página Oficial de Faustino Oro, el joven prodigio del ajedrez mundial. Conoce su biografía y mantente informado de sus proximos torneos, estadisticas, partidas destacadas y logros en el mundo del ajedrez profesional.",
               url: "https://www.orofaustino.com",
-              image: "https://www.orofaustino.com/fausti.jpeg",
+              image: "https://www.orofaustino.com/img28.webp",
               sameAs: [
                 "https://www.instagram.com/faustioro",
                 "https://www.facebook.com/orofaustino",
@@ -169,7 +169,7 @@ export default function RootLayout({
                 "Torneos internacionales",
                 "Estrategias de ajedrez",
               ],
-              award: "Gran Maestro de Ajedrez (GM)",
+              award: "Faustino Oro, joven prodigio del ajedrez",
             }),
           }}
         />
