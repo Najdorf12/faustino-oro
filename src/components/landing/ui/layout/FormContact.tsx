@@ -25,24 +25,24 @@ export default function Form() {
         <form className="relative flex flex-col gap-2 mt-2">
           <input
             placeholder="Nombre"
-            className="bg-zinc-800/80 placeholder:text-zinc-300 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
+            className="bg-zinc-800/80 placeholder:text-zinc-300 border-zinc-700 border text-gray-200 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
             type="text"
           />
 
           <input
             placeholder="Email"
-            className="bg-zinc-800/80 placeholder:text-zinc-300 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
+            className="bg-zinc-800/80 placeholder:text-zinc-300 border-zinc-700 border text-gray-200 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
             type="email"
           />
 
           <textarea
             placeholder="Escribe tu mensaje"
-            className="bg-zinc-800/80 placeholder:text-zinc-300 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150 h-20 lg:h-24"
+            className="bg-zinc-800/80 placeholder:text-zinc-300 border-zinc-700 border text-gray-200 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150 h-20 lg:h-24"
           />
 
           {/* ✅ className como string directo, SIN template literals ni condicionales */}
           <button
-            className="bg-sky-700 border-2 border-sky-500 text-zinc-100 font-semibold py-2 px-4 rounded-md mt-2 hover:from-zinc-800 hover:to-zinc-500 cursor-pointer transition ease-in-out duration-400 disabled:opacity-50"
+            className="bg-sky-700/60 border-2 border-sky-500 text-zinc-100 font-semibold py-2 px-4 rounded-md mt-2 hover:bg-sky-400/60 cursor-pointer transition ease-in-out duration-400 disabled:opacity-50"
             type="submit"
           >
             Enviar jugada
