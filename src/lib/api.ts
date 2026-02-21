@@ -131,16 +131,21 @@ export async function getFideStats(): Promise<FideStats> {
 
 export async function getFidePlayer(): Promise<FideResponse | null> {
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+
     const res = await fetch(
       "https://fide-api.vercel.app/player_info/?fide_id=20000197&history=true",
       {
-        next: { revalidate: 3600 }, // 1 hora
-        cache: "force-cache",
+        next: { revalidate: 3600 },
+        signal: controller.signal,
       },
     );
 
+    clearTimeout(timeoutId);
+
     if (!res.ok) {
-      console.error("Failed to fetch FIDE player:", res.status, res.statusText);
+      console.error("FIDE API error:", res.status, await res.text());
       return null;
     }
 
