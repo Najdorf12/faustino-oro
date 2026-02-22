@@ -61,9 +61,9 @@ export default function CardTournament({ tournament }: Props) {
 
   return (
     <>
-      <section className="border-2  border-zinc-600 rounded-lg  relative">
+      <section className="border-2 border-zinc-600 rounded-lg  relative">
           <div
-        className="absolute inset-0 z-0 rounded-3xl"
+        className="absolute inset-0 z-0 rounded-lg"
         style={{
           backgroundImage: `
           radial-gradient(circle at 50% 100%, #00598a 0%, transparent 60%),
@@ -75,7 +75,7 @@ export default function CardTournament({ tournament }: Props) {
         <button
           onClick={fetchPlayer}
           disabled={loading}
-          className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-100 w-48 rounded-lg h-9 text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 "
+          className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 "
         >
           {loading ? "Cargando..." : expanded ? "Ocultar" : "Ver performance"}
 
@@ -85,7 +85,7 @@ export default function CardTournament({ tournament }: Props) {
               viewBox="0 0 24 24"
               width="24"
               height="24"
-              className="w-[1.2em] transition-transform duration-300 text-zinc-600 group-hover:translate-x-[0.1em]"
+              className="w-[1.2em] transition-transform duration-300 text-zinc-500 group-hover:translate-x-[0.1em]"
             >
               <path fill="none" d="M0 0h24v24H0z"></path>
               <path
@@ -96,7 +96,7 @@ export default function CardTournament({ tournament }: Props) {
           </div>
         </button>
 
-        <figure className="absolute inset-0 flex items-end mb-3 justify-end z-10 md:justify-center md:items-center">
+        <figure className="absolute inset-0 flex items-end mb-3 justify-end z-100 lg:z-10 md:justify-center md:items-center">
           <Image
             src={iconTournamentCard}
             alt="icon-tournament-card"
@@ -105,7 +105,7 @@ export default function CardTournament({ tournament }: Props) {
         </figure>
 
         {/* CABECERA */}
-        <div className="relative  z-50 rounded-lg gap-4 pt-4.5 pb-17 px-4 lg:w-1/2 bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-5">
+        <div className="relative  z-50 rounded-lg gap-4 pt-4.5 pb-17 px-4 lg:w-1/2 bg-zinc-800/40 lg:bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-5">
           <div className="flex w-fit ">
             {tournament.isActive ? (
               <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-600 lg:text-base">
@@ -153,7 +153,7 @@ export default function CardTournament({ tournament }: Props) {
         </div>
 
         {/* PANEL EXPANDIDO */}
-        {expanded && (
+        {player && expanded && (
           <div className="border-t border-zinc-700 space-y-4 ">
             {error && <p className="text-red-400 text-sm">{error}</p>}
 
@@ -165,7 +165,7 @@ export default function CardTournament({ tournament }: Props) {
           </div>
         )}
       </section>
-      {player && (
+      {player && expanded &&(
         <>
           {/* STATS */}
           <div className="grid grid-cols-4 gap-2 text-center ">
