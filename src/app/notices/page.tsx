@@ -129,8 +129,8 @@ export default function NoticesPage() {
       `,
           }}
         />
-        <article className="absolute inset-0 z-200 flex items-start pb-14 md:items-end ">
-          <h6 className="z-60 text-start text-zinc-300 font-medium text-balance text-xl mt-3 md:text-5xl ml-[9%] max-w-200 3xl:text-6xl 3xl:max-w-280">
+        <article className="absolute inset-0 z-200 flex items-end pb-4 max-w-100 md:max-w-200 lg:max-w-260 md:items-end md:pb-10">
+          <h6 className="z-60 text-start text-zinc-300 font-medium text-balance text-xl mt-3 md:text-5xl ml-[8%] max-w-200  lg:ml-[12%] 3xl:text-6xl 3xl:max-w-280">
             Aquí encontrarás actualizaciones en tiempo real y la cobertura de
             los momentos más importantes de su trayectoria profesional
           </h6>
@@ -139,7 +139,7 @@ export default function NoticesPage() {
           <Image
             src={iconFaustiCaruana}
             alt="icon"
-            className="w-15 md:w-60 absolute top-2 left-[2%] md:top-auto md:bottom-6 3xl:w-70"
+            className="w-18 md:w-50 absolute bottom-14 left-[2%] md:bottom-12 3xl:w-70"
           ></Image>
         </figure>
       </figure>
