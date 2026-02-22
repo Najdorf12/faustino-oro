@@ -157,15 +157,13 @@ async function NoticesContent() {
   const activeNotices = notices.filter((notice: any) => notice.isActive);
 
   return (
-    <div className="w-full min-h-screen bg-zinc-800 py-16 px-6 relative lg:py-20">
-       <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
-          © Faustino Oro
-        </div>
-      <div className="max-w-7xl mx-auto">
-        <h6 className="text-4xl md:text-5xl text-center lg:text-6xl text-zinc-200 mb-12 lg:mb-16">
-          Todas las noticias
-        </h6>
+    <div className="w-full min-h-screen bg-zinc-800 py-16 px-6 relative lg:py-16">
+      <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
+        © Faustino Oro
+      </div>
 
+      <div className="max-w-7xl mx-auto ">
+        <h6 className="text-zinc-200 text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16">Todas las noticias</h6>
         {activeNotices.length === 0 ? (
           <p className="text-zinc-400 text-center py-20">
             No hay noticias disponibles en este momento
@@ -218,7 +216,6 @@ async function NoticesContent() {
           </div>
         )}
       </div>
-      
     </div>
   );
 }
