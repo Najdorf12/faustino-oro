@@ -186,3 +186,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .loader-square:nth-of-type(7) {
  animation-delay: -10s;
 }
+/* Btn-nav */
+#btn-nav {
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+
+  outline: 0;
+  border: 0;
+}
+
+#btn-nav:before {
+  background-color: #fff;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
+}
+
+#btn-nav:hover:before {
+  background-color: #fff;
+  width: 3rem;
+}

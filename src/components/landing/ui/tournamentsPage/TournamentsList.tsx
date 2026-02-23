@@ -22,11 +22,11 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
   return (
     <section
       aria-label="Torneos de Faustino Oro"
-      className="w-full max-w-250 mx-auto px-4 pt-10 lg:pt-20  "
+      className="w-full max-w-250 mx-auto px-4 pt-14 lg:pt-20  "
     >
       {active.length > 0 && (
         <section>
-          <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
+          <div className="flex items-end py-2 gap-3 mb-10 pl-3 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
             <h6 className="text-zinc-200 text-4xl lg:text-6xl ">
               Torneos activos
             </h6>
@@ -46,7 +46,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
 
       {historical.length > 0 && (
         <section>
-        <div className="flex items-end py-2 mt-12 gap-3 mb-9 pl-3 lg:mt-20 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
+        <div className="flex items-end py-2 mt-14 gap-3 mb-10 pl-3 lg:mt-20 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
             <h6 className="text-zinc-200 text-4xl lg:text-6xl ">
               Historial
             </h6>

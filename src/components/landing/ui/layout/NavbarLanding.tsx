@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function NavbarLanding() {
   return (
-    <nav className="w-full absolute top-0 z-200 text-stone-300 px-4 pt-3 flex flex-row justify-start gap-6 md:gap-10 md:justify-start md:px-9 md:pt-4 lg:px-16 2xl:text-lg">
+    <nav className="w-full absolute top-0 z-200 text-stone-300 px-4 pt-3 flex flex-row justify-between md:gap-10 md:justify-start md:px-9 md:pt-4 lg:px-16 2xl:text-lg">
       <div className="rounded-lg w-12 bg-sky-800 p-2 border-zinc-300 border z-100 lg:p-2 2xl:w-14">
         <Image
           src={imgNav}
@@ -12,11 +12,11 @@ export default function NavbarLanding() {
           className="object-contain w-full"
         />
       </div>
-      <ul className="flex items-center justify-end gap-6 font-medium  md:flex-row md:justify-start lg:gap-9 lg:text-lg">
+      <ul className="flex items-center justify-end gap-3 font-medium  md:flex-row md:justify-start lg:gap-9 lg:text-lg">
         <li>
           <Link
             href="/"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors items-center gap-2"
+            className="flex justify-center transition-colors "
           >
             Inicio
           </Link>
@@ -25,7 +25,7 @@ export default function NavbarLanding() {
         <li>
           <Link
             href="/tournaments"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors"
+            className="flex justify-center transition-colors "
           >
             Torneos
           </Link>
@@ -33,7 +33,7 @@ export default function NavbarLanding() {
         <li>
           <Link
             href="/notices"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors"
+            className="flex justify-center transition-colors "
           >
             Noticias
           </Link>
@@ -41,7 +41,7 @@ export default function NavbarLanding() {
         <li>
           <Link
             href="/#contact"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors"
+            className="flex justify-center transition-colors "
           >
             Contacto
           </Link>

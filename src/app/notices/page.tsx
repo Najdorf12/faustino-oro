@@ -41,9 +41,9 @@ async function getNotices() {
 export default function NoticesPage() {
   return (
     <>
-      <section className="w-full min-h-screen bg-zinc-800 flex flex-col pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
+      <section className="relative w-full min-h-screen bg-zinc-800 flex flex-col pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
         <NavbarLanding />
-        <article className=" pl-6 relative w-full  h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen md:pl-12 lg:pt-6 ">
+        <article className=" pl-6 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen md:pl-12 lg:pt-6 ">
           <h6 className="relative text-zinc-300 text-6xl md:text-8xl font-medium 3xl:text-9xl">
             NOTICIAS
           </h6>
@@ -52,12 +52,14 @@ export default function NoticesPage() {
             compartimos sus logros, próximas competencias y momentos clave en su
             carrera de ajedrez.
           </p>
-          <button className="relative text-zinc-300 text-lg mt-5 flex items-center gap-2 font-medium  lg:ml-1 xl:text-xl 2xl:text-2xl group hover:text-sky-700 cursor-pointer duration-500">
-            Ir a Torneos
-            <span className="group-hover:translate-x-3 duration-500">
-              <ArrowRight />
-            </span>
-          </button>
+          <Link href={"/tournaments"}>
+            <button className="relative text-zinc-300 text-lg mt-5 flex items-center gap-2 font-medium  lg:ml-1 xl:text-xl 2xl:text-2xl group hover:text-sky-700 cursor-pointer duration-500">
+              Ir a Torneos
+              <span className="group-hover:translate-x-3 duration-500">
+                <ArrowRight />
+             </span>
+            </button>
+          </Link>
         </article>
         <div className="hidden md:flex justify-center absolute bottom-0 w-1/2">
           <p className="text-base leading-5 pl-12 text-balance h-25 text-zinc-400 flex justify-center items-center">
@@ -163,7 +165,9 @@ async function NoticesContent() {
       </div>
 
       <div className="max-w-7xl mx-auto ">
-        <h6 className="text-zinc-200 text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16">Todas las noticias</h6>
+        <h6 className="text-zinc-200 text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16">
+          Todas las noticias
+        </h6>
         {activeNotices.length === 0 ? (
           <p className="text-zinc-400 text-center py-20">
             No hay noticias disponibles en este momento

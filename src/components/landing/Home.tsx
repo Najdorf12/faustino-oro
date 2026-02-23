@@ -5,8 +5,8 @@ import icon from "@/assets/images/icons/iconKnight.svg";
 export default function Home() {
   return (
     <>
-      <section className="bg-zinc-800 h-dvh md:h-screen w-full relative pb-6  ">
-        <div className="absolute inset-0 z-20 bg-radial from-zinc-800/40 from-40% to-zinc-800 "></div>
+      <section className="bg-zinc-800 h-[95vh] md:h-screen w-full relative pb-6  ">
+        <div className="absolute inset-0 z-20 bg-radial from-zinc-800/50 from-40% to-zinc-950 "></div>
         <Image
           src={imgHome}
           alt="home-image"
@@ -58,11 +58,11 @@ export default function Home() {
     }}
   /> */}
         <article className="relative z-50 w-full h-full flex flex-col items-center justify-end gap-4 lg:gap-6 ">
-          <h1 className="text-zinc-300 text-7xl leading-16 font-ubuntu text-center font-semibold md:font-semibold lg:text-[7rem] xl:leading-24 xl:text-9xl 2xl:text-[8.5rem] 3xl:text-[9rem]">
+          <h1 className="text-stone-300 text-shadow-lg text-shadow-zinc-800 text-7xl leading-16 font-satoshi text-center font-semibold md:font-semibold lg:text-[7rem] xl:leading-24 xl:text-[8.5rem] 2xl:text-[9rem] 3xl:text-[9.4rem]">
             FAUSTINO ORO
           </h1>
-          <p className="text-zinc-300 font-semibold text-xl lg:text-2xl 2xl:text-[28px] 3xl:text-3xl">
-            MAESTRO INTERNACIONAL
+          <p className="text-shadow-2xs flex items-center gap-2 text-shadow-zinc-700 text-stone-200 font-semibold text-xl lg:text-2xl 2xl:text-[28px] 3xl:text-3xl">
+           <span className="border p-1.5 rounded-lg lg:p-2">IM</span> MAESTRO INTERNACIONAL
           </p>
         </article>
 
