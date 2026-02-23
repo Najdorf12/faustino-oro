@@ -11,11 +11,11 @@ export default function Achievements({ data }: AchievementsProps) {
   return (
     <>
       <section className="w-full h-full mt-6 z-100 flex flex-col gap-10 items-center relative lg:px-12 lg:mt-9 2xl:px-16 ">
-        <article className="flex flex-col px-6 gap-7 lg:flex-row lg:px-9 lg:w-full">
-          <h6 className="text-zinc-200 text-5xl font-medium lg:text-7xl lg:leading-12 2xl:text-[5rem] 2xl:leading-11 3xl:text-[5.5rem]">
+        <article className="flex flex-col px-4 gap-7 lg:flex-row lg:px-9 lg:w-full ">
+          <h6 className="text-zinc-200 text-5xl font-medium lg:text-7xl lg:leading-12 2xl:text-[5rem] 2xl:leading-11 3xl:text-[5.5rem] ">
             Logros
           </h6>
-          <h6 className="flex items-center text-zinc-500 max-w-125 text-start border-l border-sky-600 text-sm font-medium pl-4 md:pl-6 py-1 md:leading-6 md:text-lg 2xl:text-xl lg:py-2">
+          <h6 className="flex items-center text-zinc-500 max-w-130 text-start border-l border-sky-600 text-sm font-medium pl-4 md:pl-6 py-1 md:leading-6 md:text-lg 2xl:text-xl lg:py-2 ">
             Con dedicación, esfuerzo y disciplina, Faustino sigue conquistando
             nuevos desafíos en cada partida.
           </h6>
