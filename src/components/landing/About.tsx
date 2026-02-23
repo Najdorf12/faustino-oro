@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import imgAbout from "@/assets/images/img9.webp";
-import imgAbout2 from "@/assets/images/img11.webp";
+import imgAbout2 from "@/assets/images/img6-2.jpg";
 import icon from "@/assets/images/icon5.svg";
 import { useRef, useState } from "react";
 
-import {gsap}from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
@@ -23,17 +23,17 @@ export default function About() {
     () => {
       gsap.fromTo(
         ".content",
-        { autoAlpha: 0, y: 40 },
-        { autoAlpha: 1, y: 0, duration: 1.1, ease: "power3.out" }
+        { autoAlpha: 0, x: 40 },
+        { autoAlpha: 1, x: 0, duration: 1.1, ease: "power3.out" },
       );
 
       gsap.fromTo(
         imgRef.current,
-        { autoAlpha: 0, scale: 0.96 },
-        { autoAlpha: 1, scale: 1, duration: 1.1, ease: "power2.out" }
+        { autoAlpha: 0, x: -40, scale: 0.96 },
+        { autoAlpha: 1, x: 0, scale: 1, duration: 1.1, ease: "power2.out" },
       );
     },
-    { dependencies: [view], scope: container }
+    { dependencies: [view], scope: container },
   );
 
   return (
@@ -42,11 +42,11 @@ export default function About() {
       id="about"
       className="w-full min-h-screen pt-24 flex flex-col lg:flex-row bg-zinc-800  relative lg:pt-0"
     >
-      <div className="absolute z-100 left-4 top-6 w-8 md:left-auto md:right-12 md:w-10">
+      <div className="absolute z-100 left-4 top-6 w-9 md:left-auto md:right-12 md:w-10 lg:w-12">
         <Image src={icon} alt="icon" className="w-full"></Image>
       </div>
 
-      <div className="w-full h-[250px] px-3 relative z-50 flex justify-center items-center lg:h-screen lg:w-1/2 ">
+      <div className="w-full h-62 px-3 relative z-50 flex justify-center items-center lg:h-screen lg:w-1/2 ">
         <div className="absolute inset-0 z-20 bg-zinc-800/30"></div>
         <Image
           ref={imgRef}
@@ -64,12 +64,12 @@ export default function About() {
 
         {view === "about" && (
           <div className="">
-            <h3 className="text-zinc-300 text-3xl md:text-4xl font-medium max-w-[500px] 2xl:text-5xl 2xl:max-w-[700px]">
+            <h3 className="text-zinc-300 text-3xl md:text-4xl font-medium max-w-150 2xl:text-5xl 2xl:max-w-175">
               SOY FAUSTINO ORO. NACÍ EN BUENOS AIRES, ARGENTINA, EL 14 DE
               OCTUBRE DE 2013
             </h3>
 
-            <p className="text-sm lg:text-base  text-zinc-500 mt-9 lg:mt-14 lg:max-w-[600px] 2xl:text-lg 2xl:max-w-[680px]">
+            <p className="text-sm lg:text-base  text-zinc-500 mt-9 lg:mt-14 lg:max-w-150 2xl:text-lg 2xl:max-w-170">
               En plena pandemia, el 30 de mayo de 2020 aprendí a mover las
               piezas y, desde entonces, el ajedrez ha sido mucho más que un
               simple juego para mí: es un desafío constante que me motiva a
