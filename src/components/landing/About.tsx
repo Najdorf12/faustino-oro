@@ -40,7 +40,7 @@ export default function About() {
     <section
       ref={container}
       id="about"
-      className="w-full min-h-screen pt-24 flex flex-col lg:flex-row bg-zinc-800  relative lg:pt-0"
+      className="w-full min-h-screen pt-22 flex flex-col lg:flex-row bg-zinc-800  relative lg:pt-0"
     >
       <div className="absolute z-100 left-4 top-6 w-9 md:left-auto md:right-12 md:w-10 lg:w-12">
         <Image src={icon} alt="icon" className="w-full"></Image>
