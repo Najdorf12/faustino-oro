@@ -62,7 +62,7 @@ export default function Home() {
             FAUSTINO ORO
           </h1>
           <p className="text-shadow-2xs flex items-center gap-2 text-shadow-zinc-700 text-stone-200 font-semibold text-xl lg:text-2xl 2xl:text-[28px] 3xl:text-3xl">
-           <span className="border p-1.5 rounded-lg lg:p-2">IM</span> MAESTRO INTERNACIONAL
+           <span className="border-2 p-1.5 rounded-lg lg:p-2">IM</span> MAESTRO INTERNACIONAL
           </p>
         </article>
 
