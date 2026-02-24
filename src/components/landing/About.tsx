@@ -57,19 +57,19 @@ export default function About() {
         />
       </div>
 
-      <article className="content w-full flex flex-col py-14 justify-center gap-4 px-6 relative z-100 lg:py-0 lg:w-1/2 lg:h-screen">
+      <article className="content w-full flex flex-col py-14 justify-center gap-4 px-4 relative z-100 lg:py-0 lg:w-1/2 lg:h-screen">
         <div className="text-zinc-600 text-xl lg:text-2xl 2xl:text-3xl">
           SOBRE MI
         </div>
 
         {view === "about" && (
           <div className="text-balance">
-            <h3 className="text-zinc-300 text-[1.35rem] sm:text-2xl md:text-4xl font-medium max-w-150 2xl:text-5xl 2xl:max-w-175">
+            <h3 className="text-zinc-300 text-[1.45rem] sm:text-2xl md:text-4xl font-medium max-w-150 2xl:text-5xl 2xl:max-w-175">
               SOY FAUSTINO ORO. NACÍ EN BUENOS AIRES, ARGENTINA, EL 14 DE
               OCTUBRE DE 2013
             </h3>
 
-            <p className="text-[12px] sm:text-sm lg:text-base text-zinc-500 mt-9 lg:mt-14 lg:max-w-150 2xl:text-lg 2xl:max-w-170">
+            <p className="text-sm lg:text-base text-zinc-500 mt-9 lg:mt-14 lg:max-w-150 2xl:text-lg 2xl:max-w-170">
               En plena pandemia, el 30 de mayo de 2020 aprendí a mover las
               piezas y, desde entonces, el ajedrez ha sido mucho más que un
               simple juego para mí: es un desafío constante que me motiva a
@@ -91,12 +91,12 @@ export default function About() {
         )}
 
         {view === "historia" && (
-          <div className="flex flex-col gap-3">
-            <h3 className="text-zinc-300 text-4xl md:text-5xl font-medium 2xl:text-6xl">
+          <div className="flex flex-col gap-4 ">
+            <h3 className="text-zinc-300 text-[2.6rem] sm:text-4xl md:text-5xl font-medium 2xl:text-6xl">
               HISTORIA
             </h3>
 
-            <p className="text-sm lg:text-base text-zinc-500 mt-4 max-w-[600px] 2xl:text-lg 2xl:max-w-[680px] ">
+            <p className="text-sm lg:text-base text-zinc-500  max-w-[600px] 2xl:text-lg 2xl:max-w-[680px] ">
               Mi primer torneo de ajedrez clásico fue el "8vo IRT Alejandro
               Judewicz" en Mar del Plata, Buenos Aires, Argentina, en septiembre
               de 2021. En este torneo ingresé por primera vez al ranking ELO

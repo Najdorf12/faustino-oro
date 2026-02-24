@@ -32,7 +32,7 @@ export const Contact = () => {
     <>
       <div
         id="contact"
-        className="w-full h-screen bg-zinc-950 flex items-center justify-center absolute"
+        className="w-full h-[120vh] bg-zinc-950 flex items-center justify-center relative px-3 md:h-screen"
       >
         <div
           className="absolute inset-0 z-0"
@@ -46,7 +46,7 @@ export const Contact = () => {
             <Scene key={pathname} />
           </Suspense>
         </div>
-        <section className="absolute inset-0 z-100 pointer-events-none flex flex-col px-4 pt-8 md:pt-0 md:flex-row ">
+        <section className="relative h-full w-full pointer-events-none flex flex-col justify-evenly md:flex-row md:justify-center items-center ">
           <article className="flex flex-col md:justify-start md:pt-12 md:w-[60%] md:h-full md:pl-9 lg:pt-20 md:gap-28 xl:gap-50 2xl:pl-14 3xl:pt-28 ">
             <div className="text-center px-4 lg:text-start md:px-0">
               <h5 className="text-5xl sm:text-6xl lg:text-8xl 2xl:text-[7rem] 3xl:text-9xl font-medium text-zinc-200 z-30 relative">
@@ -105,7 +105,7 @@ export const Contact = () => {
             </ul>
           </article>
 
-          <div className="flex flex-col items-center justify-center mt-6 w-full md:mt-0 md:w-[40%] md:h-full">
+          <div className="flex flex-col items-center justify-center  w-full md:mt-0 md:w-[40%] md:h-full">
             <Form />
             <ul className="flex md:hidden gap-12 mt-9 text-zinc-500 pointer-events-auto">
               <Link
