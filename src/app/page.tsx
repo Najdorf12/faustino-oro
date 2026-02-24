@@ -66,8 +66,8 @@ export default async function HomePage() {
       <About />
       <Achievements data={achievements} />
       <Tournaments data={tournaments} />
-      <div className="w-full flex flex-col-reverse justify-center items-center px-6 gap-9 py-14 bg-zinc-200 font-light text-zinc-400 text-2xl md:flex-row md:justify-evenly md:px-0 lg:text-5xl lg:py-20 3xl:text-6xl">
-        <div className="max-w-90 lg:max-w-200 text-balance flex flex-col 3xl:max-w-280">
+      <div className="w-full flex flex-col-reverse justify-center items-center px-6 gap-9 py-14 bg-zinc-200 font-light text-zinc-400 text-xl sm:text-2xl md:flex-row md:justify-evenly md:px-0 lg:text-5xl lg:py-20 3xl:text-6xl">
+        <div className="max-w-120  lg:max-w-200 text-balance flex flex-col 3xl:max-w-280">
           El Ajedrez, con toda su profundidad filosófica, es ante todo un juego
           en el que se ponen de manifiesto la imaginación, el carácter y la
           voluntad

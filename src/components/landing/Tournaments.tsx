@@ -18,17 +18,17 @@ export default function Tournaments({ data }: TournamentsProps) {
       <div className="min-h-screen w-full absolute inset-0 z-50"></div>
 
       <article className="flex flex-col px-6 gap-7 lg:flex-row lg:justify-start lg:w-full">
-        <h6 className="text-zinc-200 text-5xl font-medium lg:text-7xl 2xl:text-[5rem] 2xl:leading-11 3xl:text-[5.5rem]">
+        <h6 className="text-zinc-200 text-[2.5rem] sm:text-5xl font-medium lg:text-7xl 2xl:text-[5rem] 2xl:leading-11 3xl:text-[5.5rem]">
           Torneos
         </h6>
-        <p className="flex items-center text-zinc-300 max-w-175 text-start border-l border-sky-500 text-sm font-medium pl-4 md:pl-6 py-1 md:leading-6 md:text-lg 2xl:text-xl lg:py-2">
+        <p className="flex items-center text-zinc-300 max-w-175 text-start border-l-2 border-sky-500 text-xs sm:text-sm font-medium pl-4 md:pl-6 py-1 md:leading-6 md:text-lg 2xl:text-xl lg:py-2">
           Consulta aquí la lista de próximos torneos en los que participará.
           Sigue su calendario y mantente al día con su increíble recorrido
           competitivo
         </p>
       </article>
 
-      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-y-5 gap-x-3 max-w-150 sm:gap-x-4 lg:gap-12 lg:max-w-fit">
+      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-x-3 gap-y-5 max-w-150 sm:gap-x-4 lg:gap-12 lg:max-w-fit">
         {data && data.length > 0 ? (
           data.map((tournament, i) => (
             <CardTournament

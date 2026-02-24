@@ -34,7 +34,7 @@ export default function CardTournament({ card, index }: CardProps) {
 
   return (
     <div
-      className={`text-balance w-47 h-80 border border-zinc-400 z-100 relative cursor-pointer shadow-2xl shadow-sky-700 
+      className={`text-balance w-[48%] sm:w-47 h-80 border border-zinc-400 z-100 relative cursor-pointer shadow-2xl shadow-sky-700 
       rounded-3xl p-3 flex flex-col justify-between duration-300 group hover:border-white 
       hover:scale-105 md:p-4 md:w-56 md:h-82 lg:p-4 lg:h-87 xl:w-60 xl:h-90 2xl:h-100 2xl:w-62
       ${isFirst ? "bg-sky-600/60" : "bg-zinc-800/40"}
