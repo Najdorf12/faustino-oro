@@ -35,13 +35,13 @@ export default function CardTournament({ card, index }: CardProps) {
   return (
     <div
       className={`text-balance w-[48%] sm:w-47 h-80 border border-zinc-400 z-100 relative cursor-pointer shadow-2xl shadow-sky-700 
-      rounded-3xl p-3 flex flex-col justify-between duration-300 group hover:border-white 
+      rounded-2xl p-2.5 sm:p-3 flex flex-col justify-between duration-300 group hover:border-white 
       hover:scale-105 md:p-4 md:w-56 md:h-82 lg:p-4 lg:h-87 xl:w-60 xl:h-90 2xl:h-100 2xl:w-62
       ${isFirst ? "bg-sky-600/60" : "bg-zinc-800/40"}
     `}
     >
       <div
-        className="absolute inset-0 z-0 rounded-3xl"
+        className="absolute inset-0 z-0 rounded-2xl"
         style={{
           backgroundImage: `
           radial-gradient(circle at 50% 100%, #00598a 0%, transparent 60%),
@@ -61,15 +61,15 @@ export default function CardTournament({ card, index }: CardProps) {
         />
       </div>
       <div
-        className={`px-3 absolute top-3 right-2 self-end mt-3 w-fit border-b border-zinc-300 text-sm lg:text-base  ${isActive ? "bg-sky-00 text-zinc-200" : "bg-sky-00 text-zinc-100"} `}
+        className={`px-3 absolute top-3 right-2 self-end mt-3 w-fit border-b border-zinc-300 text-sm lg:text-base ${isActive ? "bg-sky-00 text-zinc-200" : "bg-sky-00 text-zinc-100"} `}
       >
         {isActive ? "Activo" : "Finalizado"}
       </div>
-      <article className="text-sm flex flex-col gap-2 md:min-h-25 leading-4.5 relative z-100 xl:text-base 2xl:min-h-29 2xl:leading-6">
-        <div className="text-lg leading-5 md:text-lg font-medium text-zinc-100 2xl:text-xl">
+      <article className="text-sm flex flex-col gap-1 md:min-h-25 leading-4.5 relative z-100 xl:text-base 2xl:min-h-29 2xl:leading-6">
+        <div className="text-lg leading-5 text-zinc-100 2xl:text-xl">
           {title}
         </div>
-        <div className="text-zinc-100 italic border-t mt-1 pt-2">
+        <div className="text-zinc-100 italic border-t mt-2 pt-2">
           {description}
         </div>
         <div className="text-zinc-300 ">{location}</div>

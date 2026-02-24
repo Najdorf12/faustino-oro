@@ -12,7 +12,7 @@ export default function Achievements({ data }: AchievementsProps) {
     <>
       <section className="w-full h-full mt-6 z-100 flex flex-col gap-10 items-center relative lg:px-12 lg:mt-9 2xl:px-16 ">
         <article className="flex flex-col pl-4 gap-7 lg:flex-row lg:px-9 lg:w-full ">
-          <h6 className="text-zinc-200 text-[2.5rem] sm:text-5xl font-medium lg:text-7xl lg:leading-12 2xl:text-[5rem] 2xl:leading-11 3xl:text-[5.5rem] ">
+          <h6 className="text-zinc-200 text-[2.6rem] sm:text-5xl font-medium lg:text-7xl lg:leading-12 2xl:text-[5rem] 2xl:leading-11 3xl:text-[5.5rem] ">
             Logros
           </h6>
           <h6 className="flex items-center text-zinc-500 max-w-130 text-start border-l-2 border-sky-600 text-sm font-medium pl-3 md:pl-6 py-1 md:leading-6 md:text-lg 2xl:text-xl lg:py-2 ">
@@ -45,7 +45,7 @@ export default function Achievements({ data }: AchievementsProps) {
                   <Image
                     src={iconTrophy}
                     alt="icon-trophy"
-                    className="w-8 sm:w-9 lg:w-10"
+                    className="w-9 sm:w-10 lg:w-10"
                   />
                   {achievement.title}
                 </li>
