@@ -32,7 +32,6 @@ function truncateToFirstSentence(
 }
 
 export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
-  console.log(notice);
   return (
     <li className="flex flex-col gap-2 relative  ">
       <div className="text-balance bg-linear-to-br  from-zinc-700 to-zinc-900/60 rounded-xl overflow-hidden shadow-lg hover:shadow-zinc-500 transition-all duration-300 border-2 border-zinc-500 hover:border-zinc-300 lg:flex lg:items-stretch lg:w-270 lg:min-h-75 lg:px-4 ">

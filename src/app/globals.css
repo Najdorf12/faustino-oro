@@ -3,8 +3,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --breakpoint-xs: 180px;
-  --breakpoint-sm: 400px;
+  --breakpoint-sm: 395px;
   --breakpoint-md: 700px;
   --breakpoint-lg: 1000px;
   --breakpoint-xl: 1330px;
