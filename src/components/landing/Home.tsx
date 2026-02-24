@@ -58,11 +58,11 @@ export default function Home() {
     }}
   />  */}
         <article className="relative z-50 w-full h-full flex flex-col items-center justify-end gap-2 lg:gap-6 ">
-          <h1 className="text-stone-300 text-shadow-lg text-shadow-zinc-800 text-[3.7rem] leading-14 sm:text-7xl sm:leading-16 font-satoshi text-center font-semibold md:font-semibold lg:text-[7rem] xl:leading-24 xl:text-[8.5rem] 2xl:text-[9rem] 3xl:text-[9.4rem]">
+          <h1 className="text-stone-300 text-shadow-lg text-shadow-zinc-800 text-[3.7rem] leading-14 sm:text-[4rem] sm:leading-15 font-satoshi text-center font-semibold md:font-semibold lg:text-[7rem] xl:leading-24 xl:text-[8.5rem] 2xl:text-[9rem] 3xl:text-[9.4rem]">
             FAUSTINO ORO
           </h1>
           <p className="text-shadow-2xs flex items-center gap-2 text-shadow-zinc-700 text-stone-200 font-semibold text-lg sm:text-xl lg:text-2xl 2xl:text-[28px] 3xl:text-3xl">
-           <span className="border-2 border-zinc-500 p-1.5 rounded-lg ">IM</span> MAESTRO INTERNACIONAL
+           <span className="border-2 border-zinc-500 px-1.5 py-0.5 rounded-lg ">IM</span> MAESTRO INTERNACIONAL
           </p>
         </article>
 

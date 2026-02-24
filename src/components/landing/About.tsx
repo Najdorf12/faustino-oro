@@ -64,12 +64,12 @@ export default function About() {
 
         {view === "about" && (
           <div className="text-balance">
-            <h3 className="text-zinc-300 text-xl sm:text-2xl md:text-4xl font-medium max-w-150 2xl:text-5xl 2xl:max-w-175">
+            <h3 className="text-zinc-300 text-[1.35rem] sm:text-2xl md:text-4xl font-medium max-w-150 2xl:text-5xl 2xl:max-w-175">
               SOY FAUSTINO ORO. NACÍ EN BUENOS AIRES, ARGENTINA, EL 14 DE
               OCTUBRE DE 2013
             </h3>
 
-            <p className="text-sm lg:text-base text-zinc-500 mt-9 lg:mt-14 lg:max-w-150 2xl:text-lg 2xl:max-w-170">
+            <p className="text-[12px] sm:text-sm lg:text-base text-zinc-500 mt-9 lg:mt-14 lg:max-w-150 2xl:text-lg 2xl:max-w-170">
               En plena pandemia, el 30 de mayo de 2020 aprendí a mover las
               piezas y, desde entonces, el ajedrez ha sido mucho más que un
               simple juego para mí: es un desafío constante que me motiva a

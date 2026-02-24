@@ -12,7 +12,7 @@ export default function NavbarLanding() {
           className="object-contain w-full"
         />
       </div>
-      <ul className="flex items-center justify-end gap-3 font-medium  md:flex-row md:justify-start lg:gap-9 lg:text-lg">
+      <ul className="flex items-center justify-end gap-3 font-medium text-sm sm:text-base md:flex-row md:justify-start lg:gap-9 lg:text-lg">
         <li>
           <Link
             href="/"
