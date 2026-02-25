@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function NavbarLanding() {
   return (
-    <nav className="w-full absolute top-0 z-200 text-zinc-300 px-4 pt-2 flex flex-row gap-4 md:gap-10 md:justify-start md:px-9 md:pt-4 lg:px-16 2xl:text-lg">
-      <div className="rounded-lg w-10 bg-sky-800 p-2 border-zinc-300 border z-100 lg:p-2 lg:w-12 2xl:w-14">
+    <nav className="w-full absolute top-0 z-200 text-zinc-300 px-4 pt-2 flex flex-row gap-5 md:gap-10 md:justify-start md:px-6  md:pt-4 lg:px-6 xl:pt-6 xl:px-14 2xl:text-lg">
+      <div className="rounded-lg w-10 bg-sky-800 p-1.5 border-zinc-300 border z-100 lg:p-2 lg:w-12 2xl:w-14">
         <Image
           src={imgNav}
           alt="Beautiful landscape for your journey"
