@@ -63,7 +63,7 @@ export default function FidePlayer({
       </div>
 
       {/* CONTAINER 75% */}
-      <div className="w-full flex flex-col items-center justify-between pt-2 px-3 md:w-[75%] md:px-6 md:pb-6 lg:pt-9 3xl:pt-12 3xl:px-10 ">
+      <div className="w-full flex flex-col items-center justify-between  px-3 md:w-[75%] md:px-6 md:pb-6 lg:pt-9 3xl:pt-12 3xl:px-10 ">
         <div className="flex flex-col gap-5 md:flex-row md:gap-12">
           <ButtonInfo
             active={view === "info"}

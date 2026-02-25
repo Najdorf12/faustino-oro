@@ -39,19 +39,19 @@ export default async function TournamentsPage() {
 
   return (
     <section className="w-full pb-32">
-      <section className="w-full min-h-screen bg-zinc-800 flex flex-col pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
+      <section className="w-full min-h-screen bg-zinc-800 flex flex-col pt-28 sm:pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
         <NavbarLanding />
-        <article className="pl-6 relative w-full  h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen md:pl-12 lg:pt-6 ">
-          <h6 className="relative text-zinc-300 text-6xl md:text-8xl font-medium 3xl:text-9xl">
+        <article className="pl-6 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen md:pl-12 lg:pt-6 ">
+          <h6 className="relative text-zinc-300 text-[3.5rem]  sm:text-6xl md:text-8xl font-medium 3xl:text-9xl">
             TORNEOS
           </h6>
-          <p className="relative text-sm md:text-lg text-zinc-400 flex justify-center items-center max-w-100 lg:max-w-175 my-6 3xl:text-xl">
+          <p className="relative text-sm my-3 sm:my-6 md:text-lg text-zinc-400 flex justify-center items-center max-w-100 lg:max-w-175 3xl:text-xl">
             Consulta aquí la lista de próximos torneos en los que participará.
             Sigue su calendario y mantente al día con su increíble recorrido
             competitivo.
           </p>
           <Link href={"/notices"}>
-            <button className="relative text-zinc-300 text-lg mt-5 flex items-center gap-2 font-medium  lg:ml-1 xl:text-xl 2xl:text-2xl group hover:text-sky-500 cursor-pointer duration-500">
+            <button className="relative text-zinc-300 text-lg mt-2 flex items-center gap-2 font-medium  lg:ml-1 xl:text-xl 2xl:text-2xl group hover:text-sky-500 cursor-pointer duration-500">
               Ir a Noticias
               <span className="group-hover:translate-x-3 duration-500">
                 <ArrowRight />
