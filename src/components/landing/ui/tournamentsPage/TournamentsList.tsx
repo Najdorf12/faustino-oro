@@ -26,12 +26,12 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
     >
       {active.length > 0 && (
         <section>
-          <div className="flex items-end py-2 gap-3 mb-10 pl-3 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
-            <h6 className="text-zinc-200 text-4xl lg:text-6xl ">
+          <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
+            <h6 className="text-zinc-200 text-nowrap text-3xl  sm:text-4xl lg:text-6xl ">
               Torneos activos
             </h6>
-            <div className="text-zinc-600 text-xl lg:text-4xl">
-              - {active.length} torneo{active.length !== 1 ? "s" : ""} -
+            <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
+              / {active.length} torneo{active.length !== 1 ? "s" : ""} /
             </div>
           </div>
           <ul className="flex flex-col gap-9 lg:gap-14" role="list">
@@ -46,15 +46,15 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
 
       {historical.length > 0 && (
         <section>
-        <div className="flex items-end py-2 mt-14 gap-3 mb-10 pl-3 lg:mt-20 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
-            <h6 className="text-zinc-200 text-4xl lg:text-6xl ">
+          <div className="flex items-end py-2 gap-3 mt-12 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
+            <h6 className="text-zinc-200 text-3xl sm:text-4xl lg:text-6xl ">
               Historial
             </h6>
-            <div className="text-zinc-600 text-xl lg:text-4xl">
-              - {historical.length} torneo{historical.length !== 1 ? "s" : ""} -
+            <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
+              / {historical.length} torneo{historical.length !== 1 ? "s" : ""} /
             </div>
           </div>
-          <ul className="flex flex-col gap-12" role="list">
+          <ul className="flex flex-col gap-9 lg:gap-14" role="list">
             {historical.map((tournament) => (
               <li key={tournament._id}>
                 <CardTournament tournament={tournament} />

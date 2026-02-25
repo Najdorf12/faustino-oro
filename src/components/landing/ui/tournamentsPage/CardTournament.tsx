@@ -61,7 +61,7 @@ export default function CardTournament({ tournament }: Props) {
 
   return (
     <>
-      <section className="border-2 border-zinc-600 rounded-lg  relative">
+      <section className="border-2 border-zinc-600 rounded-lg w-full relative">
           <div
         className="absolute inset-0 z-0 rounded-lg"
         style={{
@@ -75,7 +75,7 @@ export default function CardTournament({ tournament }: Props) {
         <button
           onClick={fetchPlayer}
           disabled={loading}
-          className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 font-medium flex items-center pl-3 group lg:w-50 "
+          className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50 "
         >
           {loading ? "Cargando..." : expanded ? "Ocultar" : "Ver performance"}
 
@@ -100,7 +100,7 @@ export default function CardTournament({ tournament }: Props) {
           <Image
             src={iconTournamentCard}
             alt="icon-tournament-card"
-            className="w-16 lg:w-32"
+            className="w-14 lg:w-32"
           />
         </figure>
 
@@ -117,8 +117,8 @@ export default function CardTournament({ tournament }: Props) {
               </span>
             )}
           </div>
-          <ul className="flex flex-col text-zinc-400 text-lg text-balance">
-            <h6 className="text-2xl font-medium text-zinc-100 mt-4 lg:text-3xl">
+          <ul className="flex flex-col text-zinc-400 text-base sm:text-lg text-balance">
+            <h6 className="text-2xl lg:font-medium text-zinc-100 mt-4 lg:text-3xl">
               {tournament.title}
             </h6>
             <li className="text-zinc-400 mt-2 mb-12 italic lg:text-xl">
@@ -143,10 +143,10 @@ export default function CardTournament({ tournament }: Props) {
             <li className="mt-4 border-t pt-2 text-zinc-400">
               {tournament.location}
             </li>
-            <li className="">
+            <li className="mt-1">
               Inicio : <span className="text-zinc-200">{startDate}</span>
             </li>
-            <li>
+            <li className="mt-1">
               Fin : <span className="text-zinc-200">{endDate}</span>
             </li>
           </ul>
@@ -185,7 +185,7 @@ export default function CardTournament({ tournament }: Props) {
 
           {/* PARTIDAS */}
           {player.games.length > 0 && (
-            <div className="space-y-2 mt-6 border rounded-lg border-zinc-700 pt-3 px-3 lg:pt-4 lg:px-4">
+            <div className="space-y-2 mt-6 border rounded-lg border-zinc-700 pt-3 px-2 lg:pt-4 lg:px-4">
               <p className="text-base text-zinc-500 uppercase tracking-wide font-medium lg:text-lg 3xl:text-xl">
                 Partidas ({player.played})
               </p>
@@ -193,7 +193,7 @@ export default function CardTournament({ tournament }: Props) {
                 <div
                   key={g.id}
                   className="flex border-b border-zinc-700 justify-between items-center 
-                       px-3 py-2 text-sm lg:text-base 3xl:text-lg"
+                       px-1  py-2 text-sm md:px-3 lg:text-base 3xl:text-lg"
                 >
                   <span className="text-zinc-200 flex items-center gap-2">
                     {g.color === "white" ? "⚪" : "⚫"}
@@ -246,9 +246,9 @@ function Stat({
       className="
      rounded-lg p-2 bg-linear-to-br from-sky-600 border border-sky-600 to-zinc-900 mt-9"
     >
-      <div className="text-lg text-zinc-100  lg:text-xl">{label}</div>
+      <div className="text-base text-zinc-100  lg:text-xl">{label}</div>
       <div
-        className={`text-lg lg:text-xl ${
+        className={`text-base lg:text-xl ${
           highlight === "positive"
             ? "text-emerald-400"
             : highlight === "negative"

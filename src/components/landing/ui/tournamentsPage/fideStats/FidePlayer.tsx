@@ -5,12 +5,16 @@ import iconBlitz from "@/assets/images/icons/blitz.svg";
 import icon2 from "@/assets/images/icons/iconKnight.svg";
 import iconStandar from "@/assets/images/icons/standar.svg";
 
-import { ButtonStats, ButtonInfo, ButtonProgress } from "@/components/landing/ui/tournamentsPage/fideStats/ButtonStats";
+import {
+  ButtonStats,
+  ButtonInfo,
+  ButtonProgress,
+} from "@/components/landing/ui/tournamentsPage/fideStats/ButtonStats";
 import ProgressView from "./ProgressView";
 import StatsView from "./StatsView";
 
 import Image from "next/image";
-import type { FideResponse } from "@/types/fidePlayer"; 
+import type { FideResponse } from "@/types/fidePlayer";
 import type { FideStats } from "@/types/fideStats";
 import { useState } from "react";
 
@@ -45,7 +49,7 @@ export default function FidePlayer({
             "radial-gradient(ellipse 80% 80% at 100% 100%, #000 50%, transparent 90%)",
         }}
       />
-      
+
       {/* CONTAINER 25% */}
       <div className="relative z-50 w-full h-full flex flex-col-reverse items-center justify-start md:w-[25%] bg-zinc-800">
         <div className="absolute inset-0">
@@ -90,8 +94,12 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
       {/* ELO */}
       <ul className="relative z-50 flex justify-center gap-4 mt-12 text-zinc-600 font-medium w-full text-xl md:mt-0 lg:text-2xl xl:gap-20  ">
         <li className="flex flex-col items-center justify-center gap-2 3xl:gap-3">
-          <Image src={iconStandar} alt="icon-standar" className="w-8 lg:w-9 3xl:w-12" />
-          <span className="border-9 rounded-full w-28 h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
+          <Image
+            src={iconStandar}
+            alt="icon-standar"
+            className="w-8 lg:w-9 3xl:w-12"
+          />
+          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
             {fide.classical_rating}
           </span>
           <div className="flex gap-2 self-center flex-col justify-center items-center">
@@ -99,8 +107,12 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
           </div>
         </li>
         <li className="flex flex-col items-center justify-center gap-2 3xl:gap-3">
-          <Image src={iconRapid} alt="icon-standar" className="w-8 lg:w-9 3xl:w-12" />
-          <span className="border-9 rounded-full w-28 h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
+          <Image
+            src={iconRapid}
+            alt="icon-standar"
+            className="w-8 lg:w-9 3xl:w-12"
+          />
+          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
             {fide.rapid_rating}
           </span>
           <div className="flex gap-2 self-center flex-col justify-center items-center">
@@ -108,8 +120,12 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
           </div>
         </li>
         <li className="flex flex-col items-center justify-center gap-2 3xl:gap-3">
-          <Image src={iconBlitz} alt="icon-standar" className="w-8 lg:w-9 3xl:w-12" />
-          <span className="border-9 rounded-full w-28 h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
+          <Image
+            src={iconBlitz}
+            alt="icon-standar"
+            className="w-8 lg:w-9 3xl:w-12"
+          />
+          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
             {fide.blitz_rating}
           </span>
           <div className="flex gap-2 self-center flex-col justify-center items-center">
@@ -120,7 +136,9 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
 
       {/* TITLES */}
       <div className="w-full flex flex-col mt-9 md:mt-0">
-        <h6 className="text-zinc-600 text-xl font-medium lg:text-2xl">Títulos</h6>
+        <h6 className="text-zinc-600 text-xl font-medium lg:text-2xl">
+          Títulos
+        </h6>
         <ul className="flex flex-col gap-1 mt-2 lg:mt-3">
           {stats.titles.map((title, i) => (
             <li
@@ -177,7 +195,9 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
           CONTINENTAL RANK
           <li className="mt-9 flex justify-between md:mt-12">
             Active players
-            <span className="text-zinc-100">{fide.continental_rank_active}</span>
+            <span className="text-zinc-100">
+              {fide.continental_rank_active}
+            </span>
           </li>
           <li className="flex justify-between">
             All players
