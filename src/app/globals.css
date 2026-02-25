@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import "tailwindcss";
-
 @theme inline {
   --breakpoint-sm: 395px;
   --breakpoint-md: 700px;
@@ -11,9 +9,8 @@
   --breakpoint-3xl: 1700px;
   --font-satoshi: "Satoshi", "sans-serif";
   --font-ubuntu: "Ubuntu", sans-serif;
-  --font-syncopate: "Syncopate", sans-serif;
-  --font-inter: "Inter", sans-serif;
-  --font-loveLight: "Love Light", cursive;
+  --font-bokor: "Bokor", sans-serif;
+  --font-protest_revolution: "Protest Revolution", sans-serif;
 }
 /* checkbox */
 .container-checkbox {

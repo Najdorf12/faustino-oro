@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Ubuntu, Inter, Syncopate } from "next/font/google";
+import { Ubuntu, Bokor, Protest_Revolution } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Script from "next/script";
@@ -11,15 +11,15 @@ const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
 });
-const syncopate = Syncopate({
-  variable: "--font-syncopate",
+const bokor = Bokor({
+  variable: "--font-bokor",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400"],
 });
-const inter = Inter({
+const protest_revolution = Protest_Revolution({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
 });
 const satoshi = localFont({
   src: [
@@ -145,7 +145,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${ubuntu.variable} ${inter.variable} ${syncopate.variable} ${satoshi.variable} antialiased`}
+        className={`${ubuntu.variable} ${protest_revolution.variable} ${bokor.variable} ${satoshi.variable} antialiased`}
       >
         {/* ✅ JSON-LD */}
         <Script

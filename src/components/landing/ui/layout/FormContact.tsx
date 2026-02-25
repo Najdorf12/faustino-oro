@@ -4,7 +4,7 @@ export default function Form() {
   return (
     <section className="relative pointer-events-auto z-50 w-full flex items-center justify-center text-balance">
       <div className="relative w-full max-w-110 rounded-lg shadow-md pt-2 pb-3 px-4 md:p-6 border border-zinc-600 bg-zinc-900/70 lg:bg-linear-to-bl via-transparent lg:from-sky-900 3xl:max-w-120 3xl:p-8">
-        <legend className="flex items-center gap-2 font-medium text-zinc-400">
+        <legend className="flex items-center gap-2 font- text-zinc-400">
           Faustino Oro <span className="text-3xl text-sky-500">*</span>
         </legend>
 
@@ -12,7 +12,7 @@ export default function Form() {
           Mové la primera pieza y formá parte de su historia
         </h6>
         
-        <p className="text-zinc-400 font-medium mt-3 mb-2 3xl:text-lg 3xl:mt-4">
+        <p className="text-zinc-400 font- mt-3 mb-2 3xl:text-lg 3xl:mt-4">
           Cada mensaje es una oportunidad
         </p>
         
@@ -22,7 +22,7 @@ export default function Form() {
           <div className="flex-1 h-px bg-gray-400"></div>
         </div>
 
-        <form className="relative flex flex-col gap-2 mt-2">
+        <form className="relative flex flex-col gap-2 mt-2 text-sm md:text-base">
           <input
             placeholder="Nombre"
             className="bg-zinc-800/80 placeholder:text-zinc-300 border-zinc-700 border text-gray-200 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
