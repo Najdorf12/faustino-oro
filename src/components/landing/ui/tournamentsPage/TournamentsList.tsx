@@ -26,7 +26,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
     >
       {active.length > 0 && (
         <section>
-          <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
+          <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-14 border-l-3 border-sky-600">
             <h6 className="text-zinc-200 text-nowrap text-3xl  sm:text-4xl lg:text-6xl ">
               Torneos activos
             </h6>
@@ -46,7 +46,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
 
       {historical.length > 0 && (
         <section>
-          <div className="flex items-end py-2 gap-3 mt-12 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-16 border-l-3 border-sky-600">
+          <div className="flex items-end py-2 gap-3 mt-12 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mt-20 lg:mb-14 border-l-3 border-sky-600">
             <h6 className="text-zinc-200 text-3xl sm:text-4xl lg:text-6xl ">
               Historial
             </h6>
