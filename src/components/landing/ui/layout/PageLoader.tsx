@@ -41,11 +41,11 @@ export default function PageLoader() {
   return (
     <div className="fixed inset-0 z-500 flex items-center justify-center bg-zinc-800/95 backdrop-blur-sm p-4">
       <div className="flex flex-col items-center justify-center gap-4 border border-zinc-700 rounded-lg h-full w-full">
-        <figure className="relative w-26 h-26 lg:w-28 lg:h-28 xl:w-32 xl:h-32">
+        <figure className="relative w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 3xl:w-36 3xl:h-36">
           <svg
             fill="none"
             stroke="#d4d4d8"
-            strokeWidth=".9"
+            strokeWidth=".7"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 31.537 31.537"
@@ -60,12 +60,12 @@ export default function PageLoader() {
           </svg>
         </figure>
 
-        <p className="text-zinc-500 text-2xl mt-6 flex flex-col text-center xl:text-3xl ">
+        <p className="text-zinc-500 text-xl mt-6 flex flex-col text-center xl:text-2xl  3xl:text-3xl">
           Faustino Oro{" "}
-          <span className="text-sm xl:text-lg text-zinc-600"> International Master </span>
+          <span className="text-sm xl:text-lg text-zinc-600 3xl:text-xl"> International Master </span>
         </p>
       </div>
-      <p className="absolute bottom-6 text-zinc-600 text-[12px] lg:text-sm">Official website</p>
+      <p className="absolute bottom-6 text-zinc-600 text-[12px] lg:text-sm 3xl:text-base">Official website</p>
     </div>
   );
 }
