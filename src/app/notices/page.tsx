@@ -48,9 +48,9 @@ export default function NoticesPage() {
             NOTICIAS
           </h6>
           <p className="relative pr-2 text-sm my-3 sm:my-6  text-zinc-400 flex justify-center items-center max-w-100 lg:max-w-175 xl:text-lg 3xl:text-xl">
-            Bienvenidos a la sección de noticias de Fausti, donde
-            compartimos sus logros, próximas competencias y momentos clave en su
-            carrera de ajedrez.
+            Bienvenidos a la sección de noticias de Fausti, donde compartimos
+            sus logros, próximas competencias y momentos clave en su carrera de
+            ajedrez.
           </p>
           <Link href={"/tournaments"}>
             <button className="relative text-zinc-300 text-lg mt-3 flex items-center gap-2 font-medium lg:ml-1 lg:text-xl 2xl:text-2xl group hover:text-sky-500 cursor-pointer duration-500">
@@ -160,13 +160,13 @@ async function NoticesContent() {
   const activeNotices = notices.filter((notice: any) => notice.isActive);
 
   return (
-    <div className="w-full min-h-screen bg-zinc-800 py-16 px-6 relative lg:py-16">
+    <div className="w-full min-h-screen bg-zinc-800 py-16 px-4 relative lg:py-16">
       <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
         © Faustino Oro
       </div>
 
       <div className="max-w-7xl mx-auto ">
-        <h6 className="text-zinc-200 text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16">
+        <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16">
           Todas las noticias
         </h6>
         {activeNotices.length === 0 ? (
@@ -189,14 +189,14 @@ async function NoticesContent() {
                         src={notice.images[0].secure_url}
                         alt={notice.title}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="object-cover "
                       />
                     </div>
                   )}
 
-                <div className="py-6 px-3">
+                <div className="py-6 px-3 text-balance">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-4 py-1 rounded-full">
+                    <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-4 py-0.5 rounded-full">
                       {notice.category}
                     </span>
                     <span className="text-zinc-500 text-sm">
@@ -208,13 +208,31 @@ async function NoticesContent() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl leading-8 text-zinc-200 mb-4 group-hover:text-sky-400 transition-colors line-clamp-2">
+                  <h2 className="text-xl sm:text-2xl sm:leading-8 text-zinc-200 mb-4 group-hover:text-sky-400 transition-colors line-clamp-2">
                     {notice.title}
                   </h2>
 
-                  <p className="text-zinc-400 line-clamp-3">
+                  <p className="text-sm sm:text-base text-zinc-400 line-clamp-3">
                     {notice.description}
                   </p>
+                </div>
+                <div className="self-end mb-2 ml-3 bg-zinc-700/70 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-50 lg:mb-3">
+                  <p className="">Leer más</p>
+                  <div className="bg-sky-600 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      className="w-[1.2em] transition-transform duration-300 text-zinc-100 group-hover:translate-x-[0.1em]"
+                    >
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path
+                        fill="currentColor"
+                        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                      ></path>
+                    </svg>
+                  </div>
                 </div>
               </Link>
             ))}
