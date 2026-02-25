@@ -42,7 +42,7 @@ export default function DoughnutChart({
       legend: {
         position: "bottom" as const,
         labels: {
-          color: "#d4d4d8",
+          color: side === "white" ? "#27272a" : "#d4d4d8",
           padding: 10,
           font: {
             size: 12,
@@ -64,11 +64,21 @@ export default function DoughnutChart({
   };
 
   return (
-    <div className="w-55 bg-zinc-700 p-2 rounded-lg border border-zinc-500">
-      <h3 className="text-center text-base mb-3 text-zinc-300 font-medium lg:text-lg">
-        {title}
-      </h3>
-      <Doughnut data={data} options={options} />
-    </div>
+   <div
+  className={`w-45 sm:w-48 xl:w-50 3xl:w-58 p-2 rounded-lg border  ${
+    side === "white"
+      ? "bg-zinc-300 border-zinc-300"
+      : "bg-zinc-700 border-zinc-500"
+  }`}
+>
+  <h3
+    className={`text-center text-base mb-3 font-medium lg:text-lg ${
+      side === "white" ? "text-zinc-700" : "text-zinc-300"
+    }`}
+  >
+    {title}
+  </h3>
+  <Doughnut data={data} options={options} />
+</div>
   );
 }

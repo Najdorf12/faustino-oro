@@ -118,14 +118,16 @@ export const metadata: Metadata = {
     google: "yLmlttyx8GtuVp89gWQ1X0oVRhudOMEshoohKRjVeyU",
   },
   icons: {
-    icon: "/iconNav.png",
+    icon: [
+      { url: "/iconKnight.svg", type: "image/svg+xml" }, // si tenés versión SVG
+    ],
   },
   other: {
     google: "notranslate",
   },
 };
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
 };
 
