@@ -13,7 +13,7 @@ export default function Tournaments({ data }: TournamentsProps) {
   return (
     <section
       id="tournaments"
-      className="w-full min-h-screen flex flex-col gap-12 relative justify-center items-center mt-9 pt-9 pb-12 bg-sky-900 md:h-screen lg:mt-12 lg:pt-12 lg:gap-16 xl:gap-18 lg:px-12 2xl:px-16 2xl:gap-20"
+      className="w-full min-h-screen flex flex-col gap-12 relative justify-center items-center mt-9 pt-9 pb-12 bg-sky-900 md:h-screen lg:mt-12 lg:pt-12 lg:gap-16 xl:gap-18 lg:px-12 2xl:px-16 2xl:gap-20 3xl:mt-14"
     >
       <div className="min-h-screen w-full absolute inset-0 z-50"></div>
       <article className="flex flex-col pl-4 gap-6 lg:flex-row lg:items-start  lg:px-9 lg:w-full ">
