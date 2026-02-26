@@ -43,7 +43,7 @@ export default function NoticesPage() {
     <>
       <section className="w-full min-h-screen bg-zinc-800 flex flex-col pt-26 sm:pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
         <NavbarLanding />
-        <article className="pl-6 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen xl:pl-12 lg:pt-0">
+        <article className="pl-4 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen xl:pl-12 lg:pt-0">
           <h6 className="relative text-zinc-300 text-[3.5rem] sm:text-6xl lg:text-7xl xl:text-8xl font-medium 3xl:text-9xl">
             NOTICIAS
           </h6>
@@ -161,8 +161,8 @@ async function NoticesContent() {
 
   return (
     <div className="w-full min-h-screen bg-zinc-800 py-16 px-4 relative lg:py-16">
-      <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
-        © Faustino Oro
+      <div className="absolute  z-200 bottom-0.5 left-0 text-zinc-600  w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
+       © Faustino Oro
       </div>
 
       <div className="max-w-7xl mx-auto ">
@@ -196,7 +196,7 @@ async function NoticesContent() {
 
                 <div className="py-6 px-3 text-balance">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-4 py-0.5 rounded-full">
+                    <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-4 py-0.5 rounded-sm">
                       {notice.category}
                     </span>
                     <span className="text-zinc-500 text-sm">

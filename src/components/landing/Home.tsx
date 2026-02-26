@@ -12,53 +12,22 @@ export default function Home() {
           alt="home-image"
           className="w-full h-full object-cover absolute inset-0"
         />
-   {/* <div
-    className="absolute inset-0 z-2 "
-    style={{
-      backgroundImage: `
-        linear-gradient(to right, #9f9fa9 1px, transparent 1px),
-        linear-gradient(to bottom, #9f9fa9 1px, transparent 1px)
-      `,
-      backgroundSize: "200px 200px",
-      backgroundPosition: "0 0, 0 0",
-      maskImage: `
-        repeating-linear-gradient(
-          to right,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        ),
-        repeating-linear-gradient(
-          to bottom,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        )
-      `,
-      WebkitMaskImage: `
-        repeating-linear-gradient(
-          to right,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        ),
-        repeating-linear-gradient(
-          to bottom,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        )
-      `,
-      maskComposite: "intersect",
-      WebkitMaskComposite: "source-in",
-    }}
-  />  */}
-        <article className="relative z-50 w-full h-full flex flex-col items-center justify-end gap-2 lg:gap-6 ">
-          <h1 className="text-zinc-200 text-shadow-lg text-shadow-zinc-800 text-[4rem] leading-14 sm:text-[4.2rem] sm:leading-15 font-ubuntu text-center font-medium lg:font-semibold lg:text-[7rem] xl:leading-24 xl:text-[8rem] 2xl:text-[9rem] 3xl:text-[9.4rem]">
+ <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #9f9fa9 1px, transparent 1px),
+            linear-gradient(to bottom, #9f9fa9 1px, transparent 1px)
+          `,
+          backgroundSize: "120px 120px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 80% at 100% 100%, #000 50%, transparent 90%)",
+          maskImage:
+            "radial-gradient(ellipse 80% 80% at 100% 100%, #000 50%, transparent 90%)",
+        }}
+      />
+        <article className="relative z-100 w-full h-full flex flex-col items-center justify-end gap-2 lg:gap-6 ">
+          <h1 className="text-zinc-200 relative z-100 text-shadow-lg text-shadow-zinc-800 text-[4rem] leading-14 sm:text-[4.2rem] sm:leading-15 font-ubuntu text-center font-medium lg:font-semibold lg:text-[7rem] xl:leading-24 xl:text-[8rem] 2xl:text-[9rem] 3xl:text-[9.4rem]">
             FAUSTINO ORO
           </h1>
           <p className="text-shadow-2xs flex items-center gap-2 text-shadow-zinc-700 text-zinc-300 font-medium text-base sm:text-lg lg:text-2xl 2xl:text-[28px] 3xl:text-3xl">
