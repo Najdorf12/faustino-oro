@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
 
 interface LoginFormData {
   email: string;
@@ -66,17 +65,16 @@ export default function Login() {
   };
 
   return (
-    <section className="w-full min-h-screen px-6 flex items-center justify-center text-balance lg:bg-linear-to-l lg:from-stone-700 lg:to-zinc-900">
-      <div className="relative w-full pt-12 max-w-110 rounded-lg shadow-md p-4 md:p-6 border border-stone-600 bg-zinc-800/60 lg:bg-linear-to-r lg:from-zinc-700 lg:to-stone-500 ">
-        <legend className="flex items-center gap-2 font-medium  top-0 left-6 text-stone-400  3xl:text-lg">
-          Faustino Oro <span className="text-4xl ">*</span>
+    <section className="w-full h-screen px-6 flex items-center justify-center text-balance ">
+      <div className="relative w-full max-w-110 rounded-lg shadow-md px-3 pt-1 pb-3 md:pt-4 md:p-6 border border-zinc-600 bg-zinc-800/60 lg:bg-linear-to-r ">
+        <legend className="flex items-center gap-2 font-medium  top-0 left-6 text-zinc-400 text-sm md:text-base 3xl:text-lg">
+          Faustino Oro <span className="text-4xl text-sky-500">*</span>
         </legend>
-
-        <h6 className="text-zinc-100 max-w-70 text-3xl leading-8 3xl:text-4xl 3xl:max-w-80 3xl:leading-9">
-          Bienvenido. Inicia sesión para acceder 
+        <h6 className="text-zinc-100 max-w-70 text-2xl md:text-3xl 3xl:text-4xl 3xl:max-w-80 3xl:leading-9">
+          Bienvenido. Inicia sesión para acceder
         </h6>
-        <p className="text-stone-400 mt-4 mb-2 3xl:text-lg ">
-          Todavía no tienes una cuenta? 
+        <p className="text-zinc-400 mt-4 mb-2 text-sm md:text-base 3xl:text-lg ">
+          Todavía no tienes una cuenta?
           <Link href={"/auth/register"} className="text-zinc-100 ml-2">
             Registrate
           </Link>
@@ -100,7 +98,7 @@ export default function Login() {
               },
             })}
             placeholder="Email "
-            className="bg-zinc-800 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            className="bg-zinc-800 text-gray-200 border border-sky-700 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="email"
           />
           {errors.email && (
@@ -116,7 +114,7 @@ export default function Login() {
               },
             })}
             placeholder="Contraseña"
-            className="bg-zinc-800 text-gray-200 border-0 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            className="bg-zinc-800 text-gray-200 border border-sky-700 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="password"
           />
           {errors.password && (
@@ -134,7 +132,7 @@ export default function Login() {
           <button
             onClick={handleGoogleSignIn}
             disabled={isGoogleLoading || isLoading}
-            className="w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-md mt-3 flex items-center justify-center gap-2 transition ease-in-out duration-150 disabled:opacity-50"
+            className="w-full bg-zinc-200 hover:bg-gray-100 text-gray-800 font-medium text-sm py-2 px-4 rounded-md mt-3 flex items-center justify-center gap-2 transition ease-in-out duration-150 disabled:opacity-50 md:text-base"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
@@ -158,8 +156,7 @@ export default function Login() {
           </button>
 
           <button
-            className="bg-linear-to-r from-zinc-800 to-stone-300 text-zinc-100 font-semibold py-2 px-4 rounded-md mt-2 hover:from-zinc-800 hover:to-zinc-100 
-             cursor-pointer transition ease-in-out duration-400 disabled:opacity-50"
+            className="border border-zinc-500 text-zinc-200 bg-linear-to-b from-sky-700 to-sky-900 font-semibold py-2 px-4 rounded-md mt-2 cursor-pointer transition ease-in-out duration-400 disabled:opacity-50 text-sm md:text-base"
             type="submit"
             disabled={isLoading || isGoogleLoading}
           >
