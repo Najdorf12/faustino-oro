@@ -51,9 +51,35 @@ export default async function NoticePage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen  relative ">
+    <div className="min-h-screen py-20 lg:py-28 relative ">
       <NavbarLanding />
-      <article className="max-w-4xl mx-auto px-4 py-20 lg:max-w-5xl lg:py-28 3xl:max-w-6xl">
+
+      <article className="px-4 max-w-4xl  rounded-lg mx-auto lg:max-w-5xl  3xl:max-w-6xl ">
+        <Link href="/notices/#allnotices">
+          <button
+            type="button"
+            className="flex items-center justify-center border bg-zinc-700/50 border-sky-700 cursor-pointer text-center z-100 w-50 sm:w-50 xl:w-60 rounded-lg h-9 relative text-zinc-200 text-sm md:text-lg group mb-4"
+          >
+            <div className="bg-sky-700 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute left-0 top-0 group-hover:w-full z-10 duration-500">
+              <svg
+                width="25px"
+                height="25px"
+                viewBox="0 0 1024 1024"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#e4e4e7"
+                  d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                ></path>
+                <path
+                  fill="#e4e4e7"
+                  d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                ></path>
+              </svg>
+            </div>
+            <p className="translate-x-4">Volver atrás</p>
+          </button>
+        </Link>
         {notice.images &&
           notice.images.length > 0 &&
           notice.images[0].secure_url && (
@@ -68,11 +94,11 @@ export default async function NoticePage({ params }: Props) {
             </div>
           )}
 
-        <div className="flex items-center justify-between mb-6 relative text-balance xl:mb-8">
+        <div className="flex items-center justify-between mb-6 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 md:py-6 md:px-3 xl:mb-8">
           <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-8 py-0.5 rounded-sm lg:text-base 3xl:text-lg">
             {notice.category}
           </span>
-          <span className="text-zinc-500 text-sm lg:text-base 3xl:text-lg">
+          <span className="text-zinc-500 text-sm lg:text-base 3xl:text-lg ">
             {new Date(notice.createdAt).toLocaleDateString("es-AR", {
               year: "numeric",
               month: "long",
@@ -81,15 +107,15 @@ export default async function NoticePage({ params }: Props) {
           </span>
         </div>
 
-        <h6 className="text-2xl md:text-3xl text-balance text-zinc-100 mb-6 lg:text-4xl relative 3xl:text-5xl xl:mb-8">
+        <h6 className="relative text-2xl border-b pb-6 border-zinc-700 text-balance text-zinc-100 mb-6 md:text-3xl px-2 md:px-3 lg:text-4xl xl:mb-8 3xl:text-5xl ">
           {notice.title}
         </h6>
 
-        <p className="text-base text-zinc-400 mb-8 text-balance relative z-100 lg:text-lg 3xl:text-xl">
+        <p className="text-base text-zinc-400 mb-8 text-balance relative z-100 px-2 md:px-3 lg:text-lg 3xl:text-xl ">
           {notice.description}
         </p>
 
-        <div className="prose prose-invert prose-lg max-w-none text-balance text-zinc-300 text-base lg:text-lg relative z-100 3xl:text-xl">
+        <div className="prose prose-invert prose-lg max-w-none text-balance text-zinc-300 text-base px-2 md:px-3 lg:text-lg relative z-100 3xl:text-xl">
           <div dangerouslySetInnerHTML={{ __html: notice.content }} />
         </div>
       </article>
@@ -107,7 +133,7 @@ export default async function NoticePage({ params }: Props) {
             "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
         }}
       />
-      
+
       <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
         © Faustino Oro
       </div>

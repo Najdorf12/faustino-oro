@@ -62,11 +62,11 @@ export default function NoticesPage() {
           </Link>
         </article>
         <div className="hidden md:flex justify-center absolute bottom-0 w-1/2">
-          <p className="text-sm xl:text-base leading-5 pl-6 xl:pl-12 text-balance h-22 lg:h-24 3xl:h-26 text-zinc-400 flex justify-center items-center 3xl:text-lg xl:leading-normal">
+          <p className="text-sm xl:text-base leading-5 pl-6 xl:pl-12 text-balance h-22 lg:h-26 3xl:h-28 text-zinc-400 flex justify-center items-center 3xl:text-lg xl:leading-normal">
             Mantente informado sobre sus próximas competencias, análisis de
             partidas y eventos destacados en el mundo del ajedrez.
           </p>
-          <p className="text-base xl:text-lg 3xl:text-xl px-2 leading-5 text-center text-balance h-22 lg:h-24 3xl:h-26 bg-sky-700 rounded-tl text-zinc-300 flex justify-center items-center">
+          <p className="text-base xl:text-lg 3xl:text-xl px-2 leading-5 text-center text-balance h-22 lg:h-26 3xl:h-28 bg-sky-700 rounded-tl text-zinc-300 flex justify-center items-center">
             CHESSI IS COMING
           </p>
         </div>
@@ -132,7 +132,7 @@ export default function NoticesPage() {
       `,
           }}
         />
-        <article className="absolute inset-0 z-200 flex items-end pb-4 max-w-100 md:max-w-200 lg:max-w-260 md:items-end md:pb-10">
+        <article className="absolute inset-0 z-200 flex items-end pb-4 max-w-100 md:max-w-200 lg:max-w-260 md:items-end md:pb-10 3xl:pb-14">
           <h6 className="z-60 text-start text-zinc-300 font-medium text-balance text-lg leading-6 mt-3 md:leading-12 md:text-5xl ml-[8%] max-w-200  lg:ml-[12%] 3xl:text-6xl 3xl:max-w-280">
             Aquí encontrarás actualizaciones en tiempo real y la cobertura de
             los momentos más importantes de su trayectoria profesional
@@ -142,7 +142,7 @@ export default function NoticesPage() {
           <Image
             src={iconFaustiCaruana}
             alt="icon"
-            className="w-18 md:w-50 absolute bottom-9 left-[2%] md:bottom-12 3xl:w-70"
+            className="w-18 md:w-50 absolute bottom-9 left-[2%] md:bottom-12 3xl:w-60"
           ></Image>
         </figure>
       </figure>
@@ -160,13 +160,13 @@ async function NoticesContent() {
   const activeNotices = notices.filter((notice: any) => notice.isActive);
 
   return (
-    <div className="w-full min-h-screen bg-zinc-800 py-16 px-4 relative lg:py-16">
+    <div id="allnotices" className="w-full min-h-screen bg-zinc-800 py-10 px-4 relative lg:py-16">
       <div className="absolute  z-200 bottom-0.5 left-0 text-zinc-600  w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
        © Faustino Oro
       </div>
 
-      <div className="max-w-7xl mx-auto ">
-        <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16">
+      <div  className="max-w-7xl mx-auto  ">
+        <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16 3xl:text-7xl">
           Todas las noticias
         </h6>
         {activeNotices.length === 0 ? (

@@ -19,7 +19,7 @@ export default function Home() {
             linear-gradient(to right, #9f9fa9 1px, transparent 1px),
             linear-gradient(to bottom, #9f9fa9 1px, transparent 1px)
           `,
-          backgroundSize: "120px 120px",
+          backgroundSize: "150px 150px",
           WebkitMaskImage:
             "radial-gradient(ellipse 80% 80% at 100% 100%, #000 50%, transparent 90%)",
           maskImage:
