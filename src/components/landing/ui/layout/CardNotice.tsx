@@ -34,7 +34,8 @@ function truncateToFirstSentence(
 export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
   return (
     <li className="flex flex-col gap-2 relative ">
-      <div className="text-balance bg-linear-to-br  from-zinc-700 to-zinc-900/60 rounded-lg overflow-hidden shadow-lg hover:shadow-zinc-500 transition-all duration-300 border-2 border-zinc-500 hover:border-zinc-300 lg:flex lg:items-stretch max-w-90 lg:max-w-270  lg:w-270 lg:min-h-75 lg:px-4 ">
+      
+      <div className="group cursor-pointer text-balance bg-linear-to-tr from-zinc-800 via-zinc-500 to-zinc rounded-lg overflow-hidden shadow-xl shadow-zinc-500 transition-all duration-300 border-2 border-zinc-100 hover:shadow-zinc-300 lg:flex lg:items-stretch max-w-90 lg:max-w-270  lg:w-270 lg:min-h-75 lg:px-4 ">
         {/* Image Section */}
         {notice.images?.length > 0 && (
           <div className="relative w-full h-48 pl-3 lg:h-66 lg:w-1/3 self-center">
@@ -42,7 +43,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
               src={notice.images[0].secure_url}
               fill
               alt={notice.title}
-              className="object-cover w-full h-full lg:rounded-lg"
+              className="object-cover w-full h-full lg:rounded-lg border-b  border-zinc-300 lg:border"
             />
             {notice.images.length > 1 && (
               <div className="absolute bottom-3 right-3 bg-zinc-800/80 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
@@ -64,16 +65,16 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
             </span>
           </div>
 
-          <h6 className="text-lg  md:text-xl text-zinc-100 mb-2 line-clamp-2 leading-tight lg:mb-3 lg:text-2xl">
+          <h6 className="text-lg  md:text-xl text-zinc-100 mb-2 line-clamp-2 leading-tight lg:mb-3 lg:text-2xl 3xl:text-3xl">
             {notice.title}
           </h6>
 
-          <p className="text-zinc-400 text-sm mb-1 leading-relaxed md:text-base lg:text-lg lg:leading-6">
+          <p className="text-zinc-300 text-sm mb-1 leading-relaxed md:text-base lg:text-lg lg:leading-6">
             {truncateToFirstSentence(notice.description, 120)}
           </p>
 
           {notice.content && (
-            <p className="text-zinc-400 text-sm mb-4 leading-relaxed italic line-clamp-2 lg:text-base lg:leading-6">
+            <p className="text-zinc-300 text-sm mb-4 leading-relaxed italic line-clamp-2 lg:text-base lg:leading-6">
               {truncateToFirstSentence(notice.content, 100)}
             </p>
           )}
@@ -90,7 +91,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
         </div>
         <Link
           href={`/notices/${notice._id}`}
-          className="self-end mb-2 ml-3 bg-zinc-700/70 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-50 lg:mb-3"
+          className="self-end mb-3 ml-3 bg-zinc-700/70 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-50 lg:mb-3"
         >
           <p className="">Leer más</p>
           <div className="bg-sky-600 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
