@@ -132,7 +132,7 @@ export async function getFideStats(): Promise<FideStats> {
 export async function getFidePlayer(): Promise<FideResponse | null> {
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s
 
     const res = await fetch(
       "https://fide-api.vercel.app/player_info/?fide_id=20000197&history=true",

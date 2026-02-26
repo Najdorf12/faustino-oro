@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Información sobre torneos, estadísticas FIDE y progreso de Faustino Oro",
 };
 
-export const revalidate = 3600; // Revalidar cada hora
+export const revalidate = 3600;
 
 export default async function TournamentsPage() {
   await connectToDatabase();
@@ -27,15 +27,6 @@ export default async function TournamentsPage() {
     getFideStats(),
   ]);
   const tournaments = JSON.parse(JSON.stringify(tournamentsRaw));
-  /*  if (!fidePlayer) {
-    return (
-      <section className="w-full min-h-screen bg-zinc-800 flex items-center justify-center">
-        <p className="text-zinc-400 text-xl">
-          Error al cargar información del jugador
-        </p>
-      </section>
-    );
-  } */
 
   return (
     <section className="w-full pb-32">
@@ -59,7 +50,7 @@ export default async function TournamentsPage() {
             </button>
           </Link>
         </article>
-       <div className="hidden md:flex justify-center absolute bottom-0 w-1/2">
+        <div className="hidden md:flex justify-center absolute bottom-0 w-1/2">
           <p className="text-sm xl:text-base leading-5 pl-6 xl:pl-12 text-balance h-22 lg:h-24 3xl:h-26 text-zinc-400 flex justify-center items-center 3xl:text-lg xl:leading-normal">
             Mantente informado sobre sus próximas competencias, análisis de
             partidas y eventos destacados en el mundo del ajedrez.
@@ -78,9 +69,13 @@ export default async function TournamentsPage() {
           ></Image>
         </section>
       </section>
-      {/* Componente con estadísticas FIDE */}
-      {fidePlayer && <FidePlayer fide={fidePlayer} stats={fideStats} />}
-
+      {fidePlayer ? (
+        <FidePlayer fide={fidePlayer} stats={fideStats} />
+      ) : (
+        <div className="w-full py-12 text-center text-zinc-500">
+          No se pudieron cargar las estadísticas FIDE en este momento.
+        </div>
+      )}
       <TournamentsList tournaments={tournaments} />
     </section>
   );
