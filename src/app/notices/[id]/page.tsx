@@ -51,7 +51,7 @@ export default async function NoticePage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen py-20 lg:py-28 relative ">
+    <div className="min-h-screen py-20 lg:py-28 relative lg:pb-32 3xl:pb-38 ">
       <NavbarLanding />
 
       <article className="px-4 max-w-4xl  rounded-lg mx-auto lg:max-w-5xl  3xl:max-w-6xl ">

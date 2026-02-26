@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import NavbarLanding from "@/components/landing/ui/layout/NavbarLanding";
+import NavbarPages from "@/components/landing/ui/layout/NavbarPages";
 import imgFaustiNotice from "@/assets/images/ai1.png";
 import imgFaustiCaruana from "@/assets/images/chess/19.jpg";
 import iconFaustiCaruana from "@/assets/images/icon5.svg";
@@ -42,8 +42,8 @@ export default function NoticesPage() {
   return (
     <>
       <section className="w-full min-h-screen bg-zinc-800 flex flex-col pt-26 sm:pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
-        <NavbarLanding />
-        <article className="pl-4 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen xl:pl-12 lg:pt-0">
+        <NavbarPages />
+        <article className="pl-4 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen lg:pl-6 xl:pl-12 lg:pt-0">
           <h6 className="relative text-zinc-300 text-[3.5rem] sm:text-6xl lg:text-7xl xl:text-8xl font-medium 3xl:text-9xl">
             NOTICIAS
           </h6>
@@ -160,12 +160,12 @@ async function NoticesContent() {
   const activeNotices = notices.filter((notice: any) => notice.isActive);
 
   return (
-    <div id="allnotices" className="w-full min-h-screen bg-zinc-800 py-10 px-4 relative lg:py-16">
+    <div id="allnotices" className="w-full min-h-screen bg-z py-10 px-4 relative lg:py-16 3xl:flex 3xl:justify-start ">
       <div className="absolute  z-200 bottom-0.5 left-0 text-zinc-600  w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
        © Faustino Oro
       </div>
 
-      <div  className="max-w-7xl mx-auto  ">
+      <div  className="max-w-7xl mx-auto  3xl:max-w-350 ">
         <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16 3xl:text-7xl">
           Todas las noticias
         </h6>
@@ -174,7 +174,7 @@ async function NoticesContent() {
             No hay noticias disponibles en este momento
           </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
             {activeNotices.map((notice: any) => (
               <Link
                 key={notice._id}

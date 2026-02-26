@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import imgTournamentPage from "@/assets/images/ai2.jpg";
-import NavbarLanding from "@/components/landing/ui/layout/NavbarLanding";
+import NavbarPages from "@/components/landing/ui/layout/NavbarPages";
 import FidePlayer from "@/components/landing/ui/tournamentsPage/fideStats/FidePlayer";
 import TournamentsList from "@/components/landing/ui/tournamentsPage/TournamentsList";
 import { getTournaments, getFidePlayer, getFideStats } from "@/lib/api";
@@ -40,8 +40,8 @@ export default async function TournamentsPage() {
   return (
     <section className="w-full pb-32">
       <section className="w-full min-h-screen bg-zinc-800 flex flex-col pt-24 sm:pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
-        <NavbarLanding />
-        <article className="pl-4 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen xl:pl-12 lg:pt-0">
+        <NavbarPages />
+        <article className="pl-4 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen lg:pl-6 xl:pl-12 lg:pt-0">
           <h6 className="relative text-zinc-300 text-[3.5rem] sm:text-6xl lg:text-7xl xl:text-8xl font-medium 3xl:text-9xl">
             TORNEOS
           </h6>
