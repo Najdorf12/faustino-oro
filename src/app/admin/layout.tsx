@@ -34,7 +34,7 @@ export default async function AdminLayout({
           </div>
         </article>
 
-        <h6 className="text-3xl font-medium text-zinc-500 mt-9 lg:mt-0 lg:text-5xl 3xl:text-6xl">
+        <h6 className="text-2xl font-medium text-zinc-500 mt-9 md:text-3xl lg:mt-0 lg:text-5xl 3xl:text-6xl">
           Panel de Administración
         </h6>
       </section>

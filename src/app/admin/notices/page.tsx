@@ -38,7 +38,7 @@ export default function NoticesPage() {
   };
 
   return (
-    <>
+    <section className="w-full flex-col items-center justify-center pb-16 lg:pb-32 3xl:pb-40">
       <NoticesForm
         noticeSelected={noticeSelected}
         onSaved={handleSaved}
@@ -50,6 +50,6 @@ export default function NoticesPage() {
         onEdit={setNoticeSelected}
         onDelete={deleteNotice}
       />
-    </>
+    </section>
   );
 }

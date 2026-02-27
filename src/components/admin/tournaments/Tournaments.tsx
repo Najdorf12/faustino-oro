@@ -10,19 +10,21 @@ interface TournamentsProps {
 
 const Tournaments = ({ tournaments, onEdit, onDelete }: TournamentsProps) => {
   return (
-    <section className="w-full mt-10 px-4  relative z-50 pb-14 ">
-      <h6 className="text-4xl text-center text-zinc-200 mb-12 xl:text-5xl lg:mb-16">
-        Torneos existentes
-      </h6>
-      <div className="flex flex-wrap items-center justify-center gap-9">
-        {[...tournaments].map((tournament) => (
-          <TournamentCard
-            key={tournament._id}
-            tournament={tournament}
-            onEdit={onEdit}
-            onDelete={onDelete}
-          />
-        ))}
+    <section className="relative w-full z-100 self-center flex flex-col justify-center items-center px-3 sm:px-4 mt-2 lg:mt-6 lg:px-0">
+      <div className="w-full flex flex-col justify-center items-center gap-9 lg:gap-14  max-w-7xl">
+        <h6 className=" border-l-2 border-sky-700 pl-3 py-2 text-3xl md:text-4xl text-zinc-200 lg:ml-5 xl:text-5xl  self-start">
+          Torneos existentes
+        </h6>
+        <div className="flex flex-wrap max-w-7xl items-center justify-center gap-y-6 w-full items md:gap-x-12 md:gap-y-9">
+          {[...tournaments].map((tournament) => (
+            <TournamentCard
+              key={tournament._id}
+              tournament={tournament}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

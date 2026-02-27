@@ -133,7 +133,7 @@ const AchievementsForm = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-14 lg:py-18 ">
+    <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-16 lg:py-18 ">
       <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-220 xl:px-8 z-50 xl:py-10">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
         <figure className="absolute inset-0 w-full h-full z-20 ">
@@ -144,11 +144,11 @@ const AchievementsForm = () => {
           />
         </figure>
 
-        <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
-          Logros
+        <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-300 md:text-6xl xl:text-7xl 2xl:text-8xl">
+          LOGROS
         </h6>
 
-        <p className="text-center relative text-zinc-300 text-base xl:text-xl 3xl:text-xl z-50">
+        <p className="text-center relative text-zinc-400 text-sm md:text-base xl:text-xl 3xl:text-xl z-50">
           {achievementSelected ? "Editar logro" : "Agrega un nuevo logro"}
         </p>
 
@@ -160,7 +160,7 @@ const AchievementsForm = () => {
             <input
               autoComplete="off"
               placeholder="Logro"
-              className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
+              className="peer h-10 w-full border-b-2 border-sky-700 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
               {...register("title", {
                 required: "El logro es requerido",
               })}
@@ -186,7 +186,7 @@ const AchievementsForm = () => {
               </button>
             )}
             <button
-              className="w-full bg-sky-800/90 py-2 px-4  rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center cursor-pointer"
+              className="w-full bg-sky-700 border py-2 px-4  rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center cursor-pointer"
               type="submit"
               disabled={loading}
             >
@@ -202,14 +202,14 @@ const AchievementsForm = () => {
 
       {/* Lista de logros */}
       <section className="text-balance relative z-50 w-full mt-10 md:w-170 lg:mt-16 lg:w-200 ">
-        <h6 className="text-4xl text-center text-zinc-200 mb-6 lg:text-5xl lg:mb-12">
+        <h6 className="text-4xl text-center text-zinc-300 mb-12 lg:text-5xl lg:mb-12">
           Logros existentes
         </h6>
         <div className="flex flex-col gap-6 xl:gap-9">
           {[...achievements].reverse().map((achievement, index) => (
             <div
               key={achievement._id}
-              className="bg-linear-to-tr from-zinc-800 to-sky-700 border-2 border-zinc-500 rounded-lg p-4 flex flex-col justify-between items-center gap-4 relative z-50 max-w-200 lg:p-6"
+              className="bg-linear-to-tr from-zinc-800 to-sky-700 border-2 border-zinc-500 rounded-lg p-3 flex flex-col justify-between items-center gap-4 relative z-50 max-w-200 lg:p-6"
             >
               <span className="text-zinc-400 font-semibold text-lg self-start">
                 #{achievements.length - index}
@@ -225,7 +225,7 @@ const AchievementsForm = () => {
               <div className="flex w-full justify-evenly mt-3 items-center lg:gap-9">
                 <button
                   onClick={() => setAchievementSelected(achievement)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-2 rounded-md whitespace-nowrap text-sm lg:w-full"
+                  className="bg-sky-600 hover:bg-sky-700 text-white px-14 py-2 rounded-md whitespace-nowrap text-sm lg:w-full"
                 >
                   Editar
                 </button>

@@ -26,7 +26,7 @@ const TournamentCard = ({
   return (
     <div
       className="text-balance w-full max-w-95 border border-zinc-400 z-100 relative cursor-pointer  
-      rounded-3xl p-4 flex flex-col justify-between  duration-300 group 
+      rounded-2xl p-4 flex flex-col justify-between  duration-300 group 
       hover:scale-105 md:p-4 lg:h-125 lg:p-5"
     >
       <div className="flex justify-between items-center ">
@@ -84,19 +84,19 @@ const TournamentCard = ({
       <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-7">
         <button
           onClick={() => onEdit(tournament)}
-          className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-md whitespace-nowrap cursor-pointer"
+          className="bg-sky-600 hover:bg-sky-600 text-white px-4 py-2 rounded-sm whitespace-nowrap cursor-pointer"
         >
           Editar
         </button>
         <button
           onClick={() => onDelete(tournament._id!)}
-          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md whitespace-nowrap cursor-pointer"
+          className="bg-red-700 hover:bg-red-600 text-white px-4 py-2 rounded-sm whitespace-nowrap cursor-pointer"
         >
           Eliminar
         </button>
       </div>
       <div
-        className="absolute inset-0 z-0 rounded-3xl"
+        className="absolute inset-0 z-0 rounded-2xl"
         style={{
           backgroundImage: `
           radial-gradient(circle at 50% 100%, #00598a 0%, transparent 60%),

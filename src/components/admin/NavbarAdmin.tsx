@@ -1,5 +1,5 @@
 import Link from "next/link";
-import iconNav from "../../assets/images/icon1.png";
+import iconNav from "../../assets/images/icons/iconKnight.svg";
 import Image from "next/image";
 
 export default function NavbarAdmin() {

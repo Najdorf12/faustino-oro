@@ -65,7 +65,7 @@ export default function Login() {
   };
 
   return (
-    <section className="w-full h-screen px-4 pt-22 text-balance ">
+    <section className="w-full h-screen px-4 pt-22 text-balance lg:flex lg:justify-center lg:items-center lg:pt-0">
       <div className="relative w-full max-w-110 rounded-lg shadow-md px-3 pt-1 pb-3 md:pt-4 md:p-6 border border-zinc-600 bg-zinc-800/60 lg:bg-linear-to-r ">
         <legend className="flex items-center gap-2 font-medium  top-0 left-6 text-zinc-400 text-sm md:text-base 3xl:text-lg">
           Faustino Oro <span className="text-4xl text-sky-500">*</span>

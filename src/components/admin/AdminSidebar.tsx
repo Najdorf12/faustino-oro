@@ -9,22 +9,22 @@ import iconKnight from "@/assets/images/icons/iconKnight.svg";
 const menuItems = [
   {
     href: "/admin",
-    label: "Dashboard",
+    label: "+ Dashboard",
     icon: "📊",
   },
   {
     href: "/admin/notices",
-    label: "Noticias",
+    label: "+ Noticias",
     icon: "📰",
   },
   {
     href: "/admin/tournaments",
-    label: "Torneos",
+    label: "+ Torneos",
     icon: "🏆",
   },
   {
     href: "/admin/achievements",
-    label: "Logros",
+    label: "+ Logros",
     icon: "🎖️",
   },
 ];
@@ -38,42 +38,13 @@ export default function AdminSidebar() {
 
   return (
     <>
-      <button
-        onClick={toggleSidebar}
-        className="lg:hidden fixed top-1 left-3 z-100 bg-sky-700 text-white p-3 rounded-lg shadow-lg hover:bg-sky-800 transition-colors"
-        aria-label="Toggle menu"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          {isOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          )}
-        </svg>
-      </button>
-
       {isOpen && (
         <div
           className=" lg:hidden fixed inset-0 bg-opacity-50 z-40 transition-opacity"
           onClick={closeSidebar}
         />
       )}
-      <div className="flex flex-col items-center justify-center md:flex-row py-6 gap-5 self-center md:gap-6 lg:gap-9 lg:py-12">
+      <div className="bg-sky-800 w-full flex flex-col items-center justify-center md:flex-row py-6 gap-5 self-center md:gap-6 lg:gap-9 lg:py-12">
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
           return (

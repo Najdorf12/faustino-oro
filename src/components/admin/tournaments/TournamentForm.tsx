@@ -173,8 +173,8 @@ const TournamentsForm = ({
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-12 lg:pt-18 ">
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-220 xl:px-8 z-50">
+    <section className="w-full  flex items-center justify-center px-3 sm:px-4 py-12 lg:pt-18">
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg  shadow-zinc-900 border-3 overflow-hidden py-6 px-3 sm:px-4 space-y-6 md:space-y-7 md:w-140 lg:w-200 xl:w-220 xl:px-8 z-50">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
         <figure className="absolute inset-0 w-full h-full z-20 ">
           <Image
@@ -187,7 +187,7 @@ const TournamentsForm = ({
         <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
           TORNEOS
         </h6>
-        <p className="text-center relative z-50 text-zinc-300 text-base xl:text-xl 2xl:text-xl ">
+        <p className="text-center relative z-50 text-zinc-400 text-sm  md:text-base xl:text-xl 2xl:text-xl">
           {tournamentSelected
             ? "Editar torneo"
             : "Registra una nueva competencia"}
@@ -202,12 +202,12 @@ const TournamentsForm = ({
               <input
                 autoComplete="off"
                 placeholder="Título"
-                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
+                className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
                 {...register("title", {
                   required: "El título es requerido",
                 })}
               />
-              <label className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
+              <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-zinc-300 peer-focus:text-sm">
                 Título
               </label>
               {errors.title && (
@@ -221,12 +221,12 @@ const TournamentsForm = ({
               <input
                 autoComplete="off"
                 placeholder="Ubicación"
-                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
+                className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
                 {...register("location", {
                   required: "La ubicación es requerida",
                 })}
               />
-              <label className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
+              <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-zinc-300 peer-focus:text-sm">
                 Ubicación
               </label>
               {errors.location && (
@@ -242,7 +242,7 @@ const TournamentsForm = ({
               <input
                 type="date"
                 autoComplete="off"
-                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent 
+                className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent 
              focus:outline-none focus:border-zinc-100
              scheme-dark
              cursor-pointer
@@ -251,7 +251,7 @@ const TournamentsForm = ({
                   required: "La fecha de inicio es requerida",
                 })}
               />
-              <label className="absolute left-0 -top-3.5 text-white text-sm">
+              <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm">
                 Fecha de Inicio
               </label>
               {errors.startDate && (
@@ -265,16 +265,13 @@ const TournamentsForm = ({
               <input
                 type="date"
                 autoComplete="off"
-                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent 
-             focus:outline-none focus:border-zinc-100
-             scheme-dark
-             cursor-pointer
+                className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent focus:outline-none focus:border-zinc-100 scheme-dark  cursor-pointer
              placeholder:text-red-700"
                 {...register("endDate", {
                   required: "La fecha de fin es requerida",
                 })}
               />
-              <label className="absolute left-0 -top-3.5 text-white text-sm">
+              <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm">
                 Fecha de Fin
               </label>
               {errors.endDate && (
@@ -290,10 +287,10 @@ const TournamentsForm = ({
               <input
                 autoComplete="off"
                 placeholder="Tournament_id_Lichess"
-                className="peer h-10 w-full border-b-2 border-zinc-500 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
+                className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
                 {...register("tournament_id_lichess")}
               />
-              <label className="absolute left-0 -top-3.5 text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
+              <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-zinc-300 peer-focus:text-sm">
                 ID Torneo (Lichess)
               </label>
               {errors.tournament_id_lichess && (
@@ -323,12 +320,12 @@ const TournamentsForm = ({
           </div>
 
           <div className="relative">
-            <label className="text-zinc-300 text-sm mb-2 block">
-              Descripción (Opcional)
+            <label className="text-zinc-300  mb-2 block">
+              Descripción <span className="text-zinc-400">(Opcional)</span>
             </label>
             <textarea
               placeholder="Descripción del torneo"
-              className="w-full border bg-zinc-800/30 text-zinc-200 rounded-lg p-2 placeholder:text-zinc-300 relative text-base font-medium border-zinc-500 h-full min-h-24"
+              className="w-full border-2 bg-zinc-800/30 text-zinc-200 rounded-lg p-2 placeholder:text-zinc-400 placeholder:text-sm relative text-base font-medium border-sky-700 h-full min-h-24"
               {...register("description")}
             />
           </div>
@@ -341,9 +338,9 @@ const TournamentsForm = ({
             <input
               type="file"
               name="image"
-              accept=".jpg, .png, .jpeg"
+              accept=".jpg, .png, .jpeg, .webp"
               onChange={handleImage}
-              className="rounded-lg flex-1 appearance-none mt-2 w-full bg-zinc-800/80 py-2 px-4 border border-zinc-500 text-white placeholder-white text-sm focus:outline-none focus:border-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-800 file:text-white hover:file:bg-sky-700"
+              className="rounded-lg flex-1 mt-2 appearance-none w-full bg-zinc-800/80 py-2 px-2 md:px-4 border border-zinc-500 text-zinc-300 placeholder-white text-sm focus:outline-none focus:border-zinc-100 file:mr-4 file:py-2 file:px-2 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-800 file:text-white hover:file:bg-sky-600 cursor-pointer file:cursor-pointer"
             />
 
             {loadingImage && (
@@ -383,7 +380,7 @@ const TournamentsForm = ({
               </button>
             )}
             <button
-              className="w-full bg-sky-800/90 py-3 px-4  rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center cursor-pointer"
+              className="w-full border bg-sky-800 text-zinc-100 py-2 rounded text-sm sm:text-base xl:py-3"
               type="submit"
               disabled={loading}
             >
@@ -396,7 +393,7 @@ const TournamentsForm = ({
           </div>
         </form>
       </section>
-    </div>
+    </section>
   );
 };
 
