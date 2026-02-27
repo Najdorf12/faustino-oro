@@ -13,16 +13,16 @@ export default function AdminDashbord() {
           className="w-full h-full object-cover"
         ></Image>
       </figure>
-      <article className="relative z-30 pl-4 pt-9 lg:w-fit flex flex-col gap-4 max-w-90 lg:gap-6 lg:pl-16 lg:pt-6  3xl: lg:left-10 lg:max-w-140  3xl:gap-8 3xl:max-w-160">
-        <h6 className="z-20 relative flex text-zinc-100 text-2xl lg:text-5xl xl:text-6xl 3xl:text-7xl">
+      <article className="relative z-30 pl-4 pt-9 lg:w-fit flex flex-col gap-4 max-w-80 lg:gap-6 lg:pl-16 lg:pt-6  3xl: lg:left-10 lg:max-w-140  3xl:gap-8 3xl:max-w-160">
+        <h6 className="z-20 relative flex text-zinc-100 text-lg  md:text-2xl lg:text-5xl xl:text-6xl 3xl:text-7xl">
           Cada torneo es una historia, cada noticia es un capítulo, cada logro
           es un hito
         </h6>
         <div className="w- h-0.5 bg-sky-700"></div>
-        <p className="text-lg text-zinc-300 lg:flex lg:text-3xl 3xl:text-4xl">
+        <p className="text-base text-zinc-300 lg:flex md:text-lg lg:text-3xl 3xl:text-4xl">
           Crea, edita y organiza el contenido de forma sencilla
         </p>
-        <div className="bg-zinc-800/30 flex items-center gap-2  text-zinc-400 leading-5 border border-sky-700 rounded-lg p-2 text-sm md:text-lg lg:pl-3 lg:gap-3 lg:text-xl">
+        <div className="bg-zinc-800/30 flex items-center gap-2 text-zinc-400 leading-5 border border-sky-700 rounded-lg p-2 text-sm md:text-lg lg:pl-3 lg:gap-3 lg:text-xl">
           <Image
             src={icon}
             alt="icon-Dashboard"

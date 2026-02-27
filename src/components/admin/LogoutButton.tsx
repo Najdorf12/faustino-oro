@@ -31,13 +31,13 @@ export default function LogoutButton() {
     <button
       onClick={handleLogout}
       disabled={isLoading}
-      className="bg-red-400 text-zinc-100 hover:bg-red-600 font-medium max-w-42 py-1 px-4 rounded-md transition ease-in-out duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer"
+      className="border border-red-500 text-zinc-600 hover:bg-red-600  max-w-42 py-1 px-4 rounded-md transition ease-in-out duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer md:font-medium"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5"
         viewBox="0 0 20 20"
-        fill="currentColor"
+        fill="#fb2c36"
       >
         <path
           fillRule="evenodd"

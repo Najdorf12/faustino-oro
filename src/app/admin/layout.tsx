@@ -24,10 +24,10 @@ export default async function AdminLayout({
       <section className="w-full bg-zinc-200 flex flex-col py-7 px-4 lg:flex-row-reverse items-center lg:justify-between lg:px-16 lg:py-10 3xl:py-12">
         <article className="flex w-full lg:w-auto">
           <div className="flex flex-col text-start">
-            <p className="text-xl lg:text-2xl text-zinc-500 3xl:text-3xl">
+            <p className="text-lg sm:text-xl lg:text-2xl text-zinc-500 3xl:text-3xl">
               Bienvenido {session.user?.name}
             </p>
-            <p className="text-zinc-400 mb-2 lg:mb-3 3xl:text-lg">
+            <p className="text-zinc-400 mb-2 text-sm sm:text-base lg:mb-3 3xl:text-lg">
               {session.user?.email}
             </p>
             <LogoutButton />
