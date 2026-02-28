@@ -65,8 +65,8 @@ export default function CardTournament({ card, index }: CardProps) {
       >
         {isActive ? "Activo" : "Finalizado"}
       </div>
-      <article className="text-sm flex flex-col gap-1 md:min-h-25 leading-4.5 relative z-100 xl:text-base 2xl:min-h-29 2xl:leading-6">
-        <div className="text-lg leading-5 text-zinc-100 2xl:text-xl">
+      <article className="text-sm flex flex-col gap-1 md:min-h-25 leading-4.5 relative z-100 xl:leading-5.5 xl:text-base 2xl:min-h-29 2xl:leading-6">
+        <div className="text-lg leading-5 text-zinc-100 xl:leading-5.5 2xl:text-xl">
           {title}
         </div>
         <div className="text-zinc-100 italic border-t mt-2 pt-2">
