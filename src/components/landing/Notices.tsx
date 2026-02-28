@@ -134,7 +134,7 @@ export default function Notices({ data }: NoticesProps) {
         </p>
       </article>
 
-      <ul className="relative z-100 w-full flex flex-col justify-center px-6 items-center mt-12 gap-8 lg:mt-20 lg:pb-16">
+      <ul className="relative z-100 w-full flex flex-col justify-center px-6 items-center mt-12 gap-8 lg:mt-20 lg:pb-16 min-h-[80vh]">
         {data && data.length > 0 ? (
           data.map((notice, i) => (
             <CardNotice
