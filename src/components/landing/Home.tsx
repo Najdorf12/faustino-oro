@@ -6,14 +6,14 @@ import icon from "@/assets/images/icons/iconKnight.svg";
 export default function Home() {
   return (
     <>
-      <section className="bg-zinc-800 h-[95vh] md:h-screen w-full relative pb-2 lg:pb-3 ">
-        <div className="absolute inset-0 z-20 bg-radial from-zinc-800/20 from-10% to-zinc-950 "></div>
-        <picture className="w-full h-full border-3 border-zinc-700 rounded-3xl absolute inset-0 mx-auto shadow-2xl shadow-sky-800">
+      <section className="bg-zinc-800 h-[96vh] md:h-screen w-full relative pb-2 lg:pb-3 ">
+        <div className="absolute inset-0 z-20 bg-radial from-zinc-900/20 from-10% to-zinc-950 "></div>
+        <picture className="w-full h-full  absolute inset-0 mx-auto ">
           <source media="(min-width: 1024px)" srcSet={imgHome.src} />
           <Image
             src={imgHomeMobile}
             alt="home-palmares"
-            className="w-full h-full object-cover rounded-3xl"
+            className="w-full h-full object-cover "
             fill
           />
         </picture>
@@ -22,8 +22,8 @@ export default function Home() {
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: `
-        linear-gradient(to right, #6a7282 1px, transparent 1px),
-        linear-gradient(to bottom, #6a7282 1px, transparent 1px)
+        linear-gradient(to right, #71717b 1px, transparent 1px),
+        linear-gradient(to bottom, #71717b 1px, transparent 1px)
       `,
             backgroundSize: "140px 140px",
             WebkitMaskImage:
