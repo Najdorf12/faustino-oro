@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import imgAbout from "@/assets/images/img9.webp";
-import imgAbout2 from "@/assets/images/img6-2.jpg";
+import imgAbout2 from "@/assets/images/img1-11.jpeg";
 import icon from "@/assets/images/icon5.svg";
 import { useRef, useState } from "react";
 

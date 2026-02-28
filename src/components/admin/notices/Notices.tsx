@@ -14,7 +14,7 @@ export default function Notices({ notices, onEdit, onDelete }: Props) {
         <h6 className="self-start border-l-2 border-sky-700 pl-3 py-2 text-3xl md:text-4xl text-zinc-200 xl:text-5xl ">
           Noticias existentes
         </h6>
-        {[...notices].reverse().map((notice) => (
+        {[...notices].map((notice) => (
           <NoticeCard
             key={notice._id}
             notice={notice}

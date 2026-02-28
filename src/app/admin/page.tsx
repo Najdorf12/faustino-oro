@@ -31,9 +31,7 @@ export default function AdminDashbord() {
           Pulsa el menu superior para navegar
         </div>
       </article>
-      <div className="absolute w-full bottom-0 z-60 flex justify-center text-zinc-500 lg:text-lg">
-        © Faustino Oro
-      </div>
+     
     </section>
   );
 }

@@ -1,7 +1,7 @@
-import imgPalmares from "@/assets/images/img3.jpg";
 import Image from "next/image";
 import iconTrophy from "@/assets/images/iconTrophy.svg";
-import imgPalmaresDesktop from "@/assets/images/img3-desktop.jpg";
+import imgPalmares from "@/assets/images/img1-12.jpeg";
+import imgPalmaresDesktop from "@/assets/images/img1-12.jpeg";
 import imgFaustiCaruana from "@/assets/images/chess/19.jpg";
 interface AchievementsProps {
   data: any[];
