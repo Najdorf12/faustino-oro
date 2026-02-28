@@ -6,8 +6,8 @@ import icon from "@/assets/images/icons/iconKnight.svg";
 export default function Home() {
   return (
     <>
-      <section className="bg-zinc-800 h-[95vh] md:h-screen w-full relative pb-4  ">
-        <div className="absolute inset-0 z-20 bg-radial from-zinc-800/50 from-40% to-zinc-950 "></div>
+      <section className="bg-zinc-800 h-[95vh] md:h-screen w-full relative pb-2 lg:pb-3 ">
+        <div className="absolute inset-0 z-20 bg-radial from-zinc-800/20 from-10% to-zinc-950 "></div>
         <picture className="w-full h-full border-3 border-zinc-700 rounded-3xl absolute inset-0 mx-auto shadow-2xl shadow-sky-800">
           <source media="(min-width: 1024px)" srcSet={imgHome.src} />
           <Image
@@ -32,7 +32,7 @@ export default function Home() {
               "radial-gradient(ellipse 80% 80% at 0% 0%, #000 50%, transparent 90%)",
           }}
         />
-        <article className="relative z-100 w-full h-full flex flex-col items-center justify-end gap-2 lg:gap-6 ">
+        <article className="relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 lg:gap-6 ">
           <h1 className="text-zinc-200 relative z-100 text-shadow-lg text-shadow-zinc-800 text-[4rem] leading-14 sm:text-[4.2rem] sm:leading-15 font-ubuntu text-center font-medium lg:font-semibold lg:text-[7rem] xl:leading-24 xl:text-[8rem] 2xl:text-[9rem] 3xl:text-[9.4rem]">
             FAUSTINO ORO
           </h1>
