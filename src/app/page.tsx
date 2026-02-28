@@ -72,7 +72,7 @@ export default async function HomePage() {
           en el que se ponen de manifiesto la imaginación, el carácter y la
           voluntad
           <div className="text-base lg:text-xl pt-6 3xl:text-2xl">
-            Borís Spaski
+            Boris Spassky
           </div>
         </div>
         <Image
