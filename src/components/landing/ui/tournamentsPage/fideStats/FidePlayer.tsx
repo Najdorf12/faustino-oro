@@ -1,5 +1,5 @@
 "use client";
-import imgStats2 from "@/assets/images/img6-2.jpg";
+import imgStats2 from "@/assets/images/img1-15.jpeg";
 import iconRapid from "@/assets/images/icons/rapid.svg";
 import iconBlitz from "@/assets/images/icons/blitz.svg";
 import icon2 from "@/assets/images/icons/iconKnight.svg";

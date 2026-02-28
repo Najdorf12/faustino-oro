@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import NavbarPages from "@/components/landing/ui/layout/NavbarPages";
-import imgFaustiNotice from "@/assets/images/img1-15.jpeg";
+import imgFaustiNotice from "@/assets/images/img1-11.jpeg";
 import imgFaustiCaruana from "@/assets/images/chess/19.jpg";
 import iconFaustiCaruana from "@/assets/images/icon5.svg";
 import connectToDatabase from "@/lib/mongodb";
