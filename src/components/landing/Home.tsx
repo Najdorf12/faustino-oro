@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <section className="bg-zinc-800 h-[95vh] md:h-screen w-full relative pb-2 lg:pb-3 ">
-        <div className="absolute inset-0 z-20 bg-radial from-zinc-900/20 from-10% to-zinc-950 "></div>
+        <div className="absolute inset-0 z-20 bg-radial from-zinc-900/40 lg:from-10% to-zinc-950 "></div>
         <picture className="w-full h-full  absolute inset-0 mx-auto ">
           <source media="(min-width: 1024px)" srcSet={imgHome.src} />
           <Image
