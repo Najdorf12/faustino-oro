@@ -1,6 +1,6 @@
 import Image from "next/image";
 import imgHome from "@/assets/images/img5-2.webp";
-import imgHomeMobile from "@/assets/images/imgHomeMobile.jpg";
+import imgHomeMobile from "@/assets/images/img5-3.jpg";
 import icon from "@/assets/images/icons/iconKnight.svg";
 
 export default function Home() {
