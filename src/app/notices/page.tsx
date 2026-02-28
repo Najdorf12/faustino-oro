@@ -76,11 +76,11 @@ export default function NoticesPage() {
             src={imgFaustiNotice}
             alt="img-notice"
             loading="eager"
-            className="w-full h-full object-cover absolute inset-0 rounded-2xl lg:rounded-bl-none lg:rounded-r-none"
+            className="w-full h-full object-cover absoluteinset-0 rounded-2xl border-2 border-zinc-600 lg:border-none lg:rounded-bl-none lg:rounded-r-none"
           ></Image>
         </section>
       </section>
-      <figure className="w-full relative md:w-full h-80  md:h-screen mt-9 md:mt-0">
+      <figure className="w-full relative md:w-full h-80 md:h-screen mt-9 md:mt-0">
         <div className="absolute inset-0 bg-zinc-900/80"></div>
         <Image
           src={imgFaustiCaruana}
@@ -159,12 +159,15 @@ async function NoticesContent() {
   const activeNotices = notices.filter((notice: any) => notice.isActive);
 
   return (
-    <div id="allnotices" className="w-full min-h-screen bg-z py-10 px-4 relative lg:py-16 3xl:flex 3xl:justify-start ">
+    <div
+      id="allnotices"
+      className="w-full min-h-screen bg-z py-10 px-4 relative lg:py-16 3xl:flex 3xl:justify-start "
+    >
       <div className="absolute  z-200 bottom-0.5 left-0 text-zinc-600  w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
-       © Faustino Oro
+        © Faustino Oro
       </div>
 
-      <div  className="max-w-7xl mx-auto  3xl:max-w-350 ">
+      <div className="max-w-7xl mx-auto  3xl:max-w-350 ">
         <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16 3xl:text-7xl">
           Todas las noticias
         </h6>
