@@ -51,13 +51,13 @@ export default function FidePlayer({
       />
 
       {/* CONTAINER 25% */}
-      <div className="relative z-50 w-full h-full flex flex-col-reverse items-center justify-start md:w-[25%] bg-zinc-800">
+      <div className="relative z-50 w-full h-full flex flex-col-reverse items-center justify-start md:w-[25%] bg-zinc-800 ">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-zinc-800/70"></div>
           <Image
             src={imgStats2}
             alt="img-stats"
-            className="w-full h-full object-cover lg:rounded-br-lg"
+            className="w-full h-full object-cover lg:rounded-br-lg lg:border-b-2 lg:border-r-2 lg:border-zinc-600"
           />
         </div>
       </div>
