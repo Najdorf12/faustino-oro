@@ -98,7 +98,7 @@ export default function About() {
 
             <p className="text-sm lg:text-base text-zinc-500  max-w-[600px] 2xl:text-lg 2xl:max-w-[680px] ">
               Mi primer torneo de ajedrez clásico fue el "8vo IRT Alejandro
-              Judewicz" en Mar del Plata, Buenos Aires, Argentina, en septiembre
+              Judewicz" en Mar del Plata, Buenos Aires (Argentina) en septiembre
               de 2021. En este torneo ingresé por primera vez al ranking ELO
               FIDE con 1922 puntos, lo que me consagró como el N° 1 mundial en
               mi categoría, posición que he mantenido desde entonces. En 2021,
@@ -118,8 +118,8 @@ export default function About() {
               "Torneo Cerrado de IM" en el Club de Barcelona (junio de 2024).
               Esto, sumado a haber superado los 2400 de ELO FIDE, hizo que me
               convirtiera en el Maestro Internacional más joven de la historia
-              hasta el momento. Mi meta es convertirme en Gran Maestro y llegar
-              a ser Campeón Mundial, formando parte de la élite del ajedrez.
+              en ese momento. Mi meta es convertirme en Gran Maestro y llegar a
+              ser Campeón Mundial, formando parte de la élite del ajedrez.
             </p>
 
             <button
