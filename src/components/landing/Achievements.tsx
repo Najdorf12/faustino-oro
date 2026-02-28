@@ -1,7 +1,7 @@
 import Image from "next/image";
 import iconTrophy from "@/assets/images/iconTrophy.svg";
-import imgPalmares from "@/assets/images/img1-12.jpeg";
-import imgPalmaresDesktop from "@/assets/images/img1-12.jpeg";
+import imgPalmares from "@/assets/images/img3.jpg";
+import imgPalmaresDesktop from "@/assets/images/img3-desktop.jpg";
 
 interface AchievementsProps {
   data: any[];
@@ -22,7 +22,7 @@ export default function Achievements({ data }: AchievementsProps) {
         </article>
 
         <section className="relative w-[96%] mx-auto flex flex-col px-4 py-6 lg:pl-12 lg:py-9 ">
-          <div className="absolute inset-0 z-20 bg-linear-to-bl from-zinc-800/40 via-zinc-800/80 to-sky-900 flex justify-center items-center rounded-3xl"></div>
+          <div className="absolute inset-0 z-20 bg-linear-to-bl from-zinc-800/10 via-zinc-800/60 to-sky-900 flex justify-center items-center rounded-3xl"></div>
           <picture className="w-full h-full border-3 border-zinc-700 rounded-3xl absolute inset-0 mx-auto shadow-2xl shadow-sky-800">
             <source
               media="(min-width: 1024px)"

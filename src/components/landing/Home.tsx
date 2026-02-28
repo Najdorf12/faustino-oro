@@ -1,12 +1,12 @@
 import Image from "next/image";
-import imgHome from "@/assets/images/img5-2.webp";
+import imgHome from "@/assets/images/img5.webp";
 import imgHomeMobile from "@/assets/images/img5-3.jpg";
 import icon from "@/assets/images/icons/iconKnight.svg";
 
 export default function Home() {
   return (
     <>
-      <section className="bg-zinc-800 h-[96vh] md:h-screen w-full relative pb-2 lg:pb-3 ">
+      <section className="bg-zinc-800 h-[95vh] md:h-screen w-full relative pb-2 lg:pb-3 ">
         <div className="absolute inset-0 z-20 bg-radial from-zinc-900/20 from-10% to-zinc-950 "></div>
         <picture className="w-full h-full  absolute inset-0 mx-auto ">
           <source media="(min-width: 1024px)" srcSet={imgHome.src} />
