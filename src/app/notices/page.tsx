@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import NavbarPages from "@/components/landing/ui/layout/NavbarPages";
-import imgFaustiNotice from "@/assets/images/ai1.png";
+import imgFaustiNotice from "@/assets/images/img1-11.jpeg";
 import imgFaustiCaruana from "@/assets/images/chess/19.jpg";
 import iconFaustiCaruana from "@/assets/images/icon5.svg";
 import connectToDatabase from "@/lib/mongodb";
@@ -71,7 +71,7 @@ export default function NoticesPage() {
           </p>
         </div>
         <section className="w-[90%] self-center h-[60vh] md:w-1/2 md:h-screen relative flex items-center justify-center">
-          <div className="absolute inset-0 bg-zinc-800/20 z-100"></div>
+          <div className="absolute inset-0 bg-zinc-800/40 z-100"></div>
           <Image
             src={imgFaustiNotice}
             alt="img-notice"
