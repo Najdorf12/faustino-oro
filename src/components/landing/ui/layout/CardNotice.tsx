@@ -35,14 +35,14 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
   return (
     <li className="flex flex-col gap-2 relative ">
       
-      <div className="group cursor-pointer text-balance bg-linear-to-tr from-zinc-800 via-zinc-500 to-zinc rounded-lg overflow-hiddenition-all duration-300 border-2 border-zinc-400 hover:shadow-zinc-300 lg:flex lg:items-stretch max-w-90 lg:max-w-270  lg:w-270 lg:min-h-75 lg:px-4 ">
+      <div className="group cursor-pointer text-balance bg-linear-to-tr from-zinc-800 via-zinc-500 to-zinc rounded-lg overflow-hidden transition-all duration-300 border-2 border-zinc-400 hover:shadow-zinc-300 lg:flex lg:items-stretch max-w-90 lg:max-w-270  lg:w-270 lg:min-h-75 lg:px-4 ">
         {notice.images?.length > 0 && (
           <div className="relative w-full h-48 pl-3 lg:h-66 lg:w-1/3 self-center">
             <Image
               src={notice.images[0].secure_url}
               fill
               alt={notice.title}
-              className="object-cover w-full h-full lg:rounded-lg border-b-2 border-zinc-400 lg:border-2"
+              className="object-cover w-full h-full lg:rounded-lg border-b-2 rounded-b-lg border-zinc-400 lg:border-2"
             />
             {notice.images.length > 1 && (
               <div className="absolute bottom-3 right-3 bg-zinc-800/80 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
@@ -59,7 +59,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
 
         <div className="p-4 md:p-6 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 ">
           <div className="mb-4 lg:mb-4">
-            <span className="inline-block bg-sky-700 text-zinc-300 text-sm font-medium px-6 py-0.5 rounded-sm lg:px-9 2xl:text-base">
+            <span className="inline-block border border-zinc-400 bg-sky-700 text-zinc-300 text-sm font-medium px-6 py-0.5 rounded-sm lg:px-9 2xl:text-base">
               {notice.category}
             </span>
           </div>
