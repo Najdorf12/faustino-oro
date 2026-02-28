@@ -65,7 +65,7 @@ export default async function TournamentsPage() {
             src={imgTournamentPage}
             alt="img-tournament"
             loading="eager"
-            className="w-full h-full object-cover absolute inset-0 rounded-2xl border-2 border-zinc-600 lg:border-none lg:rounded-bl-none"
+            className="w-full h-full object-cover absolute inset-0 rounded-2xl border-2 border-zinc-600 lg:border-y-0 lg:border-r-0 lg:border-l-2 lg:rounded-bl-none lg:rounded-r-none"
           ></Image>
         </section>
       </section>

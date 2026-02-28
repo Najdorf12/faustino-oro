@@ -76,7 +76,7 @@ export default function NoticesPage() {
             src={imgFaustiNotice}
             alt="img-notice"
             loading="eager"
-            className="w-full h-full object-cover absoluteinset-0 rounded-2xl border-2 border-zinc-600 lg:border-none lg:rounded-bl-none lg:rounded-r-none"
+            className="w-full h-full object-cover absoluteinset-0 rounded-2xl border-2 border-zinc-600 lg:border-y-0 lg:border-r-0 lg:border-l-2 lg:rounded-bl-none lg:rounded-r-none"
           ></Image>
         </section>
       </section>
