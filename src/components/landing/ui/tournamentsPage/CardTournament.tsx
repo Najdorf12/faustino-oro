@@ -131,7 +131,7 @@ export default function CardTournament({ tournament }: Props) {
                   width={100}
                   height={100}
                   alt="icon-tournament-card"
-                  className="object-cover w-full h-full rounded-sm"
+                  className="object-cover w-full h-full rounded-sm border border-zinc-700"
                 />
               </figure>
               :

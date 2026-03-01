@@ -27,7 +27,7 @@ const TournamentCard = ({
     <div
       className="text-balance w-full max-w-95 border border-zinc-400 z-100 relative cursor-pointer  
       rounded-2xl p-4 flex flex-col justify-between  duration-300 group 
-      hover:scale-105 md:p-4 lg:h-125 lg:p-5"
+      hover:scale-105 md:p-4 lg:h-130 lg:p-5"
     >
       <div className="flex justify-between items-center ">
         <div
@@ -67,7 +67,7 @@ const TournamentCard = ({
             ID Lichess: <span className="text-zinc-100">{tournament.tournament_id_lichess}</span>
           </p>
         {tournament.images && tournament.images.length > 0 && (
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-2 mt-4 w-40 h-20">
             {tournament.images.map((img) => (
               <Image
                 key={img.public_id}
@@ -75,13 +75,13 @@ const TournamentCard = ({
                 alt="Thumbnail"
                 width={50}
                 height={50}
-                className="w-30 h-full object-contain rounded"
+                className="w-full h-full  object-contain rounded border border-zinc-400"
               />
             ))}
           </div>
         )}
       </article>
-      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-7">
+      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-6">
         <button
           onClick={() => onEdit(tournament)}
           className="bg-sky-600 hover:bg-sky-600 text-white px-4 py-2 rounded-sm whitespace-nowrap cursor-pointer"
