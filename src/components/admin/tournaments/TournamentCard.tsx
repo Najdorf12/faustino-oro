@@ -14,14 +14,19 @@ const TournamentCard = ({
   onEdit,
   onDelete,
 }: TournamentCardProps) => {
-  // Formatear fecha para mostrar
-  const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString("es-ES", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+
+  const startDate = new Date(tournament.startDate).toLocaleDateString("es-AR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC", // 👈
+  });
+  const endDate = new Date(tournament.endDate).toLocaleDateString("es-AR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC", // 👈
+  });
 
   return (
     <div
@@ -59,13 +64,15 @@ const TournamentCard = ({
         )}
         <p className="text-zinc-300 mt-1 text-base">{tournament.location}</p>
         <p className="border-t pt-3 mt-2 border-zinc-400 text-zinc-300 text-base">
-          Inicio : {formatDate(tournament.startDate)} <br /> Fin :{" "}
-          {formatDate(tournament.endDate)}
+           Inicio : <span className="text-zinc-200">{startDate}</span> <br />  Fin : <span className="text-zinc-200">{endDate}</span>
         </p>
 
-          <p className="text-zinc-400 text-sm mt-1">
-            ID Lichess: <span className="text-zinc-100">{tournament.tournament_id_lichess}</span>
-          </p>
+        <p className="text-zinc-400 text-sm mt-1">
+          ID Lichess:{" "}
+          <span className="text-zinc-100">
+            {tournament.tournament_id_lichess}
+          </span>
+        </p>
         {tournament.images && tournament.images.length > 0 && (
           <div className="flex gap-2 mt-4 w-40 h-20">
             {tournament.images.map((img) => (

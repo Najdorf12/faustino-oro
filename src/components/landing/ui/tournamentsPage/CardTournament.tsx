@@ -5,7 +5,7 @@ import { Tournament } from "@/types/tournament";
 import { LichessPlayer } from "@/types/lichess";
 import Image from "next/image";
 import iconTournamentCard from "@/assets/images/icons/iconKnight.svg";
-import imgAlternative from "@/assets/images/img10.webp"
+import imgAlternative from "@/assets/images/img10.webp";
 interface Props {
   tournament: Tournament;
 }
@@ -52,26 +52,28 @@ export default function CardTournament({ tournament }: Props) {
     day: "2-digit",
     month: "short",
     year: "numeric",
+    timeZone: "UTC", // 👈
   });
   const endDate = new Date(tournament.endDate).toLocaleDateString("es-AR", {
     day: "2-digit",
     month: "short",
     year: "numeric",
+    timeZone: "UTC", // 👈
   });
 
   return (
     <>
       <section className="border-2 border-zinc-600 rounded-lg w-full relative">
-          <div
-        className="absolute inset-0 z-0 rounded-lg"
-        style={{
-          backgroundImage: `
+        <div
+          className="absolute inset-0 z-0 rounded-lg"
+          style={{
+            backgroundImage: `
           radial-gradient(circle at 50% 100%, #00598a 0%, transparent 60%),
           radial-gradient(circle at 50% 100%, #00598a 0%, transparent 70%),
           radial-gradient(circle at 50% 100%, #27272a 0%, transparent 80%)
         `,
-        }}
-      />
+          }}
+        />
         <button
           onClick={fetchPlayer}
           disabled={loading}
@@ -124,7 +126,7 @@ export default function CardTournament({ tournament }: Props) {
             <li className="text-zinc-400 mt-2 mb-12 italic lg:text-xl">
               {tournament.description}
             </li>
-            {tournament.images.length > 0 ?
+            {tournament.images.length > 0 ? (
               <figure className="w-34 lg:w-40 h-16 lg:h-20">
                 <Image
                   src={tournament.images[0].secure_url}
@@ -134,11 +136,13 @@ export default function CardTournament({ tournament }: Props) {
                   className="object-cover w-full h-full rounded-sm border border-zinc-700"
                 />
               </figure>
-              :
-               <figure className=" w-34 lg:w-40 h-16 lg:h-20">
-                <div className="w-full h-full bg-zinc-700 rounded-sm text-zinc-500 text-xs p-2">Image not found</div>
+            ) : (
+              <figure className=" w-34 lg:w-40 h-16 lg:h-20">
+                <div className="w-full h-full bg-zinc-700 rounded-sm text-zinc-500 text-xs p-2">
+                  Image not found
+                </div>
               </figure>
-            }
+            )}
 
             <li className="mt-4 border-t pt-2 text-zinc-400">
               {tournament.location}
@@ -165,7 +169,7 @@ export default function CardTournament({ tournament }: Props) {
           </div>
         )}
       </section>
-      {player && expanded &&(
+      {player && expanded && (
         <>
           {/* STATS */}
           <div className="grid grid-cols-4 gap-2 text-center ">

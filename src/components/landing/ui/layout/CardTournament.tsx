@@ -32,6 +32,26 @@ export default function CardTournament({ card, index }: CardProps) {
 
   const isFirst = index === 0;
 
+  const formatDate = (date: string) => {
+    // El valor llega como ISO string: "2026-01-17T00:00:00.000Z"
+    // Extraemos directamente año, mes, día sin crear objeto Date
+    const [year, month, day] = (date as string).split("T")[0].split("-");
+    const months = [
+      "ene",
+      "feb",
+      "mar",
+      "abr",
+      "may",
+      "jun",
+      "jul",
+      "ago",
+      "sep",
+      "oct",
+      "nov",
+      "dic",
+    ];
+    return `${day} ${months[parseInt(month) - 1]} ${year}`;
+  };
   return (
     <div
       className={`text-balance w-[48%] sm:w-47 h-80 border border-zinc-400 z-100 relative cursor-pointer shadow-2xl shadow-sky-700 
@@ -74,18 +94,12 @@ export default function CardTournament({ card, index }: CardProps) {
         </div>
         <div className="text-zinc-300 ">{location}</div>
         <div className="text-zinc-300  ">
-          Inicio : <span className="text-zinc-100">{startDate}</span>{" "}
+           Inicio : <span className="text-zinc-100">{formatDate(startDate)}</span>
         </div>
         <div className="border-zinc-400 text-zinc-300 ">
-          Fin : <span className="text-zinc-100"> {endDate}</span>
+         Fin : <span className="text-zinc-100">{formatDate(endDate)}</span>
         </div>
-        {/*   <Image
-            width={100}
-            height={100}
-            className="w-26  mt-4"
-            src={images[0].secure_url}
-            alt="image-tournament"
-          ></Image> */}
+   
       </article>
     </div>
   );
