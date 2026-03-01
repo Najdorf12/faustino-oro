@@ -66,7 +66,7 @@ export default function NoticesPage() {
             Mantente informado sobre sus próximas competencias, análisis de
             partidas y eventos destacados en el mundo del ajedrez.
           </p>
-          <p className="text-base xl:text-lg 3xl:text-xl px-2 leading-5 text-center text-balance h-22 lg:h-26 3xl:h-28 bg-sky-700 rounded-tl text-zinc-300 flex justify-center items-center">
+          <p className="text-base xl:text-lg 3xl:text-xl px-2 leading-5 text-center text-balance h-22 lg:h-26 3xl:h-28 bg-sky-700 rounded-tl text-zinc-300 flex justify-center items-center  border-t border-l border-zinc-600 font-medium">
             CHESSI IS COMING
           </p>
         </div>
