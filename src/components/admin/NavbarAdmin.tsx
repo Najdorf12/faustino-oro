@@ -12,7 +12,7 @@ export default function NavbarAdmin() {
           className="object-contain w-full"
         />
       </div>
-      <ul className="flex items-center justify-end gap-3 text-sm md:font-medium md:flex-row lg:gap-9 2xl:text-xl 2xl:gap-12 3xl:text-2xl">
+      <ul className="flex items-center justify-end gap-3 text-sm md:font-medium md:flex-row lg:text-base lg:gap-9 2xl:text-xl 2xl:gap-12 3xl:text-2xl">
         <li>
           <Link
             href="/"

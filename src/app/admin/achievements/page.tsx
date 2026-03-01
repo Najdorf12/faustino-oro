@@ -194,7 +194,7 @@ const AchievementsForm = () => {
                 ? "Enviando..."
                 : achievementSelected
                   ? "Actualizar"
-                  : "Enviar"}
+                  : "Subir Logro"}
             </button>
           </div>
         </form>

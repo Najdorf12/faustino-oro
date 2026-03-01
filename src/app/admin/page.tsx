@@ -22,7 +22,7 @@ export default function AdminDashbord() {
         <p className="text-base text-zinc-300 lg:flex md:text-lg lg:text-3xl 3xl:text-4xl">
           Crea, edita y organiza el contenido de forma sencilla
         </p>
-        <div className="bg-zinc-800/30 flex items-center gap-2 text-zinc-400 leading-5 border border-sky-700 rounded-lg p-1 pl-2 text-sm md:p-2 md:text-lg lg:pl-3 lg:gap-3 lg:text-xl">
+        <div className="bg-zinc-800/30 flex items-center gap-2 text-zinc-400 leading-5 border border-sky-700 rounded-lg p-1 pl-2 text-sm md:p-2 md:text-lg lg:pl-3 lg:gap-3 lg:text-xl lg:w-[90%]">
           <Image
             src={icon}
             alt="icon-Dashboard"

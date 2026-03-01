@@ -75,7 +75,7 @@ const TournamentCard = ({
                 alt="Thumbnail"
                 width={50}
                 height={50}
-                className="w-full h-full  object-contain rounded border border-zinc-400"
+                className="w-full h-full  object-cover rounded border border-zinc-500"
               />
             ))}
           </div>

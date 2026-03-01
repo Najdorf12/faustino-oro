@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import imgFaustiForm from "@/assets/images/img28.webp";
+import imgFaustiForm from "@/assets/images/img1-13.jpeg";
 import { Tournament, TournamentImage } from "@/types/tournament";
 
 interface FormData {
