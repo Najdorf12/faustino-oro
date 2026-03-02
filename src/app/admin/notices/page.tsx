@@ -25,7 +25,7 @@ export default function NoticesPage() {
         prev.map((n) => (n._id === notice._id ? notice : n)),
       );
     } else {
-      setNotices((prev) => [...prev, notice]);
+      setNotices((prev) => [notice, ...prev]);
     }
     setNoticeSelected(null);
   };

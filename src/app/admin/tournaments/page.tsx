@@ -26,7 +26,7 @@ export default function TournamentsPage() {
         prev.map((t) => (t._id === tournament._id ? tournament : t)),
       );
     } else {
-      setTournaments((prev) => [...prev, tournament]);
+       setTournaments((prev) => [tournament, ...prev]);
     }
     setTournamentSelected(null);
   };
