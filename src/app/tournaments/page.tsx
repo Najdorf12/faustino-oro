@@ -76,6 +76,13 @@ export default async function TournamentsPage() {
           No se pudieron cargar las estadísticas FIDE en este momento.
         </div>
       )}
+      <div className="flex items-center justify-center w-full">
+
+{/*       <iframe
+        src="https://lichess.org/embed/broadcast/tata-steel-chess-2026--challengers/round-1/ZVNLsNSS/IOVcg1oZ"
+        style={{ width: "50%", aspectRatio: "4/3" }}
+      ></iframe> */}
+      </div>
       <TournamentsList tournaments={tournaments} />
     </section>
   );

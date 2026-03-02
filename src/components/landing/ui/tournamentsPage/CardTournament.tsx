@@ -161,7 +161,7 @@ export default function CardTournament({ tournament }: Props) {
       {expanded && (error || (!player && !loading)) && (
         <div className="mt-2 border rounded-lg border-zinc-700 px-4 py-3">
           <p className="text-zinc-500 text-sm text-balance flex gap-2 items-start justify-center">
-           <span className="text-red-500 border rounded-full px-2">!</span> No hay datos disponibles en Lichess para este torneo.
+           <span className="text-red-500 border rounded-full px-2">!</span> No hay datos disponibles para este torneo.
           </p>
         </div>
       )}
