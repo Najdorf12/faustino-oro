@@ -134,6 +134,20 @@ const AchievementsForm = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-16 lg:py-18 ">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `
+        linear-gradient(to right, #3f3f46 1px, transparent 1px),
+        linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
+      `,
+            backgroundSize: "150px 150px",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+          }}
+        />
       <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-220 xl:px-8 z-50 xl:py-10">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
         <figure className="absolute inset-0 w-full h-full z-20 ">

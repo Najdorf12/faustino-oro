@@ -26,7 +26,7 @@ export default function TournamentsPage() {
         prev.map((t) => (t._id === tournament._id ? tournament : t)),
       );
     } else {
-       setTournaments((prev) => [tournament, ...prev]);
+      setTournaments((prev) => [tournament, ...prev]);
     }
     setTournamentSelected(null);
   };
@@ -39,18 +39,34 @@ export default function TournamentsPage() {
   };
 
   return (
-    <>
-      <TournamentsForm
-        tournamentSelected={tournamentSelected}
-        onSaved={handleSaved}
-        onCancel={() => setTournamentSelected(null)}
-      />
+    <section>
+      <div className="relative">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `
+        linear-gradient(to right, #3f3f46 1px, transparent 1px),
+        linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
+      `,
+            backgroundSize: "150px 150px",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+          }}
+        />
+        <TournamentsForm
+          tournamentSelected={tournamentSelected}
+          onSaved={handleSaved}
+          onCancel={() => setTournamentSelected(null)}
+        />
+      </div>
 
       <Tournaments
         tournaments={tournaments}
         onEdit={setTournamentSelected}
         onDelete={deleteTournament}
       />
-    </>
+    </section>
   );
 }

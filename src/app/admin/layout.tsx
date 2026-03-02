@@ -44,20 +44,6 @@ export default async function AdminLayout({
 
         <section className="relative ">
           {children}
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: `
-        linear-gradient(to right, #3f3f46 1px, transparent 1px),
-        linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
-      `,
-              backgroundSize: "150px 150px",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-              maskImage:
-                "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-            }}
-          />
         </section>
           <div className="absolute w-full bottom-0 z-60 flex justify-center text-zinc-500 lg:text-lg">
         © Faustino Oro

@@ -38,13 +38,28 @@ export default function NoticesPage() {
   };
 
   return (
-    <section className="w-full flex-col items-center justify-center pb-16 lg:pb-32 3xl:pb-40">
-      <NoticesForm
-        noticeSelected={noticeSelected}
-        onSaved={handleSaved}
-        onCancel={() => setNoticeSelected(null)}
-      />
-
+    <section>
+      <div className="relative">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `
+        linear-gradient(to right, #3f3f46 1px, transparent 1px),
+        linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
+      `,
+            backgroundSize: "150px 150px",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+          }}
+        />
+        <NoticesForm
+          noticeSelected={noticeSelected}
+          onSaved={handleSaved}
+          onCancel={() => setNoticeSelected(null)}
+        />
+      </div>
       <Notices
         notices={notices}
         onEdit={setNoticeSelected}

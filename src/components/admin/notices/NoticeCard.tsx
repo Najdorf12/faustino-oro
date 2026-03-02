@@ -17,12 +17,12 @@ export default function NoticeCard({ notice, onEdit, onDelete }: Props) {
     <div className="text-balance bg-linear-to-br from-zinc-700 to-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-600 hover:border-zinc-400 lg:flex lg:items-stretch lg:w-250 lg:min-h-75 lg:px-4 xl:w-280">
       {/* Image Section */}
       {notice.images?.length > 0 && (
-        <div className="relative w-full h-65  pl-3 lg:w-1/3 self-center ">
+        <div className="relative w-full h-60 lg:h-70 pl-3 lg:w-1/3 self-center ">
           <Image
             src={notice.images[0].secure_url}
             fill
             alt={notice.title}
-            className="object-cover w-full h-full lg:rounded-lg border border-zinc-600 shadow-lg shadow-zinc-900"
+            className="object-cover w-full h-full lg:rounded-lg border border-zinc-600 shadow-lg shadow-zinc-900 lg:border-2"
           />
           {notice.images.length > 1 && (
             <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">

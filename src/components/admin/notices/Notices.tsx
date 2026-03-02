@@ -11,7 +11,7 @@ export default function Notices({ notices, onEdit, onDelete }: Props) {
   return (
     <section className="relative z-100 self-center flex flex-col justify-center items-center px-3 sm:px-4 mt-2 lg:mt-6">
       <div className=" flex flex-col justify-center items-center gap-9 lg:gap-14 ">
-        <h6 className="self-start border-l-2 border-sky-700 pl-3 py-2 text-3xl md:text-4xl text-zinc-200 xl:text-5xl ">
+        <h6 className=" border-l-3 border-sky-700 pl-3 py-2 text-3xl md:text-4xl text-zinc-200  lg:pl-6 xl:text-5xl self-start">
           Noticias existentes
         </h6>
         {[...notices].map((notice) => (
