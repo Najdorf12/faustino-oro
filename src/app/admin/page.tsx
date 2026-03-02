@@ -13,8 +13,8 @@ export default function AdminDashbord() {
           className="w-full h-full object-cover"
         ></Image>
       </figure>
-      <article className="relative z-30 pl-4 pt-9 lg:w-fit flex flex-col gap-4 max-w-80 lg:gap-6 lg:pl-16 lg:pt-6 3xl: lg:left-10 lg:max-w-140 3xl:gap-8 3xl:max-w-160">
-        <h6 className="z-20 relative flex text-zinc-100 text-xl md:text-2xl lg:text-5xl xl:text-6xl 3xl:text-7xl">
+      <article className="relative z-30 pl-4 pt-9 lg:w-fit flex flex-col gap-4 max-w-80 md:max-w-120 lg:gap-6 lg:pl-16 lg:pt-6 3xl: lg:left-10 lg:max-w-130 xl:max-w-155 3xl:gap-8 3xl:max-w-185">
+        <h6 className="z-20 relative flex text-zinc-100 text-2xl md:text-4xl lg:text-5xl xl:text-6xl 3xl:text-7xl">
           Cada torneo es una historia, cada noticia es un capítulo, cada logro
           es un hito
         </h6>
@@ -22,7 +22,7 @@ export default function AdminDashbord() {
         <p className="text-base text-zinc-300 lg:flex md:text-lg lg:text-3xl 3xl:text-4xl">
           Crea, edita y organiza el contenido de forma sencilla
         </p>
-        <div className="bg-zinc-800/30 flex items-center gap-2 text-zinc-400 leading-5 border border-sky-700 rounded-lg p-1 pl-2 text-sm md:p-2 md:text-lg lg:pl-3 lg:gap-3 lg:text-xl lg:w-[90%]">
+        <div className="bg-zinc-800/30 flex items-center gap-2 text-zinc-400 leading-5 border border-sky-700 rounded-lg p-1 pl-2 text-sm md:p-2 md:text-lg lg:pl-3 lg:gap-3 lg:text-xl 3xl:text-2xl ">
           <Image
             src={icon}
             alt="icon-Dashboard"

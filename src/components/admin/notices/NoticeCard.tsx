@@ -14,7 +14,7 @@ const getTruncatedContent = (content: string): string => {
 
 export default function NoticeCard({ notice, onEdit, onDelete }: Props) {
   return (
-    <div className="text-balance bg-linear-to-br from-zinc-700 to-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-700/50 hover:border-zinc-600 lg:flex lg:items-stretch lg:w-250 lg:min-h-75 lg:px-4 xl:w-280">
+    <div className="text-balance bg-linear-to-br from-zinc-700 to-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-600 hover:border-zinc-400 lg:flex lg:items-stretch lg:w-250 lg:min-h-75 lg:px-4 xl:w-280">
       {/* Image Section */}
       {notice.images?.length > 0 && (
         <div className="relative w-full h-65  pl-3 lg:w-1/3 self-center ">
@@ -22,7 +22,7 @@ export default function NoticeCard({ notice, onEdit, onDelete }: Props) {
             src={notice.images[0].secure_url}
             fill
             alt={notice.title}
-            className="object-cover w-full h-full lg:rounded-lg"
+            className="object-cover w-full h-full lg:rounded-lg border border-zinc-600 shadow-lg shadow-zinc-900"
           />
           {notice.images.length > 1 && (
             <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">

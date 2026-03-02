@@ -167,7 +167,7 @@ export default function Register() {
           <button
             onClick={handleGoogleSignIn}
             disabled={isGoogleLoading || isLoading}
-            className="w-full bg-zinc-200 hover:bg-gray-100 text-gray-800 font-medium text-sm py-2 px-4 rounded-md mt-3 flex items-center justify-center gap-2 transition ease-in-out duration-150 disabled:opacity-50 md:text-base"
+            className="w-full bg-zinc-200 hover:bg-zinc-50 text-gray-800 font-medium text-sm py-2 px-4 rounded-md mt-3 flex items-center justify-center gap-2 transition ease-in-out duration-150 disabled:opacity-50 md:text-base cursor-pointer"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
@@ -190,7 +190,7 @@ export default function Register() {
             {isGoogleLoading ? "Cargando..." : "Continuar con Google"}
           </button>
           <button
-            className="border border-zinc-500 text-zinc-200 bg-linear-to-b from-sky-700 to-sky-900 font-semibold py-2 px-4 rounded-md mt-2 cursor-pointer transition ease-in-out duration-400 disabled:opacity-50 text-sm md:text-base"
+            className="border border-zinc-500 text-zinc-200 bg-linear-to-b from-sky-700 to-sky-900 font-semibold py-2 px-4 rounded-md mt-2 cursor-pointer transition ease-in-out duration-400 disabled:opacity-50 text-sm md:text-base hover:from-zinc-200 hover:to-zinc-400 hover:text-zinc-500"
             type="submit"
             disabled={isLoading || isGoogleLoading}
           >
