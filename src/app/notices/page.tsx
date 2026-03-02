@@ -214,8 +214,11 @@ async function NoticesContent() {
                     {notice.title}
                   </h2>
 
-                  <p className="text-sm sm:text-base text-zinc-400 line-clamp-3">
+                  <p className="text-sm sm:text-base text-zinc-400 line-clamp-2 mb-2">
                     {notice.description}
+                  </p>
+                    <p className="text-sm sm:text-base text-zinc-500 line-clamp-2">
+                    {notice.content}
                   </p>
                 </div>
                 <div className="self-end mb-2 ml-3 bg-zinc-700/70 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-50 lg:mb-3">
