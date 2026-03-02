@@ -74,30 +74,31 @@ export default function CardTournament({ tournament }: Props) {
         `,
           }}
         />
-        <button
-          onClick={fetchPlayer}
-          disabled={loading}
-          className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50 "
-        >
-          {loading ? "Cargando..." : expanded ? "Ocultar" : "Ver performance"}
+        {tournament.tournament_id_lichess && (
+          <button
+            onClick={fetchPlayer}
+            disabled={loading}
+            className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50 "
+          >
+            {loading ? "Cargando..." : expanded ? "Ocultar" : "Ver performance"}
 
-          <div className="bg-zinc-200 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              className="w-[1.2em] transition-transform duration-300 text-zinc-500 group-hover:translate-x-[0.1em]"
-            >
-              <path fill="none" d="M0 0h24v24H0z"></path>
-              <path
-                fill="currentColor"
-                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-              ></path>
-            </svg>
-          </div>
-        </button>
-
+            <div className="bg-zinc-200 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                className="w-[1.2em] transition-transform duration-300 text-zinc-500 group-hover:translate-x-[0.1em]"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  fill="currentColor"
+                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                ></path>
+              </svg>
+            </div>
+          </button>
+        )}
         <figure className="absolute inset-0 flex items-end mb-3 justify-end z-100 lg:z-10 md:justify-center md:items-center">
           <Image
             src={iconTournamentCard}
@@ -155,35 +156,41 @@ export default function CardTournament({ tournament }: Props) {
             </li>
           </ul>
         </div>
-
-        {/* PANEL EXPANDIDO */}
-        {player && expanded && (
-          <div className="border-t border-zinc-700 space-y-4 ">
-            {error && <p className="text-red-400 text-sm">{error}</p>}
-
-            {!player && !error && !loading && (
-              <p className="text-zinc-500 text-sm">
-                No hay datos disponibles en Lichess para este torneo.
-              </p>
-            )}
-          </div>
-        )}
       </section>
+      {/* PANEL EXPANDIDO */}
+      {expanded && (error || (!player && !loading)) && (
+        <div className="mt-2 border rounded-lg border-zinc-700 px-4 py-3">
+          <p className="text-zinc-500 text-sm text-balance flex gap-2 items-start justify-center">
+           <span className="text-red-500 border rounded-full px-2">!</span> No hay datos disponibles en Lichess para este torneo.
+          </p>
+        </div>
+      )}
       {player && expanded && (
         <>
           {/* STATS */}
           <div className="grid grid-cols-4 gap-2 text-center ">
-            <Stat label="Rank" value={`#${player.rank}`} />
-            <Stat label="Score" value={player.score} />
-            <Stat label="Perf" value={player.performance} />
+            <Stat
+              label="Rank"
+              value={player.rank ? `#${player.rank}` : "N/A"}
+            />
+            <Stat label="Score" value={player.score ?? "N/A"} />
+            <Stat label="Perf" value={player.performance ?? "N/A"} />
             <Stat
               label="Rating"
               value={
-                player.ratingDiff >= 0
-                  ? `+${player.ratingDiff}`
-                  : player.ratingDiff
+                player.ratingDiff == null
+                  ? "N/A"
+                  : player.ratingDiff >= 0
+                    ? `+${player.ratingDiff}`
+                    : player.ratingDiff
               }
-              highlight={player.ratingDiff >= 0 ? "positive" : "negative"}
+              highlight={
+                player.ratingDiff == null
+                  ? undefined
+                  : player.ratingDiff >= 0
+                    ? "positive"
+                    : "negative"
+              }
             />
           </div>
 
