@@ -9,6 +9,7 @@ import { ArrowRight } from "../notices/page";
 import connectToDatabase from "@/lib/mongodb";
 import TournamentModel from "@/models/tournament";
 import Link from "next/link";
+import GameViewer from "@/components/landing/ui/tournamentsPage/Game-Viewer";
 
 export const metadata: Metadata = {
   title: "Torneos - Faustino Oro",
@@ -77,11 +78,12 @@ export default async function TournamentsPage() {
         </div>
       )}
       <div className="flex items-center justify-center w-full">
-
-{/*       <iframe
+        {/*       <iframe
         src="https://lichess.org/embed/broadcast/tata-steel-chess-2026--challengers/round-1/ZVNLsNSS/IOVcg1oZ"
         style={{ width: "50%", aspectRatio: "4/3" }}
       ></iframe> */}
+
+        {/* <GameViewer roundId="ZVNLsNSS" gameId="IOVcg1oZ" playerColor="black" /> */}
       </div>
       <TournamentsList tournaments={tournaments} />
     </section>

@@ -133,8 +133,13 @@ export default function NoticesForm({
 
       const saved = await res.json();
       onSaved(saved, isEdit);
-
-      reset();
+      reset({
+        title: "",
+        description: "",
+        content: "",
+        category: "",
+        isActive: false,
+      });
       setImages([]);
     } catch (error) {
       console.error(error);
