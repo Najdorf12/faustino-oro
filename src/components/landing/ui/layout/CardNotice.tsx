@@ -37,7 +37,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
       
       <div className="group cursor-pointer text-balance bg-linear-to-tr from-zinc-800 via-zinc-500 to-zinc rounded-lg overflow-hidden transition-all duration-300 border-2 border-zinc-400 hover:shadow-zinc-300 lg:flex lg:items-stretch max-w-90 lg:max-w-270 lg:w-270 lg:min-h-78 lg:px-4 3xl:w-300 3xl:max-w-300 3xl:min-h-90">
         {notice.images?.length > 0 && (
-          <div className="relative w-full h-48 pl-3 lg:h-70 lg:w-2/5 self-center 3xl:h-80">
+          <div className="relative w-full h-48 pl-3 lg:h-70 xl:h-72 lg:w-2/5 self-center 3xl:h-80">
             <Image
               src={notice.images[0].secure_url}
               fill
@@ -57,14 +57,14 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
           </div>
         )}
 
-        <div className="p-4 md:p-6 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 lg:justify-start ">
+        <div className="p-4 md:p-6 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 xl:pl-8 lg:justify-start ">
           <div className="mb-4 lg:mb-3">
             <span className="inline-block border border-sky-500 bg-sky-700 text-zinc-300 text-xs md:text-sm font-medium px-6 py-0.5 rounded-sm lg:px-9 2xl:text-base">
               {notice.category}
             </span>
           </div>
 
-          <h6 className="text-lg md:text-xl text-zinc-100 mb-2 line-clamp-2 leading-tight lg:mb-3 lg:text-2xl 2xl:text-3xl 3xl:text-[2rem]">
+          <h6 className="text-lg md:text-xl text-zinc-100 mb-2 line-clamp-2 leading-tight lg:mb-3 lg:text-2xl xl:text-[1.7rem] 2xl:text-3xl 3xl:text-[2rem]">
             {notice.title}
           </h6>
 
