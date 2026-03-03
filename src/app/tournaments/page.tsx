@@ -10,12 +10,51 @@ import connectToDatabase from "@/lib/mongodb";
 import TournamentModel from "@/models/tournament";
 import Link from "next/link";
 import GameViewer from "@/components/landing/ui/tournamentsPage/Game-Viewer";
+import mongoose from "mongoose";
 
 export const metadata: Metadata = {
   title: "Torneos - Faustino Oro",
   description:
     "Información sobre torneos, estadísticas FIDE y progreso de Faustino Oro",
 };
+
+// Schema inline o importalo desde donde lo tengas
+const FideCacheSchema = new mongoose.Schema(
+  { data: mongoose.Schema.Types.Mixed },
+  { timestamps: true }
+);
+const FideCache =
+  mongoose.models.FideCache || mongoose.model("FideCache", FideCacheSchema);
+
+async function getFidePlayerDirect() {
+  try {
+    console.log("[FIDE] Intentando fetch externo...");
+    const res = await fetch(
+      "https://fide-api.vercel.app/player_info/?fide_id=20000197&history=true",
+      { next: { revalidate: 3600 }, signal: AbortSignal.timeout(8000) }
+    );
+
+    if (res.ok) {
+      const data = await res.json();
+      console.log("[FIDE] Fetch externo OK, guardando en cache...");
+      await FideCache.findOneAndUpdate({}, { data }, { upsert: true });
+      return data;
+    }
+    console.error("[FIDE] Fetch externo falló:", res.status);
+  } catch (e) {
+    console.error("[FIDE] Error en fetch externo:", e);
+  }
+
+  console.log("[FIDE] Intentando cache de MongoDB...");
+  const cached = await FideCache.findOne().lean();
+  if (cached) {
+    console.log("[FIDE] Cache encontrado en MongoDB ✓");
+    return (cached as any).data;
+  }
+
+  console.error("[FIDE] Sin cache disponible, retornando null");
+  return null;
+}
 
 export const revalidate = 3600;
 
@@ -24,7 +63,7 @@ export default async function TournamentsPage() {
 
   const [tournamentsRaw, fidePlayer, fideStats] = await Promise.all([
     TournamentModel.find().sort({ startDate: -1 }).lean(),
-    getFidePlayer(),
+    getFidePlayerDirect(), // <-- directo, sin pasar por API route
     getFideStats(),
   ]);
   const tournaments = JSON.parse(JSON.stringify(tournamentsRaw));
