@@ -4,17 +4,17 @@ import Image from "next/image";
 
 export default function NavbarAdmin() {
   return (
-    <nav className="w-full top-0 z-20 text-stone-300 flex items-center justify-between px-4 py-2.5 lg:px-16 lg:py-2">
-      <Link href="/">
-        <div className="rounded-lg w-10 bg-sky-800 p-1.5 border-zinc-300 border z-100 2xl:w-12">
+    <nav className="w-full top-0 z-20 text-stone-300 flex items-center justify-between px-4 py-2.5 lg:px-16 ">
+       <Link href="/">
+        <div className="rounded-lg w-10 bg-sky-800 p-1.5 border-zinc-300 border z-100 xl:w-12 3xl:w-14 ">
           <Image
             src={iconNav}
             alt="Beautiful landscape for your journey"
-            className="object-contain w-full"
+            className="object-contain w-full "
           />
         </div>
       </Link>
-      <ul className="flex items-center justify-end gap-3 text-sm md:font-medium md:flex-row lg:text-base lg:gap-9 2xl:text-xl 2xl:gap-12 3xl:text-2xl">
+      <ul className="flex items-center justify-end gap-3 text-sm md:font-medium md:flex-row lg:text-base lg:gap-9 2xl:text-xl 2xl:gap-12 3xl:text-2xl 3xl:gap-14">
         <li>
           <Link
             href="/"
