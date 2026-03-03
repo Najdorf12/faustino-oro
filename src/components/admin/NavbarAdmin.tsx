@@ -5,18 +5,20 @@ import Image from "next/image";
 export default function NavbarAdmin() {
   return (
     <nav className="w-full top-0 z-20 text-stone-300 flex items-center justify-between px-4 py-2.5 lg:px-16 lg:py-2">
-      <div className="rounded-lg w-10 bg-sky-800 p-1.5 border-zinc-300 border z-100 2xl:w-12">
-        <Image
-          src={iconNav}
-          alt="Beautiful landscape for your journey"
-          className="object-contain w-full"
-        />
-      </div>
+      <Link href="/">
+        <div className="rounded-lg w-10 bg-sky-800 p-1.5 border-zinc-300 border z-100 2xl:w-12">
+          <Image
+            src={iconNav}
+            alt="Beautiful landscape for your journey"
+            className="object-contain w-full"
+          />
+        </div>
+      </Link>
       <ul className="flex items-center justify-end gap-3 text-sm md:font-medium md:flex-row lg:text-base lg:gap-9 2xl:text-xl 2xl:gap-12 3xl:text-2xl">
         <li>
           <Link
             href="/"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors items-center gap-2"
+            className="border-zinc-500 rounded-full flex justify-center transition-colors hover:text-sky-500"
           >
             Inicio
           </Link>
@@ -25,7 +27,7 @@ export default function NavbarAdmin() {
         <li>
           <Link
             href="/tournaments"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors"
+            className="border-zinc-500 rounded-full flex justify-center transition-colors hover:text-sky-500"
           >
             Torneos
           </Link>
@@ -33,7 +35,7 @@ export default function NavbarAdmin() {
         <li>
           <Link
             href="/notices"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors"
+            className="border-zinc-500 rounded-full flex justify-center transition-colors hover:text-sky-500"
           >
             Noticias
           </Link>
@@ -41,7 +43,7 @@ export default function NavbarAdmin() {
         <li>
           <Link
             href="/#contact"
-            className="border-zinc-500 rounded-full flex justify-center transition-colors"
+            className="border-zinc-500 rounded-full flex justify-center transition-colors hover:text-sky-500"
           >
             Contacto
           </Link>

@@ -70,13 +70,13 @@ export default function Register() {
   return (
     <section className="w-full h-screen px-4 pt-20 text-balance  lg:flex lg:justify-center lg:items-center lg:pt-0 ">
       <div className="relative w-full max-w-110 rounded-lg shadow-md px-3 pt-1 pb-3 md:pt-3 md:p-6 border border-zinc-600 bg-zinc-800/60 lg:bg-linear-to-r ">
-        <legend className="flex items-center gap-2 font-medium  top-0 left-6 text-zinc-400 text-sm md:text-base 3xl:text-lg">
+        <legend className="flex items-center gap-2 font-medium top-0 left-6 text-zinc-400 text-sm md:text-base 3xl:text-lg">
           Faustino Oro <span className="text-4xl text-sky-500">*</span>
         </legend>
-        <h6 className="text-zinc-100 max-w-70 text-2xl md:text-3xl 3xl:text-4xl 3xl:max-w-80 3xl:leading-9">
+        <h6 className="text-zinc-100 max-w-70 text-2xl xl:mt-1 md:text-3xl 3xl:text-4xl 3xl:max-w-80 3xl:leading-9 3xl:mt-2">
           Registrate para acceder a la App
         </h6>
-        <p className="text-zinc-400 mt-3 mb-1.5 text-sm md:text-base 3xl:text-lg 3xl:mt-4 ">
+        <p className="text-zinc-400 mt-3 mb-1.5 text-sm md:text-base 3xl:text-lg 3xl:mt-5 ">
           Ya tienes una cuenta?{" "}
           <Link href={"/auth/login"} className="text-zinc-100 cursor-pointer">
             Inicia sesión{" "}
