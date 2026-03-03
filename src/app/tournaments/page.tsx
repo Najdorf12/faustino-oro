@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     "Información sobre torneos, estadísticas FIDE y progreso de Faustino Oro",
 };
 
-// Schema inline o importalo desde donde lo tengas
 const FideCacheSchema = new mongoose.Schema(
   { data: mongoose.Schema.Types.Mixed },
   { timestamps: true }
