@@ -66,25 +66,25 @@ export default function DoughnutChart({
 
   return (
     <div
-      className={`relative z-100 p-2 rounded-lg border flex flex-col items-center justify-center w-45 lg:p-4 sm:w-48 lg:h-58 xl:w-56 xl:h-68 2xl:w-60 2xl:h-72 3xl:w-65 3xl:h-87 ${
+      className={`relative z-100 p-2 rounded-lg border flex flex-col items-center justify-center w-45 lg:p-4 sm:w-48 lg:h-57 lg:w-47 xl:w-56 xl:h-66 2xl:w-60 2xl:h-72 3xl:w-65 3xl:h-86 ${
         side === "white"
           ? "bg-zinc-300 border-zinc-300"
           : "bg-zinc-700 border-zinc-500"
       }`}
     >
       <h6
-        className={`text-center text-base mb-2 font-medium lg:text-lg lg:mb-2  xl:text-xl 3xl:text-2xl ${
+        className={`text-center text-base mb-2 font-medium lg:text-lg lg:mb-2 xl:text-xl 3xl:text-2xl ${
           side === "white" ? "text-zinc-700" : "text-zinc-300"
         }`}
       >
         {title}
       </h6>
-      <div className="flex items-center justify-center w-32 sm:w-36 lg:w-30 lg:h-25 xl:w-full xl:h-32 2xl:h-46  3xl:h-42">
+      <div className="flex items-center justify-center w-32 sm:w-36 lg:w-30 lg:h-25 xl:w-full xl:h-32 2xl:h-46 3xl:h-42">
         <Doughnut data={data} options={options} />
       </div>
 
       {/* Labels custom en HTML */}
-      <div className="flex flex-col gap-1 mt-3 lg:mt-4 xl:mt-6 self-start">
+      <div className="flex flex-col gap-1 mt-3 lg:mt-4  self-start">
         {labels.map(({ label, value, color }) => (
           <div key={label} className="flex items-center gap-2">
             <span
@@ -93,12 +93,12 @@ export default function DoughnutChart({
             />
             <span
               className={`text-xs xl:text-sm 2xl:text-base 3xl:text-lg  ${
-                side === "white" ? "text-zinc-700" : "text-zinc-300"
+                side === "white" ? "text-zinc-600" : "text-zinc-300"
               }`}
             >
-              {label}:{" "}
+              {label} - {" "} 
               <span className="font-semibold">
-                {value} ({((value / total) * 100).toFixed(1)}%)
+                {value} - ({((value / total) * 100).toFixed(1)}%)
               </span>
             </span>
           </div>
