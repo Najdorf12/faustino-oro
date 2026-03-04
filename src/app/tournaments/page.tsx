@@ -108,6 +108,8 @@ export default async function TournamentsPage() {
           ></Image>
         </section>
       </section>
+
+      
       {fidePlayer ? (
         <FidePlayer fide={fidePlayer} stats={fideStats} />
       ) : (

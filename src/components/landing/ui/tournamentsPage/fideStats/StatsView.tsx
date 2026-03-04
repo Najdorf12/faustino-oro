@@ -96,13 +96,13 @@ export default function StatsView({ stats }: { stats: FideStats }) {
   ];
 
   return (
-    <section className="text-zinc-300 w-full h-full flex flex-wrap gap-6 justify-center items-center relative z-500 pt-10 lg:pt-7 lg:gap-x-9 xl:gap-x-12 3xl:gap-x-14 3xl:gap-y-0">
+    <section className="text-zinc-300 w-full flex flex-wrap gap-6 justify-center items-start pt-10 lg:pt-2 lg:gap-y-2 2xl:gap-y-3 3xl:gap-x-9 3xl:gap-y-4 3xl:pt-5">
       {categories.map((category) => (
-        <div key={category.title} className="flex flex-col items-center justify-center ">
-          <h6 className="text-center text-xl font-medium mb-3 3xl:text-2xl">
+        <div key={category.title} className="flex flex-col items-center justify-center w-full sm:w-auto">
+          <h6 className="text-center text-xl font-medium mb-3 lg:mb-1 3xl:text-2xl 3xl:mb-">
             {category.title}
           </h6>
-          <div className="flex gap-1 lg:gap-2">
+          <div className="flex justify-center items-center gap-1 lg:gap-2 2xl:gap-4 3xl:gap-6">
             <DoughnutChart
               title="Blancas"
               wins={category.white.wins}
