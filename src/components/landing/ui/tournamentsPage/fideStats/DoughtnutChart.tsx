@@ -66,7 +66,7 @@ export default function DoughnutChart({
 
   return (
     <div
-      className={`relative z-100 p-2 rounded-lg border flex flex-col items-center justify-center w-45 lg:p-4 sm:w-48 lg:h-58 xl:w-56 xl:h-68 2xl:w-60 2xl:h-72 3xl:w-65 3xl:h-88 ${
+      className={`relative z-100 p-2 rounded-lg border flex flex-col items-center justify-center w-45 lg:p-4 sm:w-48 lg:h-58 xl:w-56 xl:h-68 2xl:w-60 2xl:h-72 3xl:w-65 3xl:h-87 ${
         side === "white"
           ? "bg-zinc-300 border-zinc-300"
           : "bg-zinc-700 border-zinc-500"

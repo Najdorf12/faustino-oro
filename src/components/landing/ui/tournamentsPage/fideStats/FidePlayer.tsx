@@ -92,7 +92,7 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
   return (
     <>
       {/* ELO */}
-      <ul className="relative z-50 flex justify-center gap-4 mt-12 text-zinc-600 font-medium w-full text-xl md:mt-0 lg:text-2xl xl:gap-20  ">
+      <ul className="relative z-50 flex justify-center gap-4 mt-12 text-zinc-600 font-medium w-full text-xl md:mt-0 lg:text-2xl lg:gap-12 xl:gap-20  ">
         <li className="flex flex-col items-center justify-center gap-2 3xl:gap-3">
           <Image
             src={iconStandar}
@@ -136,14 +136,14 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
 
       {/* TITLES */}
       <div className="w-full flex flex-col mt-9 md:mt-0">
-        <h6 className="text-zinc-600 text-xl font-medium lg:text-2xl">
+        <h6 className="text-zinc-600 text-xl font-medium lg:text-2xl 2xl:text-3xl 3xl:text-4xl">
           Títulos
         </h6>
         <ul className="flex flex-col gap-1 mt-2 lg:mt-3">
           {stats.titles.map((title, i) => (
             <li
               key={i}
-              className="text-lg text-zinc-300 flex justify-between w-full md:w-90 lg:text-xl lg:w-100"
+              className="text-lg text-zinc-300 flex justify-between w-full md:w-90 lg:text-xl lg:w-100 2xl:text-2xl 2xl:w-120 3xl:w-lg 3xl:text-3xl"
             >
               {title.name}
               <span className="text-zinc-200">{title.date}</span>

@@ -96,10 +96,10 @@ export default function StatsView({ stats }: { stats: FideStats }) {
   ];
 
   return (
-    <section className="text-zinc-300 w-full flex flex-wrap gap-6 justify-center items-start pt-10 lg:pt-2 lg:gap-y-2 2xl:gap-y-3 3xl:gap-x-9 3xl:gap-y-4 3xl:pt-5">
+    <section className="text-zinc-300 w-full flex flex-wrap gap-6 justify-center items-start pt-10 lg:pt-2 lg:gap-y-2 2xl:gap-y-3 3xl:gap-x-9 3xl:gap-y-5 3xl:pt-5">
       {categories.map((category) => (
         <div key={category.title} className="flex flex-col items-center justify-center w-full sm:w-auto">
-          <h6 className="text-center text-xl font-medium mb-3 lg:mb-1 3xl:text-2xl 3xl:mb-">
+          <h6 className="text-center text-xl font-medium mb-3 lg:mb-1 3xl:text-2xl 3xl:mb-2">
             {category.title}
           </h6>
           <div className="flex justify-center items-center gap-1 lg:gap-2 2xl:gap-4 3xl:gap-6">
