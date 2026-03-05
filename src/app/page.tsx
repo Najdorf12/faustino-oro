@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "Página Oficial de Faustino Oro, el jugador más joven en alcanzar 2500 de ELO FIDE. Campeón Argentino, Panamericano y número uno del mundo en su categoría.",
 };
 
+/* FaustiDevice -> 1524 * 730 */
+
 export const revalidate = false;
 async function getLandingData() {
   try {

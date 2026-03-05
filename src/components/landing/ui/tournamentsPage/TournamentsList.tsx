@@ -18,16 +18,17 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
 
   const active = tournaments.filter((t) => t.isActive);
   const historical = tournaments.filter((t) => !t.isActive);
+  const lastPlayed = historical[0] ?? null;
 
   return (
     <section
       aria-label="Torneos de Faustino Oro"
-      className="w-full max-w-250 mx-auto px-4 pt-14 lg:pt-20  "
+      className="w-full max-w-250 mx-auto px-4 pt-14 lg:pt-20"
     >
-      {active.length > 0 && (
+      {active.length > 0 ? (
         <section>
           <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-14 border-l-3 border-sky-600">
-            <h6 className="text-zinc-200 text-nowrap text-3xl  sm:text-4xl lg:text-6xl ">
+            <h6 className="text-zinc-200 text-nowrap text-3xl sm:text-4xl lg:text-6xl">
               Torneos activos
             </h6>
             <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
@@ -42,12 +43,28 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
             ))}
           </ul>
         </section>
-      )}
+      ) : lastPlayed ? (
+        <section>
+          <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-14 border-l-3 border-sky-600">
+            <h6 className="text-zinc-200 text-nowrap text-3xl sm:text-4xl lg:text-6xl">
+              Último jugado
+            </h6>
+            <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
+              / 1 torneo /
+            </div>
+          </div>
+          <ul className="flex flex-col gap-9 lg:gap-14" role="list">
+            <li key={lastPlayed._id}>
+              <CardTournament tournament={lastPlayed} />
+            </li>
+          </ul>
+        </section>
+      ) : null}
 
       {historical.length > 0 && (
         <section>
           <div className="flex items-end py-2 gap-3 mt-12 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mt-20 lg:mb-14 border-l-3 border-sky-600">
-            <h6 className="text-zinc-200 text-3xl sm:text-4xl lg:text-6xl ">
+            <h6 className="text-zinc-200 text-3xl sm:text-4xl lg:text-6xl">
               Historial
             </h6>
             <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
