@@ -118,7 +118,9 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
         }
       }
     }
+   revalidatePath("/");
     revalidatePath("/notices");
+    revalidatePath(`/notices/${id}`);
     return NextResponse.json({
       message: "Noticia eliminada correctamente",
       notice: deletedNotice,
