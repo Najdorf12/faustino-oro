@@ -1,36 +1,27 @@
-import { NextRequest, NextResponse } from 'next/server';
-import connectToDatabase from '@/lib/mongodb';
-import NoticeModel from '@/models/notice';
-
+import { NextRequest, NextResponse } from "next/server";
+import connectToDatabase from "@/lib/mongodb";
+import NoticeModel from "@/models/notice";
+import { revalidatePath } from "next/cache";
 type RouteContext = {
   params: Promise<Record<string, never>>;
 };
 
-export async function GET(
-  request: NextRequest,
-  context: RouteContext
-) {
+export async function GET(request: NextRequest, context: RouteContext) {
   try {
     await connectToDatabase();
     const notices = await NoticeModel.find().sort({ createdAt: -1 });
     return NextResponse.json(notices);
   } catch (error: any) {
-    console.error('Error fetching notices:', error);
-    return NextResponse.json(
-      { message: error.message },
-      { status: 500 }
-    );
+    console.error("Error fetching notices:", error);
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
 
-export async function POST(
-  request: NextRequest,
-  context: RouteContext
-) {
+export async function POST(request: NextRequest, context: RouteContext) {
   try {
     await connectToDatabase();
     const body = await request.json();
-    
+
     const newNotice = new NoticeModel({
       title: body.title,
       description: body.description,
@@ -39,23 +30,21 @@ export async function POST(
       isActive: body.isActive ?? true,
       images: body.images || [],
     });
-    
+
     const savedNotice = await newNotice.save();
-    
+    revalidatePath("/");
+    revalidatePath("/notices");
     return NextResponse.json(savedNotice, { status: 201 });
   } catch (error: any) {
-    console.error('Error creating notice:', error);
-    
+    console.error("Error creating notice:", error);
+
     if (error.code === 11000) {
       return NextResponse.json(
-        { message: 'Ya existe una noticia con ese título' },
-        { status: 400 }
+        { message: "Ya existe una noticia con ese título" },
+        { status: 400 },
       );
     }
-    
-    return NextResponse.json(
-      { message: error.message },
-      { status: 500 }
-    );
+
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

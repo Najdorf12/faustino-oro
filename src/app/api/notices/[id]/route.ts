@@ -68,8 +68,9 @@ export async function PUT(request: NextRequest, context: RouteContext) {
       body.images && body.images.length > 0 ? body.images : notice.images;
 
     const updatedNotice = await notice.save();
+    revalidatePath("/");
     revalidatePath("/notices");
-
+    revalidatePath(`/notices/${id}`);
     return NextResponse.json(updatedNotice);
   } catch (error: any) {
     console.error("Error updating notice:", error);

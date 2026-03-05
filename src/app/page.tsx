@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Página Oficial de Faustino Oro, el jugador más joven en alcanzar 2500 de ELO FIDE. Campeón Argentino, Panamericano y número uno del mundo en su categoría.",
 };
 
-export const revalidate = 1800;
+export const revalidate = false;
 async function getLandingData() {
   try {
     await connectToDatabase();
@@ -70,7 +70,7 @@ export default async function HomePage() {
       <Achievements data={achievements} />
       <Tournaments data={tournaments} />
     
-      <div className="w-full flex flex-col-reverse justify-center items-center px-6 gap-9 py-14 bg-zinc-200 font-light text-zinc-400 text-xl sm:text-[1.35rem] md:flex-row md:justify-evenly md:px-0 lg:text-4xl xl:text-5xl lg:gap-0 lg:py-20 3xl:text-6xl">
+      <div className="w-full flex flex-col-reverse justify-center items-center px-6 gap-9 py-14 bg-zinc-200 font-light text-zinc-400 text-xl sm:text-[1.35rem] md:flex-row md:justify-evenly md:px-0 lg:text-4xl xl:text-5xl lg:gap-0 lg:py-20 3xl:text-6xl 2xl:py-24">
         <div className=" max-w-120 lg:max-w-170 xl:max-w-210 text-balance flex flex-col 3xl:max-w-280">
           El ajedrez, con toda su profundidad filosófica, es ante todo un juego
           en el que se ponen de manifiesto la imaginación, el carácter y la

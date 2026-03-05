@@ -55,7 +55,7 @@ async function getFidePlayerDirect() {
   return null;
 }
 
-export const revalidate = 3600;
+export const revalidate = false;
 
 export default async function TournamentsPage() {
   await connectToDatabase();
