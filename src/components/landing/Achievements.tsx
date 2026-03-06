@@ -11,7 +11,7 @@ export default function Achievements({ data }: AchievementsProps) {
   return (
     <>
       <section className="w-full h-full mt-6 z-100 flex flex-col gap-10 items-center relative lg:px-12 lg:mt-12 2xl:px-16 ">
-        <article className="flex flex-col pl-4 gap-6 lg:flex-row lg:px-9 lg:w-full xl:gap-7 3xl:gap-9">
+        <article className="flex flex-col pl-4 gap-3 lg:flex-row lg:px-9 lg:w-full xl:gap-7 3xl:gap-9">
           <h6 className="text-zinc-200 text-[2.6rem] sm:text-5xl font-medium lg:text-7xl lg:leading-12 xl:leading-14 2xl:text-[5rem] 2xl:leading-12 3xl:text-[5.5rem] 3xl:leading-17 ">
             Logros
           </h6>

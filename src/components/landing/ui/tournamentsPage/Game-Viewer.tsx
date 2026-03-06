@@ -271,7 +271,7 @@ export default function GameViewer({
   return (
     <div className="flex flex-col w-full bg-zinc-900 rounded-lg border border-zinc-700/60 overflow-hidden lg:flex-row lg:pt-3 lg:max-w-full">
       {/* ── Header ── */}
-      <div className="px-2.5 pt-6 pb-3 flex flex-col gap-2 lg:gap-4 lg:px-4 lg:pt-6 lg:max-w-100">
+      <div className="px-2.5 pt-6 pb-3 flex flex-col gap-2 lg:gap-4 lg:px-4 lg:pt-3 lg:max-w-100">
         {/* Jugadores + resultado */}
         <div className="flex items-center justify-between gap-3 py-1 ">
           <div className="flex flex-col gap-1.5 min-w-0 h-full ">
