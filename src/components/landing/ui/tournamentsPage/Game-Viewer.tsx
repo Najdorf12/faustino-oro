@@ -297,9 +297,9 @@ export default function GameViewer({
               position: positions[currentMove],
               boardOrientation: playerColor,
               arePiecesDraggable: false,
-              animationDuration: 200,
-              customDarkSquareStyle: { backgroundColor: "#2d4a6b" },
-              customLightSquareStyle: { backgroundColor: "#b8cfe8" },
+              animationDuration: 240,
+              darkSquareStyle: { backgroundColor: "#005f78" },
+              lightSquareStyle: { backgroundColor: "#fafafa" },
             }}
           />
         </div>
