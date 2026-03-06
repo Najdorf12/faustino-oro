@@ -228,32 +228,36 @@ export default function CardTournament({ tournament }: Props) {
                   className="border-b border-zinc-700 last:border-0"
                 >
                   {/* Fila de la partida */}
-                  <div className="flex justify-between items-center px-1 py-2 text-sm md:px-3 lg:text-base 3xl:text-lg">
-                    <span className="text-zinc-200 flex items-center gap-2">
+                  <div className="flex justify-between items-center px- py-2 text-xs md:px-3 lg:text-base 3xl:text-lg ">
+                    <span className="text-zinc-200 flex items-center gap-2 ">
                       {g.color === "white" ? "⚪" : "⚫"}
                       <span>
-                        {g.opponent.title && (
-                          <span className="text-yellow-400 mr-1">
-                            {g.opponent.title}
+                        <span className="flex items-center gap-1 min-w-0">
+                          {g.opponent.title && (
+                            <span className="text-yellow-400 text-sm shrink-0">
+                              {g.opponent.title}
+                            </span>
+                          )}
+                          <span className="truncate max-w-[110px] sm:max-w-[120px] md:max-w-none">
+                            {g.opponent.name}
                           </span>
-                        )}
-                        {g.opponent.name}
+                        </span>
                       </span>
                       {g.opponent.rating && (
-                        <span className="text-zinc-400">
+                        <span className="text-zinc-400 ">
                           ({g.opponent.rating})
                         </span>
                       )}
                     </span>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 lg:gap-6 text-xs md:text-sm lg:text-base">
                       <span
                         className={
                           g.points === "1"
-                            ? "text-emerald-400 font-semibold"
+                            ? "text-emerald-400 font-medium"
                             : g.points === "0"
-                              ? "text-red-400 font-semibold"
-                              : "text-zinc-300 font-semibold"
+                              ? "text-red-400 font-medium"
+                              : "text-zinc-300 font-medium"
                         }
                       >
                         {g.points === "1"
@@ -273,7 +277,7 @@ export default function CardTournament({ tournament }: Props) {
                               g.color as "white" | "black",
                             )
                           }
-                          className={`text-xs px-2.5 py-1 rounded-md border transition-colors ${
+                          className={`text-xs px-1.5 py-1 rounded-md border transition-colors lg:px-3 lg:text-sm lg:px-6 cursor-pointer 2xl:text-base  ${
                             activeGame?.gameId === g.id
                               ? "bg-sky-600 border-sky-500 text-white"
                               : "border-zinc-600 text-zinc-400 hover:border-sky-500 hover:text-sky-400"
@@ -289,7 +293,7 @@ export default function CardTournament({ tournament }: Props) {
 
                   {/* GameViewer inline — se muestra debajo de la fila */}
                   {activeGame?.gameId === g.id && (
-                    <div className="pb-4 flex justify-center">
+                    <div className="pb-4 flex justify-center ">
                       <GameViewer
                         roundId={activeGame.roundId}
                         gameId={activeGame.gameId}
