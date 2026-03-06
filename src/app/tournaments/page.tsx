@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const FideCacheSchema = new mongoose.Schema(
   { data: mongoose.Schema.Types.Mixed },
-  { timestamps: true }
+  { timestamps: true },
 );
 const FideCache =
   mongoose.models.FideCache || mongoose.model("FideCache", FideCacheSchema);
@@ -30,7 +30,7 @@ async function getFidePlayerDirect() {
     console.log("[FIDE] Intentando fetch externo...");
     const res = await fetch(
       "https://fide-api.vercel.app/player_info/?fide_id=20000197&history=true",
-      { next: { revalidate: 3600 }, signal: AbortSignal.timeout(8000) }
+      { next: { revalidate: 3600 }, signal: AbortSignal.timeout(8000) },
     );
 
     if (res.ok) {
@@ -109,7 +109,6 @@ export default async function TournamentsPage() {
         </section>
       </section>
 
-      
       {fidePlayer ? (
         <FidePlayer fide={fidePlayer} stats={fideStats} />
       ) : (
@@ -117,15 +116,12 @@ export default async function TournamentsPage() {
           No se pudieron cargar las estadísticas FIDE en este momento.
         </div>
       )}
-      <div className="flex items-center justify-center w-full">
-        {/*       <iframe
-        src="https://lichess.org/embed/broadcast/tata-steel-chess-2026--challengers/round-1/ZVNLsNSS/IOVcg1oZ"
-        style={{ width: "50%", aspectRatio: "4/3" }}
-      ></iframe> */}
-
-        {/* <GameViewer roundId="ZVNLsNSS" gameId="IOVcg1oZ" playerColor="black" /> */}
-      </div>
+     {/*  <div className="flex items-center justify-center w-full">
+        <GameViewer roundId="ZVNLsNSS" gameId="IOVcg1oZ"  />
+      </div> */}
       <TournamentsList tournaments={tournaments} />
     </section>
   );
 }
+/* "round": "p8L9phOS",
+      "id": "QI3Muv5d", */

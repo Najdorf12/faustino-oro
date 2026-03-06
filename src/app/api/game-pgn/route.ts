@@ -33,9 +33,11 @@ export async function GET(req: NextRequest) {
 
     // Cada partida en el PGN está separada por doble salto de línea antes de [Event
     // Dividimos y buscamos la que contiene el gameId
-    const games = fullPgn.split(/\n(?=\[Event )/).filter(Boolean);
+    const games = fullPgn
+      .split(/\r?\n\r?\n(?=\[)/) // separa en bloques que empiezan con [
+      .filter((g) => g.includes("[Event") && g.includes(gameId));
 
-    const gamePgn = games.find((g) => g.includes(gameId));
+    const gamePgn = games[0];
 
     if (!gamePgn) {
       return NextResponse.json(

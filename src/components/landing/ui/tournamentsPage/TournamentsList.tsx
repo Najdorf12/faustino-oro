@@ -20,6 +20,12 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
   const historical = tournaments.filter((t) => !t.isActive);
   const lastPlayed = historical[0] ?? null;
 
+  // Si no hay activos, ocultamos el último jugado del historial para no duplicarlo
+  const historicalList =
+    active.length === 0 && lastPlayed
+      ? historical.slice(1)
+      : historical;
+
   return (
     <section
       aria-label="Torneos de Faustino Oro"
@@ -61,18 +67,18 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
         </section>
       ) : null}
 
-      {historical.length > 0 && (
+      {historicalList.length > 0 && (
         <section>
           <div className="flex items-end py-2 gap-3 mt-12 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mt-20 lg:mb-14 border-l-3 border-sky-600">
             <h6 className="text-zinc-200 text-3xl sm:text-4xl lg:text-6xl">
               Historial
             </h6>
             <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
-              / {historical.length} torneo{historical.length !== 1 ? "s" : ""} /
+              / {historicalList.length} torneo{historicalList.length !== 1 ? "s" : ""} /
             </div>
           </div>
           <ul className="flex flex-col gap-9 lg:gap-14" role="list">
-            {historical.map((tournament) => (
+            {historicalList.map((tournament) => (
               <li key={tournament._id}>
                 <CardTournament tournament={tournament} />
               </li>
