@@ -34,7 +34,7 @@ export default function FidePlayer({
   const [view, setView] = useState<ViewMode>("info");
 
   return (
-    <section className="w-full relative pt-12 flex flex-col md:pt-0 md:h-screen md:flex-row overflow-hidden">
+    <section className="w-full relative pt-12 flex flex-col md:pt-0 md:h-screen md:flex-row overflow-hidden ">
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -92,17 +92,17 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
   return (
     <>
       {/* ELO */}
-      <ul className="relative z-50 flex justify-center gap-4 mt-12 text-zinc-600 font-medium w-full text-xl md:mt-0 lg:text-2xl lg:gap-12 xl:mt-4 xl:gap-20">
+      <ul className="relative z-50 flex justify-center gap-4 mt-12 text-zinc-600 font-medium w-full text-xl md:mt-0 lg:text-2xl lg:gap-12 xl:mt-4 xl:gap-22 2xl:text-[1.60rem] 3xl:text-3xl 3xl:gap-24">
         <li className="flex flex-col items-center justify-center gap-2 3xl:gap-3">
           <Image
             src={iconStandar}
             alt="icon-standar"
             className="w-8 lg:w-9 3xl:w-12"
           />
-          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
+          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-44 3xl:h-44">
             {fide.classical_rating}
           </span>
-          <div className="flex gap-2 self-center flex-col justify-center items-center">
+          <div className="flex gap-2 self-center flex-col justify-center items-center xl:mt-1">
             STANDAR
           </div>
         </li>
@@ -112,10 +112,10 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
             alt="icon-standar"
             className="w-8 lg:w-9 3xl:w-12"
           />
-          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
+          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-44 3xl:h-44">
             {fide.rapid_rating}
           </span>
-          <div className="flex gap-2 self-center flex-col justify-center items-center">
+          <div className="flex gap-2 self-center flex-col justify-center items-center xl:mt-1">
             RAPID
           </div>
         </li>
@@ -125,10 +125,10 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
             alt="icon-standar"
             className="w-8 lg:w-9 3xl:w-12"
           />
-          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-40 3xl:h-40">
+          <span className="border-9 rounded-full w-26 h-26 sm:w-28 sm:h-28 bg-zinc-800 md:w-32 md:h-32 flex justify-center items-center border-zinc-700 text-zinc-200 text-2xl md:text-4xl 3xl:text-5xl 3xl:w-44 3xl:h-44">
             {fide.blitz_rating}
           </span>
-          <div className="flex gap-2 self-center flex-col justify-center items-center">
+          <div className="flex gap-2 self-center flex-col justify-center items-center xl:mt-1">
             BLITZ
           </div>
         </li>
@@ -158,7 +158,7 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
           <Image
             src={icon2}
             alt="icon-4"
-            className="w-8 absolute top-3.5 right-1 lg:right-2 lg:top-3"
+            className="w-8 absolute top-2.5 right-2 lg:right-2 lg:top-3"
           />
           WORLD RANK
           <li className="mt-9 flex justify-between md:mt-12">
@@ -174,7 +174,7 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
           <Image
             src={icon2}
             alt="icon-4"
-            className="w-8 absolute top-3.5 right-1 lg:right-2 lg:top-3"
+            className="w-8 absolute top-2.5 right-2 lg:right-2 lg:top-3"
           />
           NATIONAL RANK
           <li className="mt-9 flex justify-between md:mt-12">
@@ -190,7 +190,7 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
           <Image
             src={icon2}
             alt="icon-4"
-            className="w-8 absolute top-3.5 right-1 lg:right-2 lg:top-3"
+            className="w-8 absolute top-2.5 right-2 lg:right-2 lg:top-3"
           />
           CONTINENTAL RANK
           <li className="mt-9 flex justify-between md:mt-12">
