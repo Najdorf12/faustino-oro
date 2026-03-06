@@ -34,7 +34,7 @@ export default function FidePlayer({
   const [view, setView] = useState<ViewMode>("info");
 
   return (
-    <section className="w-full relative pt-12 flex flex-col md:pt-0 md:h-screen md:flex-row overflow-hidden ">
+    <section className="w-full relative pt-12 flex flex-col md:pt-0 md:h-screen md:flex-row overflow-hidden">
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -63,8 +63,8 @@ export default function FidePlayer({
       </div>
 
       {/* CONTAINER 75% */}
-      <div className="w-full flex flex-col items-center justify-between  px-3 md:w-[75%] md:px-6 md:pb-6 lg:pt-9 3xl:pt-12 3xl:px-10 ">
-        <div className="flex flex-col gap-5 md:flex-row md:gap-12">
+      <div className="w-full flex flex-col items-center justify-between px-3 md:w-[75%] md:px-6 md:pb-6 lg:pt-9 3xl:pt-12 3xl:px-10 ">
+        <div className="flex flex-col gap-5 md:flex-row md:gap-12 lg:pb-0 ">
           <ButtonInfo
             active={view === "info"}
             onClick={() => setView("info")}
@@ -92,7 +92,7 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
   return (
     <>
       {/* ELO */}
-      <ul className="relative z-50 flex justify-center gap-4 mt-12 text-zinc-600 font-medium w-full text-xl md:mt-0 lg:text-2xl lg:gap-12 xl:gap-20  ">
+      <ul className="relative z-50 flex justify-center gap-4 mt-12 text-zinc-600 font-medium w-full text-xl md:mt-0 lg:text-2xl lg:gap-12 xl:mt-4 xl:gap-20">
         <li className="flex flex-col items-center justify-center gap-2 3xl:gap-3">
           <Image
             src={iconStandar}
@@ -135,7 +135,7 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
       </ul>
 
       {/* TITLES */}
-      <div className="w-full flex flex-col mt-9 md:mt-0">
+      <div className="w-full flex flex-col mt-9 md:mt-0 ">
         <h6 className="text-zinc-600 text-xl font-medium lg:text-2xl 2xl:text-3xl 3xl:text-4xl">
           Títulos
         </h6>
@@ -153,12 +153,12 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
       </div>
 
       {/* RANKS */}
-      <ul className="flex flex-col lg:flex-row w-full gap-4 rounded-lg font-medium mt-12 md:mt-0">
-        <div className="text-lg md:text-xl py-3 px-4 text-zinc-300 rounded-lg border border-sky-600 bg-linear-to-tl from-zinc-800 to-sky-700 w-full relative 3xl:py-5 3xl:text-2xl">
+      <ul className="flex flex-col lg:flex-row w-full gap-4 rounded-lg font-medium mt-12 md:mt-0 lg:mt-2 xl:mt-2">
+        <div className="text-lg md:text-xl py-3 px-4 text-zinc-300 rounded-lg border border-sky-600 bg-linear-to-tl from-zinc-800 to-sky-700 w-full relative xl:py-4 3xl:py-5 3xl:text-2xl">
           <Image
             src={icon2}
             alt="icon-4"
-            className="w-8 absolute top-3.5 right-1"
+            className="w-8 absolute top-3.5 right-1 lg:right-2 lg:top-3"
           />
           WORLD RANK
           <li className="mt-9 flex justify-between md:mt-12">
@@ -170,11 +170,11 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
             <span className="text-zinc-100">{fide.world_rank_all}</span>
           </li>
         </div>
-        <div className="text-lg md:text-xl py-3 px-4 text-zinc-300 rounded-lg border border-sky-600 bg-linear-to-tl from-zinc-800 to-sky-700 w-full relative 3xl:py-5 3xl:text-2xl">
+        <div className="text-lg md:text-xl py-3 px-4 text-zinc-300 rounded-lg border border-sky-600 bg-linear-to-tl from-zinc-800 to-sky-700 w-full relative xl:py-4 3xl:py-5 3xl:text-2xl">
           <Image
             src={icon2}
             alt="icon-4"
-            className="w-8 absolute top-3.5 right-1"
+            className="w-8 absolute top-3.5 right-1 lg:right-2 lg:top-3"
           />
           NATIONAL RANK
           <li className="mt-9 flex justify-between md:mt-12">
@@ -186,11 +186,11 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
             <span className="text-zinc-100">{fide.national_rank_all}</span>
           </li>
         </div>
-        <div className="text-lg md:text-xl py-3 px-4 text-zinc-300 border border-sky-600 bg-linear-to-tl from-zinc-800 to-sky-700 w-full rounded-lg relative 3xl:py-5 3xl:text-2xl">
+        <div className="text-lg md:text-xl py-3 px-4 text-zinc-300 border border-sky-600 bg-linear-to-tl from-zinc-800 to-sky-700 w-full rounded-lg relative xl:py-4 3xl:py-5 3xl:text-2xl">
           <Image
             src={icon2}
             alt="icon-4"
-            className="w-8 absolute top-3.5 right-1"
+            className="w-8 absolute top-3.5 right-1 lg:right-2 lg:top-3"
           />
           CONTINENTAL RANK
           <li className="mt-9 flex justify-between md:mt-12">

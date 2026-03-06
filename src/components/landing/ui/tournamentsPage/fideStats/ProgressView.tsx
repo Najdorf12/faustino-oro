@@ -88,7 +88,7 @@ export default function ProgressView({ history }: { history: FideHistory[] }) {
 
   return (
     <section className=" w-full h-full flex flex-col items-center justify-center">
-      <div className="flex gap-2 mb-4 relative z-200 mt-14 md:mt-6 lg:gap-6 xl:mb-2">
+      <div className="flex gap-2 mb-4 relative z-200 mt-14 md:mt-6 lg:gap-6 xl:mb-2 lg:mt-9">
         {["1Y", "2Y", "3Y", "ALL"].map((r) => (
           <button
             key={r}
@@ -104,7 +104,7 @@ export default function ProgressView({ history }: { history: FideHistory[] }) {
           </button>
         ))}
       </div>
-      <div className="w-full h-100 md:h-100 xl:h-125 mt-6 bg-zinc-900 rounded-xl p-4 relative 2xl:h-145 3xl:h-155">
+      <div className="w-full h-100 md:h-100 xl:h-130 mt-6 bg-zinc-900 rounded-xl p-4 relative 2xl:h-145 3xl:h-155">
        <Line key={range} data={data} options={options} />
       </div>
     </section>
