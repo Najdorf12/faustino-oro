@@ -269,22 +269,22 @@ export default function GameViewer({
   const progress = totalMoves > 0 ? (currentMove / totalMoves) * 100 : 0;
 
   return (
-    <div className="flex flex-col w-full max-w-sm bg-zinc-900 rounded-lg border border-zinc-700/60 overflow-hidden lg:flex-row lg:pt-3 lg:max-w-full">
+    <div className="flex flex-col w-full bg-zinc-900 rounded-lg border border-zinc-700/60 overflow-hidden lg:flex-row lg:pt-3 lg:max-w-full">
       {/* ── Header ── */}
-      <div className="px-3 pt-4 pb-3 border-b border-zinc-800 flex flex-col gap-2 lg:gap-4 lg:px-4 lg:pt-6 lg:max-w-100">
+      <div className="px-2.5 pt-6 pb-3 flex flex-col gap-2 lg:gap-4 lg:px-4 lg:pt-6 lg:max-w-100">
         {/* Jugadores + resultado */}
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex flex-col gap-1.5 min-w-0">
+        <div className="flex items-center justify-between gap-3 py-1 ">
+          <div className="flex flex-col gap-1.5 min-w-0 h-full ">
             <PlayerRow {...faustino} isFaustino />
             <PlayerRow {...opponent} />
           </div>
-          <div className="flex flex-col items-end gap-1.5 shrink-0">
+          <div className="flex flex-col items-end gap-1.5 shrink-0 ">
             <span
-              className={`text-xs font-semibold px-2.5 py-1 rounded-md border ${badge.cls}`}
+              className={`text-xs font-medium px-4.5 py-0.5 rounded-sm border ${badge.cls}`}
             >
               {badge.label}
             </span>
-            <span className="text-zinc-600 text-xs font-mono">
+            <span className="text-zinc-600 text-sm font-mono">
               {meta?.result ?? ""}
             </span>
           </div>
@@ -292,9 +292,9 @@ export default function GameViewer({
 
         {/* Apertura + fecha */}
         {(meta?.opening || meta?.date) && (
-          <div className="flex items-center justify-between gap-2 pt-1">
+          <div className="flex  items-start justify-between gap-2 pt-1 mt-1">
             {meta?.opening && (
-              <span className="text-zinc-500 text-xs truncate">
+              <span className="text-zinc-500 text-xs text-balance">
                 {meta.opening}
               </span>
             )}
@@ -306,8 +306,8 @@ export default function GameViewer({
           </div>
         )}
         {/* ── Lista de movimientos ── */}
-        <div className=" pb-4 pt-2 w-full">
-          <div className="flex flex-wrap gap-x-2 gap-y-1 max-h-38 overflow-y-auto bg-zinc-800/50 border border-zinc-700 rounded-lg p-2 lg:max-h-105">
+        <div className="mt-1 pb-4 pt-2 w-full">
+          <div className="flex flex-wrap gap-x-2 gap-y-1 max-h-38 overflow-y-auto bg-zinc-800/50 border border-zinc-700 rounded-lg py-2 px-1 lg:max-h-105">
             {Array.from(
               { length: Math.ceil(moves.length / 2) },
               (_, pairIdx) => {
@@ -349,7 +349,7 @@ export default function GameViewer({
       </div>
 
       {/* ── Board ── */}
-      <section className="px-3 pt-6 ">
+      <section className="px-3 mt-3 ">
         <div className="rounded-lg overflow-hidden border border-zinc-700/40">
           <ChessboardComponent
             key={currentMove}
@@ -430,7 +430,7 @@ function PlayerRow({
   return (
     <div className="flex items-center gap-2 min-w-0">
       <div
-        className={`w-3 h-3 rounded-sm shrink-0 border ${
+        className={`w-4 h-4 rounded-full shrink-0 border ${
           side === "white"
             ? "bg-zinc-100 border-zinc-400"
             : "bg-zinc-900 border-zinc-500"

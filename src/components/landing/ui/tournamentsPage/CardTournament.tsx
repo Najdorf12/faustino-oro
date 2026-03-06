@@ -279,7 +279,7 @@ export default function CardTournament({ tournament }: Props) {
                           }
                           className={`text-xs px-1.5 py-1 rounded-md border transition-colors lg:px-3 lg:text-sm lg:px-6 cursor-pointer 2xl:text-base  ${
                             activeGame?.gameId === g.id
-                              ? "bg-sky-600 border-sky-500 text-white lg:px-10"
+                              ? "bg-sky-600 border-sky-500 text-white px-5 lg:px-10"
                               : "border-zinc-600 text-zinc-400 hover:border-sky-500 hover:text-sky-400"
                           }`}
                         >
