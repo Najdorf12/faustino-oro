@@ -279,11 +279,11 @@ export default function CardTournament({ tournament }: Props) {
                           }
                           className={`text-xs px-1.5 py-1 rounded-md border transition-colors lg:px-3 lg:text-sm lg:px-6 cursor-pointer 2xl:text-base  ${
                             activeGame?.gameId === g.id
-                              ? "bg-sky-600 border-sky-500 text-white"
+                              ? "bg-sky-600 border-sky-500 text-white lg:px-10"
                               : "border-zinc-600 text-zinc-400 hover:border-sky-500 hover:text-sky-400"
                           }`}
                         >
-                          {activeGame?.gameId === g.id
+                         {activeGame?.gameId === g.id
                             ? "Cerrar"
                             : "Ver partida"}
                         </button>
@@ -293,7 +293,7 @@ export default function CardTournament({ tournament }: Props) {
 
                   {/* GameViewer inline — se muestra debajo de la fila */}
                   {activeGame?.gameId === g.id && (
-                    <div className="pb-4 flex justify-center ">
+                    <div className="py-4 border-t border-zinc-700 flex justify-center ">
                       <GameViewer
                         roundId={activeGame.roundId}
                         gameId={activeGame.gameId}

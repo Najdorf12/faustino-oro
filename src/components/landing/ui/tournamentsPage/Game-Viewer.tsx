@@ -208,9 +208,9 @@ export default function GameViewer({
   const progress = totalMoves > 0 ? (currentMove / totalMoves) * 100 : 0;
 
   return (
-    <div className="flex flex-col w-full max-w-sm bg-zinc-900 rounded-2xl border border-zinc-700/60 overflow-hidden">
+    <div className="flex flex-col w-full max-w-sm bg-zinc-900 rounded-lg border border-zinc-700/60 overflow-hidden lg:flex-row lg:pt-3 lg:max-w-full">
       {/* ── Header ── */}
-      <div className="px-4 pt-4 pb-3 border-b border-zinc-800 flex flex-col gap-2">
+      <div className="px-3 pt-4 pb-3 border-b border-zinc-800 flex flex-col gap-2 lg:gap-4 lg:px-4 lg:pt-6 lg:max-w-100">
         {/* Jugadores + resultado */}
         <div className="flex items-center justify-between gap-3">
           <div className="flex flex-col gap-1.5 min-w-0">
@@ -244,11 +244,52 @@ export default function GameViewer({
             )}
           </div>
         )}
+        {/* ── Lista de movimientos ── */}
+        <div className=" pb-4 pt-2 w-full">
+          <div className="flex flex-wrap gap-x-2 gap-y-1 max-h-38 overflow-y-auto bg-zinc-800/50 border border-zinc-700 rounded-lg p-2 lg:max-h-105">
+            {Array.from(
+              { length: Math.ceil(moves.length / 2) },
+              (_, pairIdx) => {
+                const wi = pairIdx * 2;
+                const bi = pairIdx * 2 + 1;
+                return (
+                  <span key={pairIdx} className="flex items-center gap-1">
+                    <span className="text-zinc-600 text-xs w-5 text-right select-none">
+                      {pairIdx + 1}.
+                    </span>
+                    <button
+                      onClick={() => setCurrentMove(wi + 1)}
+                      className={`px-1.5 py-0.5 rounded text-xs font-mono transition-colors ${
+                        currentMove === wi + 1
+                          ? "bg-sky-500 text-white"
+                          : "text-zinc-300 hover:bg-zinc-700"
+                      }`}
+                    >
+                      {moves[wi]}
+                    </button>
+                    {moves[bi] && (
+                      <button
+                        onClick={() => setCurrentMove(bi + 1)}
+                        className={`px-1.5 py-0.5 rounded text-xs font-mono transition-colors ${
+                          currentMove === bi + 1
+                            ? "bg-sky-500 text-white"
+                            : "text-zinc-300 hover:bg-zinc-700"
+                        }`}
+                      >
+                        {moves[bi]}
+                      </button>
+                    )}
+                  </span>
+                );
+              },
+            )}
+          </div>
+        </div>
       </div>
 
       {/* ── Board ── */}
-      <div className="px-3 pt-3">
-        <div className="rounded-xl overflow-hidden border border-zinc-700/40">
+      <section className="px-3 pt-6 ">
+        <div className="rounded-lg overflow-hidden border border-zinc-700/40">
           <ChessboardComponent
             key={currentMove}
             id={`game-viewer-${gameId}`}
@@ -262,90 +303,50 @@ export default function GameViewer({
             }}
           />
         </div>
-      </div>
 
-      {/* ── Progress bar ── */}
-      <div className="px-3 pt-2">
-        <div className="w-full h-0.5 bg-zinc-800 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-sky-500 transition-all duration-150"
-            style={{ width: `${progress}%` }}
-          />
+        <div className="px-3 py-3 lg:py-4 flex flex-col gap-1 lg:gap-2">
+          <div className="w-full h-0.5 bg-zinc-800 rounded-full overflow-hidden">
+            {/* ── Progress bar ── */}
+            <div
+              className="h-full bg-sky-500 transition-all duration-150"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <p className="text-center text-zinc-500 text-xs mt-1">
+            {currentMove === 0
+              ? "Posición inicial"
+              : `Movimiento ${currentMove} de ${totalMoves}`}
+          </p>
+          {/* ── Controles ── */}
+          <div className="flex justify-center gap-2 px-3 pt-2 ">
+            <NavBtn
+              onClick={() => setCurrentMove(0)}
+              disabled={currentMove === 0}
+              label="«"
+            />
+            <NavBtn
+              onClick={() => setCurrentMove((m) => Math.max(0, m - 1))}
+              disabled={currentMove === 0}
+              label="‹"
+            />
+            <NavBtn
+              onClick={() =>
+                setCurrentMove((m) => Math.min(positions.length - 1, m + 1))
+              }
+              disabled={currentMove === positions.length - 1}
+              label="›"
+            />
+            <NavBtn
+              onClick={() => setCurrentMove(positions.length - 1)}
+              disabled={currentMove === positions.length - 1}
+              label="»"
+            />
+          </div>
+          <p className="text-zinc-600 text-xs text-center mt-2">
+            Pulsa {"‹ - ›"} para navegar
+          </p>
         </div>
-        <p className="text-center text-zinc-500 text-xs mt-1">
-          {currentMove === 0
-            ? "Posición inicial"
-            : `Movimiento ${currentMove} de ${totalMoves}`}
-        </p>
-      </div>
-
-      {/* ── Controles ── */}
-      <div className="flex justify-center gap-2 px-3 pt-2">
-        <NavBtn
-          onClick={() => setCurrentMove(0)}
-          disabled={currentMove === 0}
-          label="«"
-        />
-        <NavBtn
-          onClick={() => setCurrentMove((m) => Math.max(0, m - 1))}
-          disabled={currentMove === 0}
-          label="‹"
-        />
-        <NavBtn
-          onClick={() =>
-            setCurrentMove((m) => Math.min(positions.length - 1, m + 1))
-          }
-          disabled={currentMove === positions.length - 1}
-          label="›"
-        />
-        <NavBtn
-          onClick={() => setCurrentMove(positions.length - 1)}
-          disabled={currentMove === positions.length - 1}
-          label="»"
-        />
-      </div>
-
-      {/* ── Lista de movimientos ── */}
-      <div className="px-3 pb-4 pt-2">
-        <div className="flex flex-wrap gap-x-2 gap-y-1 max-h-36 overflow-y-auto bg-zinc-800/50 rounded-xl p-3">
-          {Array.from({ length: Math.ceil(moves.length / 2) }, (_, pairIdx) => {
-            const wi = pairIdx * 2;
-            const bi = pairIdx * 2 + 1;
-            return (
-              <span key={pairIdx} className="flex items-center gap-1">
-                <span className="text-zinc-600 text-xs w-5 text-right select-none">
-                  {pairIdx + 1}.
-                </span>
-                <button
-                  onClick={() => setCurrentMove(wi + 1)}
-                  className={`px-1.5 py-0.5 rounded text-xs font-mono transition-colors ${
-                    currentMove === wi + 1
-                      ? "bg-sky-500 text-white"
-                      : "text-zinc-300 hover:bg-zinc-700"
-                  }`}
-                >
-                  {moves[wi]}
-                </button>
-                {moves[bi] && (
-                  <button
-                    onClick={() => setCurrentMove(bi + 1)}
-                    className={`px-1.5 py-0.5 rounded text-xs font-mono transition-colors ${
-                      currentMove === bi + 1
-                        ? "bg-sky-500 text-white"
-                        : "text-zinc-300 hover:bg-zinc-700"
-                    }`}
-                  >
-                    {moves[bi]}
-                  </button>
-                )}
-              </span>
-            );
-          })}
-        </div>
-        <p className="text-zinc-600 text-xs text-center mt-2">
-          ← → para navegar
-        </p>
-      </div>
+      </section>
     </div>
   );
 }
@@ -404,7 +405,7 @@ function NavBtn({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-10 h-9 flex items-center justify-center rounded-lg bg-zinc-800 text-zinc-300 text-lg hover:bg-zinc-700 hover:text-white disabled:opacity-25 disabled:cursor-not-allowed transition-all"
+      className="w-10 h-8  flex items-center justify-center rounded-lg bg-zinc-800 text-zinc-300 text-lg hover:bg-zinc-700 hover:text-white disabled:opacity-25 disabled:cursor-not-allowed transition-all"
     >
       {label}
     </button>
