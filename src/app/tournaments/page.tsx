@@ -4,12 +4,11 @@ import imgTournamentPage from "@/assets/images/ai2.jpg";
 import NavbarPages from "@/components/landing/ui/layout/NavbarPages";
 import FidePlayer from "@/components/landing/ui/tournamentsPage/fideStats/FidePlayer";
 import TournamentsList from "@/components/landing/ui/tournamentsPage/TournamentsList";
-import { getTournaments, getFidePlayer, getFideStats } from "@/lib/api";
+import { getFideStats } from "@/lib/api";
 import { ArrowRight } from "../notices/page";
 import connectToDatabase from "@/lib/mongodb";
 import TournamentModel from "@/models/tournament";
 import Link from "next/link";
-import GameViewer from "@/components/landing/ui/tournamentsPage/Game-Viewer";
 import mongoose from "mongoose";
 
 export const metadata: Metadata = {
@@ -116,12 +115,7 @@ export default async function TournamentsPage() {
           No se pudieron cargar las estadísticas FIDE en este momento.
         </div>
       )}
-     {/*  <div className="flex items-center justify-center w-full">
-        <GameViewer roundId="ZVNLsNSS" gameId="IOVcg1oZ"  />
-      </div> */}
       <TournamentsList tournaments={tournaments} />
     </section>
   );
 }
-/* "round": "p8L9phOS",
-      "id": "QI3Muv5d", */

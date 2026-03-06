@@ -5,7 +5,7 @@ import { Tournament } from "@/types/tournament";
 import { LichessPlayer } from "@/types/lichess";
 import Image from "next/image";
 import iconTournamentCard from "@/assets/images/icons/iconKnight.svg";
-import imgAlternative from "@/assets/images/img10.webp";
+import GameViewer from "./Game-Viewer";
 interface Props {
   tournament: Tournament;
 }
@@ -16,6 +16,13 @@ export default function CardTournament({ tournament }: Props) {
   const [player, setPlayer] = useState<LichessPlayer | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [fetched, setFetched] = useState(false);
+
+  // roundId + gameId de la partida actualmente abierta en el viewer
+  const [activeGame, setActiveGame] = useState<{
+    roundId: string;
+    gameId: string;
+    color: "white" | "black";
+  } | null>(null);
 
   const fetchPlayer = async () => {
     if (!tournament.tournament_id_lichess) return;
@@ -48,17 +55,30 @@ export default function CardTournament({ tournament }: Props) {
     }
   };
 
+  const handleToggleGame = (
+    roundId: string,
+    gameId: string,
+    color: "white" | "black",
+  ) => {
+    // Si ya está abierta esta partida, la cerramos
+    if (activeGame?.gameId === gameId) {
+      setActiveGame(null);
+    } else {
+      setActiveGame({ roundId, gameId, color });
+    }
+  };
+
   const startDate = new Date(tournament.startDate).toLocaleDateString("es-AR", {
     day: "2-digit",
     month: "short",
     year: "numeric",
-    timeZone: "UTC", // 👈
+    timeZone: "UTC",
   });
   const endDate = new Date(tournament.endDate).toLocaleDateString("es-AR", {
     day: "2-digit",
     month: "short",
     year: "numeric",
-    timeZone: "UTC", // 👈
+    timeZone: "UTC",
   });
 
   return (
@@ -68,20 +88,19 @@ export default function CardTournament({ tournament }: Props) {
           className="absolute inset-0 z-0 rounded-lg"
           style={{
             backgroundImage: `
-          radial-gradient(circle at 50% 100%, #00598a 0%, transparent 60%),
-          radial-gradient(circle at 50% 100%, #00598a 0%, transparent 70%),
-          radial-gradient(circle at 50% 100%, #27272a 0%, transparent 80%)
-        `,
+              radial-gradient(circle at 50% 100%, #00598a 0%, transparent 60%),
+              radial-gradient(circle at 50% 100%, #00598a 0%, transparent 70%),
+              radial-gradient(circle at 50% 100%, #27272a 0%, transparent 80%)
+            `,
           }}
         />
         {tournament.tournament_id_lichess && (
           <button
             onClick={fetchPlayer}
             disabled={loading}
-            className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50 "
+            className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50"
           >
             {loading ? "Cargando..." : expanded ? "Ocultar" : "Ver performance"}
-
             <div className="bg-zinc-200 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,11 +109,11 @@ export default function CardTournament({ tournament }: Props) {
                 height="24"
                 className="w-[1.2em] transition-transform duration-300 text-zinc-500 group-hover:translate-x-[0.1em]"
               >
-                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path fill="none" d="M0 0h24v24H0z" />
                 <path
                   fill="currentColor"
                   d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                ></path>
+                />
               </svg>
             </div>
           </button>
@@ -108,14 +127,14 @@ export default function CardTournament({ tournament }: Props) {
         </figure>
 
         {/* CABECERA */}
-        <div className="relative  z-50 rounded-lg gap-4 pt-4.5 pb-17 px-4 lg:w-1/2 bg-zinc-800/40 lg:bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-5">
-          <div className="flex w-fit ">
+        <div className="relative z-50 rounded-lg gap-4 pt-4.5 pb-17 px-4 lg:w-1/2 bg-zinc-800/40 lg:bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-5">
+          <div className="flex w-fit">
             {tournament.isActive ? (
               <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-600 lg:text-base">
                 Próximamente
               </span>
             ) : (
-              <span className="flex items-center gap-1.5 text-sm font-medium  text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-800 lg:text-base lg:px-10">
+              <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-800 lg:text-base lg:px-10">
                 Finalizado
               </span>
             )}
@@ -138,13 +157,12 @@ export default function CardTournament({ tournament }: Props) {
                 />
               </figure>
             ) : (
-              <figure className=" w-34 lg:w-40 h-16 lg:h-20">
+              <figure className="w-34 lg:w-40 h-16 lg:h-20">
                 <div className="w-full h-full bg-zinc-700 rounded-sm text-zinc-500 text-xs p-2">
                   Image not found
                 </div>
               </figure>
             )}
-
             <li className="mt-4 border-t pt-2 text-zinc-400">
               {tournament.location}
             </li>
@@ -157,18 +175,21 @@ export default function CardTournament({ tournament }: Props) {
           </ul>
         </div>
       </section>
+
       {/* PANEL EXPANDIDO */}
       {expanded && (error || (!player && !loading)) && (
         <div className="mt-2 border rounded-lg border-zinc-700 px-4 py-3">
           <p className="text-zinc-500 text-sm text-balance flex gap-2 items-start justify-center">
-           <span className="text-red-500 border rounded-full px-2">!</span> No hay datos disponibles para este torneo.
+            <span className="text-red-500 border rounded-full px-2">!</span>
+            No hay datos disponibles para este torneo.
           </p>
         </div>
       )}
+
       {player && expanded && (
         <>
           {/* STATS */}
-          <div className="grid grid-cols-4 gap-2 text-center ">
+          <div className="grid grid-cols-4 gap-2 text-center">
             <Stat
               label="Rank"
               value={player.rank ? `#${player.rank}` : "N/A"}
@@ -200,39 +221,89 @@ export default function CardTournament({ tournament }: Props) {
               <p className="text-base text-zinc-500 uppercase tracking-wide font-medium lg:text-lg 3xl:text-xl">
                 Partidas ({player.played})
               </p>
+
               {player.games.map((g) => (
                 <div
                   key={g.id}
-                  className="flex border-b border-zinc-700 justify-between items-center 
-                       px-1  py-2 text-sm md:px-3 lg:text-base 3xl:text-lg"
+                  className="border-b border-zinc-700 last:border-0"
                 >
-                  <span className="text-zinc-200 flex items-center gap-2">
-                    {g.color === "white" ? "⚪" : "⚫"}
-                    <span>
-                      {g.opponent.title && (
-                        <span className="text-yellow-400 mr-1">
-                          {g.opponent.title}
+                  {/* Fila de la partida */}
+                  <div className="flex justify-between items-center px-1 py-2 text-sm md:px-3 lg:text-base 3xl:text-lg">
+                    <span className="text-zinc-200 flex items-center gap-2">
+                      {g.color === "white" ? "⚪" : "⚫"}
+                      <span>
+                        {g.opponent.title && (
+                          <span className="text-yellow-400 mr-1">
+                            {g.opponent.title}
+                          </span>
+                        )}
+                        {g.opponent.name}
+                      </span>
+                      {g.opponent.rating && (
+                        <span className="text-zinc-400">
+                          ({g.opponent.rating})
                         </span>
                       )}
-                      {g.opponent.name}
                     </span>
-                    <span className="text-zinc-400">({g.opponent.rating})</span>
-                  </span>
-                  <span
-                    className={
-                      g.points === "1"
-                        ? "text-emerald-400 font-semibold"
-                        : g.points === "0"
-                          ? "text-red-400 font-semibold"
-                          : "text-zinc-300 font-semibold"
-                    }
-                  >
-                    {g.points === "1"
-                      ? "Ganó"
-                      : g.points === "0"
-                        ? "Perdió"
-                        : "½"}
-                  </span>
+
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={
+                          g.points === "1"
+                            ? "text-emerald-400 font-semibold"
+                            : g.points === "0"
+                              ? "text-red-400 font-semibold"
+                              : "text-zinc-300 font-semibold"
+                        }
+                      >
+                        {g.points === "1"
+                          ? "Ganó"
+                          : g.points === "0"
+                            ? "Perdió"
+                            : "½"}
+                      </span>
+
+                      {/* Botón ver partida — solo si tenemos round e id */}
+                      {g.round && g.id && (
+                        <button
+                          onClick={() =>
+                            handleToggleGame(
+                              g.round,
+                              g.id,
+                              g.color as "white" | "black",
+                            )
+                          }
+                          className={`text-xs px-2.5 py-1 rounded-md border transition-colors ${
+                            activeGame?.gameId === g.id
+                              ? "bg-sky-600 border-sky-500 text-white"
+                              : "border-zinc-600 text-zinc-400 hover:border-sky-500 hover:text-sky-400"
+                          }`}
+                        >
+                          {activeGame?.gameId === g.id
+                            ? "Cerrar"
+                            : "Ver partida"}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* GameViewer inline — se muestra debajo de la fila */}
+                  {activeGame?.gameId === g.id && (
+                    <div className="pb-4 flex justify-center">
+                      <GameViewer
+                        roundId={activeGame.roundId}
+                        gameId={activeGame.gameId}
+                        playerColor={activeGame.color}
+                        playerName={player.name} // "Oro, Faustino"
+                        playerTitle={player.title} // "IM"
+                        playerRating={player.rating} // 2516
+                        opponentName={g.opponent.name}
+                        opponentTitle={g.opponent.title}
+                        opponentRating={g.opponent.rating}
+                        points={g.points} // "1", "0", "1/2"
+                      />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -242,6 +313,8 @@ export default function CardTournament({ tournament }: Props) {
     </>
   );
 }
+
+// ── Sub-components ─────────────────────────────────────────────────────────────
 
 function Stat({
   label,
@@ -253,11 +326,8 @@ function Stat({
   highlight?: "positive" | "negative";
 }) {
   return (
-    <div
-      className="
-     rounded-lg p-2 bg-linear-to-br from-sky-600 border border-sky-600 to-zinc-900 mt-9"
-    >
-      <div className="text-base text-zinc-100  lg:text-xl">{label}</div>
+    <div className="rounded-lg p-2 bg-linear-to-br from-sky-600 border border-sky-600 to-zinc-900 mt-9">
+      <div className="text-base text-zinc-100 lg:text-xl">{label}</div>
       <div
         className={`text-base lg:text-xl ${
           highlight === "positive"
