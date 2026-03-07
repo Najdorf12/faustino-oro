@@ -238,7 +238,7 @@ export default function CardTournament({ tournament }: Props) {
                               {g.opponent.title}
                             </span>
                           )}
-                          <span className="truncate max-w-[110px] sm:max-w-[120px] md:max-w-none">
+                          <span className="truncate max-w-27 sm:max-w-30 md:max-w-none">
                             {g.opponent.name}
                           </span>
                         </span>
