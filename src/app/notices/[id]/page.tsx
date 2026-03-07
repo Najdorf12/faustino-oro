@@ -83,7 +83,7 @@ export default async function NoticePage({ params }: Props) {
         {notice.images &&
           notice.images.length > 0 &&
           notice.images[0].secure_url && (
-            <div className="relative z-50 h-96 w-full mb-8 rounded-xl overflow-hidden lg:h-120 border-2 border-zinc-700 shadow-xl shadow-zinc-900 3xl:h-150">
+            <div className="relative z-50 h-96 w-full mb-8 rounded-xl overflow-hidden lg:h-132 border-2 border-zinc-700 shadow-xl shadow-zinc-900 3xl:h-150">
               <Image
                 src={notice.images[0].secure_url}
                 alt={notice.title}
@@ -94,7 +94,7 @@ export default async function NoticePage({ params }: Props) {
             </div>
           )}
 
-        <div className="flex items-center justify-between mb-6 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 md:py-6 md:px-3 xl:mb-8">
+        <div className="flex items-center justify-between mb-4 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 z-100 bg-zinc-900/50 md:py-6 md:px-3 ">
           <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-8 py-0.5 rounded-sm lg:text-base 3xl:text-lg">
             {notice.category}
           </span>
@@ -107,11 +107,11 @@ export default async function NoticePage({ params }: Props) {
           </span>
         </div>
 
-        <h6 className="relative text-2xl border-b pb-6 border-zinc-700 text-balance text-zinc-100 mb-6 md:text-3xl px-2 md:px-3 lg:text-4xl xl:mb-8 3xl:text-5xl ">
+        <h6 className="relative z-100 bg-zinc-900/50 rounded-lg border text-center text-2xl py-6 border-zinc-700 text-balance text-zinc-100 mb-4 md:text-3xl px-2 md:px-3 lg:px-6 lg:py-8 lg:text-4xl lg:mb-9 xl:text-5xl 3xl:text-6xl ">
           {notice.title}
         </h6>
 
-        <p className="text-base text-zinc-400 mb-8 text-balance relative z-100 px-2 md:px-3 lg:text-lg 3xl:text-xl ">
+        <p className="text-base text-center  text-zinc-400 mb-8 text-balance relative z-100 px-2 md:px-3 lg:text-2xl lg:mb-9 3xl:text-3xl ">
           {notice.description}
         </p>
 
