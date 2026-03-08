@@ -48,7 +48,7 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
   return (
     <div
       id="allnotices"
-      className="w-full min-h-screen bg-zinc-800 py-10 px-4 relative lg:py-16"
+      className="w-full min-h-screen bg-zinc-800 py-10 px-4 relative pb-20 lg:py-16 lg:pb-32"
     >
       <div className="absolute z-200 bottom-0.5 left-0 text-zinc-600 w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
         © Faustino Oro
