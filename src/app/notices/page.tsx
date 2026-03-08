@@ -8,6 +8,7 @@ import imgFaustiCaruana from "@/assets/images/chess/19.jpg";
 import iconFaustiCaruana from "@/assets/images/icon5.svg";
 import connectToDatabase from "@/lib/mongodb";
 import NoticeModel from "@/models/notice";
+import NoticesGrid from "@/components/landing/ui/noticesPage/NoticesGrid";
 
 export const metadata: Metadata = {
   title: "Noticias - Faustino Oro",
@@ -154,98 +155,9 @@ export default function NoticesPage() {
 
 async function NoticesContent() {
   const notices = await getNotices();
-
-  // Filtrar solo noticias activas
   const activeNotices = notices.filter((notice: any) => notice.isActive);
 
-  return (
-    <div
-      id="allnotices"
-      className="w-full min-h-screen bg-z py-10 px-4 relative lg:py-16 3xl:flex 3xl:justify-start "
-    >
-      <div className="absolute  z-200 bottom-0.5 left-0 text-zinc-600  w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
-        © Faustino Oro
-      </div>
-
-      <div className="max-w-7xl mx-auto  3xl:max-w-350 ">
-        <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-12 lg:mb-16 3xl:text-7xl">
-          Todas las noticias
-        </h6>
-        {activeNotices.length === 0 ? (
-          <p className="text-zinc-400 text-center py-20">
-            No hay noticias disponibles en este momento
-          </p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-            {activeNotices.map((notice: any) => (
-              <Link
-                key={notice._id}
-                href={`/notices/${notice._id}`}
-                className="group border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-200 transition-all duration-500"
-              >
-                {notice.images &&
-                  notice.images.length > 0 &&
-                  notice.images[0].secure_url && (
-                    <div className="relative h-64 w-full">
-                      <Image
-                        src={notice.images[0].secure_url}
-                        alt={notice.title}
-                        fill
-                        className="object-cover "
-                      />
-                    </div>
-                  )}
-
-                <div className="py-6 px-3 text-balance">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-4 py-0.5 rounded-sm">
-                      {notice.category}
-                    </span>
-                    <span className="text-zinc-500 text-sm">
-                      {new Date(notice.createdAt).toLocaleDateString("es-AR", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </span>
-                  </div>
-
-                  <h2 className="text-xl sm:text-2xl sm:leading-8 text-zinc-200 mb-4 group-hover:text-sky-400 transition-colors line-clamp-2">
-                    {notice.title}
-                  </h2>
-
-                  <p className="text-sm sm:text-base text-zinc-400 line-clamp-2 mb-2">
-                    {notice.description}
-                  </p>
-                    <p className="text-sm sm:text-base text-zinc-500 line-clamp-2">
-                    {notice.content}
-                  </p>
-                </div>
-                <div className="self-end mb-2 ml-3 bg-zinc-700/70 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-9 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-50 lg:mb-3">
-                  <p className="">Leer más</p>
-                  <div className="bg-sky-600 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                      className="w-[1.2em] transition-transform duration-300 text-zinc-100 group-hover:translate-x-[0.1em]"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
+  return <NoticesGrid notices={activeNotices} />;
 }
 
 export function ArrowRight() {
