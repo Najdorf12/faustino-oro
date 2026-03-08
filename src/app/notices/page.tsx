@@ -71,7 +71,7 @@ export default function NoticesPage() {
           </p>
         </div>
         <section className="w-[90%] self-center h-[60vh] md:w-1/2 md:h-screen relative flex items-center justify-center">
-          <div className="absolute inset-0 bg-zinc-800/40 z-100"></div>
+          <div className="absolute inset-0 bg-zinc-800/20 z-100"></div>
           <Image
             src={imgFaustiNotice}
             alt="img-notice"

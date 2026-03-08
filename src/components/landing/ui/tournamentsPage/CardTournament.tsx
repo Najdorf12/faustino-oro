@@ -238,7 +238,7 @@ export default function CardTournament({ tournament }: Props) {
                               {g.opponent.title}
                             </span>
                           )}
-                          <span className="truncate max-w-27 sm:max-w-30 md:max-w-none">
+                          <span className="truncate max-w-22 sm:max-w-32 md:max-w-none">
                             {g.opponent.name}
                           </span>
                         </span>
@@ -277,7 +277,7 @@ export default function CardTournament({ tournament }: Props) {
                               g.color as "white" | "black",
                             )
                           }
-                          className={`text-xs px-1.5 py-1 rounded-md border transition-colors lg:px-3 lg:text-sm lg:px-6 cursor-pointer 2xl:text-base  ${
+                          className={`text-xs px-1.5 py-1 rounded-md border transition-colors md:px-3 lg:text-sm lg:px-6 cursor-pointer 2xl:text-base  ${
                             activeGame?.gameId === g.id
                               ? "bg-sky-600 border-sky-500 text-white px-5 lg:px-10"
                               : "border-zinc-600 text-zinc-400 hover:border-sky-500 hover:text-sky-400"
