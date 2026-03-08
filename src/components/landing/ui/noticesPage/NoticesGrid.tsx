@@ -166,12 +166,12 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
 
         {/* Paginación */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-2 mt-14">
+          <div className="flex items-center justify-center gap-2 mt-14 lg:gap-6">
             {/* Botón anterior */}
             <button
               onClick={() => handlePage(currentPage - 1)}
               disabled={currentPage === 1}
-              className="w-9 h-9 rounded-sm border border-zinc-600 flex items-center justify-center text-zinc-400 hover:border-zinc-300 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer"
+              className="w-9 h-9 rounded-sm border border-zinc-600 flex items-center justify-center text-zinc-400 hover:border-zinc-300 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer lg:w-14 lg:h-10"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path
@@ -214,7 +214,7 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
                   key={page}
                   onClick={() => handlePage(page)}
                   className={`
-                    w-9 h-9 rounded-sm border text-sm font-medium transition-all duration-200 cursor-pointer
+                    w-9 h-9 rounded-sm border text-sm font-medium transition-all duration-200 cursor-pointer lg:w-14 lg:h-10
                     ${
                       currentPage === page
                         ? "bg-sky-700 border-sky-600 text-zinc-100"
@@ -231,7 +231,7 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
             <button
               onClick={() => handlePage(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="w-9 h-9 rounded-sm border border-zinc-600 flex items-center justify-center text-zinc-400 hover:border-zinc-300 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer"
+              className="w-9 h-9 rounded-sm border border-zinc-600 flex items-center justify-center text-zinc-400 hover:border-zinc-300 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer lg:w-14 lg:h-10"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path
