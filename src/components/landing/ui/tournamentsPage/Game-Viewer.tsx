@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { Chess } from "chess.js";
-import { Chessboard } from "react-chessboard";
+import { Chessboard, defaultPieces } from "react-chessboard";
 const ChessboardComponent = Chessboard as any;
 import cheRight from "@/assets/images/icons/cheRight.svg";
 import cheLeft from "@/assets/images/icons/cheLeft.svg";
@@ -49,7 +49,30 @@ export default function GameViewer({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [meta, setMeta] = useState<GameMeta | null>(null);
+  // Colores personalizados para las piezas
+  const whitePieceStyle = {
+    fill: "#d4d4d8", // blanco cálido / crema
+    svgStyle: {},
+  };
+  const blackPieceStyle = {
+    fill: "#09090b",
+   
+  };
 
+  const customPieces = {
+    wP: (props: any) => defaultPieces.wP({ ...props, ...whitePieceStyle }),
+    wR: (props: any) => defaultPieces.wR({ ...props, ...whitePieceStyle }),
+    wN: (props: any) => defaultPieces.wN({ ...props, ...whitePieceStyle }),
+    wB: (props: any) => defaultPieces.wB({ ...props, ...whitePieceStyle }),
+    wQ: (props: any) => defaultPieces.wQ({ ...props, ...whitePieceStyle }),
+    wK: (props: any) => defaultPieces.wK({ ...props, ...whitePieceStyle }),
+    bP: (props: any) => defaultPieces.bP({ ...props, ...blackPieceStyle }),
+    bR: (props: any) => defaultPieces.bR({ ...props, ...blackPieceStyle }),
+    bN: (props: any) => defaultPieces.bN({ ...props, ...blackPieceStyle }),
+    bB: (props: any) => defaultPieces.bB({ ...props, ...blackPieceStyle }),
+    bQ: (props: any) => defaultPieces.bQ({ ...props, ...blackPieceStyle }),
+    bK: (props: any) => defaultPieces.bK({ ...props, ...blackPieceStyle }),
+  };
   useEffect(() => {
     setLoading(true);
     setError(null);
@@ -309,8 +332,9 @@ export default function GameViewer({
               boardOrientation: playerColor,
               arePiecesDraggable: false,
               animationDuration: 350,
-              darkSquareStyle: { backgroundColor: "#27272a" },
+              darkSquareStyle: { backgroundColor: "#e4e4e7" },
               lightSquareStyle: { backgroundColor: "#00598a" },
+              pieces: customPieces, // ← esto
             }}
           />
         </div>
