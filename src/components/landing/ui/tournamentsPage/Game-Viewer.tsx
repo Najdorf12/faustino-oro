@@ -444,7 +444,7 @@ function NavBtn({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-12 h-9 flex items-center justify-center rounded-lg bg-zinc-800 border-2 border-zinc-700 hover:bg-zinc-300 disabled:opacity-60 disabled:cursor-not-allowed transition-all lg:w-16 lg:h-10"
+      className="w-12 h-9 flex items-center justify-center rounded-lg bg-zinc-800 border-2 border-zinc-700 hover:bg-zinc-200 disabled:opacity-60 disabled:cursor-not-allowed transition-all lg:w-16 lg:h-10"
     >
       <img src={src} alt="" className="w-7 h-7 lg:w-9 lg:h-9" />
     </button>
