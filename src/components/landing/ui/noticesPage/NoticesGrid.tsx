@@ -56,18 +56,18 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
 
       <div className="max-w-7xl mx-auto 3xl:max-w-350">
         {/* Título */}
-        <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-10 lg:mb-12 3xl:text-7xl">
+        <h6 className="text-zinc-200 text-[2rem] sm:text-4xl lg:text-6xl border-l-3 border-sky-700 py-2 pl-4 lg:pl-6 mb-7 lg:mb-12 3xl:text-7xl">
           Todas las noticias
         </h6>
 
         {/* Filtros de categoría */}
-        <div className="flex flex-wrap gap-2 mb-10 lg:mb-14">
+        <div className="flex flex-wrap gap-2 mb-9 lg:mb-10 xl:mb-14">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => handleCategory(cat)}
               className={`
-                px-4 py-1.5 rounded-sm text-sm font-medium border transition-all duration-300 cursor-pointer
+                px-4 py-1.5 rounded-sm text-sm font-medium border transition-all duration-300 cursor-pointer lg:px-6 xl:px-7 lg:text-base
                 ${
                   activeCategory === cat
                     ? "bg-sky-700 border-sky-600 text-zinc-100"
@@ -166,7 +166,7 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
 
         {/* Paginación */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-2 mt-14 lg:gap-6">
+          <div className="flex items-center justify-center gap-2 mt-14 lg:mt-16 lg:gap-6">
             {/* Botón anterior */}
             <button
               onClick={() => handlePage(currentPage - 1)}
