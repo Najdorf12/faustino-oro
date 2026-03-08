@@ -332,8 +332,8 @@ export default function GameViewer({
               boardOrientation: playerColor,
               arePiecesDraggable: false,
               animationDuration: 350,
-              darkSquareStyle: { backgroundColor: "#e4e4e7" },
-              lightSquareStyle: { backgroundColor: "#00598a" },
+              darkSquareStyle: { backgroundColor: "#00598a" },
+              lightSquareStyle: { backgroundColor: "#e4e4e7" },
               pieces: customPieces, // ← esto
             }}
           />
