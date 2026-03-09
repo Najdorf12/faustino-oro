@@ -7,10 +7,8 @@ import Image from "next/image";
 const CATEGORIES = [
   "Todas",
   "Eventos",
-  "Blitz",
-  "Rápidas",
-  "Clásicas",
   "Logros",
+  "Clásicas",
   "Rápidas - Blitz",
 ];
 
