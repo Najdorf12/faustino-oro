@@ -59,13 +59,13 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
         </h6>
 
         {/* Filtros de categoría */}
-        <div className="flex flex-wrap gap-2 mb-9 max-w-70 md:max-w-max lg:mb-10 xl:mb-14">
+        <div className="flex flex-wrap gap-2 mb-9 max-w-70 md:max-w-max lg:mb-10 xl:mb-14 xl:gap-3 ">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => handleCategory(cat)}
               className={`
-                px-5 py-1.5 rounded-sm text-sm font-medium border transition-all duration-300 cursor-pointer lg:px-7 xl:px-9 lg:text-base
+                px-5 py-1.5 rounded-sm text-sm font-medium border transition-all duration-300 cursor-pointer lg:px-7 xl:px-9 lg:text-base 3xl:text-lg
                 ${
                   activeCategory === cat
                     ? "bg-sky-700 border-sky-600 text-zinc-100"
