@@ -323,7 +323,7 @@ export default function GameViewer({
 
       {/* ── Board ── */}
       <section className="px-3 mt-3 ">
-        <div className="rounded-lg overflow-hidden border border-zinc-700/40">
+        <div className="rounded-md overflow-hidden border-2 border-teal-600">
           <ChessboardComponent
             key={currentMove}
             id={`game-viewer-${gameId}`}
@@ -332,8 +332,8 @@ export default function GameViewer({
               boardOrientation: playerColor,
               arePiecesDraggable: false,
               animationDuration: 350,
-              darkSquareStyle: { backgroundColor: "#00598a" },
-              lightSquareStyle: { backgroundColor: "#e4e4e7" },
+              darkSquareStyle: { backgroundColor: "#0b4f4a" },
+              lightSquareStyle: { backgroundColor: "#00786f" },
               pieces: customPieces, // ← esto
             }}
           />

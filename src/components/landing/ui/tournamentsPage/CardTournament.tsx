@@ -147,7 +147,7 @@ export default function CardTournament({ tournament }: Props) {
               {tournament.description}
             </li>
             {tournament.images.length > 0 ? (
-              <figure className="w-34 lg:w-40 h-16 lg:h-20">
+              <figure className="w-34 lg:w-40 h-16 lg:h-20 xl:h-22 xl:w-44">
                 <Image
                   src={tournament.images[0].secure_url}
                   width={100}
@@ -174,6 +174,26 @@ export default function CardTournament({ tournament }: Props) {
             </li>
           </ul>
         </div>
+{/*         <ul className="text-zinc-400 text-base z-100 absolute right-6 top-2 p-1">
+          <div className="flex justify-between items-center gap-12">
+            <li className="">
+              Rank : <span className="text-zinc-400">{tournament.rank}</span>
+            </li>
+            <li className="min-w-22 ">
+              Score : <span className="text-zinc-400 ">{tournament.score}</span>
+            </li>
+          </div>
+          <div className="flex justify-between items-center gap-12 ">
+            <li className="">
+              Performance :{" "}
+              <span className="text-zinc-400">{tournament.performance}</span>
+            </li>
+            <li className="">
+              Rating :{" "}
+              <span className="text-zinc-400">{tournament.rating}</span>
+            </li>
+          </div>
+        </ul> */}
       </section>
 
       {/* PANEL EXPANDIDO */}
