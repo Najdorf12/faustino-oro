@@ -148,7 +148,7 @@ const AchievementsForm = () => {
             "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
         }}
       />
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-8 md:space-y-7 md:w-140 xl:w-220 xl:px-8 z-50 xl:py-10 xl:space-y-12">
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-8 md:space-y-7 md:w-140 xl:w-240 xl:px-8 z-50 xl:py-14 xl:space-y-12 3xl:w-260">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
         <figure className="absolute inset-0 w-full h-full z-20 ">
           <Image

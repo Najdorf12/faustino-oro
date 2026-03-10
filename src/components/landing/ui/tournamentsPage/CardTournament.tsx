@@ -192,19 +192,13 @@ export default function CardTournament({ tournament }: Props) {
           <div className="grid grid-cols-4 gap-2 text-center">
             <Stat
               label="Rank"
-              value={player.rank ? `#${player.rank}` : "N/A"}
+              value={tournament.rank ? `# ${tournament.rank}` : "N/A"}
             />
-            <Stat label="Score" value={player.score ?? "N/A"} />
-            <Stat label="Perf" value={player.performance ?? "N/A"} />
+            <Stat label="Score" value={tournament.score ?? "N/A"} />
+            <Stat label="Perf" value={tournament.performance ?? "N/A"} />
             <Stat
               label="Rating"
-              value={
-                player.ratingDiff == null
-                  ? "N/A"
-                  : player.ratingDiff >= 0
-                    ? `+${player.ratingDiff}`
-                    : player.ratingDiff
-              }
+              value={tournament.rating ?? "N/A"}
               highlight={
                 player.ratingDiff == null
                   ? undefined
@@ -283,7 +277,7 @@ export default function CardTournament({ tournament }: Props) {
                               : "border-zinc-600 text-zinc-400 hover:border-sky-500 hover:text-sky-400"
                           }`}
                         >
-                         {activeGame?.gameId === g.id
+                          {activeGame?.gameId === g.id
                             ? "Cerrar"
                             : "Ver partida"}
                         </button>
