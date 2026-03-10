@@ -74,15 +74,15 @@ const TournamentCard = ({
           </span>
         </p>
         {tournament.images && tournament.images.length > 0 && (
-          <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-2">
+          <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-2 lg:w-45 lg:h-22">
             {tournament.images.map((img) => (
               <Image
                 key={img.public_id}
                 src={img.secure_url}
                 alt="Thumbnail"
-                width={50}
-                height={50}
-                className="w-full h-full  object-cover rounded border border-zinc-500"
+                width={100}
+                height={100}
+                className="w-full h-full object-cover rounded border border-zinc-500"
               />
             ))}
           </div>

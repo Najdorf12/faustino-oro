@@ -133,22 +133,22 @@ const AchievementsForm = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-16 lg:py-18 ">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `
+    <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-16 lg:py-18 xl:py-20 ">
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
         linear-gradient(to right, #3f3f46 1px, transparent 1px),
         linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
       `,
-            backgroundSize: "150px 150px",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-            maskImage:
-              "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-          }}
-        />
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-6 md:space-y-7 md:w-140 xl:w-220 xl:px-8 z-50 xl:py-10">
+          backgroundSize: "150px 150px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
+        }}
+      />
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-8 md:space-y-7 md:w-140 xl:w-220 xl:px-8 z-50 xl:py-10 xl:space-y-12">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
         <figure className="absolute inset-0 w-full h-full z-20 ">
           <Image
@@ -158,14 +158,21 @@ const AchievementsForm = () => {
           />
         </figure>
 
-        <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-300 md:text-6xl xl:text-7xl 2xl:text-8xl">
-          LOGROS
-        </h6>
+        <div className="lg:py-2">
+          <h6 className="text-center relative z-50 text-6xl font-medium text-zinc-200 md:text-6xl lg:text-7xl xl:text-8xl 3xl:text-[7rem]">
+            Logros
+          </h6>
 
-        <p className="text-center relative text-zinc-400 text-sm md:text-base xl:text-xl 3xl:text-xl z-50">
-          {achievementSelected ? "Editar logro" : "Agrega un nuevo logro"}
-        </p>
-
+          <div className="flex items-center gap-2 relative z-100 mt-3 lg:mt-5 lg:gap-4">
+            <div className="flex-1 h-px bg-zinc-300"></div>
+            <p className=" text-center relative z-50 text-zinc-300 text-sm  md:text-base lg:text-xl lg:font-medium 3xl:text-2xl">
+              {achievementSelected
+                ? "Editar logro"
+                : "Agrega un nuevo logro"}
+            </p>
+            <div className="flex-1 h-px bg-zinc-300"></div>
+          </div>
+        </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-7 relative z-50 xl:space-y-12"
@@ -194,13 +201,13 @@ const AchievementsForm = () => {
               <button
                 type="button"
                 onClick={cancelEdit}
-                className="w-full bg-gray-600/90 py-2 px-4 border-2 border-zinc-300 rounded-md shadow-lg hover:border-gray-500 font-semibold transition duration-500 text-zinc-100 xl:self-center"
+                className="w-full bg-gray-600/90 py-2 px-4 border-2 border-zinc-300 rounded-md shadow-lg hover:border-gray-500 font-medium transition duration-500 text-zinc-100 xl:self-center"
               >
                 Cancelar
               </button>
             )}
             <button
-              className="w-full bg-sky-700 border py-2 px-4  rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-semibold transition duration-500 text-zinc-100 xl:self-center cursor-pointer"
+              className="w-full bg-sky-700 border py-2 px-4 text-sm  rounded-md shadow-lg hover:border-sky-800 hover:text-whiteCustom font-medium transition duration-500 text-zinc-100 xl:self-center cursor-pointer lg:text-base"
               type="submit"
               disabled={loading}
             >
@@ -228,14 +235,14 @@ const AchievementsForm = () => {
               <span className="text-zinc-400 font-semibold text-lg self-start">
                 #{achievements.length - index}
               </span>
-                <div className="w-full ">
-                  <h4 className="text-xl  font-medium text-zinc-100 ">
-                    {achievement.title}
-                  </h4>
-                  <p className="text-zinc-400 mt-2">
-                    Creado: {formatDate(achievement.createdAt)}
-                  </p>
-                </div>
+              <div className="w-full ">
+                <h4 className="text-xl  font-medium text-zinc-100 ">
+                  {achievement.title}
+                </h4>
+                <p className="text-zinc-400 mt-2">
+                  Creado: {formatDate(achievement.createdAt)}
+                </p>
+              </div>
               <div className="flex w-full justify-evenly mt-3 items-center lg:gap-9">
                 <button
                   onClick={() => setAchievementSelected(achievement)}
