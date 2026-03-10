@@ -151,7 +151,7 @@ export default function NoticesForm({
 
   return (
     <section className="w-full  flex items-center justify-center px-3 sm:px-4 py-12 lg:pt-18">
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg  shadow-zinc-900 border-3 overflow-hidden py-6 px-3 sm:px-4 space-y-6 md:space-y-7 md:w-140 lg:w-200 xl:w-220 xl:px-8 z-50">
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg  shadow-zinc-900 border-3 overflow-hidden py-6 px-3 sm:px-4 space-y-6 md:space-y-7 md:w-140 lg:w-200 xl:w-240 xl:px-8 z-50 3xl:w-260 ">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
         <figure className="absolute inset-0 w-full h-full z-20 ">
           <Image
@@ -161,13 +161,21 @@ export default function NoticesForm({
           />
         </figure>
 
-        <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
-          NOTICIAS
-        </h6>
+         <div className="lg:py-2">
+          <h6 className="text-center relative z-50 text-6xl font-medium text-zinc-200 md:text-6xl lg:text-7xl xl:text-8xl 3xl:text-[7rem]">
+            NOTICIAS
+          </h6>
 
-        <p className="text-center relative z-50 text-zinc-400 text-sm  md:text-base xl:text-xl 2xl:text-xl">
-          {noticeSelected ? "Editar noticia" : "Comparte las últimas novedades"}
-        </p>
+          <div className="flex items-center gap-2 relative z-100 mt-3 lg:mt-5 lg:gap-4">
+            <div className="flex-1 h-px bg-zinc-300"></div>
+            <p className=" text-center relative z-50 text-zinc-300 text-sm  md:text-base lg:text-xl lg:font-medium 3xl:text-2xl">
+              {noticeSelected
+                ? "Editar noticia"
+                : "Comparte las últimas novedades"}
+            </p>
+            <div className="flex-1 h-px bg-zinc-300"></div>
+          </div>
+        </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}

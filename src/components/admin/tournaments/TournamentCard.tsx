@@ -30,8 +30,8 @@ const TournamentCard = ({
   return (
     <div
       className="text-balance w-full max-w-95 border border-zinc-400 z-100 relative cursor-pointer  
-      rounded-2xl p-4 flex flex-col justify-between  duration-300 group 
-      hover:scale-105 md:p-4 lg:h-144 lg:p-5 xl:max-w-97"
+      rounded-2xl p-4 flex flex-col justify-between duration-300 group 
+      hover:scale-105 md:p-4 lg:h-144 lg:p-5 xl:max-w-97 "
     >
       <div className="flex justify-between items-center ">
         <div
