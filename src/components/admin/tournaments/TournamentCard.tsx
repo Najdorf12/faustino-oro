@@ -67,14 +67,24 @@ const TournamentCard = ({
           : <span className="text-zinc-200">{endDate}</span>
         </p>
 
-        <p className="text-zinc-400 text-sm mt-1">
-          ID Lichess:{" "}
+        <p className="text-zinc-400 text-sm lg:text-base">
+          ID Lichess : {" "}
           <span className="text-zinc-100">
             {tournament.tournament_id_lichess}
           </span>
         </p>
+        <ul className="text-zinc-300  text-base relative z-50">
+          <div className="flex justify-center items-center">
+            <li className="w-1/2">Rank : {tournament.rank}</li>
+            <li className="w-1/2">Score : {tournament.score}</li>
+          </div>
+          <div className="flex">
+            <li className="w-1/2">Performance : {tournament.performance}</li>
+            <li className="w-1/2">Rating : {tournament.rating}</li>
+          </div>
+        </ul>
         {tournament.images && tournament.images.length > 0 && (
-          <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-2 lg:w-45 lg:h-22">
+          <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-4 lg:w-45 lg:h-22">
             {tournament.images.map((img) => (
               <Image
                 key={img.public_id}
@@ -87,18 +97,8 @@ const TournamentCard = ({
             ))}
           </div>
         )}
-        <ul className="text-zinc-300 mt-2 text-base relative z-50">
-          <div className="flex justify-center items-center">
-            <li className="w-1/2">Rank : {tournament.rank}</li>
-            <li className="w-1/2">Score : {tournament.score}</li>
-          </div>
-          <div className="flex">
-            <li className="w-1/2">Performance : {tournament.performance}</li>
-            <li className="w-1/2">Rating : {tournament.rating}</li>
-          </div>
-        </ul>
       </article>
-      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-6 lg:mt-6">
+      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-5">
         <button
           onClick={() => onEdit(tournament)}
           className="bg-zinc-800/70 hover:bg-sky-600 text-white px-4 py-2 rounded-sm whitespace-nowrap cursor-pointer"
