@@ -98,10 +98,10 @@ const TournamentCard = ({
           </div>
         </ul>
       </article>
-      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-6 lg:mt-4">
+      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-6 lg:mt-6">
         <button
           onClick={() => onEdit(tournament)}
-          className="bg-sky-600 hover:bg-sky-600 text-white px-4 py-2 rounded-sm whitespace-nowrap cursor-pointer"
+          className="bg-zinc-800/70 hover:bg-sky-600 text-white px-4 py-2 rounded-sm whitespace-nowrap cursor-pointer"
         >
           Editar
         </button>
