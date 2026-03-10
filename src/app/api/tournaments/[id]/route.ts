@@ -68,6 +68,10 @@ export async function PUT(
     tournament.startDate = body.startDate;
     tournament.endDate = body.endDate;
     tournament.description = body.description || "";
+    tournament.performance = body.performance ?? null;
+    tournament.rating = body.rating ?? null;
+    tournament.score = body.score ?? null;
+    tournament.rank = body.rank ?? null;
 
     // Conservar imágenes anteriores si no hay nuevas
     tournament.images =

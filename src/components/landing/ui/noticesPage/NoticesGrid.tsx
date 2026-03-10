@@ -141,7 +141,7 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
                 </div>
                 <div className="self-start mb-2 ml-3 bg-zinc-700/70 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-8.5 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-50 lg:mb-3 lg:h-9.5">
                   <p className="">Leer más</p>
-                  <div className="bg-sky-600 cursor-pointer rounded-lg h-[33px] w-8 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500 lg:w-9 lg:h-[37.5px]">
+                  <div className="bg-sky-600 cursor-pointer rounded-lg h-8.25 w-8 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500 lg:w-9 lg:h-[37.5px]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"

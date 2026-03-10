@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import imgFaustiForm from "@/assets/images/img1-13.jpeg";
+import imgFaustiForm from "@/assets/images/img1-18.jpeg";
 import { Tournament, TournamentImage } from "@/types/tournament";
 
 interface FormData {
@@ -13,6 +13,10 @@ interface FormData {
   endDate: string;
   isActive: boolean;
   description?: string;
+  performance?: number | string;
+  rating?: number | string;
+  score?: number | string;
+  rank?: number | string;
 }
 
 interface TournamentsFormProps {
@@ -52,6 +56,10 @@ const TournamentsForm = ({
         description: tournamentSelected.description || "",
         tournament_id_lichess: tournamentSelected.tournament_id_lichess || "",
         isActive: tournamentSelected.isActive || false,
+        performance: tournamentSelected.performance ?? "",
+        rating: tournamentSelected.rating ?? "",
+        score: tournamentSelected.score ?? "",
+        rank: tournamentSelected.rank ?? "",
       });
       setImages(tournamentSelected.images || []);
     } else {
@@ -63,6 +71,10 @@ const TournamentsForm = ({
         description: "",
         tournament_id_lichess: "",
         isActive: false,
+        performance: "",
+        rating: "",
+        score: "",
+        rank: "",
       });
       setImages([]);
     }
@@ -174,8 +186,7 @@ const TournamentsForm = ({
 
   return (
     <section className="w-full  flex items-center justify-center px-3 sm:px-4 py-12 lg:pt-18">
-      
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg  shadow-zinc-900 border-3 overflow-hidden py-6 px-3 sm:px-4 space-y-6 md:space-y-7 md:w-140 lg:w-200 xl:w-220 xl:px-8 z-50">
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg  shadow-zinc-900 border-3 overflow-hidden py-6 px-3 sm:px-4 space-y-6 md:space-y-6 md:w-140  lg:w-200 xl:w-240 xl:px-8 z-50">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full"></div>
         <figure className="absolute inset-0 w-full h-full z-20 ">
           <Image
@@ -185,18 +196,25 @@ const TournamentsForm = ({
           />
         </figure>
 
-        <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-7xl 2xl:text-8xl">
-          TORNEOS
-        </h6>
-        <p className="text-center relative z-50 text-zinc-400 text-sm  md:text-base xl:text-xl 2xl:text-xl">
-          {tournamentSelected
-            ? "Editar torneo"
-            : "Registra una nueva competencia"}
-        </p>
+        <div className="lg:py-2">
+          <h6 className="text-center relative z-50 text-5xl font-medium text-zinc-200 md:text-6xl xl:text-8xl 3xl:text-9xl">
+            TORNEOS
+          </h6>
+
+          <div className="flex items-center gap-2 relative z-100 mt-2 lg:mt-3 lg:gap-4">
+            <div className="flex-1 h-px bg-zinc-500"></div>
+            <p className=" text-center relative z-50 text-zinc-500 text-sm  md:text-base lg:text-xl lg:font-medium 2xl:text-xl">
+              {tournamentSelected
+                ? "Editar torneo"
+                : "Registra una nueva competencia"}
+            </p>
+            <div className="flex-1 h-px bg-zinc-500"></div>
+          </div>
+        </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-7 relative z-100 xl:space-y-8 "
+          className="space-y-7 relative z-100 xl:space-y-8  "
         >
           <div className="flex flex-col gap-6 xl:flex xl:flex-row">
             <div className="relative font-medium xl:w-1/2">
@@ -320,6 +338,28 @@ const TournamentsForm = ({
             </div>
           </div>
 
+          <div className="flex flex-col gap-6 xl:flex xl:flex-row">
+            {[
+              { name: "rank", label: "Rank" },
+              { name: "score", label: "Score" },
+              { name: "performance", label: "Performance" },
+              { name: "rating", label: "Rating" },
+            ].map(({ name, label }) => (
+              <div key={name} className="relative font-medium xl:w-1/4">
+                <input
+                  autoComplete="off"
+                  placeholder={label}
+                  className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
+                  {...register(name as keyof FormData, {
+                    valueAsNumber: true,
+                  })}
+                />
+                <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-zinc-300 peer-focus:text-sm">
+                  {label}
+                </label>
+              </div>
+            ))}
+          </div>
           <div className="relative">
             <label className="text-zinc-300  mb-2 block">
               Descripción <span className="text-zinc-400">(Opcional)</span>

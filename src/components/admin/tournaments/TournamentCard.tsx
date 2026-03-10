@@ -14,7 +14,6 @@ const TournamentCard = ({
   onEdit,
   onDelete,
 }: TournamentCardProps) => {
-
   const startDate = new Date(tournament.startDate).toLocaleDateString("es-AR", {
     day: "2-digit",
     month: "short",
@@ -32,7 +31,7 @@ const TournamentCard = ({
     <div
       className="text-balance w-full max-w-95 border border-zinc-400 z-100 relative cursor-pointer  
       rounded-2xl p-4 flex flex-col justify-between  duration-300 group 
-      hover:scale-105 md:p-4 lg:h-130 lg:p-5"
+      hover:scale-105 md:p-4 lg:h-144 lg:p-5 xl:max-w-97"
     >
       <div className="flex justify-between items-center ">
         <div
@@ -53,8 +52,8 @@ const TournamentCard = ({
           {`${tournament.isActive ? "Activo" : "Inactivo"}`}
         </div>
       </div>
-      <article className="text-sm flex mt-4 flex-col gap-1  relative z-100 lg:mt-5">
-        <h6 className="text-xl text-zinc-100 lg:line-clamp-2 lg:text-2xl">
+      <article className="text-sm flex mt-4 flex-col gap-1  relative z-100 lg:mt-5 ">
+        <h6 className="text-xl  text-zinc-100 lg:line-clamp-2 lg:text-2xl lg:min-h-16">
           {tournament.title}
         </h6>
         {tournament.description && (
@@ -64,7 +63,8 @@ const TournamentCard = ({
         )}
         <p className="text-zinc-300 mt-1 text-base">{tournament.location}</p>
         <p className="border-t pt-3 mt-2 border-zinc-400 text-zinc-300 text-base">
-           Inicio : <span className="text-zinc-200">{startDate}</span> <br />  Fin : <span className="text-zinc-200">{endDate}</span>
+          Inicio : <span className="text-zinc-200">{startDate}</span> <br /> Fin
+          : <span className="text-zinc-200">{endDate}</span>
         </p>
 
         <p className="text-zinc-400 text-sm mt-1">
@@ -74,7 +74,7 @@ const TournamentCard = ({
           </span>
         </p>
         {tournament.images && tournament.images.length > 0 && (
-          <div className="flex gap-2 mt-4 w-40 h-20">
+          <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-2">
             {tournament.images.map((img) => (
               <Image
                 key={img.public_id}
@@ -87,8 +87,18 @@ const TournamentCard = ({
             ))}
           </div>
         )}
+        <ul className="text-zinc-300 mt-2 text-base relative z-50">
+          <div className="flex justify-center items-center">
+            <li className="w-1/2">Rank : {tournament.rank}</li>
+            <li className="w-1/2">Score : {tournament.score}</li>
+          </div>
+          <div className="flex">
+            <li className="w-1/2">Performance : {tournament.performance}</li>
+            <li className="w-1/2">Rating : {tournament.rating}</li>
+          </div>
+        </ul>
       </article>
-      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-6">
+      <div className="flex flex-col gap-2 relative z-50 text-sm font-medium mt-6 lg:mt-4">
         <button
           onClick={() => onEdit(tournament)}
           className="bg-sky-600 hover:bg-sky-600 text-white px-4 py-2 rounded-sm whitespace-nowrap cursor-pointer"

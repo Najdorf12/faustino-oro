@@ -13,6 +13,10 @@ export interface Tournament {
   isActive: boolean;
   description?: string;
   images: TournamentImage[];
+  performance?: number;
+  rating?: number;
+  score?: number;
+  rank?: number;
   createdAt?: Date;
   updatedAt?: Date;
 }
