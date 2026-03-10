@@ -212,7 +212,7 @@ export default function CardTournament({ tournament }: Props) {
           <div className="grid grid-cols-4 gap-2 text-center">
             <Stat
               label="Rank"
-              value={tournament.rank ? `# ${tournament.rank}` : "N/A"}
+              value={tournament.rank ? `#${tournament.rank}` : "N/A"}
             />
             <Stat label="Score" value={tournament.score ?? "N/A"} />
             <Stat label="Perf" value={tournament.performance ?? "N/A"} />
