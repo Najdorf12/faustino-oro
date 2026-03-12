@@ -125,10 +125,10 @@ export default function Notices({ data }: NoticesProps) {
       </div>
 
       <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-24 lg:gap-10 ">
-        <h6 className="w-full text-3xl sm:text-4xl lg:text-6xl  relative z-100 max-w-250 px-3 text-center text-zinc-500 2xl:text-7xl 2xl:max-w-275">
+        <h6 className="w-full text-3xl sm:text-4xl lg:text-6xl  relative z-100 max-w-280 px-3 text-center text-zinc-500 xl:text-[3.95rem] 2xl:text-7xl 2xl:max-w-275">
           Explora actualizaciones sobre sus avances y eventos especiales
         </h6>
-        <p className="text-zinc-500 max-w-93 text-center text-sm px-1  md:text-lg md:max-w-200  3xl:max-w-300 3xl:text-xl">
+        <p className="text-zinc-400 max-w-93 text-center text-sm px-1  md:text-lg xl:text-xl md:max-w-200 3xl:max-w-300 3xl:text-xl">
           Aquí podrás conocer no solo sus logros más recientes, sino también el
           arduo camino de entrenamiento y preparación que los hace posibles
         </p>
