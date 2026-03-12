@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Ubuntu, Bokor, Protest_Revolution } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Script from "next/script";
@@ -11,16 +11,8 @@ const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
 });
-const bokor = Bokor({
-  variable: "--font-bokor",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-const protest_revolution = Protest_Revolution({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400"],
-});
+
+
 const satoshi = localFont({
   src: [
     {
@@ -51,6 +43,71 @@ const satoshi = localFont({
   ],
   variable: "--font-satoshi",
   display: "swap",
+});
+
+const lubidow = localFont({
+  src: [
+    {
+      path: "../assets/fonts/lubidow-regular.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/lubidow-regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/lubidow-regular.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/lubidow-regular.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/lubidow-regular.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-lubidow",
+  display: "swap",
+});
+
+const superlarky = localFont({
+src: [
+    {
+      path: "../assets/fonts/SuperLarky.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/SuperLarky.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/SuperLarky.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/SuperLarky.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/SuperLarky.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-superlarky",
+  display: "swap",
+  // Next usará esto como font-family name internamente
 });
 
 export const metadata: Metadata = {
@@ -126,6 +183,7 @@ export const metadata: Metadata = {
     google: "notranslate",
   },
 };
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -136,6 +194,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <html lang="es">
       <head>
@@ -147,7 +206,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${ubuntu.variable} ${protest_revolution.variable} ${bokor.variable} ${satoshi.variable} antialiased`}
+        className={`${ubuntu.variable} ${superlarky.variable} ${satoshi.variable} ${lubidow.variable} antialiased`}
       >
         {/* ✅ JSON-LD */}
         <Script

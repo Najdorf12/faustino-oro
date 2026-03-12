@@ -9,8 +9,7 @@
   --breakpoint-3xl: 1700px;
   --font-satoshi: "Satoshi", "sans-serif";
   --font-ubuntu: "Ubuntu", sans-serif;
-  --font-bokor: "Bokor", sans-serif;
-  --font-protest_revolution: "Protest Revolution", sans-serif;
+  --font-superlarky: var(--font-superlarky)
 }
 /* checkbox */
 .container-checkbox {
@@ -207,4 +206,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #btn-nav:hover:before {
   background-color: #fff;
   width: 3rem;
+}
+
+
+#cta {
+  cursor: pointer;
+}
+
+.hover-underline-animation {
+  position: relative;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0069a8;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+#cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
