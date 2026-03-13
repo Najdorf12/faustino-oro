@@ -69,6 +69,7 @@ export async function PUT(
     
     // Actualizar campo
     achievement.title = body.title;
+    achievement.category = body.category;
     
     const updatedAchievement = await achievement.save();
     
