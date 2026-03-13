@@ -421,7 +421,7 @@ const TournamentsForm = ({
               </button>
             )}
             <button
-              className="w-full border bg-sky-800 text-zinc-100 py-2 rounded text-sm sm:text-base xl:py-3"
+              className="w-full bg-sky-800/80 border border-sky-500 text-zinc-100 py-2 rounded text-sm sm:text-base xl:py-3"
               type="submit"
               disabled={loading}
             >

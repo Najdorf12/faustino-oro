@@ -131,23 +131,9 @@ const AchievementsForm = () => {
   );
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-16 lg:py-18 xl:py-20">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #3f3f46 1px, transparent 1px),
-            linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
-          `,
-          backgroundSize: "150px 150px",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-          maskImage:
-            "radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)",
-        }}
-      />
 
       {/* Formulario */}
-      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-8 md:space-y-7 md:w-140 xl:w-240 xl:px-8 z-50 xl:py-14 xl:space-y-12 3xl:w-260">
+      <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-8 md:space-y-7 md:w-140 xl:w-240 xl:px-8 z-50 xl:py-6 xl:space-y-12 3xl:w-260">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full" />
         <figure className="absolute inset-0 w-full h-full z-20">
           <Image
@@ -176,7 +162,7 @@ const AchievementsForm = () => {
         >
           {/* Categoría con opciones estilizadas */}
           <div className="relative font-medium">
-            <label className="block text-zinc-400 text-xs uppercase tracking-widest mb-3 lg:text-sm">
+            <label className="block text-zinc-200 text-xs uppercase tracking-widest mb-3 lg:text-base">
               Categoría
             </label>
             <div className="flex flex-wrap gap-2">
@@ -190,7 +176,7 @@ const AchievementsForm = () => {
                       required: "La categoría es requerida",
                     })}
                   />
-                  <span className="block px-3 py-1.5 rounded-full border border-zinc-600 text-zinc-400 text-xs font-medium transition-all duration-200 peer-checked:border-sky-500 peer-checked:bg-sky-500/15 peer-checked:text-sky-300 hover:border-zinc-400 hover:text-zinc-200 lg:px-4 lg:py-2 lg:text-sm">
+                  <span className="block px-3 py-1.5 rounded-md border bg-zinc-800/70 border-zinc-600 text-zinc-400 text-xs font-medium transition-all duration-200 peer-checked:border-sky-600 peer-checked:bg-sky-500/15 peer-checked:text-sky-400 hover:border-zinc-400 hover:text-zinc-200 lg:px-4 lg:py-2 lg:text-sm">
                     {cat}
                   </span>
                 </label>
@@ -205,14 +191,14 @@ const AchievementsForm = () => {
 
           {/* Título como textarea */}
           <div className="relative font-medium">
-            <label className="block text-zinc-400 text-xs uppercase tracking-widest mb-3 lg:text-sm">
+            <label className="block text-zinc-200 text-xs uppercase tracking-widest mb-3 lg:text-base">
               Logro
             </label>
             <textarea
               autoComplete="off"
               rows={3}
               placeholder="Describe el logro..."
-              className="w-full bg-zinc-700/40 border border-zinc-600 rounded-lg text-white placeholder-zinc-500 px-4 py-3 text-sm resize-none focus:outline-none focus:border-sky-500 transition-colors duration-200 lg:text-base"
+              className="w-full bg-zinc-800/40 border-2 border-sky-700 rounded-lg text-white placeholder-zinc-500 px-4 py-3 text-sm resize-none focus:outline-none focus:border-sky-500 transition-colors duration-200 lg:text-base"
               {...register("title", { required: "El logro es requerido" })}
             />
             {errors.title && (
@@ -233,7 +219,7 @@ const AchievementsForm = () => {
               </button>
             )}
             <button
-              className="w-full bg-sky-700 border py-2 px-4 text-sm rounded-md shadow-lg hover:border-sky-800 font-medium transition duration-500 text-zinc-100 xl:self-center cursor-pointer lg:text-base"
+              className="w-full bg-sky-800/80 border border-sky-500 py-2 px-4 text-sm rounded-md shadow-lg hover:border-sky-800 font-medium transition duration-500 text-zinc-100 xl:self-center cursor-pointer lg:text-base"
               type="submit"
               disabled={loading}
             >
