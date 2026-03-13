@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 /* FaustiDevice -> 1524 * 730 */
 
-export const revalidate = false;
+export const revalidate = 60;
 async function getLandingData() {
   try {
     await connectToDatabase();
@@ -44,7 +44,7 @@ async function getLandingData() {
         : [];
 
     const [achievements, notices] = await Promise.all([
-      AchievementModel.find().sort({ createdAt: -1 }).lean(),
+      AchievementModel.find().sort({ order: 1 }).lean(),
       NoticeModel.find().sort({ createdAt: -1 }).limit(4).lean(),
     ]);
 

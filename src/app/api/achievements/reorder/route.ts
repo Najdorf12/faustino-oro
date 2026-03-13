@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import AchievementModel from "@/models/achievement";
+import { revalidatePath } from "next/cache";
 
 export async function PUT(request: NextRequest) {
   try {
@@ -9,10 +10,10 @@ export async function PUT(request: NextRequest) {
 
     await Promise.all(
       body.map(({ id, order }) =>
-        AchievementModel.findByIdAndUpdate(id, { order })
-      )
+        AchievementModel.findByIdAndUpdate(id, { order }),
+      ),
     );
-
+    revalidatePath("/");
     return NextResponse.json({ message: "Orden actualizado" });
   } catch (error: any) {
     return NextResponse.json({ message: error.message }, { status: 500 });
