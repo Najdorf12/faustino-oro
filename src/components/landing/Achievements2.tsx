@@ -41,14 +41,19 @@ const CardContent = ({
 export default function Achievements({ data }: AchievementsProps) {
   const grouped = ACHIEVEMENT_CATEGORIES.reduce(
     (acc, category) => {
-      const items = data.filter((a) => a.category === category);
+      const items = data
+        .filter((a) => a.category === category)
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
       if (items.length > 0) acc[category] = items;
       return acc;
     },
     {} as Record<AchievementCategory, Achievement[]>,
   );
 
-  const entries = Object.entries(grouped) as [AchievementCategory, Achievement[]][];
+  const entries = Object.entries(grouped) as [
+    AchievementCategory,
+    Achievement[],
+  ][];
 
   return (
     <>

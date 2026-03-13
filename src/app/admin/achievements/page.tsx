@@ -163,9 +163,12 @@ const AchievementsForm = () => {
     {},
   );
 
+  // Ordenar cada grupo por order
+  Object.keys(grouped).forEach((cat) => {
+    grouped[cat].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  });
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-16 lg:py-18 xl:py-20">
-
       {/* Formulario */}
       <section className="w-full font-satoshi relative rounded-xl border-zinc-700 shadow-lg shadow-zinc-900 border-3 overflow-hidden py-6 px-4 space-y-8 md:space-y-7 md:w-140 xl:w-240 xl:px-8 z-50 xl:py-6 xl:space-y-12 3xl:w-260">
         <div className="absolute inset-0 bg-zinc-800/80 z-30 h-full" />
@@ -300,7 +303,7 @@ const AchievementsForm = () => {
                       >
                         {/* Header con controles de orden */}
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-zinc-500 font-semibold text-sm">
+                          <span className="text-zinc-500 font-semibold text-xl lg:text-2xl">
                             #{index + 1}
                           </span>
                           <div className="flex items-center gap-1">
