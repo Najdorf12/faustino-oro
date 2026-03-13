@@ -1,6 +1,6 @@
 import Image from "next/image";
 import imgHome from "@/assets/images/img5-removebg3.png";
-import imgHomeMobile from "@/assets/images/img5-removebg2mobile.png";
+import imgHomeMobile from "@/assets/images/img5-removebgmobile.png";
 import icon from "@/assets/images/icons/iconKnight.svg";
 
 export default function Home() {
