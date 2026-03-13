@@ -272,7 +272,7 @@ const AchievementsForm = () => {
 
       {/* Listado */}
       <section className="text-balance relative z-50 w-full mt-10 lg:mt-16 lg:w-[90%]">
-        <h6 className="mb-8 border-l-3 border-sky-700 pl-3 py-2 text-[2rem] md:text-4xl text-zinc-200 lg:pl-6 xl:text-5xl self-start lg:mb-12">
+        <h6 className="mb-8 border-l-3 border-sky-700 pl-3 py-2 text-[2rem] md:text-4xl text-zinc-200 lg:pl-6 xl:text-5xl self-start lg:mb-14">
           Logros existentes
         </h6>
 
@@ -281,7 +281,7 @@ const AchievementsForm = () => {
             No hay logros registrados aún
           </p>
         ) : (
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-12 lg:gap-18">
             {ACHIEVEMENT_CATEGORIES.map((category) => {
               const items = grouped[category];
               if (!items || items.length === 0) return null;
