@@ -121,6 +121,39 @@ const AchievementsForm = () => {
       day: "numeric",
     });
   };
+
+  const moveAchievement = async (
+    category: AchievementCategory,
+    index: number,
+    direction: "up" | "down",
+  ) => {
+    const items = grouped[category];
+    const newIndex = direction === "up" ? index - 1 : index + 1;
+    if (newIndex < 0 || newIndex >= items.length) return;
+
+    // Swap local
+    const reordered = [...items];
+    [reordered[index], reordered[newIndex]] = [
+      reordered[newIndex],
+      reordered[index],
+    ];
+
+    // Actualizar estado inmediatamente
+    setAchievements((prev) => [
+      ...prev.filter((a) => a.category !== category),
+      ...reordered.map((a, idx) => ({ ...a, order: idx })),
+    ]);
+
+    // Persistir en backend
+    await fetch("/api/achievements/reorder", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(
+        reordered.map((a, idx) => ({ id: a._id, order: idx })),
+      ),
+    });
+  };
+
   const grouped = achievements.reduce<Record<string, Achievement[]>>(
     (acc, item) => {
       if (!acc[item.category]) acc[item.category] = [];
@@ -129,6 +162,7 @@ const AchievementsForm = () => {
     },
     {},
   );
+
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-screen px-4 relative py-16 lg:py-18 xl:py-20">
 
@@ -258,25 +292,50 @@ const AchievementsForm = () => {
                   </h5>
 
                   {/* Grid de cards */}
-                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 ">
-                    {[...items].reverse().map((achievement, index) => (
+                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                    {items.map((achievement, index) => (
                       <div
                         key={achievement._id}
                         className="bg-linear-to-br max-w-120 from-zinc-800 to-sky-800 border border-zinc-600 rounded-xl p-4 flex flex-col gap-4 relative z-50 lg:p-5"
                       >
-                        <div className="flex items-start justify-between gap-2">
+                        {/* Header con controles de orden */}
+                        <div className="flex items-center justify-between gap-2">
                           <span className="text-zinc-500 font-semibold text-sm">
-                            #{items.length - index}
+                            #{index + 1}
                           </span>
-                          <span className="text-xs px-2.5 py-1 rounded-full bg-sky-900/50 border border-sky-700/60 text-sky-300 text-center leading-tight">
-                            {achievement.category}
-                          </span>
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() =>
+                                moveAchievement(category, index, "up")
+                              }
+                              disabled={index === 0}
+                              className="p-1 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-700 disabled:opacity-20 disabled:cursor-not-allowed transition"
+                              title="Mover arriba"
+                            >
+                              ▲
+                            </button>
+                            <button
+                              onClick={() =>
+                                moveAchievement(category, index, "down")
+                              }
+                              disabled={index === items.length - 1}
+                              className="p-1 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-700 disabled:opacity-20 disabled:cursor-not-allowed transition"
+                              title="Mover abajo"
+                            >
+                              ▼
+                            </button>
+                            <span className="text-xs px-2.5 py-1 rounded-full bg-sky-900/50 border border-sky-700/60 text-sky-300 text-center leading-tight ml-1">
+                              {achievement.category}
+                            </span>
+                          </div>
                         </div>
 
+                        {/* Título */}
                         <h4 className="text-base font-medium text-zinc-100 leading-snug flex-1 lg:text-lg">
                           {achievement.title}
                         </h4>
 
+                        {/* Footer */}
                         <div className="flex flex-col gap-3 mt-auto">
                           <p className="text-zinc-500 text-xs">
                             {formatDate(achievement.createdAt)}

@@ -5,7 +5,7 @@ import AchievementModel from "@/models/achievement";
 export async function GET() {
   try {
     await connectToDatabase();
-    const achievements = await AchievementModel.find().sort({ createdAt: -1 });
+    const achievements = await AchievementModel.find().sort({ order: 1 });
     return NextResponse.json(achievements);
   } catch (error: any) {
     console.error("Error fetching achievements:", error);
@@ -17,12 +17,15 @@ export async function POST(request: NextRequest) {
   try {
     await connectToDatabase();
     const body = await request.json();
+    const lastInCategory = await AchievementModel.findOne({
+      category: body.category,
+    }).sort({ order: -1 });
 
     const newAchievement = new AchievementModel({
       title: body.title,
-      category: body.category, 
+      category: body.category,
+      order: lastInCategory ? lastInCategory.order + 1 : 0,
     });
-
     const savedAchievement = await newAchievement.save();
 
     return NextResponse.json(savedAchievement, { status: 201 });
