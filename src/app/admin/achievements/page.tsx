@@ -249,7 +249,7 @@ const AchievementsForm = () => {
 
       {/* Listado */}
       <section className="text-balance relative z-50 w-full mt-10 lg:mt-16 lg:w-[90%]">
-        <h6 className="mb-8 border-l-3 border-sky-700 pl-3 py-2 text-[2rem] md:text-4xl text-zinc-200 lg:pl-6 xl:text-5xl self-start">
+        <h6 className="mb-8 border-l-3 border-sky-700 pl-3 py-2 text-[2rem] md:text-4xl text-zinc-200 lg:pl-6 xl:text-5xl self-start lg:mb-12">
           Logros existentes
         </h6>
 
@@ -266,7 +266,7 @@ const AchievementsForm = () => {
               return (
                 <div key={category}>
                   {/* Encabezado de categoría */}
-                  <h5 className="text-zinc-400 text-base uppercase tracking-widest mb-4 lg:text-sm lg:mb-6">
+                  <h5 className="text-zinc-400 text-base uppercase tracking-widest mb-4 lg:text-lg xl:text-xl lg:mb-6">
                     {category}
                     <span className="ml-2 text-sky-500">({items.length})</span>
                   </h5>
