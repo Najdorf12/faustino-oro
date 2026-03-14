@@ -176,7 +176,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/iconKnight.svg", type: "image/svg+xml" }, // si tenés versión SVG
+      { url: "/iconKnight2.svg", type: "image/svg+xml" }, // si tenés versión SVG
     ],
   },
   other: {
