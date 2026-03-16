@@ -123,8 +123,8 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
       {/* TORNEOS ACTIVOS o ÚLTIMO JUGADO — se oculta si hay filtros activos */}
       {!isFiltering &&
         (active.length > 0 ? (
-          <section className="">
-            <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-14 border-l-3 border-sky-600">
+          <section className="lg:py-6 lg:mb-6">
+            <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-10 lg:mb-14 border-l-3 border-sky-600">
               <h6 className="text-zinc-200 text-nowrap text-3xl sm:text-4xl lg:text-6xl">
                 Torneos activos
               </h6>
@@ -141,8 +141,8 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
             </ul>
           </section>
         ) : lastPlayed ? (
-          <section className="lg:py-6">
-            <div className=" flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mb-14 border-l-3 border-sky-600">
+          <section className="lg:py-6 lg:mb-6">
+            <div className=" flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-10 lg:mb-14 border-l-3 border-sky-600">
               <h6 className="text-zinc-200 text-nowrap text-3xl sm:text-4xl lg:text-6xl ">
                 Último jugado
               </h6>
@@ -161,7 +161,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
       {/* HISTORIAL — cuando hay filtros, muestra todos los resultados juntos */}
       {(isFiltering ? filtered : historicalList).length > 0 && (
         <section className="lg:py-4">
-          <div className="flex items-end py-2 gap-3 mt-10 mb-9 pl-3 lg:gap-12 lg:pl-12 lg:mt-2 lg:mb-14 border-l-3 border-sky-600">
+          <div className="flex items-end py-2 gap-3 mt-10 mb-9 pl-3 lg:gap-12 lg:pl-10 lg:mt-2 lg:mb-14 border-l-3 border-sky-600">
             <h6 className="text-zinc-200 text-3xl sm:text-4xl lg:text-6xl">
               {isFiltering ? "Resultados" : "Historial"}
             </h6>
