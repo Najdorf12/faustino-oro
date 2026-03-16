@@ -174,7 +174,7 @@ export default function CardTournament({ tournament }: Props) {
             </li>
           </ul>
         </div>
-{/*         <ul className="text-zinc-400 text-base z-100 absolute right-6 top-2 p-1">
+        {/*         <ul className="text-zinc-400 text-base z-100 absolute right-6 top-2 p-1">
           <div className="flex justify-between items-center gap-12">
             <li className="">
               Rank : <span className="text-zinc-400">{tournament.rank}</span>
@@ -218,11 +218,15 @@ export default function CardTournament({ tournament }: Props) {
             <Stat label="Perf" value={tournament.performance ?? "N/A"} />
             <Stat
               label="Rating"
-              value={tournament.rating ?? "N/A"}
+              value={
+                tournament.rating != null
+                  ? `${tournament.rating > 0 ? "+" : ""}${tournament.rating}`
+                  : "N/A"
+              }
               highlight={
-                player.ratingDiff == null
+                tournament.rating == null
                   ? undefined
-                  : player.ratingDiff >= 0
+                  : tournament.rating >= 0
                     ? "positive"
                     : "negative"
               }
