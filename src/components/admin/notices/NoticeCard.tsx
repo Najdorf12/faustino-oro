@@ -1,82 +1,102 @@
 import Image from "next/image";
 import { Notice } from "@/types/notice";
-
+import Link from "next/link";
 interface Props {
   notice: Notice;
   onEdit: () => void;
   onDelete: () => void;
 }
 
-const getTruncatedContent = (content: string): string => {
-  const firstSentence = content.split(".")[0];
-  return firstSentence ? `${firstSentence}.` : content;
-};
-
 export default function NoticeCard({ notice, onEdit, onDelete }: Props) {
   return (
-    <div className="text-balance bg-linear-to-br from-zinc-700 to-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-600 hover:border-zinc-400 lg:flex lg:items-stretch lg:w-250 lg:min-h-75 lg:px-4 xl:w-280">
-      {/* Image Section */}
-      {notice.images?.length > 0 && (
-        <div className="relative w-full h-60 lg:h-70 pl-3 lg:w-1/3 self-center ">
-          <Image
-            src={notice.images[0].secure_url}
-            fill
-            alt={notice.title}
-            className="object-cover w-full h-full lg:rounded-lg border border-zinc-600 shadow-lg shadow-zinc-900 lg:border-2"
-          />
-          {notice.images.length > 1 && (
-            <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
-              +{notice.images.length - 1} más
-            </div>
-          )}
-          {!notice.isActive && (
-            <div className="absolute top-3 left-3 bg-red-500/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
-              Inactiva
-            </div>
-          )}
-        </div>
-      )}
+    <div className=" border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-200 transition-all duration-500 flex flex-col">
+      {/* Imagen */}
+      {notice.images &&
+        notice.images.length > 0 &&
+        notice.images[0].secure_url && (
+          <div className="relative h-64 w-full">
+            <Image
+              src={notice.images[0].secure_url}
+              alt={notice.title}
+              fill
+              className="object-cover"
+            />
+            {notice.images.length > 1 && (
+              <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
+                +{notice.images.length - 1} más
+              </div>
+            )}
+            {!notice.isActive && (
+              <div className="absolute top-3 left-3 bg-red-500/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+                Inactiva
+              </div>
+            )}
+          </div>
+        )}
 
-      <div className="py-4 px-3 md:p-6 lg:w-2/3 ">
-        <div className="mb-3 lg:mb-4">
-          <span className="inline-block bg-sky-700 text-zinc-300 text-sm font-medium px-6 py-0.5 rounded-sm lg:px-9 2xl:text-base">
+      {/* Contenido */}
+      <div className="py-6 px-3 text-balance flex flex-col flex-1">
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-4 py-0.5 rounded-sm">
             {notice.category}
           </span>
+          {notice.createdAt && (
+            <span className="text-zinc-500 text-sm">
+              {new Date(notice.createdAt).toLocaleDateString("es-AR", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
+          )}
         </div>
 
-        <h4 className="text-xl  font-medium text-zinc-100 mb-3 line-clamp-2 leading-tight md:text-2xl">
+        <h2 className="text-xl sm:text-2xl sm:leading-8 text-zinc-200 mb-4 group-hover:text-sky-400 transition-colors line-clamp-2">
           {notice.title}
-        </h4>
-        <p className="text-zinc-400 text-base mb-3 line-clamp-2 leading-relaxed">
+        </h2>
+
+        <p className="text-sm sm:text-base text-zinc-400 line-clamp-2 mb-2">
           {notice.description}
         </p>
+        <p className="text-sm sm:text-base text-zinc-500 line-clamp-2">
+          {notice.content}
+        </p>
 
-        {notice.content && (
-          <p className="text-zinc-500 text-sm mb-3 leading-relaxed italic line-clamp-4">
-            {getTruncatedContent(notice.content)}
-          </p>
-        )}
+        {/* Botón "Leer más" — decorativo, igual al del sitio web */}
+        
+        <Link
+          href={`/notices/${notice._id}`}
+          className="self-start mt-6 mb-3 ml-3 bg-sky-700 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-8.75 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-54 lg:ml-0 lg:mb-3"
+        >
+          <p className="">Leer más</p>
+          <div className="bg-sky-600 cursor-pointer rounded-lg h-8.5 w-8.5 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              className="w-[1.2em] transition-transform duration-300 text-zinc-100 group-hover:translate-x-[0.1em]"
+            >
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                fill="currentColor"
+                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+              ></path>
+            </svg>
+          </div>
+        </Link>
 
-        {notice.createdAt && (
-          <p className="text-zinc-200 text-sm mb-4">
-            {new Date(notice.createdAt).toLocaleDateString("es-AR", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
-        )}
-
-        <div className="flex flex-col text-sm sm:flex-row gap-2 sm:gap-3 lg:mt-6">
+        {/* Botones admin */}
+        <div className="flex flex-col text-sm sm:flex-row gap-2 sm:gap-3 mt-auto border-t border-zinc-700 pt-4">
           <button
             onClick={onEdit}
-            className="flex-1 bg-sky-700 hover:bg-sky-600 active:bg-blue-800 text-white font-medium px-4 py-2 rounded-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-zinc-900 cursor-pointer"
+            className="flex-1 bg-sky-800/80 hover:bg-sky-600 text-white font-medium px-4 py-2 rounded-sm transition-colors duration-200 cursor-pointer"
           >
             Editar
           </button>
           <button
             onClick={onDelete}
-            className="flex-1 bg-red-700 hover:bg-red-600 active:bg-red-800 text-white font-medium px-4 py-2 rounded-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-900 cursor-pointer"
+            className="flex-1 bg-red-700 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-sm transition-colors duration-200 cursor-pointer"
           >
             Eliminar
           </button>

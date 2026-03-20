@@ -49,7 +49,7 @@ export const Contact = () => {
         <section className="relative h-full w-full pointer-events-none flex flex-col justify-center  md:flex-row md:justify-center items-center ">
           <article className="flex flex-col md:justify-start md:pt-12 md:w-[60%] md:h-full md:pl-9 lg:pt-16 md:gap-28 xl:pl-12 xl:gap-45 2xl:pl-14 3xl:pt-28 ">
             <div className="px-1 md:px-0">
-              <h5 className="text-center lg:text-start text-[3.7rem] sm:text-[4rem] lg:text-8xl 2xl:text-[7rem] 3xl:text-9xl font-medium text-zinc-200 z-30 relative">
+              <h5 className="text-center lg:text-start text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-16 2xl:text-[5rem] 2xl:leading-11 3xl:leading-20 3xl:text-[5.5rem] text-zinc-200">
                 Contacto
               </h5>
               <p className="text-zinc-300 mt-2 text-start text-sm md:text-base max-w-145 border-l-2 py-1 pl-3 border-sky-600 lg:mt-6 font-medium lg:py-2 lg:text-lg lg:ml-1 2xl:max-w-150 lg:pl-4">

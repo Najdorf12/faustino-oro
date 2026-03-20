@@ -80,7 +80,7 @@ export default function About() {
 
             <button
               onClick={() => setView("historia")}
-              className="text-zinc-300 text-lg mt-10 flex items-center gap-2 font-medium xl:text-xl 2xl:text-2xl group hover:text-sky-600 cursor-pointer duration-500"
+              className="text-zinc-300 text-lg mt-10 flex items-center gap-2 font-medium lg:text-xl xl:text-[1.4rem] 2xl:text-2xl 3xl:text-[1.7rem] group hover:text-sky-600 cursor-pointer duration-500"
             >
               HISTORIA{" "}
               <span className="group-hover:translate-x-3 duration-500">
@@ -124,7 +124,7 @@ export default function About() {
 
             <button
               onClick={() => setView("about")}
-              className="text-zinc-300 text-lg mt-5 flex items-center gap-2 font-medium xl:text-xl 2xl:text-2xl group hover:text-sky-600 cursor-pointer duration-500"
+              className="text-zinc-300 text-lg mt-5 flex items-center gap-2 font-medium lg:text-xl xl:text-[1.4rem] 2xl:text-2xl 3xl:text-[1.7rem] group hover:text-sky-600 cursor-pointer duration-500"
             >
               SOBRE MI{" "}
               <span className="group-hover:translate-x-3 duration-500">

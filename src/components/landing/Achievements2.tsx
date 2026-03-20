@@ -1,5 +1,6 @@
 import Image from "next/image";
 import iconTrophy from "@/assets/images/iconTrophy.svg";
+import icon from "@/assets/images/icons/iconKnight2.svg"
 import {
   Achievement,
   AchievementCategory,
@@ -17,13 +18,14 @@ const CardContent = ({
   category: AchievementCategory;
   items: Achievement[];
 }) => (
-  <div className="relative w-full h-full  border-2 border-zinc-700 rounded-2xl shadow-xl shadow-sky-900 py-6 px-3 lg:py-12 lg:px-10">
-    <div className="absolute inset-0 z-20 bg-linear-to-bl from-zinc-800/10 via-zinc-800/60 to-sky-900 rounded-2xl" />
-
-    <p className="relative z-100 text-zinc-500 text-sm font-semibold uppercase tracking-widest mb-6 lg:mb-6 lg:text-lg 2xl:text-xl 3xl:text-2xl">
-      {category}
+  <div className="relative w-full h-full mx-auto rounded-2xl pb-6 px-3 bg-linear-to-tr shadow-2xl shadow-sky-900 from-sky-800 via-transparent to-transparent lg:pb-10 border-2 border-zinc-700 lg:w-[95%]">
+    <div className="absolute inset-0 z-20 rounded-2xl " />
+  <Image src={icon} alt="icon" className="w-7 sm:w-8 xl:w-12 absolute bottom-2 right-2 lg:bottom-3 lg:right-3"></Image>
+    <p className="flex items-center justify-between gap-3 py-4 relative border-b border-zinc-700 lg:border-b-2 z-100 text-zinc-500  text-sm font-semibold uppercase tracking-widest mb-6 lg:py-5 lg:px-4 lg:text-lg 2xl:text-xl 3xl:text-2xl">
+      {category} 
     </p>
-    <ul className="relative z-100 text-zinc-300 font- text-sm lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-[1.7rem] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8 md:gap-y-5">
+
+    <ul className="relative z-100 text-zinc-200 font- text-sm lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-[1.7rem] grid grid-cols-1 md:grid-cols-2 items-center justify-center  gap-4 md:gap-x-8 md:gap-y-5 xl:gap-x-12 xl:gap-y-6 lg:pt-4 lg:px-4">
       {items.map((achievement) => (
         <li key={achievement._id} className="flex items-center gap-3 lg:gap-6">
           <Image

@@ -71,16 +71,16 @@ export default async function TournamentsPage() {
       <section className="w-full min-h-screen bg-zinc-800 flex flex-col pt-24 sm:pt-30 gap-12 lg:gap-0 lg:pt-0 lg:flex-row text-balance">
         <NavbarPages />
         <article className="pl-4 relative w-full h-[24vh] flex flex-col items-start justify-center text-start md:border-b border-zinc-700 md:w-1/2 md:h-screen lg:pl-6 xl:pl-12 lg:pt-0">
-          <h6 className="relative text-zinc-300 text-[3.5rem] sm:text-6xl lg:text-7xl xl:text-8xl font-medium 3xl:text-9xl">
-            TORNEOS
+          <h6 className="relative text-zinc-300 text-[3.45rem] sm:text-[3.5rem] lg:text-7xl xl:text-[5.7rem] font-medium 3xl:text-9xl">
+            Torneos
           </h6>
-          <p className="relative pr-2 text-sm my-3 sm:my-6  text-zinc-400 flex justify-center items-center max-w-100 lg:max-w-175 xl:text-lg 3xl:text-xl">
+          <p className="relative pr-2 text-sm my-3 sm:my-4 text-zinc-400 flex justify-center items-center max-w-100 lg:mt-9 lg:max-w-175 xl:text-lg 3xl:text-xl">
             Consulta aquí la lista de próximos torneos en los que participará.
             Sigue su calendario y mantente al día con su increíble recorrido
             competitivo.
           </p>
           <Link href={"/notices"}>
-            <button className="relative text-zinc-300 text-lg mt-3 flex items-center gap-2 font-medium  lg:ml-1 xl:text-xl 2xl:text-2xl group hover:text-sky-500 cursor-pointer duration-500">
+            <button className="relative text-zinc-300 text-lg my-3 flex items-center gap-2 font-medium lg:ml-1 lg:text-xl xl:text-[1.4rem] 3xl:text-2xl group hover:text-sky-500 cursor-pointer duration-500">
               Ir a Noticias
               <span className="group-hover:translate-x-3 duration-500">
                 <ArrowRight />

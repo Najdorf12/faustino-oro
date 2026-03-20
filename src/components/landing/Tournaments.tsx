@@ -27,7 +27,7 @@ export default function Tournaments({ data }: TournamentsProps) {
         </p>
       </article>
 
-      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-x-2 px-1 gap-y-5 max-w-150 sm:gap-x-4 lg:gap-12 xl:gap-14 lg:max-w-fit">
+      <div className="w-full z-50 relative flex flex-wrap justify-center items-center gap-x-2 px-1 gap-y-5 max-w-150 sm:gap-x-4 lg:gap-12 xl:gap-14 lg:max-w-fit ">
         {data && data.length > 0 ? (
           data.map((tournament, i) => (
             <CardTournament

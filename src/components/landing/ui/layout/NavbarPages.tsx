@@ -12,7 +12,7 @@ export default function NavbarPages() {
           className="object-contain w-full"
         />
       </div>
-      <ul className="flex items-center justify-end gap-2.5 md:font-medium text-sm  md:flex-row md:justify-start font-medium lg:gap-8 lg:text-lg">
+      <ul className="flex items-center justify-end gap-2.5 md:font-medium text-sm sm:gap-3  md:flex-row md:justify-start font-medium lg:gap-8 lg:text-lg">
         <li>
           <Link
             href="/"

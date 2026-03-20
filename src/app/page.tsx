@@ -4,6 +4,7 @@ import Image from "next/image";
 import NavbarLanding from "@/components/landing/ui/layout/NavbarLanding";
 import Home from "@/components/landing/Home";
 import About from "@/components/landing/About";
+import Partners from "@/components/landing/Partners";
 import Achievements2 from "@/components/landing/Achievements2";
 import Tournaments from "@/components/landing/Tournaments";
 import Notices from "@/components/landing/Notices";
@@ -71,7 +72,7 @@ export default async function HomePage() {
       <About />
       <Achievements2 data={achievements} />
       <Tournaments data={tournaments} />
-    
+
       <div className="w-full flex flex-col-reverse justify-center items-center px-6 gap-9 py-14 bg-zinc-200 font-light text-zinc-400 text-[1.2rem] sm:text-[1.35rem] md:flex-row md:justify-evenly md:px-0 lg:text-4xl xl:text-5xl lg:gap-0 lg:py-20 3xl:text-6xl 2xl:py-24">
         <div className=" max-w-120 lg:max-w-170 xl:max-w-210 text-balance flex flex-col 3xl:max-w-280">
           El ajedrez, con toda su profundidad filosófica, es ante todo un juego
@@ -90,6 +91,7 @@ export default async function HomePage() {
       </div>
     
       <Notices data={notices} />
+      <Partners />
       <Contact />
     </section>
   );

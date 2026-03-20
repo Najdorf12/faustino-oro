@@ -132,9 +132,13 @@ export default function Notices({ data }: NoticesProps) {
           Aquí podrás conocer no solo sus logros más recientes, sino también el
           arduo camino de entrenamiento y preparación que los hace posibles
         </p>
+        <div className="self-center lg:mt-2 hidden lg:flex">
+          <Button />
+        </div>
       </article>
 
-      <ul className="relative z-100 w-full flex flex-col justify-center px-6 items-center mt-12 gap-8 lg:mt-20 lg:pb-16 min-h-[80vh]">
+      <ul className="relative z-100 w-full flex flex-col justify-center px-6 items-center mt-12 gap-8 lg:mt-20 lg:pb-16 min-h-[80vh] lg:items-start">
+     {/*    <div className="pl-12 text-3xl text-zinc-400">RECIENTES</div> */}
         {data && data.length > 0 ? (
           data.map((notice, i) => (
             <CardNotice
@@ -146,9 +150,9 @@ export default function Notices({ data }: NoticesProps) {
         ) : (
           <p className="text-zinc-500">No hay noticias disponibles</p>
         )}
-        <div className="self-center mt-9">
+        <div className="self-center mt-9 lg:hidden">
           <Button />
-        </div>
+        </div> 
       </ul>
 
       <section className="w-full h-fit">
