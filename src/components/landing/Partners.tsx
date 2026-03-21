@@ -23,7 +23,7 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section className="h-screen relative flex flex-col items-center justify-center overflow-hidden lg:items-start lg:pl-12">
+    <section className="h-screen relative flex flex-col items-center justify-center overflow-hidden lg:items-start lg:pl-10">
       <div className="absolute w-full h-full inset-0  flex items-center justify-start ">
         <div className="w-full h-full absolute inset-0 bg-zinc-900/80"></div>
         <Image
@@ -32,7 +32,7 @@ export default function Partners() {
           className="w-full h-full object-cover  "
         />
       </div>
-      <article className="relative z-20 flex flex-col justify-between h-full py-8 px-6 lg:w-1/2 lg:pt-14 lg:pb-20 lg:items-center ">
+      <article className="relative z-20 flex flex-col justify-between h-full py-8 px-4 lg:w-1/2 lg:pt-14 lg:pb-20 lg:items-center ">
 
         <div className="relative z-100">
           <h6 className="text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-16 2xl:text-[5rem] 2xl:leading-11 3xl:leading-20 3xl:text-[5.5rem] text-zinc-200">

@@ -35,7 +35,7 @@ export default function Home() {
         />
 {/*    */}
         <article className="relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2  lg:w-1/2 lg:justify-center lg:pt-12">
-          <h1 className="bg-linear-to-t from-gray-400 via-gray-300 to-zinc-200 lg:bg-linear-to-tl lg:from-gray-400 lg:via-gray-200 lg:to-gray-300 bg-clip-text text-transparent relative z-100 text-[2.9rem] leading-16 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-38 xl:text-[7.2rem] 2xl:leading-44 2xl:text-[8rem] 3xl:leading-50 3xl:text-[9.3rem]">
+          <h1 className="bg-linear-to-t from-gray-400 via-gray-300 to-zinc-200 lg:bg-linear-to-tl lg:from-zinc-400 lg:via-zinc-200 lg:to-zinc-200 bg-clip-text text-transparent relative z-100 text-[2.9rem] leading-16 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-38 xl:text-[7.2rem] 2xl:leading-44 2xl:text-[8rem] 3xl:leading-50 3xl:text-[9.3rem]">
             Faustino Oro
           </h1>
           <p className="font-medium flex items-center gap-2 text-zinc-300  lg:text-zinc-300 text-base sm:text-[1.1rem] lg:text-xl xl:text-[1.30rem] 2xl:text-[1.5rem] 3xl:text-3xl">
