@@ -9,7 +9,7 @@ import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
 import imgFaustiCaruana from "@/assets/images/chess/img21.jpg";
 import Image from "next/image";
-import bg1 from "@/assets/images/icons/bg1.svg"
+import bg1 from "@/assets/images/icons/bg1.svg";
 
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
@@ -81,7 +81,7 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200 pb-12 lg:pb-0 "
+      className="w-full flex flex-col relative bg-zinc-200  "
     >
       <div
         className="absolute inset-0 z-80 min-h-screen"
@@ -139,7 +139,7 @@ export default function Notices({ data }: NoticesProps) {
       </article>
 
       <ul className="relative z-100 w-full flex flex-col justify-center px-6 items-center mt-12 gap-8 lg:mt-20 lg:pb-16 min-h-[80vh] lg:items-start">
-     {/*    <div className="pl-12 text-3xl text-zinc-400">RECIENTES</div> */}
+        {/*    <div className="pl-12 text-3xl text-zinc-400">RECIENTES</div> */}
         {data && data.length > 0 ? (
           data.map((notice, i) => (
             <CardNotice
@@ -153,7 +153,7 @@ export default function Notices({ data }: NoticesProps) {
         )}
         <div className="self-center mt-9 lg:hidden">
           <Button />
-        </div> 
+        </div>
       </ul>
 
       <section className="w-full h-fit">
@@ -164,9 +164,22 @@ export default function Notices({ data }: NoticesProps) {
           />
         )}
       </section>
-    {/*   <div className="h-27 w-full flex items-center justify-center  bg-linear-to-r from-zinc-900 via-sky-900 to-zinc-900">
-        <p className="text-3xl text-zinc-300 font-superlarky ">CHESSI IS COMING</p>
-      </div> */}
+      <div className="h-16 mt-9 lg:mt-0 lg:h-24 w-full flex gap-2 lg:gap-9 items-center justify-center  ">
+        <div className="flex gap-1 lg:gap-3">
+          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm "></span>
+          <span className="w-5 h-5  lg:h-10 lg:w-10 border border-zinc-300 bg-sky-700 rounded-sm"></span>
+          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm  "></span>
+        </div>
+
+        <p className="text-[1.2rem] text-zinc-400 font-superlarky lg:text-4xl">
+          CHESSI IS COMING{" "}
+        </p>
+        <div className="flex gap-1 lg:gap-3">
+          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm"></span>
+          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-300 bg-sky-700 rounded-sm"></span>
+          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm"></span>
+        </div>
+      </div>
     </section>
   );
 }
