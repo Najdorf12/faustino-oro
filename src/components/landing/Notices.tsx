@@ -81,7 +81,7 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200 pb-12 lg:pb-2 "
+      className="w-full flex flex-col relative bg-zinc-200 pb-12 lg:pb-0 "
     >
       <div
         className="absolute inset-0 z-80 min-h-screen"
@@ -164,6 +164,9 @@ export default function Notices({ data }: NoticesProps) {
           />
         )}
       </section>
+    {/*   <div className="h-27 w-full flex items-center justify-center  bg-linear-to-r from-zinc-900 via-sky-900 to-zinc-900">
+        <p className="text-3xl text-zinc-300 font-superlarky ">CHESSI IS COMING</p>
+      </div> */}
     </section>
   );
 }
