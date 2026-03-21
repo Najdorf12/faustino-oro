@@ -9,6 +9,7 @@ import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
 import imgFaustiCaruana from "@/assets/images/chess/img21.jpg";
 import Image from "next/image";
+import bg1 from "@/assets/images/icons/bg1.svg"
 
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
@@ -80,7 +81,7 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200 pb-12 xl:pb-0"
+      className="w-full flex flex-col relative bg-zinc-200 pb-12 lg:pb-2 "
     >
       <div
         className="absolute inset-0 z-80 min-h-screen"
