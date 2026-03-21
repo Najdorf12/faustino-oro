@@ -25,7 +25,7 @@ export default function Partners() {
   return (
     <section className="h-screen relative flex flex-col items-center justify-center overflow-hidden lg:items-start lg:pl-10">
       <div className="absolute w-full h-full inset-0  flex items-center justify-start ">
-        <div className="w-full h-full absolute inset-0 bg-zinc-900/80"></div>
+        <div className="w-full h-full absolute inset-0 bg-radial from-30% from-zinc-900/70 to-zinc-950"></div>
         <Image
           src={imgFausti}
           alt="chess motion"
