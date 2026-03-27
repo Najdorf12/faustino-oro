@@ -3,7 +3,7 @@ import Link from "next/link";
 import imgHome from "@/assets/images/img5.webp";
 import imgHomeMobile from "@/assets/images/img5-3.jpg";
 import icon from "@/assets/images/icons/iconKnight.svg";
-import { Instagram, FacebookCircle, Youtube } from "@boxicons/react";
+import { Instagram, Facebook, Youtube } from "@boxicons/react";
 
 export default function Home() {
   return (
@@ -78,7 +78,7 @@ export default function Home() {
             target="blank"
             className="hover:bg-zinc-700 border p-2 flex items-center justify-center border-zinc-600 rounded-full duration-400"
           >
-            <FacebookCircle
+            <Facebook
               width="38"
               height="38"
               fill="#71717b"
