@@ -25,7 +25,7 @@ const CardContent = ({
       {category} 
     </p>
 
-    <ul className="relative z-100 text-zinc-200 font- text-sm lg:text-lg xl:text-xl  3xl:text-[1.7rem] grid grid-cols-1 md:grid-cols-2 items-center justify-center  gap-4 md:gap-x-8 md:gap-y-5 xl:gap-x-12 xl:gap-y-6 lg:pt-4 lg:px-4">
+    <ul className="relative z-100 text-zinc-200 font- text-sm lg:text-lg xl:text-xl  3xl:text-[1.6rem] grid grid-cols-1 md:grid-cols-2 items-center justify-center  gap-4 md:gap-x-8 md:gap-y-5 xl:gap-x-12 xl:gap-y-6 lg:pt-2 lg:px-4">
       {items.map((achievement) => (
         <li key={achievement._id} className="flex items-center gap-3 lg:gap-6">
           <Image
