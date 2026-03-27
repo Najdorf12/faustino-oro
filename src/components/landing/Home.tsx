@@ -1,19 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 import imgHome from "@/assets/images/img5.webp";
 import imgHomeMobile from "@/assets/images/img5-3.jpg";
 import icon from "@/assets/images/icons/iconKnight.svg";
+import { Instagram, FacebookCircle, Youtube } from "@boxicons/react";
 
 export default function Home() {
   return (
     <>
-      <section className="bg-radial from-20% from-zinc-50 to-stone-100 h-[95vh] md:h-screen w-full relative pb-3.5 lg:pb-1 ">
-        <div className="absolute inset-0 z-20  bg-zinc-900/50 "></div>
-        <picture className="w-full h-full z-15 absolute inset-0 mx-auto ">
+      <section className=" h-[95vh] md:h-screen w-full relative pb-3.5 lg:pb-1 rounded-b-xl">
+        <div className="absolute inset-0 z-20  bg-zinc-900/50 rounded-b-xl"></div>
+        <picture className="w-full h-full z-15 absolute inset-0 mx-auto rounded-b-xl">
           <source media="(min-width: 1024px)" srcSet={imgHome.src} />
           <Image
             src={imgHomeMobile}
             alt="home-palmares"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover rounded-b-xl"
             fill
           />
         </picture>
@@ -33,7 +35,7 @@ export default function Home() {
               "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)",
           }}
         />
-{/*    */}
+        {/*    */}
         <article className="relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2  lg:w-1/2 lg:justify-center lg:pt-12">
           <h1 className="bg-linear-to-t from-gray-400 via-gray-300 to-zinc-200 lg:bg-linear-to-tl lg:from-zinc-400 lg:via-zinc-200 lg:to-zinc-200 bg-clip-text text-transparent relative z-100 text-[2.9rem] leading-16 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-38 xl:text-[7.2rem] 2xl:leading-44 2xl:text-[8rem] 3xl:leading-50 3xl:text-[9.3rem]">
             Faustino Oro
@@ -48,6 +50,42 @@ export default function Home() {
 
         <div className="fixed z-200 right-0.5 bottom-1.5 md:bottom-2 w-9 sm:w-10 2xl:w-12">
           <Image src={icon} alt="icon" className="w-full"></Image>
+        </div>
+
+        <div className="hidden h-full lg:flex lg:flex-col items-center justify-center lg:gap-3.5 z-100 absolute right-4 top-0  ">
+          <div className="h-[15vh] w-px bg-zinc-600 mb-2"></div>
+          <Link
+            href={"https://www.instagram.com/faustioro/"}
+            className="hover:bg-zinc-700 border p-1.5 flex items-center justify-center border-zinc-600 rounded-full duration-400"
+            target="blank"
+          >
+            <Instagram
+              width="40"
+              height="40"
+              fill="#71717b"
+              cursor={"pointer"}
+            />
+          </Link>
+          <Link
+            href={"https://www.youtube.com/@faustinooro"}
+            target="blank "
+            className="hover:bg-zinc-700 border p-1.5 flex items-center justify-center border-zinc-600 rounded-full duration-400"
+          >
+            <Youtube width="40" height="40" fill="#71717b" cursor={"pointer"} />
+          </Link>
+          <Link
+            href={"https://www.facebook.com/orofaustino/?locale=es_LA"}
+            target="blank"
+            className="hover:bg-zinc-700 border p-1.5 flex items-center justify-center border-zinc-600 rounded-full duration-400"
+          >
+            <FacebookCircle
+              width="40"
+              height="40"
+              fill="#71717b"
+              cursor={"pointer"}
+            />
+          </Link>
+          <div className="h-[15vh] w-px bg-zinc-600 mt-2"></div>
         </div>
       </section>
     </>

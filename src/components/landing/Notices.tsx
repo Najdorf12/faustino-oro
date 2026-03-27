@@ -81,7 +81,7 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200  pb-9"
+      className="w-full flex flex-col relative bg-zinc-200  "
     >
       <div
         className="absolute inset-0 z-80 min-h-screen"
