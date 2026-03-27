@@ -8,14 +8,14 @@ import { Instagram, FacebookCircle, Youtube } from "@boxicons/react";
 export default function Home() {
   return (
     <>
-      <section className=" h-[95vh] md:h-screen w-full relative pb-3.5 lg:pb-1 rounded-b-xl">
-        <div className="absolute inset-0 z-20  bg-zinc-900/50 rounded-b-xl"></div>
-        <picture className="w-full h-full z-15 absolute inset-0 mx-auto rounded-b-xl">
+      <section className=" h-[95vh] md:h-screen w-full relative pb-3.5 lg:pb-1 rounded-b-xl lg:rounded-b-3xl border-b border-zinc-700">
+        <div className="absolute inset-0 z-20  bg-zinc-900/50 rounded-b-xl lg:rounded-b-3xl"></div>
+        <picture className="w-full h-full z-15 absolute inset-0 mx-auto rounded-b-xl lg:rounded-b-3xl">
           <source media="(min-width: 1024px)" srcSet={imgHome.src} />
           <Image
             src={imgHomeMobile}
             alt="home-palmares"
-            className="w-full h-full object-cover rounded-b-xl"
+            className="w-full h-full object-cover rounded-b-xl lg:rounded-b-3xl"
             fill
           />
         </picture>
