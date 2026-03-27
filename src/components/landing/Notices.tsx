@@ -81,7 +81,7 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200  "
+      className="w-full flex flex-col relative bg-zinc-200  pb-9"
     >
       <div
         className="absolute inset-0 z-80 min-h-screen"
@@ -164,7 +164,7 @@ export default function Notices({ data }: NoticesProps) {
           />
         )}
       </section>
-      <div className="h-16 mt-9 lg:mt-0 lg:h-24 w-full flex gap-2 lg:gap-9 items-center justify-center  ">
+{/*       <div className="h-16 mt-9 lg:mt-0 lg:h-24 w-full flex gap-2 lg:gap-9 items-center justify-center  ">
         <div className="flex gap-1 lg:gap-3">
           <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm "></span>
           <span className="w-5 h-5  lg:h-10 lg:w-10 border border-zinc-300 bg-sky-700 rounded-sm"></span>
@@ -179,7 +179,7 @@ export default function Notices({ data }: NoticesProps) {
           <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-300 bg-sky-700 rounded-sm"></span>
           <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm"></span>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
