@@ -1,5 +1,4 @@
 "use client";
-
 import { Canvas } from "@react-three/fiber";
 import { useState, Suspense, lazy, useEffect } from "react";
 import { NoticeModal } from "./ui/layout/NoticeModal";
@@ -7,9 +6,6 @@ import Button from "./ui/layout/ButtonNotices";
 import CardNotice from "./ui/layout/CardNotice";
 import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
-import imgFaustiCaruana from "@/assets/images/chess/img21.jpg";
-import Image from "next/image";
-import bg1 from "@/assets/images/icons/bg1.svg";
 
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
@@ -36,7 +32,6 @@ export default function Notices({ data }: NoticesProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Esperar a que el DOM esté completamente listo
     const timer = setTimeout(() => {
       setIsMounted(true);
     }, 100);
@@ -81,7 +76,7 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200  "
+      className="w-full flex flex-col relative bg-zinc-200  pb-9 lg:pb-0"
     >
       <div
         className="absolute inset-0 z-80 min-h-screen"
@@ -151,7 +146,7 @@ export default function Notices({ data }: NoticesProps) {
         ) : (
           <p className="text-zinc-500">No hay noticias disponibles</p>
         )}
-        <div className="self-center mt-9 lg:hidden">
+        <div className="self-center mt-7 lg:hidden">
           <Button />
         </div>
       </ul>
