@@ -41,7 +41,7 @@ export default function Home() {
             Faustino Oro
           </h1>
           <p className="font-medium flex items-center gap-2 text-zinc-300  lg:text-zinc-300 text-base sm:text-[1.1rem] lg:text-xl xl:text-[1.30rem] 2xl:text-[1.5rem] 3xl:text-3xl">
-            <span className="border-2 border-zinc-400 text-zinc-300 lg:border-zinc-400 lg:text-zinc-300 px-1 py-0.5 font-ubuntu rounded-sm lg:py- lg:px-1.5">
+            <span className="border-2 border-zinc-400 text-zinc-400  px-1 py-0.5 font-ubuntu rounded-sm lg:py- lg:px-1.5">
               IM
             </span>{" "}
             MAESTRO INTERNACIONAL
@@ -56,12 +56,12 @@ export default function Home() {
           <div className="h-[15vh] w-px bg-zinc-600 mb-2"></div>
           <Link
             href={"https://www.instagram.com/faustioro/"}
-            className="hover:bg-zinc-700 border p-1.5 flex items-center justify-center border-zinc-600 rounded-full duration-400"
+            className="hover:bg-zinc-700 border p-2 flex items-center justify-center border-zinc-600 rounded-full duration-400"
             target="blank"
           >
             <Instagram
-              width="40"
-              height="40"
+              width="38"
+              height="38"
               fill="#71717b"
               cursor={"pointer"}
             />
@@ -69,18 +69,18 @@ export default function Home() {
           <Link
             href={"https://www.youtube.com/@faustinooro"}
             target="blank "
-            className="hover:bg-zinc-700 border p-1.5 flex items-center justify-center border-zinc-600 rounded-full duration-400"
+            className="hover:bg-zinc-700 border p-2 flex items-center justify-center border-zinc-600 rounded-full duration-400"
           >
-            <Youtube width="40" height="40" fill="#71717b" cursor={"pointer"} />
+            <Youtube width="38" height="38" fill="#71717b" cursor={"pointer"} />
           </Link>
           <Link
             href={"https://www.facebook.com/orofaustino/?locale=es_LA"}
             target="blank"
-            className="hover:bg-zinc-700 border p-1.5 flex items-center justify-center border-zinc-600 rounded-full duration-400"
+            className="hover:bg-zinc-700 border p-2 flex items-center justify-center border-zinc-600 rounded-full duration-400"
           >
             <FacebookCircle
-              width="40"
-              height="40"
+              width="38"
+              height="38"
               fill="#71717b"
               cursor={"pointer"}
             />
