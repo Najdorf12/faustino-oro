@@ -15,23 +15,24 @@ export default function ChessKnight(props) {
     if (!knightRef.current) return;
 
     gsap.to(knightRef.current.rotation, {
-      z: 0.6,
-      ease: "power1.out",
+      z: 1,
+      ease: "power1",
       scrollTrigger: {
         trigger: "#notices",
-        start: "top top",
-        end: "bottom bottom",
+        start: "top 100px",
+        end: "bottom 300px",
         scrub: true,
       },
     });
     
     gsap.to(knightRef.current.position, {
-      z: 9.4,
-      y: -0.25,
-      ease: "power1.out",
+      z: 8.4,
+      y: -.7,
+      x:1.1,
+      ease: "power1",
       scrollTrigger: {
         trigger: "#notices",
-        start: "top top",
+        start: "top 100px",
         end: "bottom bottom",
         scrub: true,
       },
@@ -42,7 +43,7 @@ export default function ChessKnight(props) {
     <group {...props} dispose={null}>
       <group
         ref={knightRef}
-        position={[0.8, 0.2, 8.5]}
+        position={[0.8, 0.3, 9]}
         rotation={[-Math.PI / 2, 0, -1]}
       >
         <mesh

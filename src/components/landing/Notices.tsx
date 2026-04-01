@@ -6,7 +6,8 @@ import Button from "./ui/layout/ButtonNotices";
 import CardNotice from "./ui/layout/CardNotice";
 import type { Notice } from "@/types/notice";
 import { usePathname } from "next/navigation";
-
+import Image from "next/image";
+import icon from "@/assets/images/icons/iconKnight.svg";
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
     default: mod.ChessKnightExperience,
@@ -76,7 +77,7 @@ export default function Notices({ data }: NoticesProps) {
   return (
     <section
       id="notices"
-      className="w-full flex flex-col relative bg-zinc-200  pb-9 lg:pb-0"
+      className="w-full flex flex-col relative bg-zinc-200 "
     >
       <div
         className="absolute inset-0 z-80 min-h-screen"
@@ -146,7 +147,7 @@ export default function Notices({ data }: NoticesProps) {
         ) : (
           <p className="text-zinc-500">No hay noticias disponibles</p>
         )}
-        <div className="self-center mt-7 lg:hidden">
+        <div className="self-center mt-6 lg:hidden">
           <Button />
         </div>
       </ul>
@@ -159,22 +160,23 @@ export default function Notices({ data }: NoticesProps) {
           />
         )}
       </section>
-{/*       <div className="h-16 mt-9 lg:mt-0 lg:h-24 w-full flex gap-2 lg:gap-9 items-center justify-center  ">
-        <div className="flex gap-1 lg:gap-3">
-          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm "></span>
-          <span className="w-5 h-5  lg:h-10 lg:w-10 border border-zinc-300 bg-sky-700 rounded-sm"></span>
-          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm  "></span>
-        </div>
-
-        <p className="text-[1.2rem] text-zinc-400 font-superlarky lg:text-4xl">
-          CHESSI IS COMING{" "}
+      <div className="h-20 mt-8 lg:h-28 bg-linear-to-tl from-zinc-900 to-sky-800  w-full flex justify-center items-center relative border-y border-sky-700 ">
+        <p className="text-lg lg:text-3xl xl:text-[2rem] 3xl:text-4xl font-superlarky text-zinc-200 relative z-50">
+          CHESSI IS COMING
         </p>
-        <div className="flex gap-1 lg:gap-3">
-          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm"></span>
-          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-300 bg-sky-700 rounded-sm"></span>
-          <span className="w-5 h-5 lg:h-10 lg:w-10 border border-zinc-400 bg-zinc-400 rounded-sm"></span>
-        </div>
-      </div> */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: `
+        repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(75, 85, 99, 0.20) 19px, rgba(75, 85, 99, 0.20) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.20) 39px, rgba(75, 85, 99, 0.20) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(75, 85, 99, 0.20) 19px, rgba(75, 85, 99, 0.20) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.20) 39px, rgba(75, 85, 99, 0.20) 40px),
+        radial-gradient(circle at 20px 20px, rgba(55, 65, 81, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 40px 40px, rgba(55, 65, 81, 0.1) 2px, transparent 2px)
+      `,
+            backgroundSize: "40px 40px, 40px 40px, 40px 40px, 40px 40px",
+          }}
+        />
+      </div>
     </section>
   );
 }

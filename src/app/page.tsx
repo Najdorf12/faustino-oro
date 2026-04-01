@@ -46,7 +46,7 @@ async function getLandingData() {
 
     const [achievements, notices] = await Promise.all([
       AchievementModel.find().sort({ order: 1 }).lean(),
-      NoticeModel.find().sort({ createdAt: -1 }).limit(4).lean(),
+      NoticeModel.find().sort({ createdAt: -1 }).limit(3).lean(),
     ]);
 
     return {

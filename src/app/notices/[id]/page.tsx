@@ -2,10 +2,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import imgNotices from "@/assets/images/chess/16.jpg";
 import connectToDatabase from "@/lib/mongodb";
 import NoticeModel from "@/models/notice";
-import NavbarLanding from "@/components/landing/ui/layout/NavbarLanding";
+import NavbarPages from "@/components/landing/ui/layout/NavbarPages";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -52,7 +51,7 @@ export default async function NoticePage({ params }: Props) {
 
   return (
     <div className="min-h-screen py-20 lg:py-28 relative lg:pb-32 3xl:pb-38 ">
-      <NavbarLanding />
+      <NavbarPages />
 
       <article className="px-4 max-w-4xl  rounded-lg mx-auto lg:max-w-5xl  3xl:max-w-6xl ">
         <Link href="/notices/#allnotices">
