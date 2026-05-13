@@ -42,9 +42,9 @@ export default function Home() {
           </h1>
           <p className="font-medium flex items-center gap-2 text-zinc-300  lg:text-zinc-300 text-base sm:text-[1.1rem] lg:text-xl xl:text-[1.30rem] 2xl:text-[1.5rem] 3xl:text-3xl">
             <span className="border-2 border-zinc-400 text-zinc-400  px-1 py-0.5 font-ubuntu rounded-sm lg:py- lg:px-1.5">
-              GM
+              IM
             </span>{" "}
-            GRAND MASTER
+            INTERNATIONAL MASTER
           </p>
         </article>
 

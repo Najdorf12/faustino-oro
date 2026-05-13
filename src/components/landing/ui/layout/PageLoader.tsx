@@ -62,7 +62,7 @@ export default function PageLoader() {
 
         <p className="text-zinc-500 text-xl mt-6 flex flex-col text-center xl:text-2xl  3xl:text-3xl">
           Faustino Oro{" "}
-          <span className="text-sm xl:text-lg text-zinc-600 3xl:text-xl"> Grand Master </span>
+          <span className="text-sm xl:text-lg text-zinc-600 3xl:text-xl"> Internacional Master </span>
         </p>
       </div>
       <p className="absolute bottom-6 text-zinc-600 text-[12px] lg:text-sm 3xl:text-base">Official website</p>
