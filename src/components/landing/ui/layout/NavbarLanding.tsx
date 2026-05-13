@@ -14,7 +14,7 @@ export default function NavbarLanding() {
           />
         </Link>
       </div>
-      <ul className="flex items-center justify-end gap-3 md:font-medium text-sm  md:flex-row md:justify-start font-medium lg:gap-7 lg:text-lg 3xl:text-xl">
+      <ul className="flex items-center justify-end gap-3 md:font-medium text-sm  md:flex-row md:justify-start font-medium lg:gap-7 lg:text-lg 3xl:text-xlg">
             <li>
           <Link
             href="/"
