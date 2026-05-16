@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <section className=" h-[95vh] md:h-screen w-full relative pb-2 lg:pb-1 rounded-b-xl lg:rounded-b-3xl border-b border-zinc-700">
-        <div className="absolute inset-0 z-20   rounded-b-xl lg:rounded-b-3xl"></div>
+        <div className="absolute inset-0 z-20 bg-zinc-800/40 lg:hidden   rounded-b-xl lg:rounded-b-3xl"></div>
         <picture className="w-full h-full z-15 absolute inset-0 mx-auto rounded-b-xl lg:rounded-b-3xl">
           <source media="(min-width: 600px)" srcSet={imgHome.src} />
           <Image
