@@ -1,17 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import imgHome from "@/assets/images/ps05.png";
-import imgHomeMobile from "@/assets/images/img5-3.jpg";
+import imgHomeMobile from "@/assets/images/psmobile01.png";
 import icon from "@/assets/images/icons/iconKnight.svg";
 import { Instagram, Facebook, Youtube } from "@boxicons/react";
 
 export default function Home() {
   return (
     <>
-      <section className=" h-[95vh] md:h-screen w-full relative pb-3.5 lg:pb-1 rounded-b-xl lg:rounded-b-3xl border-b border-zinc-700">
+      <section className=" h-[95vh] md:h-screen w-full relative pb-2 lg:pb-1 rounded-b-xl lg:rounded-b-3xl border-b border-zinc-700">
         <div className="absolute inset-0 z-20   rounded-b-xl lg:rounded-b-3xl"></div>
         <picture className="w-full h-full z-15 absolute inset-0 mx-auto rounded-b-xl lg:rounded-b-3xl">
-          <source media="(min-width: 1024px)" srcSet={imgHome.src} />
+          <source media="(min-width: 600px)" srcSet={imgHome.src} />
           <Image
             src={imgHomeMobile}
             alt="home-palmares"
