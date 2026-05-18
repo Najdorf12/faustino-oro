@@ -165,3 +165,103 @@ export async function getLandingData() {
     notices,
   };
 }
+/* 
+_id
+6a09c57bf1edef08352c373e
+title
+"Fausti jugó el V Open Chess Menorca"
+description
+"Ha participado en abril por tercera vez consecutiva en el Open de Meno…"
+content
+"Fausti participó en el mes de abril en el V Open Chess Menorca 2026, o…"
+category
+"Clásicas"
+isActive
+true
+
+images
+Array (1)
+date
+2026-05-17T13:41:15.887+00:00
+createdAt
+2026-05-17T13:41:15.891+00:00
+updatedAt
+2026-05-17T13:41:30.866+00:00
+__v
+0 
+
+
+
+_id
+6a044317d1e10023e1c1b8bc
+title
+"Fausti culmina el "Sardinia World Chess Festival" en Italia"
+description
+"Obtiene su tercera norma de GM!"
+content
+"Fausti participó en el “Sardinia World Chess Festival 2026”, disputado…"
+category
+"Clásicas"
+isActive
+true
+
+images
+Array (1)
+date
+2026-05-13T09:23:35.855+00:00
+createdAt
+2026-05-13T09:23:35.855+00:00
+updatedAt
+2026-05-13T09:23:35.855+00:00
+__v
+0
+
+
+
+_id
+6a043fa185ace54c964798d7
+title
+"Fausti gana el "Freestyle Friday" en Week 9"
+description
+"Logra ser hasta ahora  el campeón más joven del evento en la historia"
+content
+"Fausti el viernes 17/04/2026 ganó el torneo on-line "Freestyle Friday"…"
+category
+"Eventos"
+isActive
+true
+
+images
+Array (1)
+date
+2026-05-13T09:08:49.415+00:00
+createdAt
+2026-05-13T09:08:49.419+00:00
+updatedAt
+2026-05-13T09:18:02.192+00:00
+__v
+1
+
+_id
+69ad9e1e4e1680a284952e61
+title
+"Finaliza el Abierto de Aeroflot 2026 luego de una semana muy intensa"
+description
+"Buen desempeño de Fausti en este fuerte torneo en Moscú"
+content
+"Finalizó una semana de ajedrez de alto nivel en el Aeroflot Open Moscú…"
+category
+"Clásicas"
+isActive
+true
+
+images
+Array (1)
+date
+2026-03-08T16:04:47.004+00:00
+createdAt
+2026-03-08T16:04:47.008+00:00
+updatedAt
+2026-03-08T16:06:25.467+00:00
+__v
+0*/

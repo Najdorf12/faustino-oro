@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "Últimas noticias y novedades de Faustino Oro",
 };
 
-export const revalidate = false; 
+export const revalidate = 3600; 
 
 function NoticesSkeleton() {
   return (
