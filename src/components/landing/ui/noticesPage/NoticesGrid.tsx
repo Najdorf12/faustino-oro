@@ -99,7 +99,7 @@ export default function NoticesGrid({ notices }: { notices: any[] }) {
               <Link
                 key={notice._id}
                 href={`/notices/${notice._id}`}
-                className="group border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-200 transition-all duration-500 flex flex-col"
+                className="group border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-200 transition-all duration-500 flex flex-col  max-w-100"
               >
                 {notice.images &&
                   notice.images.length > 0 &&
