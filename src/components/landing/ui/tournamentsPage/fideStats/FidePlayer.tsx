@@ -4,7 +4,7 @@ import iconRapid from "@/assets/images/icons/rapid.svg";
 import iconBlitz from "@/assets/images/icons/blitz.svg";
 import icon2 from "@/assets/images/icons/iconKnight.svg";
 import iconStandar from "@/assets/images/icons/standar.svg";
-
+import { useTranslations } from "next-intl";
 import {
   ButtonStats,
   ButtonInfo,
@@ -89,6 +89,7 @@ export default function FidePlayer({
 }
 
 function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
+  const t = useTranslations("fide");
   return (
     <>
       {/* ELO */}
@@ -137,7 +138,7 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
       {/* TITLES */}
       <div className="w-full flex flex-col mt-9 md:mt-0 ">
         <h6 className="text-zinc-600 text-xl font-medium lg:text-2xl 2xl:text-3xl 3xl:text-4xl">
-          Títulos
+          {t("titles")}
         </h6>
         <ul className="flex flex-col gap-1 mt-2 lg:mt-3">
           {stats.titles.map((title, i) => (
@@ -160,13 +161,13 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
             alt="icon-4"
             className="w-8 absolute top-2.5 right-2 lg:right-2 lg:top-3"
           />
-          WORLD RANK
+          {t("worldRank")}
           <li className="mt-9 flex justify-between md:mt-12">
-            Active players
+            {t("activePlayers")}
             <span className="text-zinc-100">{fide.world_rank_active}</span>
           </li>
           <li className="flex justify-between">
-            All players
+            {t("allPlayers")}
             <span className="text-zinc-100">{fide.world_rank_all}</span>
           </li>
         </div>
@@ -176,13 +177,13 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
             alt="icon-4"
             className="w-8 absolute top-2.5 right-2 lg:right-2 lg:top-3"
           />
-          NATIONAL RANK
+          {t("nationalRank")}
           <li className="mt-9 flex justify-between md:mt-12">
-            Active players
+            {t("activePlayers")}
             <span className="text-zinc-100">{fide.national_rank_active}</span>
           </li>
           <li className="flex justify-between">
-            All players
+            {t("allPlayers")}
             <span className="text-zinc-100">{fide.national_rank_all}</span>
           </li>
         </div>
@@ -192,15 +193,15 @@ function InfoView({ fide, stats }: { fide: FideResponse; stats: FideStats }) {
             alt="icon-4"
             className="w-8 absolute top-2.5 right-2 lg:right-2 lg:top-3"
           />
-          CONTINENTAL RANK
+          {t("continentalRank")}
           <li className="mt-9 flex justify-between md:mt-12">
-            Active players
+            {t("activePlayers")}
             <span className="text-zinc-100">
               {fide.continental_rank_active}
             </span>
           </li>
           <li className="flex justify-between">
-            All players
+            {t("allPlayers")}
             <span className="text-zinc-100">{fide.continental_rank_all}</span>
           </li>
         </div>

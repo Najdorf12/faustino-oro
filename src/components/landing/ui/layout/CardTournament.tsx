@@ -1,6 +1,7 @@
 import Image from "next/image";
 import icon3 from "@/assets/images/iconKnight.svg";
 import { TournamentImage } from "@/types/tournament";
+import { useTranslations, useLocale } from "next-intl";
 
 interface CardContent {
   title: string;
@@ -19,6 +20,8 @@ interface CardProps {
 }
 
 export default function CardTournament({ card, index }: CardProps) {
+  const t = useTranslations("tournaments");
+  const locale = useLocale() as "es" | "en";
   const {
     title,
     startDate,
@@ -33,24 +36,10 @@ export default function CardTournament({ card, index }: CardProps) {
   const isFirst = index === 0;
 
   const formatDate = (date: string) => {
-    // El valor llega como ISO string: "2026-01-17T00:00:00.000Z"
-    // Extraemos directamente año, mes, día sin crear objeto Date
-    const [year, month, day] = (date as string).split("T")[0].split("-");
-    const months = [
-      "ene",
-      "feb",
-      "mar",
-      "abr",
-      "may",
-      "jun",
-      "jul",
-      "ago",
-      "sep",
-      "oct",
-      "nov",
-      "dic",
-    ];
-    return `${day} ${months[parseInt(month) - 1]} ${year}`;
+    return new Date(date).toLocaleDateString(
+      locale === "en" ? "en-US" : "es-AR",
+      { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" },
+    );
   };
   return (
     <div
@@ -83,7 +72,7 @@ export default function CardTournament({ card, index }: CardProps) {
       <div
         className={`px-3 absolute top-3 right-2 self-end mt-3 w-fit border-b border-zinc-300 text-sm lg:text-base ${isActive ? "bg-sky-00 text-zinc-200" : "bg-sky-00 text-zinc-100"} `}
       >
-        {isActive ? "Activo" : "Finalizado"}
+        {isActive ? t("active") : t("lastPlayed")}
       </div>
       <article className="text-sm flex flex-col gap-1 md:min-h-25 leading-4.5 relative z-100 xl:leading-5.5 xl:text-base 2xl:min-h-29 2xl:leading-6">
         <div className="text-lg leading-5 text-zinc-100 xl:leading-5.5 2xl:text-xl">
@@ -94,12 +83,13 @@ export default function CardTournament({ card, index }: CardProps) {
         </div>
         <div className="text-zinc-300 ">{location}</div>
         <div className="text-zinc-300  ">
-           Inicio : <span className="text-zinc-100">{formatDate(startDate)}</span>
+          {t("start")} :{" "}
+          <span className="text-zinc-100">{formatDate(startDate)}</span>
         </div>
         <div className="border-zinc-400 text-zinc-300 ">
-         Fin : <span className="text-zinc-100">{formatDate(endDate)}</span>
+          {t("end")} :{" "}
+          <span className="text-zinc-100">{formatDate(endDate)}</span>
         </div>
-   
       </article>
     </div>
   );

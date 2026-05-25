@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 type FormData = {
   nombre: string;
@@ -10,6 +11,7 @@ type FormData = {
 };
 
 export default function Form() {
+  const t = useTranslations("contact");
   const {
     register,
     handleSubmit,
@@ -46,11 +48,11 @@ export default function Form() {
         </legend>
 
         <h6 className="text-zinc-100 text-2xl mt-1 max-w-90 leading-8 md:text-3xl md:leading-9 3xl:text-4xl 3xl:max-w-110 3xl:leading-10">
-          Mové la primera pieza y formá parte de su historia
+          {t("heading")}
         </h6>
 
         <p className="text-zinc-400 font- mt-3 mb-2 3xl:text-lg 3xl:mt-4">
-          Cada mensaje es una oportunidad
+          {t("subheading")}
         </p>
 
         <div className="flex items-center gap-2">
@@ -64,30 +66,30 @@ export default function Form() {
           className="relative flex flex-col gap-2 mt-2 text-sm md:text-base"
         >
           <input
-            placeholder="Nombre"
+            placeholder={t("namePlaceholder")}
             className="bg-zinc-800/80 placeholder:text-zinc-300 border-zinc-700 border text-gray-200 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
             type="text"
             {...register("nombre", { required: true })}
           />
 
           <input
-            placeholder="Email"
+            placeholder={t("emailPlaceholder")}
             className="bg-zinc-800/80 placeholder:text-zinc-300 border-zinc-700 border text-gray-200 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150"
             type="email"
             {...register("email", { required: true })}
           />
 
           <textarea
-            placeholder="Escribe tu mensaje"
+            placeholder={t("messagePlaceholder")}
             className="bg-zinc-800/80 placeholder:text-zinc-300 border-zinc-700 border text-gray-200 rounded-md p-2 mb-2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-sky-500 transition ease-in-out duration-150 h-20 lg:h-24"
             {...register("message", { required: true })}
           />
 
           {status === "success" && (
-            <p className="text-sky-400 text-sm text-center">¡Mensaje enviado con éxito!</p>
+            <p className="text-sky-400 text-sm text-center">{t("success")}</p>
           )}
           {status === "error" && (
-            <p className="text-red-400 text-sm text-center">Hubo un error. Intentá de nuevo.</p>
+            <p className="text-red-400 text-sm text-center">{t("error")}</p>
           )}
 
           <button
@@ -95,7 +97,7 @@ export default function Form() {
             type="submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Enviando..." : "Enviar jugada"}
+            {isSubmitting ? t("submitting") : t("submit")}
           </button>
         </form>
       </div>

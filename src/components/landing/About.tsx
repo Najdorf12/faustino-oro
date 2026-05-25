@@ -5,6 +5,7 @@ import imgAbout from "@/assets/images/img9.webp";
 import imgAbout2 from "@/assets/images/img1-10.jpeg";
 import icon from "@/assets/images/icon5.svg";
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -14,6 +15,7 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  const t = useTranslations("about");
   const container = useRef(null);
   const imgRef = useRef(null);
 
@@ -59,30 +61,24 @@ export default function About() {
 
       <article className="content w-full flex flex-col pt-12 pb-14 justify-center gap-4 px-4 relative z-100 lg:py-0 lg:w-1/2 lg:h-screen">
         <div className="text-zinc-600 text-xl lg:text-2xl 2xl:text-3xl">
-          SOBRE MI
+          {t("label")}
         </div>
 
         {view === "about" && (
-          <div className="text-balance">
-            <h3 className="text-zinc-300 text-[1.45rem] sm:text-2xl md:text-4xl font-medium max-w-150 2xl:text-5xl 2xl:max-w-175">
-              SOY FAUSTINO ORO. NACÍ EN BUENOS AIRES, ARGENTINA, EL 14 DE
-              OCTUBRE DE 2013
+          <div className="text-balance ">
+            <h3 className="text-zinc-300 text-[1.45rem] sm:text-2xl lg:text-3xl xl:text-4xl font-medium max-w-150 2xl:text-[2.8rem] 3xl:text-[2.9rem] 2xl:max-w-175 3xl:max-w-200 ">
+              {t("heading")}
             </h3>
 
             <p className="text-sm lg:text-base text-zinc-500 mt-9 lg:mt-14 lg:max-w-150 2xl:text-lg 2xl:max-w-170">
-              En plena pandemia, el 30 de mayo de 2020 aprendí a mover las
-              piezas y, desde entonces, el ajedrez ha sido mucho más que un
-              simple juego para mí: es un desafío constante que me motiva a
-              seguir mejorando. Autodidacta y persistente, he crecido con cada
-              partida y cada lección, con la firme convicción de llegar a lo más
-              alto.
+              {t("bio")}
             </p>
 
             <button
               onClick={() => setView("historia")}
               className="text-zinc-300 text-lg mt-10 flex items-center gap-2 font-medium lg:text-xl xl:text-[1.4rem] 2xl:text-2xl 3xl:text-[1.7rem] group hover:text-sky-600 cursor-pointer duration-500"
             >
-              HISTORIA{" "}
+              {t("historyBtn")}
               <span className="group-hover:translate-x-3 duration-500">
                 <ArrowRight />
               </span>
@@ -93,40 +89,18 @@ export default function About() {
         {view === "historia" && (
           <div className="flex flex-col gap-4 ">
             <h3 className="text-zinc-300 text-[2.6rem] sm:text-4xl md:text-5xl font-medium 2xl:text-6xl">
-              HISTORIA
+              {t("historyTitle")}
             </h3>
 
             <p className="text-sm lg:text-base text-zinc-500  max-w-[600px] 2xl:text-lg 2xl:max-w-[680px] ">
-              Mi primer torneo de ajedrez clásico fue el "8vo IRT Alejandro
-              Judewicz" en Mar del Plata, Buenos Aires (Argentina) en septiembre
-              de 2021. En este torneo ingresé por primera vez al ranking ELO
-              FIDE con 1922 puntos, lo que me consagró como el N° 1 mundial en
-              mi categoría, posición que he mantenido desde entonces. En 2021,
-              me consagré Campeón Argentino Sub-8, y en 2022, Campeón
-              Panamericano Sub-10 en Montevideo, Uruguay, lo que me otorgó mi
-              primer título de Candidato a Maestro (CM). En abril de 2023,
-              jugando un ITT de Jóvenes Talentos en el Club de Villa Martelli,
-              Buenos Aires, Argentina, alcancé un ELO FIDE de 2300,
-              convirtiéndome en el Maestro FIDE (FM) más joven de la historia
-              por puntos. Desde entonces, me llaman el "Pibe de Oro" o el "Messi
-              del Ajedrez". En septiembre de 2023, jugando un ITT en Comodoro
-              Rivadavia, Chubut, Argentina, obtuve mi primera norma de Maestro
-              Internacional (IM), marcando otro récord de precocidad.
-              Finalmente, en 2024, obtuve las dos normas restantes para el
-              título de Maestro Internacional en el "Campeonato Continental
-              Absoluto de las Américas" en Medellín (mayo de 2024) y en el
-              "Torneo Cerrado de IM" en el Club de Barcelona (junio de 2024).
-              Esto, sumado a haber superado los 2400 de ELO FIDE, hizo que me
-              convirtiera en el Maestro Internacional más joven de la historia
-              en ese momento. Mi meta es convertirme en Gran Maestro y llegar a
-              ser Campeón Mundial, formando parte de la élite del ajedrez.
+              {t("historyText")}
             </p>
 
             <button
               onClick={() => setView("about")}
               className="text-zinc-300 text-lg mt-5 flex items-center gap-2 font-medium lg:text-xl xl:text-[1.4rem] 2xl:text-2xl 3xl:text-[1.7rem] group hover:text-sky-600 cursor-pointer duration-500"
             >
-              SOBRE MI{" "}
+              {t("aboutBtn")}
               <span className="group-hover:translate-x-3 duration-500">
                 <ArrowRight />
               </span>

@@ -1,5 +1,6 @@
 "use client";
 import * as THREE from "three";
+import { useTranslations } from "next-intl";
 import Form from "./ui/layout/FormContact";
 import iconface from "@/assets/images/icons/face.svg";
 import iconinsta from "@/assets/images/icons/insta.svg";
@@ -28,6 +29,7 @@ const shuffle = (accent = 0) => [
 
 export const Contact = () => {
   const pathname = usePathname();
+  const t = useTranslations("contact");
   return (
     <>
       <div
@@ -47,15 +49,13 @@ export const Contact = () => {
           </Suspense>
         </div>
         <section className="relative h-full w-full pointer-events-none flex flex-col justify-center  md:flex-row md:justify-center items-center ">
-          <article className="flex flex-col md:justify-start md:pt-12 md:w-[60%] md:h-full md:pl-9 lg:pt-16 md:gap-28 xl:pl-12 xl:gap-50 2xl:pl-14 3xl:pt-28 ">
+          <article className="flex flex-col md:justify-start md:pt-12 md:w-[60%] md:h-full md:pl-9 lg:pt-16 xl:pt-20 md:gap-28 xl:pl-12 xl:gap-50 2xl:pt-26 2xl:pl-14 3xl:pt-32 ">
             <div className="px-1 md:px-0">
-              <h5 className="text-start text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-16 2xl:text-[5rem] 2xl:leading-11 3xl:leading-20 3xl:text-[5.5rem] text-zinc-200">
-                Contacto
+              <h5 className="text-start text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-14 2xl:text-[5.3rem] 2xl:leading-16 3xl:leading-20 3xl:text-[5.8rem] text-zinc-200">
+                {t("title")}
               </h5>
-              <p className="text-zinc-300 mt-2 text-start text-sm md:text-base max-w-145 border-l-2 py-1 pl-3 border-sky-600 lg:mt-9 font-medium lg:py-2 lg:text-lg lg:ml-1 2xl:max-w-150 lg:pl-4">
-                Fausti quiere escucharte. Ponte en contacto para invitarlo a
-                eventos, colaboraciones o simplemente para alentarlo en su
-                carrera.
+              <p className="text-zinc-300 mt-2 text-start text-sm md:text-base max-w-145 border-l-2 py-1 pl-3 border-sky-600 lg:mt-9 font-medium lg:py-2 lg:text-lg lg:ml-1 2xl:max-w-150 lg:pl-4 2xl:text-xl  3xl:text-[23px] 3xl:max-w-170">
+                {t("description")}
               </p>
             </div>
 

@@ -1,33 +1,33 @@
 import Image from "next/image";
-/* import giftMotion from "@/assets/images/chess/motion1.gif"; */
+import { getTranslations } from "next-intl/server";
 import imgFausti from "@/assets/images/img1-1.jpeg";
 import bg1 from "@/assets/images/bg1.jpg";
 import logoML from "@/assets/images/icons/mercado-libre-logo.svg";
 import logoMI from "@/assets/images/icons/myinvestor-logo.svg";
 import logoChessCom from "@/assets/images/icons/chesscom.svg";
 
-const partners = [
-  {
-    name: "Chess.com",
-    logo: logoChessCom,
-    description: "Patrocinador oficial",
-    href: "https://www.chess.com",
-  },
-  {
-    name: "MyInvestor",
-    logo: logoMI,
-    description: "Partner financiero",
-    href: "https://myinvestor.es",
-  },
-  {
-    name: "Mercado Libre",
-    logo: logoML,
-    description: "Patrocinador oficial",
-    href: "https://www.mercadolibre.com",
-  },
-];
-
-export default function Partners() {
+export default async function Partners() {
+  const t = await getTranslations("partners");
+  const partners = [
+    {
+      name: "Chess.com",
+      logo: logoChessCom,
+      description: t("sponsor"),
+      href: "https://www.chess.com",
+    },
+    {
+      name: "MyInvestor",
+      logo: logoMI,
+      description: t("financial"),
+      href: "https://myinvestor.es",
+    },
+    {
+      name: "Mercado Libre",
+      logo: logoML,
+      description: t("sponsor"),
+      href: "https://www.mercadolibre.com",
+    },
+  ];
   return (
     <section className="h-screen relative flex flex-col items-center justify-center overflow-hidden lg:items-start ">
       <div className="absolute w-full h-full inset-0  flex items-center justify-start ">
@@ -38,14 +38,16 @@ export default function Partners() {
           className="w-full h-full object-cover  "
         />
       </div>
-      <article id="partners" className="relative z-20 flex flex-col justify-between h-full py-8 px-4 w-full lg:pt-14 lg:pb-10 lg:items-center  ">
+      <article
+        id="partners"
+        className="relative z-20 flex flex-col justify-between h-full py-8 px-4 w-full lg:pt-14 lg:pb-10 lg:items-center  "
+      >
         <div className="relative z-100 self-start lg:pl-12">
           <h6 className="text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-16 2xl:text-[5rem] 2xl:leading-11 3xl:leading-20 3xl:text-[5.5rem] text-zinc-200">
-            Partners
+             {t("title")}
           </h6>
           <p className="border-l-2  pl-3  border-sky-700 py-2 text-lg mt-3 font-extralight text-zinc-100 leading-6 lg:ml-1 lg:text-2xl lg:pl-4 lg:leading-9 lg:mt-9 xl:max-w-180 xl:text-4xl xl:leading-10 3xl:leading-14 3xl:text-5xl 2xl:mt-10 3xl:max-w-250">
-            Mis aliados en la visión, el coraje y la determinación de conquistar
-            lo más alto
+             {t("description")}
           </p>
         </div>
 

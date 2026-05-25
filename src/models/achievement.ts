@@ -1,12 +1,16 @@
 import mongoose, { Schema, Model } from "mongoose";
 import { Achievement, ACHIEVEMENT_CATEGORIES } from "@/types/achievement";
 
+const localizedFieldSchema = {
+  es: { type: String, required: true, trim: true },
+  en: { type: String, required: true, trim: true },
+};
+
 const achievementSchema = new Schema<Achievement>(
   {
     title: {
-      type: String,
-      required: [true, "El logro es requerido"],
-      trim: true,
+      type: localizedFieldSchema,
+      required: true,
     },
     category: {
       type: String,

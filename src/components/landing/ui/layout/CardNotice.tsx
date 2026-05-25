@@ -1,10 +1,11 @@
-import iconKnight from "@/assets/images/iconKnight.svg";
 import Image from "next/image";
-import type { Notice } from "@/types/notice";
+import type { LocalizedNotice } from "@/types/notice";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import NoticesPage from "@/app/admin/notices/page";
 
 interface CardNoticeProps {
-  notice: Notice;
+  notice: LocalizedNotice;
   onClick: () => void;
 }
 
@@ -32,6 +33,22 @@ function truncateToFirstSentence(
 }
 
 export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
+  const locale = useLocale() as "es" | "en";
+  const t = useTranslations("noticesPage.noticesGrid");
+
+  const CATEGORY_MAP: Record<string, string> = {
+    Todas: "all",
+    Eventos: "events",
+    Logros: "achievements",
+    Clásicas: "classical",
+    "Rápidas - Blitz": "rapid",
+  };
+
+  function translateCategory(category: string): string {
+    const key = CATEGORY_MAP[category];
+
+    return key ? t(`categories.${key}`) : category;
+  }
   return (
     <li className="flex flex-col gap-2 relative lg:pl-10">
       <div className="group cursor-pointer text-balance  border-b border-zinc-600 to-zinc rounded-lg overflow-hidden transition-all duration-300  hover:shadow-zinc-300 lg:flex lg:items-stretch max-w-90 lg:max-w-240 lg:w-270 lg:min-h-70 lg:px-4 3xl:w-300 3xl:max-w-300 3xl:min-h-90 ">
@@ -59,7 +76,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
         <div className="p-4 md:p-6 lg:pr-0 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 xl:pl-8 lg:justify-start ">
           <div className="mb-4 lg:mb-3">
             <span className="inline-block border border-sky-500 bg-sky-700 text-zinc-200 text-xs md:text-sm font-medium px-6 py-0.5 rounded-sm lg:px-9 2xl:text-base">
-              {notice.category}
+              {translateCategory(notice.category)}
             </span>
           </div>
 
@@ -79,11 +96,10 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
 
           {notice.createdAt && (
             <p className="text-zinc-500 text-sm lg:text-base">
-              {new Date(notice.createdAt).toLocaleDateString("es-AR", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {new Date(notice.createdAt).toLocaleDateString(
+                locale === "en" ? "en-US" : "es-AR",
+                { year: "numeric", month: "long", day: "numeric" },
+              )}
             </p>
           )}
         </div>
@@ -91,7 +107,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
           href={`/notices/${notice._id}`}
           className="self-end mb-3 ml-3 bg-sky-700 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-8.75 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-54 lg:ml-0 lg:mb-3"
         >
-          <p className="">Leer más</p>
+          <p className="">{t("readMore")}</p>
           <div className="bg-sky-600 cursor-pointer rounded-lg h-8.5 w-8.5 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"

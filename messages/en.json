@@ -1,0 +1,128 @@
+{
+  "loader": { "label": "International Master" },
+  "nav": {
+    "home": "Home",
+    "tournaments": "Tournaments",
+    "notices": "News",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "International Master",
+    "noticesBtn": "Go to News",
+    "tournamentsBtn": "Go to Tournaments"
+  },
+  "about": {
+    "label": "ABOUT ME",
+    "heading": "I'M FAUSTINO ORO. I WAS BORN IN BUENOS AIRES, ARGENTINA, ON OCTOBER 14, 2013",
+    "bio": "In the middle of the pandemic, on May 30, 2020, I learned to move the pieces and, since then, chess has been much more than a simple game for me: it is a constant challenge that motivates me to keep improving. Self-taught and persistent, I have grown with every game and every lesson, with the firm conviction of reaching the top.",
+    "historyBtn": "HISTORY",
+    "historyTitle": "HISTORY",
+    "historyText": "My first classical chess tournament was the \"8th IRT Alejandro Judewicz\" in Mar del Plata, Buenos Aires (Argentina) in September 2021. In this tournament I entered the FIDE ELO ranking for the first time with 1922 points, which made me the world No. 1 in my category, a position I have maintained ever since. In 2021, I became the Argentine Under-8 Champion, and in 2022, the Pan-American Under-10 Champion in Montevideo, Uruguay, which earned me my first Candidate Master (CM) title. In April 2023, playing a Young Talents ITT at Club de Villa Martelli, Buenos Aires, Argentina, I reached a FIDE ELO of 2300, becoming the youngest FIDE Master (FM) in history by rating. Since then, they call me the \"Golden Kid\" or the \"Messi of Chess\". In September 2023, playing an ITT in Comodoro Rivadavia, Chubut, Argentina, I obtained my first International Master (IM) norm, setting another record for youth. Finally, in 2024, I obtained the two remaining norms for the International Master title at the \"Absolute Continental Championship of the Americas\" in Medellín (May 2024) and at the \"Closed IM Tournament\" at Club de Barcelona (June 2024). This, together with surpassing 2400 FIDE ELO, made me the youngest International Master in history at that time. My goal is to become a Grand Master and World Champion, becoming part of the elite of chess.",
+    "aboutBtn": "ABOUT ME"
+  },
+  "quote": {
+    "text": "Chess, with all its philosophical depth, is above all a game that reveals imagination, character and willpower",
+    "author": "Boris Spassky"
+  },
+
+  "partners": {
+    "title": "Partners",
+    "description": "My allies in the vision, courage and determination to conquer the highest",
+    "sponsor": "Official sponsor",
+    "financial": "Financial partner"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "description": "With dedication, effort and discipline, Faustino keeps conquering new challenges in every game.",
+    "empty": "No achievements available",
+    "motto": "SUCCESS HAPPENS WHEN YOUR DREAMS ARE BIGGER THAN YOUR EXCUSES",
+    "categories": {
+      "Títulos y ránkings": "Titles & Rankings",
+      "Récords de precocidad": "Precocity Records",
+      "Presencia en la Élite mundial": "Presence in the World Elite"
+    }
+  },
+  "notices": {
+    "title": "Explore updates on his progress and special events",
+    "description": "Here you can learn not only about his most recent achievements, but also the hard training and preparation journey that makes them possible",
+    "empty": "No news available",
+    "loading": "Loading..."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Fausti wants to hear from you. Get in touch to invite him to events, collaborations, or simply to encourage him in his career.",
+    "legend": "Faustino Oro",
+    "heading": "Make the first move and be part of his story",
+    "subheading": "Every message is an opportunity",
+    "or": "or",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Write your message",
+    "success": "Message sent successfully!",
+    "error": "Something went wrong. Please try again.",
+    "submitting": "Sending...",
+    "submit": "Send your move"
+  },
+  "tournaments": {
+    "title": "Tournaments",
+    "description": "Check here the list of upcoming tournaments he will participate in. Follow his calendar and stay up to date with his incredible competitive journey",
+    "description2": "Follow his calendar and stay up to date with his incredible competitive journey",
+    "empty": "No tournaments available",
+    "noticesLink": "Go to News",
+    "footer1": "Stay informed about his upcoming competitions, game analysis and featured events in the world of chess.",
+    "footer2": "CHESSI IS COMING",
+    "searchPlaceholder": "Search tournament or city...",
+    "allYears": "All years",
+    "noResults": "No tournaments found with that criteria.",
+    "clearFilters": "Clear filters",
+    "active": "Active tournaments",
+    "lastPlayed": "Last played",
+    "results": "Results",
+    "history": "History",
+    "tournament": "tournament",
+    "tournaments_plural": "tournaments",
+    "upcoming": "Upcoming",
+    "finished": "Finished",
+    "start": "Start",
+    "end": "End",
+    "games": "Games",
+    "won": "Won",
+    "lost": "Lost",
+    "viewGame": "View game",
+    "close": "Close",
+    "loading": "Loading...",
+    "hidePerf": "Hide",
+    "viewPerf": "View performance",
+    "noData": "No data available for this tournament."
+  },
+  "fide": {
+    "titles": "Titles",
+    "worldRank": "WORLD RANK",
+    "nationalRank": "NATIONAL RANK",
+    "continentalRank": "CONTINENTAL RANK",
+    "activePlayers": "Active players",
+    "allPlayers": "All players"
+  },
+  "noticesPage": {
+    "title": "News",
+    "description": "Welcome to Fausti's news section, where we share his achievements, upcoming competitions and key moments in his chess career.",
+    "tournamentsLink": "Tournaments / Stats",
+    "footer1": "Stay informed about his upcoming competitions, game analysis and featured events in the world of chess.",
+    "footer2": "CHESSI IS COMING",
+    "quote": "Here you will find real-time updates and coverage of the most important moments of his professional career",
+    "noticesGrid": {
+      "title": "All news",
+      "categories": {
+        "all": "All",
+        "events": "Events",
+        "achievements": "Achievements",
+        "classical": "Classical",
+        "rapid": "Rapid - Blitz",
+        "readMore": "Read more"
+      },
+      "empty": "No news in this category",
+      "readMore": "Read more"
+    }
+  }
+}

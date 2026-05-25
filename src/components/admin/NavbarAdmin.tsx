@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function NavbarAdmin() {
   return (
-    <nav className="w-full top-0 z-20 text-stone-300 flex items-center justify-between px-4 py-2.5 lg:px-16 ">
+    <nav className="w-full top-0 z-20 bg-zinc-800 text-stone-300 flex items-center justify-between px-4 py-2.5 lg:px-16 ">
        <Link href="/">
         <div className="rounded-lg w-10 bg-sky-800 p-1.5 border-zinc-300 border z-100 xl:w-12 3xl:w-14 ">
           <Image

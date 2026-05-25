@@ -17,7 +17,7 @@ export default function NoticeCard({ notice, onEdit, onDelete }: Props) {
           <div className="relative h-64 w-full">
             <Image
               src={notice.images[0].secure_url}
-              alt={notice.title}
+              alt={notice.title.es}
               fill
               className="object-cover"
             />
@@ -52,14 +52,14 @@ export default function NoticeCard({ notice, onEdit, onDelete }: Props) {
         </div>
 
         <h2 className="text-xl sm:text-2xl sm:leading-8 text-zinc-200 mb-4 group-hover:text-sky-400 transition-colors line-clamp-2">
-          {notice.title}
+          {notice.title.es}
         </h2>
 
         <p className="text-sm sm:text-base text-zinc-400 line-clamp-2 mb-2">
-          {notice.description}
+          {notice.description.es}
         </p>
         <p className="text-sm sm:text-base text-zinc-500 line-clamp-2">
-          {notice.content}
+          {notice.content.es}
         </p>
 
         {/* Botón "Leer más" — decorativo, igual al del sitio web */}

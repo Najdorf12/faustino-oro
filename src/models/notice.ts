@@ -1,22 +1,24 @@
 import mongoose, { Schema, Model } from 'mongoose';
 import { Notice } from '@/types/notice';
 
+const localizedFieldSchema = {
+  es: { type: String, required: true, trim: true },
+  en: { type: String, required: true, trim: true },
+};
+
 const noticeSchema = new Schema<Notice>(
   {
     title: {
-      type: String,
-      required: [true, 'El título es requerido'],
-      unique: true,
-      trim: true,
+      type: localizedFieldSchema,
+      required: true,
     },
     description: {
-      type: String,
-      required: [true, 'La descripción es requerida'],
-      trim: true,
+      type: localizedFieldSchema,
+      required: true,
     },
     content: {
-      type: String,
-      required: [true, 'El contenido es requerido'],
+      type: localizedFieldSchema,
+      required: true,
     },
     category: {
       type: String,
@@ -41,12 +43,10 @@ const noticeSchema = new Schema<Notice>(
       default: Date.now,
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
-const NoticeModel: Model<Notice> = 
+const NoticeModel: Model<Notice> =
   mongoose.models.Notice || mongoose.model<Notice>('Notice', noticeSchema);
 
 export default NoticeModel;

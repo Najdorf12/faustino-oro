@@ -1,0 +1,128 @@
+{
+  "loader": { "label": "Maestro Internacional" },
+  "nav": {
+    "home": "Inicio",
+    "tournaments": "Torneos",
+    "notices": "Noticias",
+    "partners": "Partners",
+    "contact": "Contacto"
+  },
+  "home": {
+    "title": "Maestro Internacional",
+    "noticesBtn": "Ir a noticias",
+    "tournamentsBtn": "Ir a Torneos"
+  },
+  "about": {
+    "label": "SOBRE MI",
+    "heading": "SOY FAUSTINO ORO. NACÍ EN BUENOS AIRES, ARGENTINA, EL 14 DE OCTUBRE DE 2013",
+    "bio": "En plena pandemia, el 30 de mayo de 2020 aprendí a mover las piezas y, desde entonces, el ajedrez ha sido mucho más que un simple juego para mí: es un desafío constante que me motiva a seguir mejorando. Autodidacta y persistente, he crecido con cada partida y cada lección, con la firme convicción de llegar a lo más alto.",
+    "historyBtn": "HISTORIA",
+    "historyTitle": "HISTORIA",
+    "historyText": "Mi primer torneo de ajedrez clásico fue el \"8vo IRT Alejandro Judewicz\" en Mar del Plata, Buenos Aires (Argentina) en septiembre de 2021. En este torneo ingresé por primera vez al ranking ELO FIDE con 1922 puntos, lo que me consagró como el N° 1 mundial en mi categoría, posición que he mantenido desde entonces. En 2021, me consagré Campeón Argentino Sub-8, y en 2022, Campeón Panamericano Sub-10 en Montevideo, Uruguay, lo que me otorgó mi primer título de Candidato a Maestro (CM). En abril de 2023, jugando un ITT de Jóvenes Talentos en el Club de Villa Martelli, Buenos Aires, Argentina, alcancé un ELO FIDE de 2300, convirtiéndome en el Maestro FIDE (FM) más joven de la historia por puntos. Desde entonces, me llaman el \"Pibe de Oro\" o el \"Messi del Ajedrez\". En septiembre de 2023, jugando un ITT en Comodoro Rivadavia, Chubut, Argentina, obtuve mi primera norma de Maestro Internacional (IM), marcando otro récord de precocidad. Finalmente, en 2024, obtuve las dos normas restantes para el título de Maestro Internacional en el \"Campeonato Continental Absoluto de las Américas\" en Medellín (mayo de 2024) y en el \"Torneo Cerrado de IM\" en el Club de Barcelona (junio de 2024). Esto, sumado a haber superado los 2400 de ELO FIDE, hizo que me convirtiera en el Maestro Internacional más joven de la historia en ese momento. Mi meta es convertirme en Gran Maestro y llegar a ser Campeón Mundial, formando parte de la élite del ajedrez.",
+    "aboutBtn": "SOBRE MI"
+  },
+  "quote": {
+    "text": "El ajedrez, con toda su profundidad filosófica, es ante todo un juego en el que se ponen de manifiesto la imaginación, el carácter y la voluntad",
+    "author": "Boris Spassky"
+  },
+  "partners": {
+    "title": "Partners",
+    "description": "Mis aliados en la visión, el coraje y la determinación de conquistar lo más alto",
+    "sponsor": "Patrocinador oficial",
+    "financial": "Partner financiero"
+  },
+  "achievements": {
+    "title": "Logros",
+    "description": "Con dedicación, esfuerzo y disciplina, Faustino sigue conquistando nuevos desafíos en cada partida.",
+    "empty": "No hay logros disponibles",
+    "motto": "EL ÉXITO OCURRE CUANDO TUS SUEÑOS SON MAS GRANDES QUE TUS EXCUSAS",
+    "categories": {
+      "Títulos y ránkings": "Títulos y ránkings",
+      "Récords de precocidad": "Récords de precocidad",
+      "Presencia en la Élite mundial": "Presencia en la Élite mundial"
+    }
+  },
+  "notices": {
+    "title": "Explora actualizaciones sobre sus avances y eventos especiales",
+    "description": "Aquí podrás conocer no solo sus logros más recientes, sino también el arduo camino de entrenamiento y preparación que los hace posibles",
+    "empty": "No hay noticias disponibles",
+    "loading": "Cargando..."
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Fausti quiere escucharte. Ponte en contacto para invitarlo a eventos, colaboraciones o simplemente para alentarlo en su carrera.",
+    "legend": "Faustino Oro",
+    "heading": "Mové la primera pieza y formá parte de su historia",
+    "subheading": "Cada mensaje es una oportunidad",
+    "or": "o",
+    "namePlaceholder": "Nombre",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Escribe tu mensaje",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Hubo un error. Intentá de nuevo.",
+    "submitting": "Enviando...",
+    "submit": "Enviar jugada"
+  },
+  "tournaments": {
+    "title": "Torneos",
+    "description": "Consulta aquí la lista de próximos torneos en los que participará. Sigue su calendario y mantente al día con su increíble recorrido competitivo",
+    "description2": "Consulta aquí la lista de próximos torneos en los que participará. Sigue su calendario y mantente al día con su increíble recorrido competitivo",
+    "empty": "No hay torneos disponibles",
+    "noticesLink": "Ir a Noticias",
+    "footer1": "Mantente informado sobre sus próximas competencias, análisis de partidas y eventos destacados en el mundo del ajedrez.",
+    "footer2": "CHESSI IS COMING",
+    "searchPlaceholder": "Buscar torneo o ciudad...",
+    "allYears": "Todos los años",
+    "noResults": "No se encontraron torneos con ese criterio.",
+    "clearFilters": "Limpiar filtros",
+    "active": "Torneos activos",
+    "lastPlayed": "Último jugado",
+    "results": "Resultados",
+    "history": "Historial",
+    "tournament": "torneo",
+    "tournaments_plural": "torneos",
+    "upcoming": "Próximamente",
+    "finished": "Finalizado",
+    "start": "Inicio",
+    "end": "Fin",
+    "games": "Partidas",
+    "won": "Ganó",
+    "lost": "Perdió",
+    "viewGame": "Ver partida",
+    "close": "Cerrar",
+    "loading": "Cargando...",
+    "hidePerf": "Ocultar",
+    "viewPerf": "Ver performance",
+    "noData": "No hay datos disponibles para este torneo."
+  },
+  "fide": {
+    "titles": "Títulos",
+    "worldRank": "WORLD RANK",
+    "nationalRank": "NATIONAL RANK",
+    "continentalRank": "CONTINENTAL RANK",
+    "activePlayers": "Jugadores activos",
+    "allPlayers": "Todos los jugadores"
+  },
+  "noticesPage": {
+    "title": "Noticias",
+    "description": "Bienvenidos a la sección de noticias de Fausti, donde compartimos sus logros, próximas competencias y momentos clave en su carrera de ajedrez.",
+    "tournamentsLink": "Torneos / Stats",
+    "footer1": "Mantente informado sobre sus próximas competencias, análisis de partidas y eventos destacados en el mundo del ajedrez.",
+    "footer2": "CHESSI IS COMING",
+    "quote": "Aquí encontrarás actualizaciones en tiempo real y la cobertura de los momentos más importantes de su trayectoria profesional",
+    "noticesGrid": {
+      "title": "Todas las noticias",
+      "categories": {
+        "all": "Todas",
+        "events": "Eventos",
+        "achievements": "Logros",
+        "classical": "Clásicas",
+        "rapid": "Rápidas - Blitz",
+        "readMore": "Leer más"
+
+      },
+      "empty": "No hay noticias en esta categoría",
+      "readMore": "Leer más"
+    }
+  }
+}

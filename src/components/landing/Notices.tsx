@@ -4,10 +4,10 @@ import { useState, Suspense, lazy, useEffect } from "react";
 import { NoticeModal } from "./ui/layout/NoticeModal";
 import Button from "./ui/layout/ButtonNotices";
 import CardNotice from "./ui/layout/CardNotice";
-import type { Notice } from "@/types/notice";
+import type { LocalizedNotice } from "@/types/notice";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import icon from "@/assets/images/icons/iconKnight.svg";
+import { useTranslations } from "next-intl";
+
 const ChessKnightExperience = lazy(() =>
   import("./ui/models3D/ChessKnightExperience").then((mod) => ({
     default: mod.ChessKnightExperience,
@@ -15,19 +15,20 @@ const ChessKnightExperience = lazy(() =>
 );
 
 interface NoticesProps {
-  data: Notice[];
+  data: LocalizedNotice[];
 }
 
 function CanvasLoader() {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="animate-pulse text-zinc-400">Cargando...</div>
+      <div className="animate-pulse text-zinc-400">Loading...</div>
     </div>
   );
 }
 
 export default function Notices({ data }: NoticesProps) {
-  const [activeNotice, setActiveNotice] = useState<Notice | null>(null);
+  const t = useTranslations("notices");
+  const [activeNotice, setActiveNotice] = useState<LocalizedNotice| null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const [canvasKey, setCanvasKey] = useState(0);
   const pathname = usePathname();
@@ -122,12 +123,11 @@ export default function Notices({ data }: NoticesProps) {
       </div>
 
       <article className="flex flex-col justify-center items-center gap-9 pt-14 relative z-100 lg:pt-24 lg:gap-10 ">
-        <h6 className="w-full text-3xl sm:text-4xl lg:text-6xl  relative z-100 max-w-280 px-3 text-center text-zinc-500 xl:text-[3.95rem] 2xl:text-7xl 2xl:max-w-275">
-          Explora actualizaciones sobre sus avances y eventos especiales
+        <h6 className="w-full text-3xl sm:text-4xl lg:text-6xl relative z-100 max-w-280 px-3 text-center text-zinc-500 xl:text-[3.95rem] 2xl:text-7xl 2xl:max-w-275">
+          {t("title")}
         </h6>
         <p className="text-zinc-400 max-w-93 text-center text-sm px-1  md:text-lg xl:text-xl md:max-w-200 3xl:max-w-300 3xl:text-xl">
-          Aquí podrás conocer no solo sus logros más recientes, sino también el
-          arduo camino de entrenamiento y preparación que los hace posibles
+          {t("description")}
         </p>
         <div className="self-center lg:mt-2 hidden lg:flex">
           <Button />
@@ -153,12 +153,12 @@ export default function Notices({ data }: NoticesProps) {
       </ul>
 
       <section className="w-full h-fit">
-        {activeNotice && (
+   {/*      {activeNotice && (
           <NoticeModal
             notice={activeNotice}
             onClose={() => setActiveNotice(null)}
           />
-        )}
+        )} */}
       </section>
       <div className="h-20 mt-8 lg:h-28 bg-linear-to-tl from-zinc-900 to-sky-800  w-full flex justify-center items-center relative border-y border-sky-700 ">
         <p className="text-lg lg:text-3xl xl:text-[2rem] 3xl:text-4xl font-superlarky text-zinc-200 relative z-50">

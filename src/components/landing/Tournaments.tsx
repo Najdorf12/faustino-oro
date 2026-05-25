@@ -4,12 +4,14 @@ import CardTournament from "./ui/layout/CardTournament";
 import { formatDate } from "@/lib/dateFormatter";
 import { Tournament } from "@/types/tournament";
 import ButtonTournaments from "./ui/layout/ButtonTournaments";
+import { getTranslations } from "next-intl/server";
 
 interface TournamentsProps {
   data: Tournament[];
 }
 
-export default function Tournaments({ data }: TournamentsProps) {
+export default async function Tournaments({ data }: TournamentsProps) {
+  const t = await getTranslations("tournaments");
   return (
     <section
       id="tournaments"
@@ -18,12 +20,10 @@ export default function Tournaments({ data }: TournamentsProps) {
       <div className="min-h-screen w-full absolute inset-0 z-50"></div>
       <article className="flex flex-col pl-4 gap-4 lg:flex-row lg:items-start lg:px-9 lg:w-full 2xl:gap-9 ">
         <h6 className=" text-zinc-200 text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-16 2xl:text-[5rem] 2xl:leading-11 3xl:leading-20 3xl:text-[5.5rem]">
-          Torneos
+          {t("title")}
         </h6>
         <p className="flex items-center text-zinc-300 max-w-130 text-start border-l-2 border-sky-600 text-sm font-medium pl-3 md:pl-6  md:leading-6 md:text-lg md:max-w-150 2xl:text-xl 2xl:leading-7 lg:py-2 xl:py-4 2xl:max-w-170 3xl:text-2xl 3xl:max-w-200 3xl:py-6">
-          Consulta aquí la lista de próximos torneos en los que participará.
-          Sigue su calendario y mantente al día con su increíble recorrido
-          competitivo
+          {t("description2")}
         </p>
       </article>
 
@@ -46,7 +46,7 @@ export default function Tournaments({ data }: TournamentsProps) {
             />
           ))
         ) : (
-          <p className="text-zinc-300">No hay torneos disponibles</p>
+          <p className="text-zinc-300">{t("empty")}</p>
         )}
       </div>
       <div className="3xl:mt-2">

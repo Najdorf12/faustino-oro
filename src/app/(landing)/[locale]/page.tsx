@@ -1,0 +1,115 @@
+import { Metadata } from "next";
+import asterisk from "@/assets/images/icons/asterisk.svg";
+import Image from "next/image";
+import NavbarLanding from "@/components/landing/ui/layout/NavbarLanding";
+import Home from "@/components/landing/Home";
+import About from "@/components/landing/About";
+import Partners from "@/components/landing/Partners";
+import Achievements2 from "@/components/landing/Achievements2";
+import Tournaments from "@/components/landing/Tournaments";
+import Notices from "@/components/landing/Notices";
+import Contact from "@/components/landing/Contact";
+import connectToDatabase from "@/lib/mongodb";
+import NoticeModel from "@/models/notice";
+import TournamentModel from "@/models/tournament";
+import AchievementModel from "@/models/achievement";
+import { getLocale, getTranslations } from "next-intl/server";
+
+export const metadata: Metadata = {
+  title: "Faustino Oro - Página Oficial del Ajedrecista Argentino",
+  description:
+    "Página Oficial de Faustino Oro, el jugador más joven en alcanzar 2500 de ELO FIDE. Campeón Argentino, Panamericano y número uno del mundo en su categoría.",
+};
+
+/* FaustiDevice -> 1524 * 730 */
+
+export const revalidate = 60;
+async function getLandingData() {
+  try {
+    await connectToDatabase();
+
+    const LIMIT = 4;
+
+    const activeTournaments = await TournamentModel.find({ isActive: true })
+      .sort({ startDate: 1 })
+      .limit(LIMIT)
+      .lean();
+
+    const remaining = LIMIT - activeTournaments.length;
+
+    const pastTournaments =
+      remaining > 0
+        ? await TournamentModel.find({ isActive: false })
+            .sort({ endDate: -1 })
+            .limit(remaining)
+            .lean()
+        : [];
+
+    const [achievements, notices] = await Promise.all([
+      AchievementModel.find().sort({ order: 1 }).lean(),
+      NoticeModel.find().sort({ createdAt: -1 }).limit(3).lean(),
+    ]);
+
+    return {
+      achievements: JSON.parse(JSON.stringify(achievements)),
+      tournaments: JSON.parse(
+        JSON.stringify([...activeTournaments, ...pastTournaments]),
+      ),
+      notices: JSON.parse(JSON.stringify(notices)),
+    };
+  } catch (error) {
+    console.error("Error in getLandingData:", error);
+    return { achievements: [], tournaments: [], notices: [] };
+  }
+}
+
+export default async function HomePage() {
+  const { achievements, tournaments, notices } = await getLandingData();
+  const locale = (await getLocale()) as "es" | "en";
+  const t = await getTranslations("quote");
+
+  // Localizar achievements: aplanar title y traducir category
+  const tAchievements = await getTranslations("achievements");
+  const localizedAchievements = achievements.map((a:any) => ({
+    ...a,
+    title: a.title[locale],
+    // La categoría sigue siendo la clave en español para agrupar,
+    // pero agregamos la versión traducida para mostrar
+    categoryLabel: tAchievements(`categories.${a.category}`),
+  }));
+  
+   const localizedNotices = notices.map((n:any) => ({
+    ...n,
+    title: n.title[locale],
+    description: n.description[locale],
+    content: n.content[locale],
+  }));
+  return (
+    <section className="bg-zinc-800 text-balance overflow-hidden">
+      <NavbarLanding />
+      <Home />
+      <About />
+      <Achievements2 data={localizedAchievements} />
+      <Tournaments data={tournaments} />
+
+      <div className="w-full flex flex-col-reverse justify-center items-center px-6 gap-9 py-14 bg-zinc-200 font-light text-zinc-400 text-[1.2rem] sm:text-[1.35rem] md:flex-row md:justify-evenly md:px-0 lg:text-4xl xl:text-5xl lg:gap-0 lg:py-20 3xl:text-6xl 2xl:py-24">
+        <div className=" max-w-120 lg:max-w-170 xl:max-w-210 text-balance flex flex-col 3xl:max-w-280">
+          {t("text")}
+          <div className="text-base lg:text-xl pt-6 3xl:text-2xl">
+            {t("author")}
+          </div>
+        </div>
+        <Image
+          src={asterisk}
+          alt="Faustino Oro - Torneos"
+          loading="eager"
+          className="bg-teal-950 w-36 sm:w-38 lg:w-60 xl:w-65 3xl:w-70"
+        />
+      </div>
+
+      <Notices data={localizedNotices} />
+      <Partners />
+      <Contact />
+    </section>
+  );
+}

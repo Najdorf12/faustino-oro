@@ -2,9 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Ubuntu } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import Script from "next/script";
-import LenisProvider from "@/lib/LenisProvider";
-import PageLoader from "@/components/landing/ui/layout/PageLoader";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -12,34 +9,13 @@ const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
 });
 
-
 const satoshi = localFont({
   src: [
-    {
-      path: "../assets/fonts/Satoshi/Satoshi.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/Satoshi/Satoshi.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/Satoshi/Satoshi.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/Satoshi/Satoshi.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/Satoshi/Satoshi.ttf",
-      weight: "700",
-      style: "normal",
-    },
+    { path: "../assets/fonts/Satoshi/Satoshi.ttf", weight: "300", style: "normal" },
+    { path: "../assets/fonts/Satoshi/Satoshi.ttf", weight: "400", style: "normal" },
+    { path: "../assets/fonts/Satoshi/Satoshi.ttf", weight: "500", style: "normal" },
+    { path: "../assets/fonts/Satoshi/Satoshi.ttf", weight: "600", style: "normal" },
+    { path: "../assets/fonts/Satoshi/Satoshi.ttf", weight: "700", style: "normal" },
   ],
   variable: "--font-satoshi",
   display: "swap",
@@ -47,67 +23,26 @@ const satoshi = localFont({
 
 const lubidow = localFont({
   src: [
-    {
-      path: "../assets/fonts/lubidow-regular.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/lubidow-regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/lubidow-regular.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/lubidow-regular.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/lubidow-regular.ttf",
-      weight: "700",
-      style: "normal",
-    },
+    { path: "../assets/fonts/lubidow-regular.ttf", weight: "300", style: "normal" },
+    { path: "../assets/fonts/lubidow-regular.ttf", weight: "400", style: "normal" },
+    { path: "../assets/fonts/lubidow-regular.ttf", weight: "500", style: "normal" },
+    { path: "../assets/fonts/lubidow-regular.ttf", weight: "600", style: "normal" },
+    { path: "../assets/fonts/lubidow-regular.ttf", weight: "700", style: "normal" },
   ],
   variable: "--font-lubidow",
   display: "swap",
 });
 
 const superlarky = localFont({
-src: [
-    {
-      path: "../assets/fonts/SuperLarky.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/SuperLarky.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/SuperLarky.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/SuperLarky.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/SuperLarky.ttf",
-      weight: "700",
-      style: "normal",
-    },
+  src: [
+    { path: "../assets/fonts/SuperLarky.ttf", weight: "300", style: "normal" },
+    { path: "../assets/fonts/SuperLarky.ttf", weight: "400", style: "normal" },
+    { path: "../assets/fonts/SuperLarky.ttf", weight: "500", style: "normal" },
+    { path: "../assets/fonts/SuperLarky.ttf", weight: "600", style: "normal" },
+    { path: "../assets/fonts/SuperLarky.ttf", weight: "700", style: "normal" },
   ],
   variable: "--font-superlarky",
   display: "swap",
-  // Next usará esto como font-family name internamente
 });
 
 export const metadata: Metadata = {
@@ -119,16 +54,9 @@ export const metadata: Metadata = {
   description:
     "Página Oficial de Faustino Oro, el joven prodigio del ajedrez mundial. Conoce su biografía y mantente informado de sus proximos torneos, estadisticas, partidas destacadas y logros en el mundo del ajedrez profesional.",
   keywords: [
-    "Faustino Oro",
-    "niño prodigio ajedrez",
-    "IM",
-    "Maestro Internacional",
-    "GM ajedrez argentino",
-    "ranking FIDE",
-    "torneos internacionales ajedrez",
-    "partidas destacadas ajedrez",
-    "maestro internacional",
-    "El pibe de oro",
+    "Faustino Oro", "niño prodigio ajedrez", "IM", "Maestro Internacional",
+    "GM ajedrez argentino", "ranking FIDE", "torneos internacionales ajedrez",
+    "partidas destacadas ajedrez", "maestro internacional", "El pibe de oro",
   ],
   authors: [{ name: "Faustino Oro" }],
   creator: "Faustino Oro",
@@ -152,36 +80,18 @@ export const metadata: Metadata = {
     description:
       "Página Oficial de Faustino Oro, el joven prodigio del ajedrez mundial. Conoce su biografía y mantente informado de sus proximos torneos, estadisticas, partidas destacadas y logros en el mundo del ajedrez profesional.",
     siteName: "Faustino Oro",
-    images: [
-      {
-        url: "/fausti.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Faustino Oro, joven prodigio del ajedrez",
-      },
-    ],
+    images: [{ url: "/fausti.jpeg", width: 1200, height: 630, alt: "Faustino Oro, joven prodigio del ajedrez" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Faustino Oro - Página Oficial | Ajedrez Profesional",
-    description:
-      "Página Oficial de Faustino Oro, el joven prodigio del ajedrez argentino",
+    description: "Página Oficial de Faustino Oro, el joven prodigio del ajedrez argentino",
     images: ["/fausti.jpeg"],
   },
-  alternates: {
-    canonical: "https://www.orofaustino.com",
-  },
-  verification: {
-    google: "yLmlttyx8GtuVp89gWQ1X0oVRhudOMEshoohKRjVeyU",
-  },
-  icons: {
-    icon: [
-      { url: "/logo3.png", type: "image/svg+xml" }, // si tenés versión SVG
-    ],
-  },
-  other: {
-    google: "notranslate",
-  },
+  alternates: { canonical: "https://www.orofaustino.com" },
+  verification: { google: "yLmlttyx8GtuVp89gWQ1X0oVRhudOMEshoohKRjVeyU" },
+  icons: { icon: [{ url: "/logo3.png", type: "image/svg+xml" }] },
+  other: { google: "notranslate" },
 };
 
 export const viewport: Viewport = {
@@ -194,11 +104,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
-        {/* ✅ Boxicons en el head */}
         <link rel="preconnect" href="https://unpkg.com" />
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -207,43 +115,9 @@ export default function RootLayout({
       </head>
       <body
         className={`${ubuntu.variable} ${superlarky.variable} ${satoshi.variable} ${lubidow.variable} antialiased`}
+        suppressHydrationWarning
       >
-        {/* ✅ JSON-LD */}
-        <Script
-          id="schema-org"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Faustino Oro",
-              description:
-                "Página Oficial de Faustino Oro, el joven prodigio del ajedrez mundial. Conoce su biografía y mantente informado de sus proximos torneos, estadisticas, partidas destacadas y logros en el mundo del ajedrez profesional.",
-              url: "https://www.orofaustino.com",
-              image: "https://www.orofaustino.com/img28.webp",
-              sameAs: [
-                "https://www.instagram.com/faustioro",
-                "https://www.facebook.com/orofaustino",
-                "https://www.chess.com/member/faustinooro",
-              ],
-              nationality: "Argentina",
-              birthDate: "2013-10-14",
-              knowsAbout: [
-                "Ajedrez",
-                "Torneos internacionales",
-                "Estrategias de ajedrez",
-              ],
-              award: "Faustino Oro, joven prodigio del ajedrez",
-            }),
-          }}
-        />
-        <PageLoader />
-        <LenisProvider>
-          <main className="font-satoshi overflow-hidden bg-zinc-800">
-            {children}
-          </main>
-        </LenisProvider>
+        {children}
       </body>
     </html>
   );

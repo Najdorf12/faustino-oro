@@ -6,11 +6,16 @@ import { LichessPlayer } from "@/types/lichess";
 import Image from "next/image";
 import iconTournamentCard from "@/assets/images/icons/iconKnight.svg";
 import GameViewer from "./Game-Viewer";
+import { useTranslations, useLocale } from "next-intl";
+
 interface Props {
   tournament: Tournament;
 }
 
 export default function CardTournament({ tournament }: Props) {
+  const t = useTranslations("tournaments");
+  const locale = useLocale() as "es" | "en";
+
   const [expanded, setExpanded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [player, setPlayer] = useState<LichessPlayer | null>(null);
@@ -68,18 +73,12 @@ export default function CardTournament({ tournament }: Props) {
     }
   };
 
-  const startDate = new Date(tournament.startDate).toLocaleDateString("es-AR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
-  const endDate = new Date(tournament.endDate).toLocaleDateString("es-AR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+  const formatDate = (date: string) => {
+    return new Date(date).toLocaleDateString(
+      locale === "en" ? "en-US" : "es-AR",
+      { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" },
+    );
+  };
 
   return (
     <>
@@ -100,7 +99,7 @@ export default function CardTournament({ tournament }: Props) {
             disabled={loading}
             className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50"
           >
-            {loading ? "Cargando..." : expanded ? "Ocultar" : "Ver performance"}
+            {loading ? t("loading") : expanded ? t("hidePerf") : t("viewPerf")}
             <div className="bg-zinc-200 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -131,11 +130,11 @@ export default function CardTournament({ tournament }: Props) {
           <div className="flex w-fit">
             {tournament.isActive ? (
               <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-600 lg:text-base">
-                Próximamente
+                {t("upcoming")}
               </span>
             ) : (
               <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-800 lg:text-base lg:px-10">
-                Finalizado
+                {t("finished")}
               </span>
             )}
           </div>
@@ -167,10 +166,16 @@ export default function CardTournament({ tournament }: Props) {
               {tournament.location}
             </li>
             <li className="mt-1">
-              Inicio : <span className="text-zinc-200">{startDate}</span>
+             {t("start")} - {" "}
+              <span className="text-zinc-200">
+                 {formatDate(new Date(tournament.startDate).toISOString())}
+              </span>
             </li>
             <li className="mt-1">
-              Fin : <span className="text-zinc-200">{endDate}</span>
+              {t("end")} - {" "}
+              <span className="text-zinc-200">
+                {formatDate(new Date(tournament.endDate).toISOString())}
+              </span>
             </li>
           </ul>
         </div>
@@ -201,7 +206,7 @@ export default function CardTournament({ tournament }: Props) {
         <div className="mt-2 border rounded-lg border-zinc-700 px-4 py-3">
           <p className="text-zinc-500 text-sm text-balance flex gap-2 items-start justify-center">
             <span className="text-red-500 border rounded-full px-2">!</span>
-            No hay datos disponibles para este torneo.
+            {t("noData")}
           </p>
         </div>
       )}
@@ -237,7 +242,7 @@ export default function CardTournament({ tournament }: Props) {
           {player.games.length > 0 && (
             <div className="space-y-2 mt-6 border rounded-lg border-zinc-700 pt-3 px-2 lg:pt-4 lg:px-4">
               <p className="text-base text-zinc-500 uppercase tracking-wide font-medium lg:text-lg 3xl:text-xl">
-                Partidas ({player.played})
+                {t("games")} ({player.played})
               </p>
 
               {player.games.map((g) => (
@@ -279,9 +284,9 @@ export default function CardTournament({ tournament }: Props) {
                         }
                       >
                         {g.points === "1"
-                          ? "Ganó"
+                          ? t("won")
                           : g.points === "0"
-                            ? "Perdió"
+                            ? t("lost")
                             : "½"}
                       </span>
 
@@ -302,8 +307,8 @@ export default function CardTournament({ tournament }: Props) {
                           }`}
                         >
                           {activeGame?.gameId === g.id
-                            ? "Cerrar"
-                            : "Ver partida"}
+                            ? t("close")
+                            : t("viewGame")}
                         </button>
                       )}
                     </div>

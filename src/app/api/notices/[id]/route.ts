@@ -4,6 +4,8 @@ import NoticeModel from "@/models/notice";
 import mongoose from "mongoose";
 import { deleteImage } from "@/lib/cloudinary";
 import { revalidatePath } from "next/cache";
+import { translateText } from "@/lib/translate";
+import { translateNotice } from "@/lib/translateNotice";
 
 type RouteContext = {
   params: Promise<{ id: string }>;
@@ -38,34 +40,56 @@ export async function GET(request: NextRequest, context: RouteContext) {
 export async function PUT(request: NextRequest, context: RouteContext) {
   try {
     await connectToDatabase();
-
     const { id } = await context.params;
-
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json({ message: "ID inválido" }, { status: 400 });
     }
 
     const body = await request.json();
-
     const notice = await NoticeModel.findById(id);
-
     if (!notice) {
-      return NextResponse.json(
-        { message: "Noticia no encontrada" },
-        { status: 404 },
-      );
+      return NextResponse.json({ message: "Noticia no encontrada" }, { status: 404 });
     }
 
-    // Actualizar campos
-    notice.title = body.title;
-    notice.description = body.description;
-    notice.content = body.content;
+    const esChanged =
+      body.title !== notice.title.es ||
+      body.description !== notice.description.es ||
+      body.content !== notice.content.es;
+
+    // Si vienen campos EN explícitos y no vacíos, usarlos directamente
+    const hasManualEn =
+      body.titleEn?.trim() &&
+      body.descriptionEn?.trim() &&
+      body.contentEn?.trim();
+
+    let titleEn = notice.title.en;
+    let descriptionEn = notice.description.en;
+    let contentEn = notice.content.en;
+
+    if (hasManualEn) {
+      // El usuario corrigió manualmente el EN — respetar siempre
+      titleEn = body.titleEn.trim();
+      descriptionEn = body.descriptionEn.trim();
+      contentEn = body.contentEn.trim();
+    } else if (esChanged) {
+      // El ES cambió y no hay corrección manual — retradducir
+      const translated = await translateNotice({
+        title: body.title,
+        description: body.description,
+        content: body.content,
+      });
+      titleEn = translated.titleEn;
+      descriptionEn = translated.descriptionEn;
+      contentEn = translated.contentEn;
+    }
+    // Si no cambió nada y no hay manual → conserva el EN existente (ya asignado arriba)
+
+    notice.title = { es: body.title, en: titleEn };
+    notice.description = { es: body.description, en: descriptionEn };
+    notice.content = { es: body.content, en: contentEn };
     notice.category = body.category;
     notice.isActive = body.isActive;
-
-    // Conservar imágenes anteriores si no hay nuevas
-    notice.images =
-      body.images && body.images.length > 0 ? body.images : notice.images;
+    notice.images = body.images?.length > 0 ? body.images : notice.images;
 
     const updatedNotice = await notice.save();
     revalidatePath("/");
@@ -74,14 +98,6 @@ export async function PUT(request: NextRequest, context: RouteContext) {
     return NextResponse.json(updatedNotice);
   } catch (error: any) {
     console.error("Error updating notice:", error);
-
-    if (error.code === 11000) {
-      return NextResponse.json(
-        { message: "Ya existe una noticia con ese título" },
-        { status: 400 },
-      );
-    }
-
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
@@ -118,7 +134,7 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
         }
       }
     }
-   revalidatePath("/");
+    revalidatePath("/");
     revalidatePath("/notices");
     revalidatePath(`/notices/${id}`);
     return NextResponse.json({

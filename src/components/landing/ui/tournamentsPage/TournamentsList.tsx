@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import type { Tournament } from "@/types/tournament";
 import CardTournament from "./CardTournament";
+import { useTranslations } from "next-intl";
 
 interface TournamentsListProps {
   tournaments: Tournament[];
@@ -10,7 +11,7 @@ interface TournamentsListProps {
 export default function TournamentsList({ tournaments }: TournamentsListProps) {
   const [search, setSearch] = useState("");
   const [yearFilter, setYearFilter] = useState<string>("all");
-
+  const t = useTranslations("tournaments");
   // Años únicos extraídos de los datos, orden descendente
   const years = useMemo(() => {
     const set = new Set(
@@ -41,13 +42,13 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
     active.length === 0 && lastPlayed ? historical.slice(1) : historical;
 
   const isFiltering = search.trim() !== "" || yearFilter !== "all";
+  const tournamentCount = (count: number) =>
+    `${count} ${count !== 1 ? t("tournaments_plural") : t("tournament")}`;
 
   if (!tournaments || tournaments.length === 0) {
     return (
       <section className="w-full max-w-4xl mx-auto px-6 py-16 text-center">
-        <p className="text-zinc-500 text-lg xl:text-4xl">
-          No hay torneos disponibles por el momento.
-        </p>
+        <p className="text-zinc-500 text-lg xl:text-4xl">{t("empty")}</p>
       </section>
     );
   }
@@ -61,7 +62,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
       <div className="flex flex-col md:flex-row gap-3 mb-10 px-3 lg:px-12 ">
         <input
           type="text"
-          placeholder="Buscar torneo o ciudad..."
+          placeholder={t("searchPlaceholder")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="bg-zinc-800 border border-zinc-600 rounded-lg px-4 py-2 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-sky-600 flex-1"
@@ -72,7 +73,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
             onChange={(e) => setYearFilter(e.target.value)}
             className="appearance-none bg-sky-800 border border-sky-600 rounded-lg pl-4 lg:pl-6 lg:pr-14 py-2 text-zinc-200 focus:outline-none focus:border-sky-600 cursor-pointer w-full"
           >
-            <option value="all">Todos los años</option>
+            <option value="all">{t("allYears")}</option>
             {years.map((y) => (
               <option
                 className="bg-sky-900 cursor-pointer rounded-3xl"
@@ -105,9 +106,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
       {/* SIN RESULTADOS al filtrar */}
       {isFiltering && filtered.length === 0 && (
         <div className="text-center py-16">
-          <p className="text-zinc-500 text-lg">
-            No se encontraron torneos con ese criterio.
-          </p>
+          <p className="text-zinc-500 text-lg">{t("noResults")}</p>
           <button
             onClick={() => {
               setSearch("");
@@ -115,7 +114,7 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
             }}
             className="mt-4 text-sky-500 hover:text-sky-400 text-sm cursor-pointer"
           >
-            Limpiar filtros
+            {t("clearFilters")}
           </button>
         </div>
       )}
@@ -126,10 +125,10 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
           <section className="lg:py-4 lg:mb-6">
             <div className="flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-10 lg:mb-14 border-l-3 border-sky-600">
               <h6 className="text-zinc-200 text-nowrap text-3xl sm:text-4xl lg:text-6xl">
-                Torneos activos
+                {t("active")}
               </h6>
               <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
-                / {active.length} torneo{active.length !== 1 ? "s" : ""} /
+                / {tournamentCount(active.length)} /
               </div>
             </div>
             <ul className="flex flex-col gap-9 lg:gap-14" role="list">
@@ -144,10 +143,10 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
           <section className="lg:py-4 lg:mb-6">
             <div className=" flex items-end py-2 gap-3 mb-9 pl-3 lg:gap-12 lg:pl-10 lg:mb-14 border-l-3 border-sky-600">
               <h6 className="text-zinc-200 text-nowrap text-3xl sm:text-4xl lg:text-6xl ">
-                Último jugado
+                {t("lastPlayed")}
               </h6>
               <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
-                / 1 torneo /
+                / {tournamentCount(1)} /
               </div>
             </div>
             <ul className="flex flex-col gap-9 lg:gap-14" role="list">
@@ -163,14 +162,10 @@ export default function TournamentsList({ tournaments }: TournamentsListProps) {
         <section className="lg:py-2">
           <div className="flex items-end py-2 gap-3 mt-10 mb-9 pl-3 lg:gap-12 lg:pl-10 lg:mt-2 lg:mb-14 border-l-3 border-sky-600">
             <h6 className="text-zinc-200 text-3xl sm:text-4xl lg:text-6xl">
-              {isFiltering ? "Resultados" : "Historial"}
+              {isFiltering ? t("results") : t("history")}
             </h6>
             <div className="text-zinc-600 text-lg sm:text-xl lg:text-4xl">
-              / {(isFiltering ? filtered : historicalList).length} torneo
-              {(isFiltering ? filtered : historicalList).length !== 1
-                ? "s"
-                : ""}{" "}
-              /
+              / {tournamentCount((isFiltering ? filtered : historicalList).length)} /
             </div>
           </div>
           <ul className="flex flex-col gap-9 lg:gap-14" role="list">

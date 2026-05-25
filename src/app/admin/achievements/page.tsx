@@ -10,7 +10,8 @@ import {
 } from "@/types/achievement";
 
 interface FormData {
-  title: string;
+  title_es?: string;
+  title_en?: string;
   category: AchievementCategory;
 }
 
@@ -34,11 +35,16 @@ const AchievementsForm = () => {
   useEffect(() => {
     if (achievementSelected) {
       reset({
-        title: achievementSelected.title,
+        title_es: achievementSelected.title.es, // ← antes: title_es || title
+        title_en: achievementSelected.title.en, // ← antes: title_en || ""
         category: achievementSelected.category,
       });
     } else {
-      reset({ title: "", category: ACHIEVEMENT_CATEGORIES[0] });
+      reset({
+        title_es: "",
+        title_en: "",
+        category: ACHIEVEMENT_CATEGORIES[0],
+      });
     }
   }, [achievementSelected, reset]);
 
@@ -60,10 +66,20 @@ const AchievementsForm = () => {
         : "/api/achievements";
       const method = achievementSelected ? "PUT" : "POST";
 
+      const body = achievementSelected
+        ? {
+            title: { es: data.title_es, en: data.title_en },
+            category: data.category,
+          }
+        : {
+            title: { es: data.title_es, en: data.title_en },
+            category: data.category,
+          };
+
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(body),
       });
 
       if (response.ok) {
@@ -79,7 +95,11 @@ const AchievementsForm = () => {
           setAchievements([...achievements, savedAchievement]);
           alert("Logro creado exitosamente");
         }
-        reset({ title: "", category: ACHIEVEMENT_CATEGORIES[0] });
+        reset({
+          title_es: "",
+          title_en: "",
+          category: ACHIEVEMENT_CATEGORIES[0],
+        });
         setAchievementSelected(null);
       } else {
         const error = await response.json();
@@ -110,7 +130,7 @@ const AchievementsForm = () => {
 
   const cancelEdit = () => {
     setAchievementSelected(null);
-    reset({ title: "", category: ACHIEVEMENT_CATEGORIES[0] });
+    reset({ title_es: "", category: ACHIEVEMENT_CATEGORIES[0] });
   };
 
   const formatDate = (date?: Date) => {
@@ -229,21 +249,39 @@ const AchievementsForm = () => {
           {/* Título como textarea */}
           <div className="relative font-medium">
             <label className="block text-zinc-200 text-xs uppercase tracking-widest mb-3 lg:text-base">
-              Logro
+              {achievementSelected ? "Logro (ES)" : "Logro"}
             </label>
             <textarea
               autoComplete="off"
               rows={3}
               placeholder="Describe el logro..."
               className="w-full bg-zinc-800/40 border-2 border-sky-700 rounded-lg text-white placeholder-zinc-500 px-4 py-3 text-sm resize-none focus:outline-none focus:border-sky-500 transition-colors duration-200 lg:text-base"
-              {...register("title", { required: "El logro es requerido" })}
+              {...register("title_es", { required: "El logro es requerido" })}
             />
-            {errors.title && (
+            {errors.title_es && (
               <p className="text-red-400 text-sm mt-1">
-                {errors.title.message}
+                {errors.title_es.message}
               </p>
             )}
           </div>
+          {/* Título EN — solo visible al editar */}
+          {achievementSelected && (
+            <div className="relative font-medium">
+              <label className="block text-zinc-200 text-xs uppercase tracking-widest mb-3 lg:text-base">
+                Logro (EN)
+                <span className="ml-2 text-zinc-500 normal-case tracking-normal text-xs font-normal">
+                  Traducción en inglés
+                </span>
+              </label>
+              <textarea
+                autoComplete="off"
+                rows={3}
+                placeholder="Achievement description in English..."
+                className="w-full bg-zinc-800/40 border-2 border-sky-600/50 rounded-lg text-white placeholder-zinc-500 px-4 py-3 text-sm resize-none focus:outline-none focus:border-sky-400 transition-colors duration-200 lg:text-base"
+                {...register("title_en")}
+              />
+            </div>
+          )}
 
           <div className="relative flex items-center justify-center gap-4">
             {achievementSelected && (
@@ -333,12 +371,35 @@ const AchievementsForm = () => {
                           </div>
                         </div>
 
-                        {/* Título */}
-                        <h4 className="text-base font-medium text-zinc-100 leading-snug flex-1 lg:text-lg">
-                          {achievement.title}
-                        </h4>
+                        {/* ES */}
+                        <div className="flex flex-col gap-1">
+                          <span className="text-xs uppercase tracking-widest text-zinc-500">
+                            ES
+                          </span>
+                          <h4 className="text-sm font-medium text-zinc-100 leading-snug lg:text-base">
+                            {achievement.title.es}
+                          </h4>
+                        </div>
 
-                        {/* Footer */}
+                        {/* EN */}
+                        <div className="flex flex-col gap-1">
+                          <span className="text-xs uppercase tracking-widest text-zinc-500 flex items-center gap-2">
+                            EN
+                            {!achievement.title.en && (
+                              <span className="text-yellow-500 text-xs normal-case tracking-normal">
+                                ⚠ sin traducción
+                              </span>
+                            )}
+                          </span>
+                          <p className="text-sm text-zinc-400 leading-snug lg:text-base">
+                            {achievement.title.en || (
+                              <span className="text-zinc-600 italic">
+                                No traducido
+                              </span>
+                            )}
+                          </p>
+                        </div>
+
                         <div className="flex flex-col gap-3 mt-auto">
                           <p className="text-zinc-500 text-xs">
                             {formatDate(achievement.createdAt)}
