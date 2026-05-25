@@ -1,7 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import { useState, Suspense, lazy, useEffect } from "react";
-import { NoticeModal } from "./ui/layout/NoticeModal";
 import Button from "./ui/layout/ButtonNotices";
 import CardNotice from "./ui/layout/CardNotice";
 import type { LocalizedNotice } from "@/types/notice";
