@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <>
       <section className=" h-[95vh] md:h-screen w-full relative pb-2.5 lg:pb-1  rounded-b-xl lg:rounded-b-3xl border-b border-zinc-700">
-        <div className="absolute inset-0 z-20 bg-zinc-900/25  rounded-b-xl lg:rounded-b-3xl"></div>
+        <div className="absolute inset-0 z-20 bg-zinc-900/35 lg:bg-zinc-900/25  rounded-b-xl lg:rounded-b-3xl"></div>
         <picture className="w-full h-full z-15 absolute inset-0 mx-auto rounded-b-xl lg:rounded-b-3xl">
           <source media="(min-width: 600px)" srcSet={imgHome.src} />
           <Image
@@ -54,7 +54,7 @@ export default async function Home() {
           <Image src={icon} alt="icon" className="w-full"></Image>
         </div> */}
 
-        <div className=" items-center justify-center h-full flex flex-col gap-2 lg:gap-4 xl:gap-5 z-100 absolute right-4 top-0">
+        <div className=" items-center justify-center h-full flex flex-col gap-2 lg:gap-4 xl:gap-5 z-100 absolute right-2 lg:right-4 top-0">
           <div className="h-[16vh] w-0.5 bg-sky-800 mb-2"></div>
 
           <Link
@@ -63,7 +63,7 @@ export default async function Home() {
             className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Instagram
-              className="w-6 h-6 md:w-[38px] md:h-[38px]"
+              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
               fill="#d4d4d8"
               cursor="pointer"
             />
@@ -75,7 +75,7 @@ export default async function Home() {
             className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Youtube
-              className="w-6 h-6 md:w-[38px] md:h-[38px]"
+              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
               fill="#d4d4d8"
               cursor="pointer"
             />
@@ -87,7 +87,7 @@ export default async function Home() {
             className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Facebook
-              className="w-6 h-6 md:w-[38px] md:h-[38px]"
+              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
               fill="#d4d4d8"
               cursor="pointer"
             />
