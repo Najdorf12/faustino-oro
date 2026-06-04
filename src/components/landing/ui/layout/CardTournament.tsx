@@ -70,9 +70,15 @@ export default function CardTournament({ card, index }: CardProps) {
         />
       </div>
       <div
-        className={`px-3 absolute top-3 right-2 self-end mt-3 w-fit border-b border-zinc-300 text-sm lg:text-base ${isActive ? "bg-sky-00 text-zinc-200" : "bg-sky-00 text-zinc-100"} `}
+        className={`px-1 absolute top-3 right-2 self-end mt-3 w-fit border-b text-sm lg:text-base ${
+          isActive
+            ? "border-sky-400 text-sky-300"
+            : isFirst && !isActive
+              ? "border-zinc-300 text-zinc-300"
+              : "border-zinc-400 text-zinc-400"
+        }`}
       >
-        {isActive ? t("active") : t("lastPlayed")}
+        {isActive ? t("upcoming") : isFirst ? t("lastPlayed") : t("finished")}
       </div>
       <article className="text-sm flex flex-col gap-1 md:min-h-25 leading-4.5 relative z-100 xl:leading-5.5 xl:text-base 2xl:min-h-29 2xl:leading-6">
         <div className="text-lg leading-5 text-zinc-100 xl:leading-5.5 2xl:text-xl">

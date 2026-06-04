@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
         onClick={() => switchLocale("es")}
         className={`px-1 transition-colors duration-300 cursor-pointer ${
           locale === "es"
-            ? "text-sky-600 underline underline-offset-4"
+            ? "text-sky-500 underline underline-offset-4"
             : "text-zinc-500 hover:text-zinc-200"
         }`}
       >
@@ -33,7 +33,7 @@ export default function LanguageSwitcher() {
         onClick={() => switchLocale("en")}
         className={`px-1 transition-colors duration-300 cursor-pointer ${
           locale === "en"
-            ? "text-sky-500 underline underline-offset-4"
+            ? "text-sky-400 underline underline-offset-4"
             : "text-zinc-500 hover:text-zinc-200"
         }`}
       >
