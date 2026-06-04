@@ -39,54 +39,60 @@ export default async function Home() {
         />
         {/*    */}
         <article className=" relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2 self-end lg:justify-end lg:pb-3 lg:pt-12">
-         <h1 className="text-zinc-300 relative z-100 text-[2.9rem] leading-16 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-36 xl:text-[6.9rem] xl:tracking-wide 2xl:leading-41 2xl:text-[7.2rem] 3xl:leading-48 3xl:text-[8.5rem]">
+          <h1 className="text-zinc-300 relative z-100 text-[2.9rem] leading-16 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-36 xl:text-[6.9rem] xl:tracking-wide 2xl:leading-41 2xl:text-[7.2rem] 3xl:leading-48 3xl:text-[8.5rem]">
             Faustino Oro
           </h1>
           <p className="font-medium flex items-center gap-2 text-zinc-300  lg:text-zinc-300 text-base sm:text-[1.1rem] lg:text-xl xl:text-[1.30rem] 2xl:text-[1.5rem] 3xl:text-3xl">
             <span className="border-2 border-zinc-400 text-zinc-400  px-1 py-0.5 font-ubuntu rounded-sm lg:py- lg:px-1.5">
               IM
             </span>{" "}
-             {t("title")}
+            {t("title")}
           </p>
         </article>
 
-        <div className="fixed z-200 right-0.5 bottom-1.5 md:bottom-2 w-9 sm:w-10 2xl:w-12">
+      {/*   <div className="fixed z-200 right-0.5 bottom-1.5 md:bottom-2 w-9 sm:w-10 2xl:w-12">
           <Image src={icon} alt="icon" className="w-full"></Image>
-        </div>
+        </div> */}
 
-        <div className="hidden h-full lg:flex lg:flex-col items-center justify-center lg:gap-4 xl:gap-5 z-100 absolute right-4 top-0  ">
+        <div className=" items-center justify-center h-full flex flex-col gap-2 lg:gap-4 xl:gap-5 z-100 absolute right-4 top-0">
           <div className="h-[16vh] w-0.5 bg-sky-800 mb-2"></div>
+
           <Link
-            href={"https://www.instagram.com/faustioro/"}
-            className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-2 flex items-center justify-center border-sky-700  rounded-full duration-400"
+            href="https://www.instagram.com/faustioro/"
             target="blank"
+            className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Instagram
-              width="38"
-              height="38"
+              className="w-6 h-6 md:w-[38px] md:h-[38px]"
               fill="#d4d4d8"
-              cursor={"pointer"}
+              cursor="pointer"
             />
           </Link>
+
           <Link
-            href={"https://www.youtube.com/@faustinooro"}
-            target="blank "
-            className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-2 flex items-center justify-center border-sky-700  rounded-full duration-400"
-          >
-            <Youtube width="38" height="38" fill="#d4d4d8" cursor={"pointer"} />
-          </Link>
-          <Link
-            href={"https://www.facebook.com/orofaustino/?locale=es_LA"}
+            href="https://www.youtube.com/@faustinooro"
             target="blank"
-            className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-2 flex items-center justify-center border-sky-700  rounded-full duration-400"
+            className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
+          >
+            <Youtube
+              className="w-6 h-6 md:w-[38px] md:h-[38px]"
+              fill="#d4d4d8"
+              cursor="pointer"
+            />
+          </Link>
+
+          <Link
+            href="https://www.facebook.com/orofaustino/?locale=es_LA"
+            target="blank"
+            className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Facebook
-              width="38"
-              height="38"
+              className="w-6 h-6 md:w-[38px] md:h-[38px]"
               fill="#d4d4d8"
-              cursor={"pointer"}
+              cursor="pointer"
             />
           </Link>
+
           <div className="h-[16vh] w-0.5 bg-sky-800 mt-2"></div>
         </div>
       </section>
