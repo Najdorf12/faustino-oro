@@ -75,7 +75,7 @@ const TournamentCard = ({
         </p>
         <ul className="text-zinc-300  text-base relative z-50">
           <div className="flex justify-center items-center">
-            <li className="w-1/2">Rank : {tournament.rank}</li>
+            <li className="w-1/2">Rank : #{tournament.rank}</li>
             <li className="w-1/2">Score : {tournament.score}</li>
           </div>
           <div className="flex">
