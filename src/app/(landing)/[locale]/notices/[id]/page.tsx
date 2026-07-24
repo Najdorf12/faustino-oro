@@ -6,6 +6,7 @@ import connectToDatabase from "@/lib/mongodb";
 import NoticeModel from "@/models/notice";
 import NavbarPages from "@/components/landing/ui/layout/NavbarPages";
 import { getLocale, getTranslations } from "next-intl/server";
+import imgChess from "@/assets/images/icons/iconKnight.svg"
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -72,11 +73,11 @@ export default async function NoticePage({ params }: Props) {
     <div className="min-h-screen py-20 lg:py-28 relative lg:pb-32 3xl:pb-38 ">
       <NavbarPages />
 
-      <article className="px-4 max-w-4xl  rounded-lg mx-auto lg:max-w-5xl  3xl:max-w-6xl ">
+      <article className="px-4  rounded-lg mx-auto  lg:flex flex-row-reverse justify-center items-center lg:px-6 lg:gap-5 xl:gap-6 w-full 2xl:px-12 2xl:max-w-440 2xl:gap-10 ">
         {notice.images &&
           notice.images.length > 0 &&
           notice.images[0].secure_url && (
-            <div className="relative z-50 h-96 w-full mb-8 rounded-xl overflow-hidden lg:h-132 border-2 border-zinc-700 shadow-xl shadow-zinc-900 3xl:h-150">
+            <div className="relative z-50 h-96 w-full mb-8 rounded-xl overflow-hidden lg:h-132 border-2 border-zinc-700 shadow-xl shadow-zinc-900 lg:max-w-160 2xl:max-w-180 3xl:h-150 ">
               <Image
                 src={notice.images[0].secure_url}
                 alt={notice.title[locale]}
@@ -86,26 +87,27 @@ export default async function NoticePage({ params }: Props) {
               />
             </div>
           )}
+        <div className="lg:w-fit ">
+          <div className="flex items-center justify-between mb-4 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 z-100 bg-zinc-900/50 md:py-6 md:px-3 ">
+            <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-8 py-0.5 rounded-sm lg:text-base 3xl:text-lg">
+              {translatedCategory}
+            </span>
+            <span className="text-zinc-500 text-sm lg:text-base 3xl:text-lg ">
+              {formattedDate}
+            </span>
+          </div>
 
-        <div className="flex items-center justify-between mb-4 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 z-100 bg-zinc-900/50 md:py-6 md:px-3 ">
-          <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-8 py-0.5 rounded-sm lg:text-base 3xl:text-lg">
-            {translatedCategory}
-          </span>
-          <span className="text-zinc-500 text-sm lg:text-base 3xl:text-lg ">
-            {formattedDate}
-          </span>
-        </div>
+          <h6 className="relative z-100 bg-zinc-900/50 rounded-lg border text-center text-2xl py-6 border-zinc-700 text-balance text-zinc-100 mb-4 md:text-3xl px-2 md:px-3 lg:px-6 lg:py-8 lg:text-4xl lg:mb-9 lg:leading-14 xl:text-5xl 3xl:text-6xl ">
+            {notice.title[locale]}
+          </h6>
 
-        <h6 className="relative z-100 bg-zinc-900/50 rounded-lg border text-center text-2xl py-6 border-zinc-700 text-balance text-zinc-100 mb-4 md:text-3xl px-2 md:px-3 lg:px-6 lg:py-8 lg:text-4xl lg:mb-9 xl:text-5xl 3xl:text-6xl ">
-          {notice.title[locale]}
-        </h6>
+          <p className="text-xl text-center  text-zinc-400 mb-8 text-balance relative z-100 px-2 md:px-3 lg:text-2xl lg:mb-9 3xl:text-3xl ">
+            {notice.description[locale]}
+          </p>
 
-        <p className="text-xl text-center  text-zinc-400 mb-8 text-balance relative z-100 px-2 md:px-3 lg:text-2xl lg:mb-9 3xl:text-3xl ">
-          {notice.description[locale]}
-        </p>
-
-        <div className="prose prose-invert prose-lg max-w-none text-balance text-zinc-300 text-base px-2 md:px-3 lg:text-lg relative z-100 3xl:text-xl">
-          <div dangerouslySetInnerHTML={{ __html: notice.content[locale] }} />
+          <div className="prose prose-invert prose-lg max-w-none text-balance text-zinc-300 text-base px-2 md:px-3 lg:text-lg relative z-100 3xl:text-xl">
+            <div dangerouslySetInnerHTML={{ __html: notice.content[locale] }} />
+          </div>
         </div>
       </article>
       <div
@@ -122,7 +124,9 @@ export default async function NoticePage({ params }: Props) {
             "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
         }}
       />
-
+      <div className="absolute bottom-2 right-3 xl:right-4">
+        <Image src={imgChess} alt="img-chess"></Image>
+      </div>
       <div className="absolute z-200 bottom-0.5 text-zinc-600 font-medium w-full flex items-center justify-center text-sm md:text-base 2xl:text-lg">
         © Faustino Oro
       </div>
