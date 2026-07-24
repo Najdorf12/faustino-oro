@@ -166,13 +166,13 @@ export default function CardTournament({ tournament }: Props) {
               {tournament.location}
             </li>
             <li className="mt-1">
-             {t("start")} - {" "}
+              {t("start")} -{" "}
               <span className="text-zinc-200">
-                 {formatDate(new Date(tournament.startDate).toISOString())}
+                {formatDate(new Date(tournament.startDate).toISOString())}
               </span>
             </li>
             <li className="mt-1">
-              {t("end")} - {" "}
+              {t("end")} -{" "}
               <span className="text-zinc-200">
                 {formatDate(new Date(tournament.endDate).toISOString())}
               </span>
@@ -212,12 +212,13 @@ export default function CardTournament({ tournament }: Props) {
       )}
 
       {player && expanded && (
-        <>
+        <div className="">
           {/* STATS */}
-          <div className="grid grid-cols-4 gap-2 text-center">
+          <div className="grid grid-cols-2 gap-2 mt-2 content-start lg:grid-cols-4">
             <Stat
               label="Rank"
               value={tournament.rank ? `#${tournament.rank}` : "N/A"}
+              note={tournament.rankNote}
             />
             <Stat label="Score" value={tournament.score ?? "N/A"} />
             <Stat label="Perf" value={tournament.performance ?? "N/A"} />
@@ -335,7 +336,7 @@ export default function CardTournament({ tournament }: Props) {
               ))}
             </div>
           )}
-        </>
+        </div>
       )}
     </>
   );
@@ -346,14 +347,16 @@ export default function CardTournament({ tournament }: Props) {
 function Stat({
   label,
   value,
+  note,
   highlight,
 }: {
   label: string;
   value: any;
+  note?: string;
   highlight?: "positive" | "negative";
 }) {
   return (
-    <div className="rounded-lg p-2 bg-linear-to-br from-sky-600 border border-sky-600 to-zinc-900 mt-9">
+    <div className="rounded-lg p-2 bg-linear-to-br h-22 flex flex-col items-center justify-center from-sky-600 border border-sky-600 to-zinc-900 mt-2 lg:h-26">
       <div className="text-base text-zinc-100 lg:text-xl">{label}</div>
       <div
         className={`text-base lg:text-xl ${
@@ -366,6 +369,11 @@ function Stat({
       >
         {value}
       </div>
+      {note && (
+        <div className="text-xs text-zinc-300 mt-0.5 lg:text-sm truncate">
+          {note}
+        </div>
+      )}
     </div>
   );
 }

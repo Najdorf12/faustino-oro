@@ -17,6 +17,7 @@ export interface Tournament {
   rating?: number;
   score?: number;
   rank?: number;
+  rankNote?: string; 
   createdAt?: Date;
   updatedAt?: Date;
 }

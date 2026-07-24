@@ -38,6 +38,7 @@ const tournamentSchema = new Schema<Tournament>(
     rating: { type: Number, default: null },
     score: { type: Number, default: null },
     rank: { type: Number, default: null },
+    rankNote: { type: String, default: "" },
     images: {
       type: [
         {

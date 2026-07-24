@@ -35,6 +35,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
       rating: body.rating ?? null,
       score: body.score ?? null,
       rank: body.rank ?? null,
+      rankNote: body.rankNote || "",
     });
 
     const savedTournament = await newTournament.save();

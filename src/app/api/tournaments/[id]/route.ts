@@ -72,6 +72,7 @@ export async function PUT(
     tournament.rating = body.rating ?? null;
     tournament.score = body.score ?? null;
     tournament.rank = body.rank ?? null;
+    tournament.rankNote = body.rankNote || ""
 
     // Conservar imágenes anteriores si no hay nuevas
     tournament.images =

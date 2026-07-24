@@ -31,7 +31,7 @@ const TournamentCard = ({
     <div
       className="text-balance w-full max-w-95 border border-zinc-400 z-100 relative cursor-pointer  
       rounded-2xl p-4 flex flex-col justify-between duration-300 group 
-      hover:scale-105 md:p-4 lg:h-144 lg:p-5 xl:max-w-97 "
+      hover:scale-105 md:p-4 lg:h-150 lg:p-5 xl:max-w-97 "
     >
       <div className="flex justify-between items-center ">
         <div
@@ -76,12 +76,13 @@ const TournamentCard = ({
         <ul className="text-zinc-300  text-base relative z-50">
           <div className="flex justify-center items-center">
             <li className="w-1/2">Rank : #{tournament.rank}</li>
-            <li className="w-1/2">Score : {tournament.score}</li>
+            <li className="w-1/2">RankNote : {tournament.rankNote}</li>
           </div>
           <div className="flex">
             <li className="w-1/2">Performance : {tournament.performance}</li>
             <li className="w-1/2">Rating : {tournament.rating}</li>
           </div>
+            <li className="w-1/2">Score : {tournament.score}</li>
         </ul>
         {tournament.images && tournament.images.length > 0 && (
           <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-4 lg:w-45 lg:h-22">
