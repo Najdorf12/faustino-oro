@@ -73,7 +73,7 @@ export default async function NoticePage({ params }: Props) {
     <div className="min-h-screen py-20 lg:py-28 relative lg:pb-32 3xl:pb-38 ">
       <NavbarPages />
 
-      <article className="px-4  rounded-lg mx-auto  lg:flex flex-row-reverse justify-center items-center lg:px-6 lg:gap-5 xl:gap-6 w-full 2xl:px-12 2xl:max-w-440 2xl:gap-10 ">
+      <article className="px-4  rounded-lg mx-auto  lg:flex flex-row-reverse justify-center items-center lg:px-6 lg:gap-5 xl:gap-6 w-full 2xl:px-12 2xl:max-w-440 2xl:gap-9 ">
         {notice.images &&
           notice.images.length > 0 &&
           notice.images[0].secure_url && (
@@ -97,7 +97,7 @@ export default async function NoticePage({ params }: Props) {
             </span>
           </div>
 
-          <h6 className="relative z-100 bg-zinc-900/50 rounded-lg border text-center text-2xl py-6 border-zinc-700 text-balance text-zinc-100 mb-4 md:text-3xl px-2 md:px-3 lg:px-6 lg:py-8 lg:text-4xl lg:mb-9 lg:leading-14 xl:text-5xl 3xl:text-6xl ">
+          <h6 className="relative z-100 bg-zinc-900/50 rounded-lg border text-center text-2xl py-6 border-zinc-700 text-balance text-zinc-100 mb-4 md:text-3xl px-2 md:px-3 lg:px-6 lg:py-8 lg:text-4xl lg:mb-9 xl:leading-14 xl:text-5xl 3xl:leading-16 3xl:text-6xl ">
             {notice.title[locale]}
           </h6>
 
