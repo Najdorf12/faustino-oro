@@ -70,14 +70,14 @@ export default async function NoticePage({ params }: Props) {
   );
 
   return (
-    <div className="min-h-screen py-20 lg:py-28 relative lg:pb-32 3xl:pb-38 ">
+    <div className="min-h-screen py-24.5 lg:py-28 relative lg:pb-32 3xl:pb-38 ">
       <NavbarPages />
 
-      <article className="px-4  rounded-lg mx-auto  lg:flex flex-row-reverse justify-center items-center lg:px-6 lg:gap-5 xl:gap-6 w-full 2xl:px-12 2xl:max-w-440 2xl:gap-9 ">
+      <article className="px-4 rounded-lg mx-auto flex flex-col justify-center items-center lg:px-6 lg:gap-5 xl:gap-6 w-full 2xl:px-12 2xl:max-w-440 2xl:gap-9 ">
         {notice.images &&
           notice.images.length > 0 &&
           notice.images[0].secure_url && (
-            <div className="relative z-50 h-70 w-full mb-8 rounded-xl overflow-hidden lg:h-132 border-2 border-zinc-700 shadow-xl shadow-zinc-900 lg:max-w-180 2xl:max-w-190 3xl:max-w-240 3xl:h-150 ">
+            <div className="relative z-50 h-70 w-full mb-5 rounded-xl border-2 border-zinc-700 shadow-xl shadow-zinc-900  overflow-hidden md:h-85 lg:h-132  lg:max-w-210 2xl:max-w-190 3xl:max-w-240 b 3xl:h-150 ">
               <Image
                 src={notice.images[0].secure_url}
                 alt={notice.title[locale]}
@@ -87,8 +87,8 @@ export default async function NoticePage({ params }: Props) {
               />
             </div>
           )}
-        <div className="lg:w-fit ">
-          <div className="flex items-center justify-between mb-4 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 z-100 bg-zinc-900/50 md:py-6 md:px-3 ">
+        <div className="lg:w-fit lg:max-w-300  ">
+          <div className="flex items-center justify-between mb-3 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 z-100 bg-zinc-900/50 md:py-6 md:px-3 ">
             <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-8 py-0.5 rounded-sm lg:text-base 3xl:text-lg">
               {translatedCategory}
             </span>
@@ -101,7 +101,7 @@ export default async function NoticePage({ params }: Props) {
             {notice.title[locale]}
           </h6>
 
-          <p className="text-xl text-center  text-zinc-400 mb-8 text-balance relative z-100 px-2 md:px-3 lg:text-2xl lg:mb-9 3xl:text-3xl ">
+          <p className="text-xl text-center  text-zinc-400 mb-4.5 text-balance relative z-100 px-2 md:px-3 lg:text-2xl lg:mb-9 3xl:text-3xl ">
             {notice.description[locale]}
           </p>
 
