@@ -53,7 +53,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
     <li className="flex flex-col gap-2 relative lg:pl-10">
       <div className="group cursor-pointer text-balance  border-b border-zinc-600 to-zinc rounded-lg overflow-hidden transition-all duration-300  hover:shadow-zinc-300 lg:flex lg:items-stretch lg:w-300 lg:max-w-265 lg:min-h-73 lg:px-4 2xl:max-w-290 3xl:w-300 3xl:max-w-310 3xl:min-h-90 ">
         {notice.images?.length > 0 && (
-          <div className="relative w-full h-48 pl-3 max-w-110 self-center lg:h-72 xl:h-72 2xl:max-w-126 2xl:h-80 3xl:h-80">
+          <div className="relative w-full h-54 pl-3 max-w-110 self-center lg:h-72 xl:h-72 2xl:max-w-126 2xl:h-80 3xl:h-80">
             <Image
               src={notice.images[0].secure_url}
               fill
