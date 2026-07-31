@@ -77,7 +77,7 @@ export default async function NoticePage({ params }: Props) {
         {notice.images &&
           notice.images.length > 0 &&
           notice.images[0].secure_url && (
-            <div className="relative z-50 h-96 w-full mb-8 rounded-xl overflow-hidden lg:h-132 border-2 border-zinc-700 shadow-xl shadow-zinc-900 lg:max-w-160 2xl:max-w-180 3xl:h-150 ">
+            <div className="relative z-50 h-70 w-full mb-8 rounded-xl overflow-hidden lg:h-132 border-2 border-zinc-700 shadow-xl shadow-zinc-900 lg:max-w-180 2xl:max-w-190 3xl:max-w-240 3xl:h-150 ">
               <Image
                 src={notice.images[0].secure_url}
                 alt={notice.title[locale]}
