@@ -77,7 +77,7 @@ export default async function NoticePage({ params }: Props) {
         {notice.images &&
           notice.images.length > 0 &&
           notice.images[0].secure_url && (
-            <div className="relative z-50 h-70 w-full mb-5 rounded-xl border-2 border-zinc-700 shadow-xl shadow-zinc-900  overflow-hidden md:h-85 lg:h-132  lg:max-w-210 2xl:max-w-190 3xl:max-w-240 b 3xl:h-150 ">
+            <div className="relative z-50 h-70 w-full mb-5 rounded-xl border-2 border-zinc-700 shadow-xl shadow-zinc-900  overflow-hidden md:h-85 lg:h-132  lg:max-w-210 2xl:max-w-210 3xl:max-w-245  3xl:h-155 ">
               <Image
                 src={notice.images[0].secure_url}
                 alt={notice.title[locale]}
@@ -87,7 +87,7 @@ export default async function NoticePage({ params }: Props) {
               />
             </div>
           )}
-        <div className="lg:w-fit lg:max-w-300  ">
+        <div className="lg:w-fit lg:max-w-280 2xl:max-w-285  ">
           <div className="flex items-center justify-between mb-3 rounded-lg relative text-balance border py-3 px-2 border-zinc-700 z-100 bg-zinc-900/50 md:py-6 md:px-3 ">
             <span className="text-sm font-medium text-zinc-200 bg-sky-700 px-8 py-0.5 rounded-sm lg:text-base 3xl:text-lg">
               {translatedCategory}
