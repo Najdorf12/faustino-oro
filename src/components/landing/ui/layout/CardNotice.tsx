@@ -51,9 +51,9 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
   }
   return (
     <li className="flex flex-col gap-2 relative lg:pl-10">
-      <div className="group cursor-pointer text-balance  border-b border-zinc-600 to-zinc rounded-lg overflow-hidden transition-all duration-300  hover:shadow-zinc-300 lg:flex lg:items-stretch max-w-90 lg:max-w-240 lg:w-270 lg:min-h-70 lg:px-4 3xl:w-300 3xl:max-w-300 3xl:min-h-90 ">
+      <div className="group cursor-pointer text-balance  border-b border-zinc-600 to-zinc rounded-lg overflow-hidden transition-all duration-300  hover:shadow-zinc-300 lg:flex lg:items-stretch lg:w-300 lg:max-w-265 lg:min-h-73 lg:px-4 2xl:max-w-290 3xl:w-300 3xl:max-w-310 3xl:min-h-90 ">
         {notice.images?.length > 0 && (
-          <div className="relative w-full h-48 pl-3 lg:h-70 xl:h-72 lg:w-2/5 self-center 3xl:h-80">
+          <div className="relative w-full h-48 pl-3 max-w-110 self-center lg:h-72 xl:h-72 2xl:max-w-126 2xl:h-80 3xl:h-80">
             <Image
               src={notice.images[0].secure_url}
               fill
@@ -73,7 +73,7 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
           </div>
         )}
 
-        <div className="p-4 md:p-6 lg:pr-0 lg:w-2/3 flex flex-col justify-center lg:gap-2 lg:pl-7 xl:pl-8 lg:justify-start ">
+        <div className="p-4 md:p-6 lg:pr-0 lg:w-200  flex flex-col justify-center lg:gap-2 lg:pl-7 xl:pl-8 lg:justify-start 2xl:w-280  ">
           <div className="mb-4 lg:mb-3">
             <span className="inline-block border border-sky-500 bg-sky-700 text-zinc-200 text-xs md:text-sm font-medium px-6 py-0.5 rounded-sm lg:px-9 2xl:text-base">
               {translateCategory(notice.category)}
@@ -103,27 +103,31 @@ export default function CardNoticeLayout({ notice, onClick }: CardNoticeProps) {
             </p>
           )}
         </div>
-        <Link
-          href={`/notices/${notice._id}`}
-          className="self-end mb-3 ml-3 bg-sky-700 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-8.75 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-54 lg:ml-0 lg:mb-3"
-        >
-          <p className="">{t("readMore")}</p>
-          <div className="bg-sky-600 cursor-pointer rounded-lg h-8.5 w-8.5 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              className="w-[1.2em] transition-transform duration-300 text-zinc-100 group-hover:translate-x-[0.1em]"
-            >
-              <path fill="none" d="M0 0h24v24H0z"></path>
-              <path
-                fill="currentColor"
-                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-              ></path>
-            </svg>
-          </div>
-        </Link>
+      
+        <div className="lg:absolute bottom-0 right-0">
+          <Link
+            href={`/notices/${notice._id}`}
+            className="self-end mb-3 ml-3 bg-sky-700 border border-sky-500 cursor-pointer z-100 w-48 rounded-lg h-8.75 relative text-zinc-100 md:font-medium flex items-center pl-3 group lg:w-48 lg:ml-0 lg:mb-3 "
+          >
+            <p className="">{t("readMore")}</p>
+            <div className="bg-sky-600 cursor-pointer rounded-lg h-8.5 w-8.5 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                className="w-[1.2em] transition-transform duration-300 text-zinc-100 group-hover:translate-x-[0.1em]"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  fill="currentColor"
+                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                ></path>
+              </svg>
+            </div>
+          </Link>
+        </div>
+      
       </div>
     </li>
   );
