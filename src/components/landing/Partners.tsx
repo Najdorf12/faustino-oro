@@ -4,6 +4,7 @@ import imgFausti from "@/assets/images/img1-1.jpeg";
 import bg1 from "@/assets/images/bg1.jpg";
 import logoML from "@/assets/images/icons/mercado-libre-logo.svg";
 import logoMI from "@/assets/images/icons/myinvestor-logo.svg";
+import logoVisitArg from "@/assets/images/icons/visit-argentina-logo.png";
 import logoChessCom from "@/assets/images/icons/chesscom.svg";
 
 export default async function Partners() {
@@ -26,6 +27,12 @@ export default async function Partners() {
       logo: logoML,
       description: t("sponsor"),
       href: "https://www.mercadolibre.com",
+    }, 
+    {
+      name: "Visit Argentina",
+      logo: logoVisitArg,
+      description: t("sponsor"),
+      href: "https://www.argentina.travel/",
     },
   ];
   return (
@@ -51,20 +58,20 @@ export default async function Partners() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 items-center lg:flex-row  w-full justify-start lg:pl-12 lg:gap-6 ">
+        <div className="flex flex-col gap-4 items-center lg:flex-row  w-full justify-center  lg:gap-6  ">
           {partners.map((p) => (
             <a
               key={p.name}
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-center gap-3 shadow-lg shadow-sky-900 bg-linear-to-tr from-zinc-900/40 to-zinc-900/70 border border-sky-800 hover:border-zinc-700 rounded-2xl py-2 px-16 transition-colors duration-400 md:backdrop-blur-[1px] max-w-75 lg:max-w-70 xl:max-w-80 xl:py-3 xl:w-80 2xl:max-w-90 2xl:w-90 3xl:max-w-120 3xl:w-100   "
+              className="group flex flex-col items-center gap-2.5 shadow-lg shadow-sky-900 bg-linear-to-tr from-zinc-900/40 to-zinc-900/70 border border-sky-800 hover:border-zinc-700 rounded-2xl py-2 px-16 transition-colors duration-400 md:backdrop-blur-[1px] max-w-75 lg:max-w-70 xl:max-w-80 xl:py-3 xl:w-80 2xl:max-w-90 2xl:w-90 3xl:max-w-120 3xl:w-100   "
             >
-              <div className="w-40 h-16 xl:w-50 xl:h-20 rounded-lg flex items-center justify-center 2xl:w-56 2xl:h-24 3xl:w-59 3xl:h-26">
+              <div className="w-40 h-14 xl:w-50 xl:h-20 rounded-lg flex items-center justify-center 2xl:w-56 2xl:h-24 3xl:w-59 3xl:h-26">
                 <Image
                   src={p.logo}
                   alt={p.name}
-                  className="w-full h-full object-contain "
+                  className="w-45 h-full object-contain "
                 />
               </div>
               <div className="flex flex-col gap-1 items-center justify-center">
