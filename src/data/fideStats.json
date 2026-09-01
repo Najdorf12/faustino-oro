@@ -1,5 +1,6 @@
 {
   "titles": [
+    { "name": "Grandmaster (GM)", "date": "2026" },
     { "name": "International Master (IM)", "date": "2024" },
     { "name": "FIDE Master (FM)", "date": "2023" },
     { "name": "Candidate Master (CM)", "date": "2022" }
