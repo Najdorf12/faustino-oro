@@ -1,5 +1,5 @@
 {
-  "loader": { "label": "International Master" },
+  "loader": { "label": "Grand Master" },
   "nav": {
     "home": "Home",
     "tournaments": "Tournaments",
@@ -8,7 +8,7 @@
     "contact": "Contact"
   },
   "home": {
-    "title": "International Master",
+    "title": "Grand Master",
     "noticesBtn": "Go to News",
     "tournamentsBtn": "Go to Tournaments"
   },
@@ -18,7 +18,7 @@
     "bio": "In the middle of the pandemic, on May 30, 2020, I learned to move the pieces and, since then, chess has been much more than a simple game for me: it is a constant challenge that motivates me to keep improving. Self-taught and persistent, I have grown with every game and every lesson, with the firm conviction of reaching the top.",
     "historyBtn": "HISTORY",
     "historyTitle": "HISTORY",
-    "historyText": "My first classical chess tournament was the \"8th IRT Alejandro Judewicz\" in Mar del Plata, Buenos Aires (Argentina) in September 2021. In this tournament I entered the FIDE ELO ranking for the first time with 1922 points, which made me the world No. 1 in my category, a position I have maintained ever since. In 2021, I became the Argentine Under-8 Champion, and in 2022, the Pan-American Under-10 Champion in Montevideo, Uruguay, which earned me my first Candidate Master (CM) title. In April 2023, playing a Young Talents ITT at Club de Villa Martelli, Buenos Aires, Argentina, I reached a FIDE ELO of 2300, becoming the youngest FIDE Master (FM) in history by rating. Since then, they call me the \"Golden Kid\" or the \"Messi of Chess\". In September 2023, playing an ITT in Comodoro Rivadavia, Chubut, Argentina, I obtained my first International Master (IM) norm, setting another record for youth. Finally, in 2024, I obtained the two remaining norms for the International Master title at the \"Absolute Continental Championship of the Americas\" in Medellín (May 2024) and at the \"Closed IM Tournament\" at Club de Barcelona (June 2024). This, together with surpassing 2400 FIDE ELO, made me the youngest International Master in history at that time. My goal is to become a Grand Master and World Champion, becoming part of the elite of chess.",
+    "historyText": "My first classical chess tournament was the \"8th IRT Alejandro Judewicz\" in Mar del Plata, Buenos Aires (Argentina) in September 2021. In this tournament, I entered the FIDE ELO rating list for the first time with a rating of 1922, making me the world No. 1 in my age category, a position I have held ever since. In 2021, I became the Argentine Under-8 Champion, and in 2022, the Pan-American Under-10 Champion in Montevideo, Uruguay, earning my first Candidate Master (CM) title. In April 2023, while playing in a Young Talents ITT at Club de Villa Martelli in Buenos Aires, Argentina, I reached a FIDE ELO rating of 2300, becoming the youngest FIDE Master (FM) in history to reach that rating. Since then, I have been nicknamed the \"Golden Kid\" and the \"Messi of Chess\". In September 2023, while playing in an ITT in Comodoro Rivadavia, Chubut, Argentina, I earned my first International Master (IM) norm, setting another record for precocity. Finally, in 2024, I obtained the two remaining norms required for the International Master title at the \"Absolute Continental Championship of the Americas\" in Medellín (May 2024) and at the \"Closed IM Tournament\" at Club de Barcelona (June 2024). Combined with surpassing a FIDE ELO rating of 2400, this made me the youngest International Master in history at that time. In 2026, I achieved the title of Grandmaster, becoming the second-youngest player in history to do so. Now, my next goal is to become World Champion and establish myself among the elite of chess.",
     "aboutBtn": "ABOUT ME"
   },
   "quote": {

@@ -1,5 +1,5 @@
 {
-  "loader": { "label": "Maestro Internacional" },
+  "loader": { "label": "Gran Maestro" },
   "nav": {
     "home": "Inicio",
     "tournaments": "Torneos",
@@ -8,7 +8,7 @@
     "contact": "Contacto"
   },
   "home": {
-    "title": "Maestro Internacional",
+    "title": "Gran Maestro",
     "noticesBtn": "Ir a noticias",
     "tournamentsBtn": "Ir a Torneos"
   },
@@ -18,7 +18,7 @@
     "bio": "En plena pandemia, el 30 de mayo de 2020 aprendí a mover las piezas y, desde entonces, el ajedrez ha sido mucho más que un simple juego para mí: es un desafío constante que me motiva a seguir mejorando. Autodidacta y persistente, he crecido con cada partida y cada lección, con la firme convicción de llegar a lo más alto.",
     "historyBtn": "HISTORIA",
     "historyTitle": "HISTORIA",
-    "historyText": "Mi primer torneo de ajedrez clásico fue el \"8vo IRT Alejandro Judewicz\" en Mar del Plata, Buenos Aires (Argentina) en septiembre de 2021. En este torneo ingresé por primera vez al ranking ELO FIDE con 1922 puntos, lo que me consagró como el N° 1 mundial en mi categoría, posición que he mantenido desde entonces. En 2021, me consagré Campeón Argentino Sub-8, y en 2022, Campeón Panamericano Sub-10 en Montevideo, Uruguay, lo que me otorgó mi primer título de Candidato a Maestro (CM). En abril de 2023, jugando un ITT de Jóvenes Talentos en el Club de Villa Martelli, Buenos Aires, Argentina, alcancé un ELO FIDE de 2300, convirtiéndome en el Maestro FIDE (FM) más joven de la historia por puntos. Desde entonces, me llaman el \"Pibe de Oro\" o el \"Messi del Ajedrez\". En septiembre de 2023, jugando un ITT en Comodoro Rivadavia, Chubut, Argentina, obtuve mi primera norma de Maestro Internacional (IM), marcando otro récord de precocidad. Finalmente, en 2024, obtuve las dos normas restantes para el título de Maestro Internacional en el \"Campeonato Continental Absoluto de las Américas\" en Medellín (mayo de 2024) y en el \"Torneo Cerrado de IM\" en el Club de Barcelona (junio de 2024). Esto, sumado a haber superado los 2400 de ELO FIDE, hizo que me convirtiera en el Maestro Internacional más joven de la historia en ese momento. Mi meta es convertirme en Gran Maestro y llegar a ser Campeón Mundial, formando parte de la élite del ajedrez.",
+    "historyText": "Mi primer torneo de ajedrez clásico fue el \"8vo IRT Alejandro Judewicz\" en Mar del Plata, Buenos Aires (Argentina) en septiembre de 2021. En este torneo ingresé por primera vez al ranking ELO FIDE con 1922 puntos, lo que me consagró como el N° 1 mundial en mi categoría, posición que he mantenido desde entonces. En 2021, me consagré Campeón Argentino Sub-8, y en 2022, Campeón Panamericano Sub-10 en Montevideo, Uruguay, lo que me otorgó mi primer título de Candidato a Maestro (CM). En abril de 2023, jugando un ITT de Jóvenes Talentos en el Club de Villa Martelli, Buenos Aires, Argentina, alcancé un ELO FIDE de 2300, convirtiéndome en el Maestro FIDE (FM) más joven de la historia por puntos. Desde entonces, me llaman el \"Pibe de Oro\" o el \"Messi del Ajedrez\". En septiembre de 2023, jugando un ITT en Comodoro Rivadavia, Chubut, Argentina, obtuve mi primera norma de Maestro Internacional (IM), marcando otro récord de precocidad. Finalmente, en 2024, obtuve las dos normas restantes para el título de Maestro Internacional en el \"Campeonato Continental Absoluto de las Américas\" en Medellín (mayo de 2024) y en el \"Torneo Cerrado de IM\" en el Club de Barcelona (junio de 2024). Esto, sumado a haber superado los 2400 de ELO FIDE, hizo que me convirtiera en el Maestro Internacional más joven de la historia en ese momento. En 2026 alcancé el título de Gran Maestro, convirtiéndome en el segundo jugador más joven de la historia en conseguirlo. Ahora, mi próximo objetivo es convertirme en Campeón Mundial y consolidarme entre la élite del ajedrez",
     "aboutBtn": "SOBRE MI"
   },
   "quote": {
