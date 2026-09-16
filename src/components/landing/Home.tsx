@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import imgHome from "@/assets/images/ps05.png";
-import imgHomeMobile from "@/assets/images/psmobile05.png";
+import imgHome from "@/assets/images/newhome3.jpg";
+import imgHomeMobile from "@/assets/images/newhome4.jpg";
 import icon from "@/assets/images/icons/iconKnight.svg";
 import { Instagram, Facebook, Youtube } from "@boxicons/react";
 import { getTranslations } from "next-intl/server";
@@ -10,7 +10,7 @@ export default async function Home() {
   const t = await getTranslations("home");
   return (
     <>
-      <section className=" h-[95vh] md:h-screen w-full relative pb-2.5 lg:pb-1  rounded-b-xl lg:rounded-b-3xl border-b border-zinc-700">
+      <section className=" h-[95vh] md:h-screen w-full relative pb-2 lg:pb-1  rounded-b-xl lg:rounded-b-3xl border-b border-zinc-700">
         <div className="absolute inset-0 z-20 bg-zinc-900/25 lg:bg-zinc-900/25  rounded-b-xl lg:rounded-b-3xl"></div>
         <picture className="w-full h-full z-15 absolute inset-0 mx-auto rounded-b-xl lg:rounded-b-3xl">
           <source media="(min-width: 600px)" srcSet={imgHome.src} />
@@ -38,12 +38,12 @@ export default async function Home() {
           }}
         />
         {/*    */}
-        <article className=" relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2 lg:w-1/2 lg:justify-center lg:pb-3 lg:pt-12">
-          <h1 className="text-zinc-300 relative z-100 text-[2.9rem] leading-16 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-36 xl:text-[6.9rem] xl:tracking-wide 2xl:leading-41 2xl:text-[7.2rem] 3xl:leading-48 3xl:text-[8.5rem]">
+        <article className=" relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2 lg:w-1/2 lg:justify-center lg:pb-3 lg:pt-12 lg:pr-20">
+          <h1 className="text-stone-200 relative z-100 text-[2.9rem] leading-14 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-36 xl:text-[6.9rem] xl:tracking-wide 2xl:leading-41 2xl:text-[7.2rem] 3xl:leading-48 3xl:text-[8.5rem]">
             Faustino Oro
           </h1>
-          <p className="font-medium flex items-center gap-2 text-zinc-300  lg:text-zinc-300 text-base sm:text-[1.1rem] lg:text-xl xl:text-[1.30rem] 2xl:text-[1.5rem] 3xl:text-3xl">
-            <span className="border-2 border-zinc-400 text-zinc-400  px-1 py-0.5 font-ubuntu rounded-sm lg:py- lg:px-1.5">
+          <p className="font-medium flex items-center gap-1.5 text-zinc-300  lg:text-stone-300 text-base sm:text-[1.1rem] lg:text-xl xl:text-[1.30rem] 2xl:text-[1.5rem] 3xl:text-3xl">
+            <span className="border-2 border-sky-700 text-zinc-300  px-1 py-0.5 font-ubuntu rounded-sm lg:py- lg:px-1.5">
               GM
             </span>{" "}
             {t("title")}
