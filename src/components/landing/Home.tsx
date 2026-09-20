@@ -38,8 +38,8 @@ export default async function Home() {
           }}
         />
         {/*    */}
-        <article className=" relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2 lg:w-1/2 lg:justify-center lg:pb-3 lg:pt-12 lg:pr-20">
-          <h1 className="text-stone-200 relative z-100 text-[2.9rem] leading-14 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-32 lg:text-[5.9rem] xl:leading-36 xl:text-[6.9rem] xl:tracking-wide 2xl:leading-41 2xl:text-[7.2rem] 3xl:leading-48 3xl:text-[8.5rem]">
+        <article className=" relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2 lg:w-1/2 lg:justify-center lg:pb-3 lg:pt-12 lg:pr-20 xl:pr-26 2xl:pr-34">
+          <h1 className="text-stone-200 relative z-100 text-[2.9rem] leading-14 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-28 lg:text-[5rem] xl:leading-34 xl:text-[6rem] xl:tracking-wide 2xl:leading-41 2xl:text-[7.2rem] 3xl:leading-42 3xl:text-[7.5rem]">
             Faustino Oro
           </h1>
           <p className="font-medium flex items-center gap-1.5 text-zinc-300  lg:text-stone-300 text-base sm:text-[1.1rem] lg:text-xl xl:text-[1.30rem] 2xl:text-[1.5rem] 3xl:text-3xl">
