@@ -38,11 +38,11 @@ export default async function Home() {
           }}
         />
         {/*    */}
-        <article className=" relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2 lg:w-1/2 lg:justify-center lg:pb-6 lg:pr-30  lg:gap-3 xl:pr-44 2xl:pr-34">
-          <h1 className="text-stone-200 relative z-100 text-[2.9rem] leading-14 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-26 lg:text-[4.5rem] xl:leading-29 xl:text-[4.99rem] xl:tracking-wide 2xl:leading-41 2xl:text-[7.2rem] 3xl:leading-42 3xl:text-[7.5rem]">
+        <article className=" relative z-100 w-full h-full flex flex-col items-center justify-end gap-1 md:gap-2 lg:w-1/2 lg:justify-center lg:pb-6 lg:pr-30  lg:gap-3 xl:pr-44 2xl:pr-50 2xl:gap-4">
+          <h1 className="text-stone-200 relative z-100 text-[2.9rem] leading-14 sm:text-[3rem] sm:leading-18 font-superlarky text-center md:text-[4rem] lg:leading-26 lg:text-[4.5rem] xl:leading-29 xl:text-[4.99rem] xl:tracking-wide 2xl:leading-32 2xl:text-[5.3rem] 3xl:leading-36 3xl:max-w-150 3xl:text-[6.4rem]">
             Faustino Oro
           </h1>
-          <p className="font-medium flex items-center gap-1.5 text-zinc-300 lg:text-stone-300 text-base sm:text-[1.1rem] lg:text-[.95rem] xl:text-[1.05rem] 2xl:text-[1.5rem] 3xl:text-3xl">
+          <p className="font-medium flex items-center gap-1.5 text-zinc-300 lg:text-stone-300 text-base sm:text-[1.1rem] lg:text-[.95rem] xl:text-[1.05rem] 2xl:text-[1.15rem] 3xl:text-[1.3rem]">
             <span className="border-2 border-sky-700 text-zinc-300  px-1 py-0.5 font-ubuntu rounded-sm lg:py- lg:px-1.5">
               GM
             </span>{" "}
