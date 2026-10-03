@@ -25,7 +25,7 @@ export default function LanguageSwitcher() {
         className={`px-1 transition-colors duration-300 cursor-pointer ${
           locale === "es"
             ? "text-sky-700 underline underline-offset-4"
-            : "text-zinc-300 hover:text-zinc-200"
+            : "text-zinc-400 hover:text-sky-700"
         }`}
       >
         ES

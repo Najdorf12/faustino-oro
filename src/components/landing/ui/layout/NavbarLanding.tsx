@@ -31,7 +31,7 @@ export default function NavbarLanding() {
             className="hidden lg:flex justify-center transition-colors"
           >
             <button id="cta">
-              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-500 duration-400">
+              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-700 duration-400">
                 {t("home")}
               </span>
             </button>
@@ -43,7 +43,7 @@ export default function NavbarLanding() {
             className="flex justify-center transition-colors"
           >
             <button id="cta">
-              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-500 duration-400">
+              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-700 duration-400">
                 {t("tournaments")}
               </span>
             </button>
@@ -55,7 +55,7 @@ export default function NavbarLanding() {
             className="flex justify-center transition-colors"
           >
             <button id="cta">
-              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-500 duration-400">
+              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-700 duration-400">
                 {t("notices")}
               </span>
             </button>
@@ -67,7 +67,7 @@ export default function NavbarLanding() {
             className="flex justify-center transition-colors"
           >
             <button id="cta">
-              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-500 duration-400">
+              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-700 duration-400">
                 {t("partners")}
               </span>
             </button>
@@ -79,7 +79,7 @@ export default function NavbarLanding() {
             className="flex justify-center transition-colors"
           >
             <button id="cta">
-              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-500 duration-400">
+              <span className="hover-underline-animation pb-1 lg:pb-2 lg:px-1 hover:text-sky-700 duration-400">
                 {t("contact")}
               </span>
             </button>

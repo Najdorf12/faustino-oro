@@ -97,7 +97,7 @@ export default function CardTournament({ tournament }: Props) {
           <button
             onClick={fetchPlayer}
             disabled={loading}
-            className="absolute bottom-3.5 left-4 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50"
+            className="absolute bottom-3.5 left-3 lg:inset-auto lg:bottom-3 lg:right-2 bg-sky-700 cursor-pointer z-120 w-48 rounded-lg h-9 text-zinc-100 lg:font-medium text-sm sm:text-base flex items-center pl-3 group lg:w-50"
           >
             {loading ? t("loading") : expanded ? t("hidePerf") : t("viewPerf")}
             <div className="bg-zinc-200 cursor-pointer rounded-lg h-9 w-9 grid place-items-center absolute right-0 top-0 group-hover:w-full z-10 duration-500">
@@ -117,16 +117,16 @@ export default function CardTournament({ tournament }: Props) {
             </div>
           </button>
         )}
-        <figure className="absolute inset-0 flex items-end mb-3 justify-end z-100 lg:z-10 md:justify-center md:items-center">
+        <figure className="absolute inset-0 flex items-end mb-3 mr-1 justify-end z-100 lg:z-10 md:justify-center md:items-center">
           <Image
             src={iconTournamentCard}
             alt="icon-tournament-card"
-            className="w-14 lg:w-32"
+            className="w-12 lg:w-32"
           />
         </figure>
 
         {/* CABECERA */}
-        <div className="relative z-50 rounded-lg gap-4 pt-4.5 pb-17 px-4 lg:w-1/2 bg-zinc-800/40 lg:bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-5">
+        <div className="relative z-50 rounded-lg gap-4 pt-4.5 pb-19 px-4 lg:w-1/2 bg-zinc-800/40 lg:bg-zinc-800/70 lg:pt-5 lg:pb-5 lg:px-5">
           <div className="flex w-fit">
             {tournament.isActive ? (
               <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-200 py-0.5 px-6 rounded-sm bg-sky-600 lg:text-base">
@@ -142,7 +142,7 @@ export default function CardTournament({ tournament }: Props) {
             <h6 className="text-2xl lg:font-medium text-zinc-100 mt-4 lg:text-3xl">
               {tournament.title}
             </h6>
-            <li className="text-zinc-400 mt-2 mb-12 italic lg:text-xl">
+            <li className="text-zinc-400 mt-2 mb-10 italic lg:text-xl">
               {tournament.description}
             </li>
             {tournament.images.length > 0 ? (
@@ -171,7 +171,7 @@ export default function CardTournament({ tournament }: Props) {
                 {formatDate(new Date(tournament.startDate).toISOString())}
               </span>
             </li>
-            <li className="mt-1">
+            <li className="mt-1 ">
               {t("end")} -{" "}
               <span className="text-zinc-200">
                 {formatDate(new Date(tournament.endDate).toISOString())}
