@@ -54,7 +54,7 @@ export default async function Home() {
           <Image src={icon} alt="icon" className="w-full"></Image>
         </div> */}
 
-        <div className=" items-center justify-center h-full flex flex-col gap-2 lg:gap-4 xl:gap-5 z-100 absolute right-1.5 lg:right-4 top-0">
+        <div className=" items-center justify-center h-full flex flex-col gap-2 lg:gap-4 xl:gap-4 z-100 absolute right-1.5 lg:right-6 top-0">
           <div className="h-[16vh] w-0.5 bg-sky-800 mb-2"></div>
 
           <Link
@@ -63,7 +63,7 @@ export default async function Home() {
             className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Instagram
-              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
+              className="w-7.5 h-7.5 md:w-[32px] md:h-[32px]"
               fill="#d4d4d8"
               cursor="pointer"
             />
@@ -75,7 +75,7 @@ export default async function Home() {
             className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Youtube
-              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
+              className="w-7.5 h-7.5 md:w-[32px] md:h-[32px]"
               fill="#d4d4d8"
               cursor="pointer"
             />
@@ -87,7 +87,7 @@ export default async function Home() {
             className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Facebook
-              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
+              className="w-7.5 h-7.5 md:w-[32px] md:h-[32px]"
               fill="#d4d4d8"
               cursor="pointer"
             />
@@ -98,7 +98,7 @@ export default async function Home() {
             className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
           >
             <Twitch
-              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
+              className="w-7.5 h-7.5 md:w-[32px] md:h-[32px]"
               fill="#d4d4d8"
               cursor="pointer"
             />
