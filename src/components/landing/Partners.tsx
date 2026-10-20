@@ -28,12 +28,12 @@ export default async function Partners() {
       description: t("sponsor"),
       href: "https://www.mercadolibre.com",
     }, 
-    {
+  /*   {
       name: "Visit Argentina",
       logo: logoVisitArg,
       description: t("sponsor"),
       href: "https://www.argentina.travel/",
-    },
+    }, */
   ];
   return (
     <section className="h-screen relative flex flex-col items-center justify-center overflow-hidden lg:items-start ">
