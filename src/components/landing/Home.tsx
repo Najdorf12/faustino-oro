@@ -3,7 +3,7 @@ import Link from "next/link";
 import imgHome from "@/assets/images/newhome3.jpg";
 import imgHomeMobile from "@/assets/images/newhome4.jpg";
 import icon from "@/assets/images/icons/iconKnight.svg";
-import { Instagram, Facebook, Youtube } from "@boxicons/react";
+import { Instagram, Facebook, Youtube, Twitch } from "@boxicons/react";
 import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
@@ -50,11 +50,11 @@ export default async function Home() {
           </p>
         </article>
 
-      {/*   <div className="fixed z-200 right-0.5 bottom-1.5 md:bottom-2 w-9 sm:w-10 2xl:w-12">
+        {/*   <div className="fixed z-200 right-0.5 bottom-1.5 md:bottom-2 w-9 sm:w-10 2xl:w-12">
           <Image src={icon} alt="icon" className="w-full"></Image>
         </div> */}
 
-        <div className=" items-center justify-center h-full flex flex-col gap-2 lg:gap-4 xl:gap-5 z-100 absolute right-2 lg:right-4 top-0">
+        <div className=" items-center justify-center h-full flex flex-col gap-2 lg:gap-4 xl:gap-5 z-100 absolute right-1.5 lg:right-4 top-0">
           <div className="h-[16vh] w-0.5 bg-sky-800 mb-2"></div>
 
           <Link
@@ -92,7 +92,17 @@ export default async function Home() {
               cursor="pointer"
             />
           </Link>
-
+          <Link
+            href="https://www.twitch.tv/gmfaustinooro"
+            target="blank"
+            className="hover:bg-sky-600 hover:border-sky-400 bg-sky-800 border-2 p-1.5 md:p-2 flex items-center justify-center border-sky-700 rounded-full duration-400"
+          >
+            <Twitch
+              className="w-7.5 h-7.5 md:w-[38px] md:h-[38px]"
+              fill="#d4d4d8"
+              cursor="pointer"
+            />
+          </Link>
           <div className="h-[16vh] w-0.5 bg-sky-800 mt-2"></div>
         </div>
       </section>
