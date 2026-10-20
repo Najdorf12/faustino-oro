@@ -5,6 +5,7 @@ import bg1 from "@/assets/images/bg1.jpg";
 import logoML from "@/assets/images/icons/mercado-libre-logo.svg";
 import logoMI from "@/assets/images/icons/myinvestor-logo.svg";
 import logoVisitArg from "@/assets/images/icons/visit-argentina-logo.png";
+import logoYPF from "@/assets/images/icons/ypf.svg";
 import logoChessCom from "@/assets/images/icons/chesscom.svg";
 
 export default async function Partners() {
@@ -27,13 +28,13 @@ export default async function Partners() {
       logo: logoML,
       description: t("sponsor"),
       href: "https://www.mercadolibre.com",
-    }, 
-  /*   {
-      name: "Visit Argentina",
-      logo: logoVisitArg,
+    },
+    {
+      name: "YPF",
+      logo: logoYPF,
       description: t("sponsor"),
-      href: "https://www.argentina.travel/",
-    }, */
+      href: "https://ypf.com",
+    },
   ];
   return (
     <section className="h-screen relative flex flex-col items-center justify-center overflow-hidden lg:items-start ">
@@ -51,10 +52,10 @@ export default async function Partners() {
       >
         <div className="relative z-100 self-start lg:pl-12">
           <h6 className="text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-16 2xl:text-[5rem] 2xl:leading-11 3xl:leading-20 3xl:text-[5.5rem] text-zinc-200">
-             {t("title")}
+            {t("title")}
           </h6>
           <p className="border-l-2  pl-3  border-sky-700 py-2 text-lg mt-3 font-extralight text-zinc-100 leading-6 lg:ml-1 lg:text-2xl lg:pl-4 lg:leading-9 lg:mt-9 xl:max-w-180 xl:text-4xl xl:leading-10 3xl:leading-14 3xl:text-5xl 2xl:mt-10 3xl:max-w-250">
-             {t("description")}
+            {t("description")}
           </p>
         </div>
 
@@ -71,7 +72,7 @@ export default async function Partners() {
                 <Image
                   src={p.logo}
                   alt={p.name}
-                  className="w-45 h-full object-contain "
+                  className="w-44 h-full object-contain "
                 />
               </div>
               <div className="flex flex-col gap-1 items-center justify-center">
