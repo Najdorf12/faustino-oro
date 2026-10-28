@@ -49,7 +49,7 @@ export const Contact = () => {
             <Scene key={pathname} />
           </Suspense>
         </div>
-        <section className="relative h-full w-full pointer-events-none flex flex-col justify-evenly  md:flex-row md:justify-center items-center ">
+        <section className="relative h-[90%] w-full pointer-events-none flex flex-col justify-evenly bg-red-500 md:flex-row md:justify-center items-center ">
           <article className="flex flex-col md:justify-start md:pt-12 md:w-[60%] md:h-full md:pl-9 lg:pt-16 xl:pt-20 md:gap-28 xl:pl-12 xl:gap-40 2xl:pt-26 2xl:pl-14 3xl:pt-32 ">
             <div className="px-1 md:px-0">
               <h5 className="text-start text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-14 2xl:text-[5.3rem] 2xl:leading-16 3xl:leading-20 3xl:text-[5.8rem] text-zinc-200">
