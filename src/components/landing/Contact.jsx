@@ -5,6 +5,7 @@ import Form from "./ui/layout/FormContact";
 import iconface from "@/assets/images/icons/face.svg";
 import iconinsta from "@/assets/images/icons/insta.svg";
 import iconyoutube from "@/assets/images/icons/youtube.svg";
+import icontwich from "@/assets/images/icons/twich.svg";
 import Link from "next/link";
 import { useRef, useReducer, useMemo, Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -48,8 +49,8 @@ export const Contact = () => {
             <Scene key={pathname} />
           </Suspense>
         </div>
-        <section className="relative h-full w-full pointer-events-none flex flex-col justify-center  md:flex-row md:justify-center items-center ">
-          <article className="flex flex-col md:justify-start md:pt-12 md:w-[60%] md:h-full md:pl-9 lg:pt-16 xl:pt-20 md:gap-28 xl:pl-12 xl:gap-50 2xl:pt-26 2xl:pl-14 3xl:pt-32 ">
+        <section className="relative h-full w-full pointer-events-none flex flex-col justify-evenly  md:flex-row md:justify-center items-center ">
+          <article className="flex flex-col md:justify-start md:pt-12 md:w-[60%] md:h-full md:pl-9 lg:pt-16 xl:pt-20 md:gap-28 xl:pl-12 xl:gap-40 2xl:pt-26 2xl:pl-14 3xl:pt-32 ">
             <div className="px-1 md:px-0">
               <h5 className="text-start text-[3rem] sm:text-[3.2rem] font-medium lg:text-6xl lg:leading-14  xl:text-7xl xl:leading-14 2xl:text-[5.3rem] 2xl:leading-16 3xl:leading-20 3xl:text-[5.8rem] text-zinc-200">
                 {t("title")}
@@ -59,7 +60,7 @@ export const Contact = () => {
               </p>
             </div>
 
-            <ul className="hidden gap-6 flex-col text-zinc-400 pointer-events-auto md:flex  md:w-fit lg:font-medium 2xl:text-lg  ">
+            <ul className="hidden gap-4.5 flex-col text-zinc-400 pointer-events-auto md:flex  md:w-fit lg:font-medium 2xl:text-lg  ">
               <Link
                 href={"https://www.facebook.com/orofaustino/?locale=es_LA"}
                 target="blank"
@@ -67,7 +68,7 @@ export const Contact = () => {
               >
                 <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300 ">
                   <Image
-                    className="w-8.5 2xl:w-9.5"
+                    className="w-8 2xl:w-9.5"
                     src={iconface}
                     alt="icon-facebook "
                   />
@@ -81,7 +82,7 @@ export const Contact = () => {
               >
                 <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300">
                   <Image
-                    className="w-9 2xl:w-10"
+                    className="w-8.5 2xl:w-10"
                     src={iconinsta}
                     alt="icon-instagram"
                   />
@@ -95,19 +96,33 @@ export const Contact = () => {
               >
                 <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300">
                   <Image
-                    className="w-9 2xl:w-10"
+                    className="w-8.5 2xl:w-10"
                     src={iconyoutube}
                     alt="icon-youtube"
                   />
                   https://www.youtube.com/@faustinooro
                 </li>
               </Link>
+              <Link
+                href={"https://www.twitch.tv/gmfaustinooro"}
+                target="blank"
+                className="group "
+              >
+                <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300">
+                  <Image
+                    className="w-9 2xl:w-10"
+                    src={icontwich}
+                    alt="icon-youtube"
+                  />
+                  https://www.twitch.tv/gmfaustinooro
+                </li>
+              </Link>
             </ul>
           </article>
 
-          <div className="flex flex-col items-center justify-center mt-8  w-full md:mt-0 md:w-[40%] md:h-full">
+          <div className="flex flex-col items-center justify-center  w-full md:mt-0 md:w-[40%] md:h-full">
             <Form />
-            <ul className="flex md:hidden gap-12 mt-9 text-zinc-500 pointer-events-auto">
+            <ul className="flex md:hidden gap-9 mt-9 text-zinc-500 pointer-events-auto">
               <Link
                 href={"https://www.facebook.com/orofaustino/?locale=es_LA"}
                 target="blank"
@@ -130,6 +145,19 @@ export const Contact = () => {
               >
                 <li className="flex items-center gap-3">
                   <Image className="w-9" src={iconyoutube} alt="icon-youtube" />
+                </li>
+              </Link>
+              <Link
+                href={"https://www.twitch.tv/gmfaustinooro"}
+                target="blank"
+                className="group "
+              >
+                <li className="flex items-center gap-3 xl:gap-4 group-hover:text-zinc-300 group-hover:ml-4 duration-300">
+                  <Image
+                    className="w-9.5 2xl:w-10"
+                    src={icontwich}
+                    alt="icon-youtube"
+                  />
                 </li>
               </Link>
             </ul>
