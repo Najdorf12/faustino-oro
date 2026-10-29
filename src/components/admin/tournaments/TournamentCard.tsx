@@ -31,7 +31,7 @@ const TournamentCard = ({
     <div
       className="text-balance w-full max-w-95 border border-zinc-400 z-100 relative cursor-pointer  
       rounded-2xl p-4 flex flex-col justify-between duration-300 group 
-      hover:scale-105 md:p-4 lg:h-150 lg:p-5 xl:max-w-97 "
+      hover:scale-105 md:p-4 lg:pt-6 lg:pb-5 lg:p-5 xl:max-w-100 "
     >
       <div className="flex justify-between items-center ">
         <div
@@ -52,8 +52,8 @@ const TournamentCard = ({
           {`${tournament.isActive ? "Activo" : "Inactivo"}`}
         </div>
       </div>
-      <article className="text-sm flex mt-4 flex-col gap-1  relative z-100 lg:mt-5 ">
-        <h6 className="text-xl text-zinc-100 lg:line-clamp-2 lg:text-2xl lg:min-h-16">
+      <article className="text-sm flex mt-4 flex-col gap-1 relative z-100 lg:mt-5 ">
+        <h6 className="text-xl text-zinc-100 lg:line-clamp-2 lg:text-2xl lg:min-h-12">
           {tournament.title}
         </h6>
         <p
