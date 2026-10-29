@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 
 interface CardContent {
   title: string;
+  title_en?: string; // 👈 nuevo
   tournament_id_lichess: any;
   isActive: boolean;
   startDate: string;
@@ -24,6 +25,7 @@ export default function CardTournament({ card, index }: CardProps) {
   const locale = useLocale() as "es" | "en";
   const {
     title,
+    title_en, // 👈 nuevo
     startDate,
     endDate,
     location,
@@ -33,6 +35,7 @@ export default function CardTournament({ card, index }: CardProps) {
     tournament_id_lichess,
   } = card;
 
+  const displayTitle = locale === "en" && title_en ? title_en : title;
   const isFirst = index === 0;
 
   const formatDate = (date: string) => {
@@ -82,7 +85,7 @@ export default function CardTournament({ card, index }: CardProps) {
       </div>
       <article className="text-sm flex flex-col gap-1 md:min-h-25 leading-4.5 relative z-100 xl:leading-5.5 xl:text-base 2xl:min-h-29 2xl:leading-6">
         <div className="text-lg leading-5 text-zinc-100 xl:leading-5.5 2xl:text-xl">
-          {title}
+          {displayTitle}
         </div>
         <div className="text-zinc-100 italic border-t mt-2 pt-2">
           {description}

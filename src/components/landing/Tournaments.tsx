@@ -35,6 +35,7 @@ export default async function Tournaments({ data }: TournamentsProps) {
               card={{
                 tournament_id_lichess: tournament.tournament_id_lichess,
                 title: tournament.title,
+                title_en: tournament.title_en, 
                 isActive: tournament.isActive,
                 startDate: tournament.startDate.toString(),
                 endDate: tournament.endDate.toString(),
