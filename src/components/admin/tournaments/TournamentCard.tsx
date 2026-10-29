@@ -57,7 +57,7 @@ const TournamentCard = ({
           {tournament.title}
         </h6>
         <p
-          className={`text-sm ${tournament.title_en ? "text-zinc-400" : "text-amber-400"}`}
+          className={`text-sm mt-1 ${tournament.title_en ? "text-zinc-400" : "text-amber-400"}`}
         >
           EN: {tournament.title_en || "⚠ sin traducir"}
         </p>
