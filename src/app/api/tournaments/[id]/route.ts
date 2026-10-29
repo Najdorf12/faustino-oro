@@ -62,6 +62,7 @@ export async function PUT(
 
     // Actualizar campos
     tournament.title = body.title;
+    tournament.title_en = body.title_en || "";
     tournament.isActive = body.isActive;
     ((tournament.tournament_id_lichess = body.tournament_id_lichess),
       (tournament.location = body.location));
@@ -72,7 +73,7 @@ export async function PUT(
     tournament.rating = body.rating ?? null;
     tournament.score = body.score ?? null;
     tournament.rank = body.rank ?? null;
-    tournament.rankNote = body.rankNote || ""
+    tournament.rankNote = body.rankNote || "";
 
     // Conservar imágenes anteriores si no hay nuevas
     tournament.images =

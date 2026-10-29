@@ -21,7 +21,10 @@ export default function CardTournament({ tournament }: Props) {
   const [player, setPlayer] = useState<LichessPlayer | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [fetched, setFetched] = useState(false);
-
+  const displayTitle =
+    locale === "en" && tournament.title_en
+      ? tournament.title_en
+      : tournament.title;
   // roundId + gameId de la partida actualmente abierta en el viewer
   const [activeGame, setActiveGame] = useState<{
     roundId: string;
@@ -140,7 +143,7 @@ export default function CardTournament({ tournament }: Props) {
           </div>
           <ul className="flex flex-col text-zinc-400 text-base sm:text-lg text-balance">
             <h6 className="text-2xl lg:font-medium text-zinc-100 mt-4 lg:text-3xl">
-              {tournament.title}
+              {displayTitle}
             </h6>
             <li className="text-zinc-400 mt-2 mb-10 italic lg:text-xl">
               {tournament.description}

@@ -12,6 +12,11 @@ const tournamentSchema = new Schema<Tournament>(
       unique: true,
       trim: true,
     },
+    title_en: {
+      type: String,
+      trim: true,
+      default: "",
+    },
     location: {
       type: String,
       required: [true, "La ubicación es requerida"],

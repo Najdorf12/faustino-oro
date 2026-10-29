@@ -53,9 +53,14 @@ const TournamentCard = ({
         </div>
       </div>
       <article className="text-sm flex mt-4 flex-col gap-1  relative z-100 lg:mt-5 ">
-        <h6 className="text-xl  text-zinc-100 lg:line-clamp-2 lg:text-2xl lg:min-h-16">
+        <h6 className="text-xl text-zinc-100 lg:line-clamp-2 lg:text-2xl lg:min-h-16">
           {tournament.title}
         </h6>
+        <p
+          className={`text-sm ${tournament.title_en ? "text-zinc-400" : "text-amber-400"}`}
+        >
+          EN: {tournament.title_en || "⚠ sin traducir"}
+        </p>
         {tournament.description && (
           <p className="text-zinc-400 text-base font-medium italic">
             {tournament.description}
@@ -68,7 +73,7 @@ const TournamentCard = ({
         </p>
 
         <p className="text-zinc-400 text-sm lg:text-base">
-          ID Lichess : {" "}
+          ID Lichess :{" "}
           <span className="text-zinc-100">
             {tournament.tournament_id_lichess}
           </span>
@@ -82,7 +87,7 @@ const TournamentCard = ({
             <li className="w-1/2">Performance : {tournament.performance}</li>
             <li className="w-1/2">Rating : {tournament.rating}</li>
           </div>
-            <li className="w-1/2">Score : {tournament.score}</li>
+          <li className="w-1/2">Score : {tournament.score}</li>
         </ul>
         {tournament.images && tournament.images.length > 0 && (
           <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-4 lg:w-45 lg:h-22">

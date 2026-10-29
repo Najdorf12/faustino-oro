@@ -8,6 +8,7 @@ import { Tournament, TournamentImage } from "@/types/tournament";
 interface FormData {
   tournament_id_lichess: string;
   title: string;
+  title_en?: string;
   location: string;
   startDate: string;
   endDate: string;
@@ -47,6 +48,7 @@ const TournamentsForm = ({
     if (tournamentSelected) {
       reset({
         title: tournamentSelected.title,
+        title_en: tournamentSelected.title_en ?? "",
         location: tournamentSelected.location,
         startDate: new Date(tournamentSelected.startDate)
           .toISOString()
@@ -67,6 +69,7 @@ const TournamentsForm = ({
     } else {
       reset({
         title: "",
+        title_en: "",
         location: "",
         startDate: "",
         endDate: "",
@@ -238,27 +241,36 @@ const TournamentsForm = ({
                 </p>
               )}
             </div>
-
             <div className="relative font-medium xl:w-1/2">
               <input
                 autoComplete="off"
-                placeholder="Ubicación"
+                placeholder="Title (English)"
                 className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
-                {...register("location", {
-                  required: "La ubicación es requerida",
-                })}
+                {...register("title_en")}
               />
               <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-zinc-300 peer-focus:text-sm">
-                Ubicación
+                Título en inglés
               </label>
-              {errors.location && (
-                <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
-                  {errors.location.message}
-                </p>
-              )}
             </div>
           </div>
-
+          <div className="relative font-medium xl:w-1/2">
+            <input
+              autoComplete="off"
+              placeholder="Ubicación"
+              className="peer h-10 w-full border-b-2 border-sky-700 text-zinc-300 bg-transparent placeholder-transparent focus:outline-none focus:border-zinc-100"
+              {...register("location", {
+                required: "La ubicación es requerida",
+              })}
+            />
+            <label className="absolute left-0 -top-3.5 text-zinc-300 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-zinc-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-zinc-300 peer-focus:text-sm">
+              Ubicación
+            </label>
+            {errors.location && (
+              <p className="text-red-400 text-sm mt-1 absolute top-1 right-1">
+                {errors.location.message}
+              </p>
+            )}
+          </div>
           <div className="flex flex-col gap-6 xl:flex xl:flex-row">
             <div className="relative font-medium xl:w-1/2">
               <input

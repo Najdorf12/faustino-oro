@@ -26,6 +26,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
       tournament_id_lichess: body.tournament_id_lichess,
       isActive: body.isActive,
       title: body.title,
+      title_en: body.title_en || "",
       location: body.location,
       startDate: body.startDate,
       endDate: body.endDate,

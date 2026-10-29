@@ -7,6 +7,7 @@ export interface Tournament {
   _id?: string;
   tournament_id_lichess?: string;
   title: string;
+  title_en?: string;
   location: string;
   startDate: Date;
   endDate: Date;
