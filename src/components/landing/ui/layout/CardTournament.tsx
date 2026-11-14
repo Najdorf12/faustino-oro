@@ -5,13 +5,15 @@ import { useTranslations, useLocale } from "next-intl";
 
 interface CardContent {
   title: string;
-  title_en?: string; // 👈 nuevo
+  title_en?: string;
   tournament_id_lichess: any;
   isActive: boolean;
   startDate: string;
   endDate: string;
   description: string;
+  description_en?: string;
   location: string;
+  location_en?: string;
   images: TournamentImage[];
 }
 
@@ -25,17 +27,23 @@ export default function CardTournament({ card, index }: CardProps) {
   const locale = useLocale() as "es" | "en";
   const {
     title,
-    title_en, // 👈 nuevo
+    title_en,
     startDate,
     endDate,
     location,
+    location_en,
     description,
+    description_en,
     isActive,
     images,
     tournament_id_lichess,
   } = card;
 
   const displayTitle = locale === "en" && title_en ? title_en : title;
+  const displayLocation =
+    locale === "en" && location_en ? location_en : location;
+  const displayDescription =
+    locale === "en" && description_en ? description_en : description;
   const isFirst = index === 0;
 
   const formatDate = (date: string) => {
@@ -88,17 +96,17 @@ export default function CardTournament({ card, index }: CardProps) {
           {displayTitle}
         </div>
         <div className="text-zinc-100 italic border-t mt-2 pt-2">
-          {description}
+          {displayDescription}
         </div>
-        <div className="text-zinc-300 ">{location}</div>
+        <div className="text-zinc-300 ">{displayLocation}</div>
         <div className="text-zinc-300  ">
           {t("start")} :{" "}
           <span className="text-zinc-100">{formatDate(startDate)}</span>
         </div>
         <div className="border-zinc-400 text-zinc-300 ">
-          {t("end")} :{" "}
+          {t("end")} : {" "}
           <span className="text-zinc-100">{formatDate(endDate)}</span>
-        </div>
+        </div> 
       </article>
     </div>
   );

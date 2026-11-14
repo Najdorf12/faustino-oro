@@ -29,7 +29,7 @@ const TournamentCard = ({
 
   return (
     <div
-      className="text-balance w-full max-w-95 border border-zinc-400 z-100 relative cursor-pointer  
+      className="text-balance w-full max-w-100 border border-zinc-400 z-100 relative cursor-pointer  
       rounded-2xl p-4 flex flex-col justify-between duration-300 group 
       hover:scale-105 md:p-4 lg:pt-6 lg:pb-5 lg:p-5 xl:max-w-100 "
     >
@@ -52,43 +52,55 @@ const TournamentCard = ({
           {`${tournament.isActive ? "Activo" : "Inactivo"}`}
         </div>
       </div>
-      <article className="text-sm flex mt-4 flex-col gap-1 relative z-100 lg:mt-5 ">
-        <h6 className="text-xl text-zinc-100 lg:line-clamp-2 lg:text-2xl lg:min-h-12">
+      <article className="text-sm flex mt-4 flex-col gap-1 relative z-100 lg:mt-5  ">
+        <h6 className="text-xl text-zinc-100 lg:line-clamp-2 lg:text-2xl lg:min-h-12 ">
           {tournament.title}
         </h6>
         <p
-          className={`text-sm my-1 ${tournament.title_en ? "text-zinc-400" : "text-zinc-400"}`}
+          className={`text-base my-1 ${tournament.title_en ? "text-zinc-400" : "text-zinc-400"}`}
         >
-          EN: {tournament.title_en || "⚠ Sin traducir"}
-        </p>
-        {tournament.description && (
-          <p className="text-zinc-400 text-base font-medium italic">
-            {tournament.description}
-          </p>
-        )}
-        <p className="text-zinc-300 mt-1 text-base">{tournament.location}</p>
-        <p className="border-t pt-3 mt-2 border-zinc-400 text-zinc-300 text-base">
-          Inicio : <span className="text-zinc-200">{startDate}</span> <br /> Fin
-          : <span className="text-zinc-200">{endDate}</span>
+          EN: {tournament.title_en || "⚠ Título sin traducir"}
         </p>
 
-        <p className="text-zinc-400 text-sm lg:text-base">
-          ID Lichess :{" "}
-          <span className="text-zinc-100">
-            {tournament.tournament_id_lichess}
-          </span>
+        <div className="mt-3 text-base xl:mt-2">
+          <span className="text-sky-600">Ubicacíon</span>
+          <p className="text-zinc-300 mt-1 ">
+            <span className="text-zinc-400">ES :</span> {tournament.location}
+          </p>
+          <p className="text-zinc-400 ">EN : {tournament.location_en || ""}</p>
+        </div>
+        <div className="my-1 text-base">
+          <span className="text-sky-600">Descripción</span>
+          <p className="text-zinc-300 mt-1 ">
+            <span className="text-zinc-400">ES :</span> {tournament.description}
+          </p>
+          <p className="text-zinc-400 ">
+            EN : {tournament.description_en || ""}
+          </p>
+        </div>
+
+        <p className="border-y py-2 mt-2 border-zinc-400 text-zinc-300 text-base">
+          Inicio : <span className="">{startDate}</span> <br /> Fin :{" "}
+          <span className="">{endDate}</span>
         </p>
-        <ul className="text-zinc-300  text-base relative z-50">
-          <div className="flex justify-center items-center">
+
+        <ul className="text-zinc-300 text-base relative z-50">
+          <li>
+            {" "}
+            ID Lichess :{" "}
+            <span className="">{tournament.tournament_id_lichess}</span>
+          </li>
+          <li className="w-full">RankNote : {tournament.rankNote}</li>
+          <div className="flex">
             <li className="w-1/2">Rank : #{tournament.rank}</li>
-            <li className="w-1/2">RankNote : {tournament.rankNote}</li>
+            <li className="w-1/2">Score : {tournament.score}</li>
           </div>
           <div className="flex">
             <li className="w-1/2">Performance : {tournament.performance}</li>
             <li className="w-1/2">Rating : {tournament.rating}</li>
           </div>
-          <li className="w-1/2">Score : {tournament.score}</li>
         </ul>
+        
         {tournament.images && tournament.images.length > 0 && (
           <div className="flex gap-2 mt-4 w-40 h-20 lg:mt-4 lg:w-45 lg:h-22">
             {tournament.images.map((img) => (

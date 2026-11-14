@@ -22,6 +22,11 @@ const tournamentSchema = new Schema<Tournament>(
       required: [true, "La ubicación es requerida"],
       trim: true,
     },
+    location_en: {
+      type: String,
+      trim: true,
+      default: "",
+    },
     startDate: {
       type: Date,
       required: [true, "La fecha de inicio es requerida"],
@@ -31,6 +36,11 @@ const tournamentSchema = new Schema<Tournament>(
       required: [true, "La fecha de fin es requerida"],
     },
     description: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    description_en: {
       type: String,
       trim: true,
       default: "",

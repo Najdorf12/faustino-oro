@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import { deleteImage } from "@/lib/cloudinary";
 import { revalidatePath } from "next/cache";
 
-// GET one tournament by ID
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
@@ -60,22 +59,22 @@ export async function PUT(
       );
     }
 
-    // Actualizar campos
     tournament.title = body.title;
     tournament.title_en = body.title_en || "";
     tournament.isActive = body.isActive;
-    ((tournament.tournament_id_lichess = body.tournament_id_lichess),
-      (tournament.location = body.location));
+    tournament.tournament_id_lichess = body.tournament_id_lichess;
+    tournament.location = body.location;
+    tournament.location_en = body.location_en || "";
     tournament.startDate = body.startDate;
     tournament.endDate = body.endDate;
     tournament.description = body.description || "";
+    tournament.description_en = body.description_en || "";
     tournament.performance = body.performance ?? null;
     tournament.rating = body.rating ?? null;
     tournament.score = body.score ?? null;
     tournament.rank = body.rank ?? null;
     tournament.rankNote = body.rankNote || "";
 
-    // Conservar imágenes anteriores si no hay nuevas
     tournament.images =
       body.images && body.images.length > 0 ? body.images : tournament.images;
 

@@ -141,12 +141,12 @@ export default function CardTournament({ tournament }: Props) {
               </span>
             )}
           </div>
-          <ul className="flex flex-col text-zinc-400 text-base sm:text-lg text-balance">
+          <ul className="flex flex-col text-zinc-400 bg-red-600 text-base sm:text-lg text-balance">
             <h6 className="text-2xl lg:font-medium text-zinc-100 mt-4 lg:text-3xl">
               {displayTitle}
             </h6>
             <li className="text-zinc-400 mt-2 mb-10 italic lg:text-xl">
-              {tournament.description}
+              {tournament?.description}
             </li>
             {tournament.images.length > 0 ? (
               <figure className="w-34 lg:w-40 h-16 lg:h-20 xl:h-22 xl:w-44">

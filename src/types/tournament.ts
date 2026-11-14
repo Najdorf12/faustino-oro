@@ -8,6 +8,8 @@ export interface Tournament {
   tournament_id_lichess?: string;
   title: string;
   title_en?: string;
+  description_en?: string;
+  location_en?: string;
   location: string;
   startDate: Date;
   endDate: Date;
@@ -18,7 +20,7 @@ export interface Tournament {
   rating?: number;
   score?: number;
   rank?: number;
-  rankNote?: string; 
+  rankNote?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
