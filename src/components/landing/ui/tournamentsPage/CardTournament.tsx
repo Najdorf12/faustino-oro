@@ -141,7 +141,7 @@ export default function CardTournament({ tournament }: Props) {
               </span>
             )}
           </div>
-          <ul className="flex flex-col text-zinc-400 bg-red-600 text-base sm:text-lg text-balance">
+          <ul className="flex flex-col text-zinc-400  text-base sm:text-lg text-balance">
             <h6 className="text-2xl lg:font-medium text-zinc-100 mt-4 lg:text-3xl">
               {displayTitle}
             </h6>
