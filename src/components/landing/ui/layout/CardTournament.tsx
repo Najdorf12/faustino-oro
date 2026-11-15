@@ -104,9 +104,9 @@ export default function CardTournament({ card, index }: CardProps) {
           <span className="text-zinc-100">{formatDate(startDate)}</span>
         </div>
         <div className="border-zinc-400 text-zinc-300 ">
-          {t("end")} : {" "}
+          {t("end")} :{" "}
           <span className="text-zinc-100">{formatDate(endDate)}</span>
-        </div> 
+        </div>
       </article>
     </div>
   );

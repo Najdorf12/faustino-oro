@@ -21,10 +21,22 @@ export default function CardTournament({ tournament }: Props) {
   const [player, setPlayer] = useState<LichessPlayer | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [fetched, setFetched] = useState(false);
+
   const displayTitle =
     locale === "en" && tournament.title_en
       ? tournament.title_en
       : tournament.title;
+
+  const displayLocation =
+    locale === "en" && tournament.location_en
+      ? tournament.location_en
+      : tournament.location;
+
+  const displayDescription =
+    locale === "en" && tournament.description_en
+      ? tournament.description_en
+      : tournament.description;
+
   // roundId + gameId de la partida actualmente abierta en el viewer
   const [activeGame, setActiveGame] = useState<{
     roundId: string;
@@ -146,7 +158,7 @@ export default function CardTournament({ tournament }: Props) {
               {displayTitle}
             </h6>
             <li className="text-zinc-400 mt-2 mb-10 italic lg:text-xl">
-              {tournament?.description}
+              {displayDescription}
             </li>
             {tournament.images.length > 0 ? (
               <figure className="w-34 lg:w-40 h-16 lg:h-20 xl:h-22 xl:w-44">
@@ -166,7 +178,7 @@ export default function CardTournament({ tournament }: Props) {
               </figure>
             )}
             <li className="mt-4 border-t pt-2 text-zinc-400">
-              {tournament.location}
+              {displayLocation}
             </li>
             <li className="mt-1">
               {t("start")} -{" "}
