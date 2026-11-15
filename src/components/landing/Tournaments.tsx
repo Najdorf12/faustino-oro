@@ -40,7 +40,9 @@ export default async function Tournaments({ data }: TournamentsProps) {
                 startDate: tournament.startDate.toString(),
                 endDate: tournament.endDate.toString(),
                 description: tournament.description || "",
+                description_en: tournament.description_en || "",
                 location: tournament.location,
+                location_en: tournament.location_en,
                 images: tournament.images,
               }}
               index={i}

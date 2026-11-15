@@ -36,7 +36,6 @@ export default function CardTournament({ card, index }: CardProps) {
     description_en,
     isActive,
     images,
-    tournament_id_lichess,
   } = card;
 
   const displayTitle = locale === "en" && title_en ? title_en : title;
